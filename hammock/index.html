@@ -16,12 +16,13 @@
     body {
       margin: 0;
       line-height: normal;
-      background-color: #000000;
+      background-color: #050713;
       color: #f9f9f9;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
     }
 
+    /* ROOT LAYOUT */
     .frame-parent {
       width: 100%;
       position: relative;
@@ -46,6 +47,7 @@
       align-items: flex-start;
     }
 
+    /* OVERVIEW SECTION */
     .overview-parent {
       align-self: stretch;
       display: flex;
@@ -85,6 +87,7 @@
     }
 
     .i-led-the-complete-ux-redesign-wrapper {
+      width: 574px;
       border-radius: 10px;
       background-color: rgba(225, 245, 254, 0.17);
       display: flex;
@@ -103,7 +106,7 @@
       font-weight: 500;
     }
 
-    /* UPDATED TO MATCH FIGMA */
+    /* MY ROLE / TIMELINE / TEAM / TOOLS */
     .frame-group {
       width: 100%;
       position: relative;
@@ -141,19 +144,39 @@
       color: #f9f9f9;
     }
 
+    /* =========================
+       DESIGN PROCESS SECTION
+       (matches your Figma code, but scoped)
+    ========================== */
+
     .design-process-parent {
-      align-self: stretch;
+      width: 100%;
+      position: relative;
       display: flex;
       align-items: flex-start;
       gap: 36px;
+      text-align: left;
+      font-size: 24px;
       color: #b9b9b9;
+      font-family: Inter;
+    }
+
+    .design-process {
+      width: 190px;
+      position: relative;
+      letter-spacing: 0.18px;
+      line-height: 32px;
+      text-transform: uppercase;
+      display: inline-block;
+      flex-shrink: 0;
     }
 
     .process {
       color: #f9f9f9;
     }
 
-    .frame-container {
+    /* SCOPED versions of generic frame classes to this section */
+    .design-process-parent .frame-wrapper {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -163,7 +186,7 @@
       font-size: 16px;
     }
 
-    .frame-div {
+    .design-process-parent .frame-parent {
       align-self: stretch;
       display: flex;
       flex-direction: column;
@@ -172,22 +195,23 @@
       gap: 32px;
     }
 
-    .frame-parent2 {
+    .design-process-parent .frame-group {
       align-self: stretch;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 12px;
+      font-size: 16px; /* override the global one inside this section */
     }
 
-    .parent {
+    .design-process-parent .parent {
       align-self: stretch;
       display: flex;
       align-items: flex-start;
       gap: 20px;
     }
 
-    .div {
+    .design-process-parent .div {
       width: 32px;
       position: relative;
       letter-spacing: 0.25px;
@@ -197,31 +221,27 @@
       flex-shrink: 0;
     }
 
-    .user-research-wrapper {
+    .design-process-parent .user-research-wrapper {
       display: flex;
       align-items: center;
       padding: 13px 0px 0px;
       color: #fff;
     }
 
-    .user-research {
+    .design-process-parent .user-research {
       position: relative;
       letter-spacing: 0.25px;
       line-height: 20px;
     }
 
-    .frame-child {
+    .design-process-parent .frame-child {
       align-self: stretch;
       height: 0.8px;
       position: relative;
       max-width: 100%;
       overflow: hidden;
       max-height: 100%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.24),
-        rgba(255, 255, 255, 0)
-      );
+      background-color: rgba(255, 255, 255, 0.12); /* faint line */
     }
 
     .my-design-process-focuses-on-s-wrapper {
@@ -236,6 +256,15 @@
       color: #fff;
     }
 
+    .my-design-process {
+      flex: 1;
+      position: relative;
+      letter-spacing: 0.1px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    /* PROBLEM SPACE */
     .frame-wrapper2 {
       align-self: stretch;
       display: flex;
@@ -281,6 +310,7 @@
       color: #b9b9b9;
     }
 
+    /* HYPOTHESIS */
     .hypothesis-parent {
       width: 800px;
       display: flex;
@@ -365,7 +395,7 @@
       </div>
     </div>
 
-    <!-- MY ROLE / TIMELINE / TEAM / TOOLS (UPDATED) -->
+    <!-- MY ROLE / TIMELINE / TEAM / TOOLS -->
     <div class="frame-group">
       <div class="my-role-parent">
         <b class="my-role">My role</b>
@@ -391,15 +421,15 @@
       </div>
     </div>
 
-    <!-- DESIGN PROCESS -->
+    <!-- DESIGN PROCESS (updated to match Figma structure) -->
     <div class="design-process-parent">
-      <b class="overview">
+      <b class="design-process">
         <span>Design </span>
         <span class="process">process</span>
       </b>
-      <div class="frame-container">
-        <div class="frame-div">
-          <div class="frame-parent2">
+      <div class="frame-wrapper">
+        <div class="frame-parent">
+          <div class="frame-group">
             <div class="parent">
               <div class="div">01</div>
               <div class="user-research-wrapper">
@@ -466,7 +496,7 @@
           </div>
 
           <div class="my-design-process-focuses-on-s-wrapper">
-            <div class="i-led-the">
+            <div class="my-design-process">
               My design process focuses on shaping and evolving Hammock
               financials digital experience to ensure a clear, user-friendly,
               and consistent brand identity across all touchpoints

@@ -48,6 +48,18 @@
       align-items: flex-start;
     }
 
+    /* HERO IMAGE */
+    .hero-image-container {
+      width: 100%;
+      background-color: #000000; /* ensure black behind image */
+    }
+
+    .hero-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     /* OVERVIEW SECTION */
     .overview-parent {
       align-self: stretch;
@@ -364,6 +376,15 @@
 </head>
 <body>
   <div class="frame-parent">
+    <!-- HERO IMAGE -->
+    <div class="hero-image-container">
+      <img
+        src="./assets/Image1.png"
+        alt="Hammock loan management case study hero"
+        class="hero-image"
+      />
+    </div>
+
     <!-- OVERVIEW -->
     <div class="frame-wrapper">
       <div class="overview-parent">

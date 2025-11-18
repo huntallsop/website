@@ -146,7 +146,6 @@
 
     /* =========================
        DESIGN PROCESS SECTION
-       (matches your Figma code, but scoped)
     ========================== */
 
     .design-process-parent {
@@ -175,8 +174,7 @@
       color: #f9f9f9;
     }
 
-    /* SCOPED versions of generic frame classes to this section */
-    .design-process-parent .frame-wrapper {
+    .design-process-content {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -186,67 +184,58 @@
       font-size: 16px;
     }
 
-    .design-process-parent .frame-parent {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 32px;
-    }
-
-    .design-process-parent .frame-group {
-      align-self: stretch;
+    /* Steps list – matches your Figma snippet, but scoped */
+    .design-process-steps {
+      width: 100%;
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 12px;
-      font-size: 16px; /* override the global one inside this section */
+      text-align: right;
+      font-size: 16px;
+      color: #b9b9b9;
+      font-family: Inter;
     }
 
-    .design-process-parent .parent {
+    .design-process-steps .parent {
       align-self: stretch;
       display: flex;
       align-items: flex-start;
       gap: 20px;
     }
 
-    .design-process-parent .div {
-  	width: 32px;
-  	position: relative;
-  	font-size: 16px;
-  	letter-spacing: 0.25px;
-  	line-height: 20px;
-  	font-weight: 300;
-  	font-family: Inter;
-  	color: #b9b9b9;
-  	text-align: right;
-  	display: inline-block;
-}
-   .design-process-parent .user-research-wrapper {
-    position: relative;
-    font-size: 16px;
-    letter-spacing: 0.25px;
-    line-height: 20px;
-    font-family: Inter;
-    color: #fff;
-    text-align: right;
-  }
+    .design-process-steps .div {
+      width: 32px;
+      position: relative;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+      font-weight: 300;
+      display: inline-block;
+      flex-shrink: 0;
+    }
 
-    .design-process-parent .user-research {
+    .design-process-steps .user-research-wrapper {
+      display: flex;
+      align-items: center;
+      padding: 13px 0 0;
+      color: #fff;
+    }
+
+    .design-process-steps .user-research {
       position: relative;
       letter-spacing: 0.25px;
       line-height: 20px;
     }
 
-    .design-process-parent .frame-child {
+    .design-process-steps .frame-child {
       align-self: stretch;
       height: 0.8px;
       position: relative;
       max-width: 100%;
       overflow: hidden;
       max-height: 100%;
-      background-color: rgba(255, 255, 255, 0.12); /* faint line */
+      background-color: rgba(255, 255, 255, 0.16);
     }
 
     .my-design-process-focuses-on-s-wrapper {
@@ -259,6 +248,7 @@
       text-align: left;
       font-size: 12px;
       color: #fff;
+      margin-top: 32px;
     }
 
     .my-design-process {
@@ -350,6 +340,15 @@
       .hypothesis-parent {
         width: 100%;
       }
+
+      .design-process-content {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .design-process-steps {
+        text-align: left;
+      }
     }
 
     @media (max-width: 600px) {
@@ -426,86 +425,84 @@
       </div>
     </div>
 
-    <!-- DESIGN PROCESS (updated to match Figma structure) -->
+    <!-- DESIGN PROCESS -->
     <div class="design-process-parent">
       <b class="design-process">
         <span>Design </span>
         <span class="process">process</span>
       </b>
-      <div class="frame-wrapper">
-        <div class="frame-parent">
-          <div class="frame-group">
-            <div class="parent">
-              <div class="div">01</div>
-              <div class="user-research-wrapper">
-                <div class="user-research">User research</div>
-              </div>
+      <div class="design-process-content">
+        <div class="design-process-steps">
+          <div class="parent">
+            <div class="div">01</div>
+            <div class="user-research-wrapper">
+              <div class="user-research">User research</div>
             </div>
-            <div class="frame-child"></div>
-
-            <div class="parent">
-              <div class="div">02</div>
-              <div class="user-research-wrapper">
-                <div class="user-research">User interview</div>
-              </div>
-            </div>
-            <div class="frame-child"></div>
-
-            <div class="parent">
-              <div class="div">03</div>
-              <div class="user-research-wrapper">
-                <div class="user-research">User persona</div>
-              </div>
-            </div>
-            <div class="frame-child"></div>
-
-            <div class="parent">
-              <div class="div">04</div>
-              <div class="user-research-wrapper">
-                <div class="user-research">Empathy mapping</div>
-              </div>
-            </div>
-            <div class="frame-child"></div>
-
-            <div class="parent">
-              <div class="div">05</div>
-              <div class="user-research-wrapper">
-                <div class="user-research">User persona</div>
-              </div>
-            </div>
-            <div class="frame-child"></div>
-
-            <div class="parent">
-              <div class="div">06</div>
-              <div class="user-research-wrapper">
-                <div class="user-research">User flow</div>
-              </div>
-            </div>
-            <div class="frame-child"></div>
-
-            <div class="parent">
-              <div class="div">07</div>
-              <div class="user-research-wrapper">
-                <div class="user-research">Wireframes, Visual design</div>
-              </div>
-            </div>
-            <div class="frame-child"></div>
-
-            <div class="parent">
-              <div class="div">08</div>
-              <div class="user-research-wrapper">
-                <div class="user-research">Prototyping, Testing</div>
-              </div>
-            </div>
-            <div class="frame-child"></div>
           </div>
+          <div class="frame-child"></div>
 
-          <div class="my-design-process-focuses-on-s-wrapper">
-            <div class="my-design-process">
-              My design process focuses on shaping and evolving Hammock
-              financials digital experience to ensure a clear, user-friendly,
-              and consistent brand identity across all touchpoints
+          <div class="parent">
+            <div class="div">02</div>
+            <div class="user-research-wrapper">
+              <div class="user-research">User interview</div>
             </div>
+          </div>
+          <div class="frame-child"></div>
+
+          <div class="parent">
+            <div class="div">03</div>
+            <div class="user-research-wrapper">
+              <div class="user-research">User persona</div>
+            </div>
+          </div>
+          <div class="frame-child"></div>
+
+          <div class="parent">
+            <div class="div">04</div>
+            <div class="user-research-wrapper">
+              <div class="user-research">Empathy mapping</div>
+            </div>
+          </div>
+          <div class="frame-child"></div>
+
+          <div class="parent">
+            <div class="div">05</div>
+            <div class="user-research-wrapper">
+              <div class="user-research">User persona</div>
+            </div>
+          </div>
+          <div class="frame-child"></div>
+
+          <div class="parent">
+            <div class="div">06</div>
+            <div class="user-research-wrapper">
+              <div class="user-research">User flow</div>
+            </div>
+          </div>
+          <div class="frame-child"></div>
+
+          <div class="parent">
+            <div class="div">07</div>
+            <div class="user-research-wrapper">
+              <div class="user-research">Wireframes, Visual design</div>
+            </div>
+          </div>
+          <div class="frame-child"></div>
+
+          <div class="parent">
+            <div class="div">08</div>
+            <div class="user-research-wrapper">
+              <div class="user-research">Prototyping, Testing</div>
+            </div>
+          </div>
+          <div class="frame-child"></div>
+        </div>
+
+        <div class="my-design-process-focuses-on-s-wrapper">
+          <div class="my-design-process">
+            My design process focuses on shaping and evolving Hammock financials
+            digital experience to ensure a clear, user-friendly, and consistent
+            brand identity across all touchpoints
           </div>
         </div>
       </div>

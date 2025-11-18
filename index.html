@@ -977,48 +977,55 @@
       object-fit: cover;
     }
 
-    .group-div {
-      width: 800px;
-      height: 497px;
-      position: relative;
-      border-radius: 12px;
-      background: linear-gradient(242.19deg, rgba(221, 249, 211, 0.6), rgba(184, 228, 208, 0.6) 65.38%, rgba(88, 201, 185, 0.6) 88.98%);
-      border: 1px solid rgba(144, 161, 185, 0.2);
-      box-sizing: border-box;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
+.group-div {
+  width: 800px;
+  max-width: 100%;
+  height: 497px;
+  position: relative;
+  border-radius: 12px;
+  background: linear-gradient(
+    242.19deg,
+    rgba(221, 249, 211, 0.6),
+    rgba(184, 228, 208, 0.6) 65.38%,
+    rgba(88, 201, 185, 0.6) 88.98%
+  );
+  border: 1px solid rgba(144, 161, 185, 0.2);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+}
 
-    .image-441-parent {
-      position: absolute;
-      top: 16px;
-      left: -11px;
-      width: 1384px;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      gap: 20px;
-      flex-shrink: 0;
-    }
+/* Fill the card and center contents */
+.image-441-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;      /* all positions set to 0 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .image-444-parent {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-end;
-      gap: 20px;
-      flex-shrink: 0;
-    }
+/* Optional extra wrapper, keeps things centered */
+.image-444-parent {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .image-444-icon {
-      width: 969px;
-      position: relative;
-      border-radius: 4px;
-      max-height: 100%;
-      object-fit: cover;
-    }
+/* Centered image that scales nicely */
+.image-444-icon {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
 
-   
     .image-435-icon,
     .image-449-icon,
     .image-450-icon {

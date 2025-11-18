@@ -447,14 +447,6 @@
       font-weight: 500;
     }
 
-    .horizontalfull-width-icon {
-      align-self: stretch;
-      height: 1px;
-      max-width: 100%;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
     .payment-breakdown-unclear-parent {
       flex: 1;
       display: flex;
@@ -562,6 +554,60 @@
       color: #b9b9b9;
     }
 
+    /* IMAGE GRID SECTION UNDER RESEARCH (800PX WIDE) */
+    .image-grid-section {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 120px;
+      padding: 80px 24px 0; /* 80px padding above first row */
+      box-sizing: border-box;
+    }
+
+    .image-row {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    /* First row: left 459px, right flex */
+    .image-row-top .image-top-left {
+      height: 194px;
+      width: 459px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .image-row-top .image-top-right {
+      height: 194px;
+      flex: 1;
+      border-radius: 10px;
+      max-width: 100%;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    /* Second row: 12px above, left 349px */
+    .image-row-bottom {
+      margin-top: 12px; /* 12px space above this row */
+    }
+
+    .image-row-bottom .image-bottom-left {
+      height: 194px;
+      width: 349px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .image-row-bottom .image-bottom-right {
+      height: 194px;
+      flex: 1;
+      border-radius: 10px;
+      max-width: 100%;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
     /* DESKTOP: hero image at 80% of screen width */
     @media (min-width: 1024px) {
       .hero-image-container {
@@ -607,6 +653,22 @@
         flex-direction: column;
         gap: 20px;
       }
+
+      .image-grid-section {
+        padding: 64px 20px 0;
+        margin-bottom: 96px;
+      }
+
+      .image-row {
+        flex-direction: column;
+      }
+
+      .image-row-top .image-top-left,
+      .image-row-top .image-top-right,
+      .image-row-bottom .image-bottom-left,
+      .image-row-bottom .image-bottom-right {
+        width: 100%;
+      }
     }
 
     @media (max-width: 600px) {
@@ -624,6 +686,11 @@
       .research-section {
         margin: 48px auto 80px;
         padding: 0 16px;
+      }
+
+      .image-grid-section {
+        padding: 48px 16px 0;
+        margin-bottom: 80px;
       }
     }
   </style>
@@ -677,7 +744,7 @@
       <div class="my-role-parent">
         <b class="my-role">My role</b>
         <div class="lead-uxui-designer">
-          Lead UX/UI Designer<br>Product Strategy
+          Lead UX/UI Designer<br />Product Strategy
         </div>
       </div>
       <div class="my-role-parent">
@@ -687,13 +754,13 @@
       <div class="my-role-parent">
         <b class="my-role">Team</b>
         <div class="lead-uxui-designer">
-          Design (2)<br>Engineering (5)<br>Product (2)
+          Design (2)<br />Engineering (5)<br />Product (2)
         </div>
       </div>
       <div class="my-role-parent">
         <b class="my-role">Tools</b>
         <div class="lead-uxui-designer">
-          Figma<br>Figjam<br>Azure DevOps
+          Figma<br />Figjam<br />Azure DevOps
         </div>
       </div>
     </div>
@@ -880,7 +947,7 @@
           <div class="frame-wrapper2">
             <div class="hidden-information-parent">
               <div class="hidden-information">Hidden information</div>
-              <img class="horizontalfull-width-icon" alt="" />
+              <div class="divider"></div>
               <div class="many-users-were">
                 7 out of 10 users couldn’t locate their next due date within 10
                 seconds.
@@ -948,6 +1015,39 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- IMAGE GRID SECTION UNDER RESEARCH -->
+  <div class="image-grid-section">
+    <div class="image-row image-row-top">
+      <!-- Top-left: Image3 -->
+      <img
+        src="./assets/Image3.png"
+        alt="Hammock screen 1"
+        class="image-top-left"
+      />
+      <!-- Top-right: Image4 -->
+      <img
+        src="./assets/Image4.png"
+        alt="Hammock screen 2"
+        class="image-top-right"
+      />
+    </div>
+
+    <div class="image-row image-row-bottom">
+      <!-- Bottom-left: Image5 -->
+      <img
+        src="./assets/Image5.png"
+        alt="Hammock screen 3"
+        class="image-bottom-left"
+      />
+      <!-- Bottom-right: Image6 -->
+      <img
+        src="./assets/Image6.png"
+        alt="Hammock screen 4"
+        class="image-bottom-right"
+      />
     </div>
   </div>
 </body>

@@ -608,6 +608,91 @@
       object-fit: cover;
     }
 
+    /* KEY IMPROVEMENTS SECTION (UNDER IMAGE GRID) */
+    .key-improvements-section {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 120px;
+      padding: 0 24px 0;
+      box-sizing: border-box;
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+      text-align: left;
+      font-size: 24px;
+      color: #b9b9b9;
+      font-family: Inter;
+    }
+
+    .key-improvements-heading {
+      width: 190px;
+      position: relative;
+      letter-spacing: 0.18px;
+      line-height: 32px;
+      text-transform: uppercase;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .key-improvements-label-highlight {
+      color: #f9f9f9;
+    }
+
+    .key-improvements-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .key-improvements-row-top {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .key-improvements-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .key-improvements-title {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+    }
+
+    .key-improvements-description {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+      color: #b9b9b9;
+    }
+
+    .key-improvements-row-bottom {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 22px;
+    }
+
+    .key-improvements-item-narrow {
+      width: 175.3px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
     /* DESKTOP: hero image at 80% of screen width */
     @media (min-width: 1024px) {
       .hero-image-container {
@@ -669,6 +754,21 @@
       .image-row-bottom .image-bottom-right {
         width: 100%;
       }
+
+      .key-improvements-section {
+        flex-direction: column;
+        margin-bottom: 96px;
+        padding: 0 20px;
+      }
+
+      .key-improvements-row-top,
+      .key-improvements-row-bottom {
+        flex-direction: column;
+      }
+
+      .key-improvements-item-narrow {
+        width: 100%;
+      }
     }
 
     @media (max-width: 600px) {
@@ -691,6 +791,11 @@
       .image-grid-section {
         padding: 48px 16px 0;
         margin-bottom: 80px;
+      }
+
+      .key-improvements-section {
+        margin-bottom: 80px;
+        padding: 0 16px;
       }
     }
   </style>
@@ -1048,6 +1153,56 @@
         alt="Hammock screen 4"
         class="image-bottom-right"
       />
+    </div>
+  </div>
+
+  <!-- KEY IMPROVEMENTS SECTION UNDER IMAGE GRID -->
+  <div class="key-improvements-section">
+    <b class="key-improvements-heading">
+      <span>kEY</span>
+      <span class="key-improvements-label-highlight"> IMPROVMENTS</span>
+    </b>
+    <div class="key-improvements-content">
+      <div class="key-improvements-row-top">
+        <div class="key-improvements-item">
+          <b class="key-improvements-title">Clear Dashboard</b>
+          <div class="key-improvements-description">
+            Redesigned to show loan balance, next payment due, and a primary
+            call-to-action right up front.
+          </div>
+        </div>
+        <div class="key-improvements-item">
+          <b class="key-improvements-title">Simplified Payments</b>
+          <div class="key-improvements-description">
+            Users can now make a payment in 3 taps, with options for one-time,
+            scheduled, or recurring payments.
+          </div>
+        </div>
+        <div class="key-improvements-item">
+          <b class="key-improvements-title">Transparent Loan Info</b>
+          <div class="key-improvements-description">
+            Loan breakdown includes visual indicators for principal, interest,
+            and payoff progress.
+          </div>
+        </div>
+      </div>
+
+      <div class="key-improvements-row-bottom">
+        <div class="key-improvements-item-narrow">
+          <b class="key-improvements-title">Responsive Design</b>
+          <div class="key-improvements-description">
+            Optimized for mobile devices with larger touch targets and better
+            responsiveness.
+          </div>
+        </div>
+        <div class="key-improvements-item-narrow">
+          <b class="key-improvements-title">Improved Accessibility</b>
+          <div class="key-improvements-description">
+            Updated color palette, scalable fonts, and screen reader support to
+            meet WCAG 2.1 guidelines.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>

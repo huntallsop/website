@@ -25,13 +25,13 @@
 
     /* HERO IMAGE */
     .hero-image-container {
-      width: 100vw;              /* full screen width */
+      width: 100vw;              /* default: full screen width on small screens */
       background-color: #000000; /* ensure black behind image */
     }
 
     .hero-image {
       display: block;
-      width: 100%;   /* fill hero container */
+      width: 100%;   /* fill container */
       height: auto;  /* scale height appropriately */
     }
 
@@ -48,7 +48,7 @@
       font-size: 24px;
       color: #f9f9f9;
       font-family: Inter;
-      margin: 120px auto;
+      margin: 0 auto 120px;   /* no top margin, only bottom */
       padding: 0 24px 120px;
       box-sizing: border-box;
     }
@@ -332,10 +332,18 @@
       color: #fff;
     }
 
+    /* DESKTOP: hero image at 80% of screen width */
+    @media (min-width: 1024px) {
+      .hero-image-container {
+        width: 80vw;
+        margin: 0 auto; /* center the image block */
+      }
+    }
+
     /* simple responsiveness */
     @media (max-width: 900px) {
       .frame-parent {
-        margin: 80px auto;
+        margin: 0 auto 80px;
         padding: 0 20px 80px;
       }
 
@@ -363,7 +371,7 @@
 
     @media (max-width: 600px) {
       .frame-parent {
-        margin: 56px auto;
+        margin: 0 auto 64px;
         padding: 0 16px 64px;
         gap: 56px;
       }
@@ -376,7 +384,7 @@
   </style>
 </head>
 <body>
-  <!-- HERO IMAGE (full screen width) -->
+  <!-- HERO IMAGE -->
   <div class="hero-image-container">
     <img
       src="./assets/Image1.png"
@@ -385,7 +393,7 @@
     />
   </div>
 
-  <!-- MAIN CONTENT (800px max width) -->
+  <!-- MAIN CONTENT -->
   <div class="frame-parent">
     <!-- OVERVIEW -->
     <div class="frame-wrapper">

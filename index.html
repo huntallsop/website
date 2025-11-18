@@ -767,24 +767,26 @@
       object-fit: cover;
     }
 
-    .image-65-parent {
-      position: absolute;
-      top: calc(50% - 449.25px);
-      left: calc(50% - 663px);
-      width: 1451.1px;
-      height: 939px;
-      flex-shrink: 0;
-    }
+   .image-65-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
-    .image-65-icon {
-      position: absolute;
-      top: calc(50% - 469.5px);
-      left: calc(50% - 725.55px);
-      border-radius: 8px;
-      width: 927px;
-      height: 599px;
-      object-fit: cover;
-    }
+.image-65-icon {
+  position: relative;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 
     .lightbase5false-icon {
       position: absolute;

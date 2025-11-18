@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <title>Revamping Loan Servicing</title>
+
+  <!-- Inter font to match Figma -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" />
+
+  <style>
+    body {
+      margin: 0;
+      line-height: normal;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .landing-page {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      background: linear-gradient(152.59deg, #020619, #1f3250);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 19px 16px;
+      box-sizing: border-box;
+      text-align: left;
+      font-size: 10px;
+      color: #fff;
+    }
+
+    .frame-parent {
+      width: 800px;
+      max-width: 100%;
+      height: 683px;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 0 0;
+      box-sizing: border-box;
+      gap: 20px;
+    }
+
+    .frame-group {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .frame-container {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 58px;
+    }
+
+    .uxui-design-parent {
+      border-radius: 4px;
+      background-color: rgba(194, 199, 206, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* original padding kept, but overridden by inline style */
+      padding: 8px 16px;
+      gap: 4px;
+    }
+
+    .uxui-design {
+      position: relative;
+      letter-spacing: 0.4px;
+      line-height: 16px;
+      font-weight: 600;
+    }
+
+    /* 3x3 pixel white dots between the labels */
+    .frame-child {
+      height: 3px;
+      width: 3px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: inline-block;
+    }
+
+    .revamping-loan-servicing-parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      font-size: 57px;
+      color: #90a1b9;
+    }
+
+    .revamping-loan-servicing {
+      position: relative;
+      font-weight: 300;
+      background: linear-gradient(90deg, #f9f9f9, #6d7a8e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    .designing-a-scalable-container {
+      align-self: stretch;
+      position: relative;
+      font-size: 25px;
+      letter-spacing: 0.15px;
+      line-height: 42px;
+      text-align: center;
+    }
+
+    .span {
+      font-weight: 600;
+      color: #00d492;
+    }
+
+    .landing-page-span {
+      font-weight: 600;
+      color: #51a2ff;
+    }
+
+    .frame-div {
+      display: flex;
+      align-items: flex-start;
+      gap: 27px;
+      font-size: 12px;
+      color: #90a1b9;
+    }
+
+    .ellipse-parent {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .frame-inner {
+      height: 9px;
+      width: 9px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #51a2ff;
+    }
+
+    .weeks {
+      position: relative;
+      letter-spacing: 0.15px;
+      line-height: 24px;
+    }
+
+    .ellipse-div {
+      height: 9px;
+      width: 9px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #00d492;
+    }
+
+    .landing-page-frame-child {
+      height: 9px;
+      width: 9px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #fe9a00;
+    }
+
+    .rectangle-parent {
+      width: 24px;
+      height: 40px;
+      position: relative;
+      opacity: 0.7;
+    }
+
+    .group-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50px;
+      border: 1px solid #90a1b9;
+      box-sizing: border-box;
+      width: 24px;
+      height: 40px;
+    }
+
+    /* Animated line inside the pill */
+    .group-line {
+      position: absolute;
+      left: 50%;
+      width: 4px;   /* line width */
+      height: 8px;  /* line height */
+      border-radius: 999px;
+      background-color: #90a1b9;
+      transform: translateX(-50%);
+      animation: scrollLine 2.4s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0% {
+        top: 26px;  /* near bottom */
+      }
+      50% {
+        top: 10px;  /* near top */
+      }
+      100% {
+        top: 26px;  /* back to bottom */
+      }
+    }
+
+    /* Small responsive tweak so it doesn't break on narrow screens */
+    @media (max-width: 840px) {
+      .frame-parent {
+        padding-top: 60px;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-page">
+    <div class="frame-parent">
+      <div class="frame-group">
+        <div class="frame-container">
+          <div class="uxui-design-parent" style="padding: 9px 16px 8px;">
+            <div class="uxui-design">UX/UI Design</div>
+            <div class="frame-child"></div>
+            <div class="uxui-design">Product strategy</div>
+            <div class="frame-child"></div>
+            <div class="uxui-design">2025</div>
+          </div>
+          <div class="revamping-loan-servicing-parent">
+            <div class="revamping-loan-servicing">Revamping Loan Servicing</div>
+            <div class="designing-a-scalable-container">
+              <span>Designing a scalable, user-centered lending platform that reduced processing time by </span>
+              <span class="span">67%</span>
+              <span> and increased customer satisfaction scores by </span>
+              <span class="landing-page-span">45%</span>
+              <span>.</span>
+            </div>
+          </div>
+        </div>
+        <div class="frame-div">
+          <div class="ellipse-parent">
+            <div class="frame-inner"></div>
+            <div class="weeks">12 weeks</div>
+          </div>
+          <div class="ellipse-parent">
+            <div class="ellipse-div"></div>
+            <div class="weeks">Lead Designer</div>
+          </div>
+          <div class="ellipse-parent">
+            <div class="landing-page-frame-child"></div>
+            <div class="weeks">B2B FinTech</div>
+          </div>
+        </div>
+      </div>
+      <div class="rectangle-parent">
+        <div class="group-child"></div>
+        <div class="group-line"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

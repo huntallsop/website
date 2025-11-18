@@ -14,19 +14,31 @@
 
   <style>
     body {
-      margin: 0 auto;               /* center the body */
+      margin: 0;
       line-height: normal;
-      background-color: #000000;    /* pure black */
+      background-color: #000000; /* pure black */
       color: #f9f9f9;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      max-width: 800px;             /* constrain entire body to 800px */
       min-height: 100vh;
+    }
+
+    /* HERO IMAGE */
+    .hero-image-container {
+      width: 100vw;              /* full screen width */
+      background-color: #000000; /* ensure black behind image */
+    }
+
+    .hero-image {
+      display: block;
+      width: 100%;   /* fill hero container */
+      height: auto;  /* scale height appropriately */
     }
 
     /* ROOT LAYOUT */
     .frame-parent {
       width: 100%;
+      max-width: 800px;   /* constrain content to 800px */
       position: relative;
       display: flex;
       flex-direction: column;
@@ -46,18 +58,6 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-    }
-
-    /* HERO IMAGE */
-    .hero-image-container {
-      width: 100%;
-      background-color: #000000; /* ensure black behind image */
-    }
-
-    .hero-image {
-      display: block;
-      width: 100%;
-      height: auto;
     }
 
     /* OVERVIEW SECTION */
@@ -316,7 +316,8 @@
 
     /* HYPOTHESIS */
     .hypothesis-parent {
-      width: 800px;
+      width: 100%;
+      max-width: 800px;
       display: flex;
       align-items: flex-start;
       gap: 36px;
@@ -375,16 +376,17 @@
   </style>
 </head>
 <body>
-  <div class="frame-parent">
-    <!-- HERO IMAGE -->
-    <div class="hero-image-container">
-      <img
-        src="./assets/Image1.png"
-        alt="Hammock loan management case study hero"
-        class="hero-image"
-      />
-    </div>
+  <!-- HERO IMAGE (full screen width) -->
+  <div class="hero-image-container">
+    <img
+      src="./assets/Image1.png"
+      alt="Hammock loan management case study hero"
+      class="hero-image"
+    />
+  </div>
 
+  <!-- MAIN CONTENT (800px max width) -->
+  <div class="frame-parent">
     <!-- OVERVIEW -->
     <div class="frame-wrapper">
       <div class="overview-parent">

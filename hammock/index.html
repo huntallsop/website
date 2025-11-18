@@ -47,7 +47,7 @@
       height: auto;
     }
 
-    /* ROOT LAYOUT */
+    /* ROOT LAYOUT (MAIN CONTENT) */
     .frame-parent {
       width: 100%;
       max-width: 800px;   /* constrain content to 800px */
@@ -344,6 +344,224 @@
       color: #fff;
     }
 
+    /* RESEARCH & INSIGHTS SECTION (UNDER IMAGE 2) */
+    .research-section {
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+      text-align: left;
+      font-size: 40px;
+      color: #f9f9f9;
+      font-family: Inter;
+      margin: 80px auto 120px;
+      padding: 0 24px 0;
+      box-sizing: border-box;
+    }
+
+    .research-wrapper {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .research-insights-parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .research-insights {
+      position: relative;
+      letter-spacing: 0.18px;
+      line-height: 32px;
+      text-transform: uppercase;
+    }
+
+    .we-conducted-user-container {
+      align-self: stretch;
+      position: relative;
+      font-size: 14px;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+      text-align: center;
+      color: #b9b9b9;
+    }
+
+    .users {
+      color: #eaeaea;
+    }
+
+    .research-frame-group {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+      font-size: 16px;
+    }
+
+    .frame-container {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
+    .frame-div {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 70px;
+    }
+
+    .frame-wrapper2 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .hidden-information-parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .hidden-information {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.15px;
+      line-height: 24px;
+      font-weight: 500;
+    }
+
+    .horizontalfull-width-icon {
+      align-self: stretch;
+      height: 1px;
+      max-width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .payment-breakdown-unclear-parent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .divider {
+      align-self: stretch;
+      height: 1px;
+      position: relative;
+      border-top: 1px solid #b9b9b9;
+      box-sizing: border-box;
+    }
+
+    .many-users-were {
+      align-self: stretch;
+      position: relative;
+      font-size: 14px;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+      color: #b9b9b9;
+    }
+
+    .frame-parent3 {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .its-hard-to-tell-what-ive-pa-parent {
+      height: 155px;
+      flex: 1;
+      border-radius: 40px 0px 40px 40px;
+      background-color: rgba(225, 245, 254, 0.17);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 20px;
+      box-sizing: border-box;
+      gap: 20px;
+    }
+
+    .its-hard-to {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+    }
+
+    .frame-parent4 {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .al-wrapper {
+      border-radius: 40px;
+      background-color: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .al {
+      height: 27px;
+      width: 27px;
+      position: relative;
+      letter-spacing: 0.25px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .alex-l-parent {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1px;
+    }
+
+    .alex-l {
+      position: relative;
+      letter-spacing: 0.25px;
+      font-weight: 500;
+    }
+
+    .app-user {
+      position: relative;
+      font-size: 11px;
+      letter-spacing: 0.25px;
+      font-weight: 300;
+      color: #b9b9b9;
+    }
+
     /* DESKTOP: hero image at 80% of screen width */
     @media (min-width: 1024px) {
       .hero-image-container {
@@ -379,6 +597,16 @@
       .design-process-steps {
         text-align: left;
       }
+
+      .research-section {
+        margin: 64px auto 96px;
+        padding: 0 20px;
+      }
+
+      .frame-div {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
 
     @media (max-width: 600px) {
@@ -391,6 +619,11 @@
       .frame-group {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .research-section {
+        margin: 48px auto 80px;
+        padding: 0 16px;
       }
     }
   </style>
@@ -623,6 +856,99 @@
       alt="Hammock case study footer visual"
       class="bottom-image"
     />
+  </div>
+
+  <!-- RESEARCH & INSIGHTS SECTION (800PX WIDE, UNDER IMAGE 2) -->
+  <div class="research-section">
+    <div class="research-wrapper">
+      <div class="research-insights-parent">
+        <b class="research-insights">Research &amp; Insights</b>
+        <div class="we-conducted-user-container">
+          <span>We conducted user interviews with </span>
+          <b class="users">10 users</b>
+          <span>
+            and reviewed analytics and customer support logs. <br />
+            Key findings included:
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-frame-group">
+      <div class="frame-container">
+        <div class="frame-div">
+          <div class="frame-wrapper2">
+            <div class="hidden-information-parent">
+              <div class="hidden-information">Hidden information</div>
+              <img class="horizontalfull-width-icon" alt="" />
+              <div class="many-users-were">
+                7 out of 10 users couldn’t locate their next due date within 10
+                seconds.
+              </div>
+            </div>
+          </div>
+          <div class="payment-breakdown-unclear-parent">
+            <div class="hidden-information">Payment Breakdown Unclear</div>
+            <div class="divider"></div>
+            <div class="many-users-were">
+              Many users were unsure what their payment was going toward
+              (interest or principal).
+            </div>
+          </div>
+        </div>
+
+        <div class="frame-div">
+          <div class="payment-breakdown-unclear-parent">
+            <div class="hidden-information">Frequent Support Requests</div>
+            <div class="divider"></div>
+            <div class="many-users-were">
+              Support tickets were frequently related to payment confirmation
+              and transaction history.
+            </div>
+          </div>
+          <div class="payment-breakdown-unclear-parent">
+            <div class="hidden-information">Mobile Usability Issues</div>
+            <div class="divider"></div>
+            <div class="many-users-were">
+              Mobile users struggled most with tap targets and screen
+              responsiveness.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="frame-parent3">
+        <div class="its-hard-to-tell-what-ive-pa-parent">
+          <div class="its-hard-to">
+            “It’s hard to tell what I’ve paid and what I still owe.”
+          </div>
+          <div class="frame-parent4">
+            <div class="al-wrapper">
+              <div class="al">AL</div>
+            </div>
+            <div class="alex-l-parent">
+              <div class="alex-l">Alex L.</div>
+              <div class="app-user">App user</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="its-hard-to-tell-what-ive-pa-parent">
+          <div class="its-hard-to">
+            "I wish it showed me exactly how close I am to paying it off."
+          </div>
+          <div class="frame-parent4">
+            <div class="al-wrapper">
+              <div class="al">NW</div>
+            </div>
+            <div class="alex-l-parent">
+              <div class="alex-l">Nina W.</div>
+              <div class="app-user">App user</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

@@ -6,7 +6,7 @@
 
   <title>Loan Management App – Case Study</title>
 
-  <!-- Inter font (fixes the [object Object] issue) -->
+  <!-- Inter font -->
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
@@ -14,12 +14,14 @@
 
   <style>
     body {
-      margin: 0;
+      margin: 0 auto;               /* center the body */
       line-height: normal;
-      background-color: #000000;
+      background-color: #000000;    /* pure black */
       color: #f9f9f9;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
+      max-width: 800px;             /* constrain entire body to 800px */
+      min-height: 100vh;
     }
 
     /* ROOT LAYOUT */
@@ -34,7 +36,6 @@
       font-size: 24px;
       color: #f9f9f9;
       font-family: Inter;
-      max-width: 960px;
       margin: 120px auto;
       padding: 0 24px 120px;
       box-sizing: border-box;
@@ -144,10 +145,7 @@
       color: #f9f9f9;
     }
 
-    /* =========================
-       DESIGN PROCESS SECTION
-    ========================== */
-
+    /* DESIGN PROCESS SECTION */
     .design-process-parent {
       width: 100%;
       position: relative;
@@ -184,7 +182,6 @@
       font-size: 16px;
     }
 
-    /* Steps list – matches your Figma snippet, but scoped */
     .design-process-steps {
       width: 100%;
       position: relative;

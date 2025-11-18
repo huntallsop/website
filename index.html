@@ -277,4 +277,351 @@
       left: calc(50% - 300.5px);
       width: 1001px;
       height: 647px;
-      object-fit:
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .body1 .frame-group {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 80px;
+    }
+
+    .frame-wrapper {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .overview-parent {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+    }
+
+    .overview {
+      width: 190px;
+      position: relative;
+      letter-spacing: 0.18px;
+      line-height: 32px;
+      text-transform: uppercase;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .our-financial-services-client-parent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      font-size: 14px;
+      color: #9caec8;
+    }
+
+    .our-financial-services-container {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+    }
+
+    .outdated-loan-servicing-platfo {
+      color: #f9f9f9;
+    }
+
+    .span-text {
+      color: #9caec8;
+    }
+
+    .i-led-the-complete-redesign-of-wrapper {
+      width: 574px;
+      max-width: 100%;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: flex-start;
+      padding: 16px 24px;
+      box-sizing: border-box;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .i-led-the {
+      flex: 1;
+      position: relative;
+      letter-spacing: 0.1px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    .body1 .frame-container {
+      width: 800px;
+      max-width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .my-role-parent {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .my-role {
+      width: 160px;
+      position: relative;
+      letter-spacing: 0.15px;
+      line-height: 24px;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    .lead-uxui-designer {
+      position: relative;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      line-height: 21px;
+      color: #f9f9f9;
+    }
+
+    .the-old-dashboard-container {
+      flex: 1;
+      position: relative;
+      font-size: 14px;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+      color: #9caec8;
+    }
+
+    .b {
+      color: #fff;
+    }
+
+    .hypothesis-parent {
+      width: 800px;
+      max-width: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+    }
+
+    /* Basic responsiveness for the overview section */
+    @media (max-width: 840px) {
+      .body1 {
+        padding: 40px 20px 40px;
+      }
+
+      .overview-parent,
+      .hypothesis-parent {
+        flex-direction: column;
+      }
+
+      .overview {
+        width: auto;
+      }
+
+      .body1 .frame-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO SECTION -->
+  <div class="landing-page">
+    <div class="hero-frame-parent">
+      <div class="hero-frame-group">
+        <div class="hero-frame-container">
+          <div class="uxui-design-parent">
+            <div class="uxui-design">UX/UI Design</div>
+            <span class="tag-dot"></span>
+            <div class="uxui-design">Product strategy</div>
+            <span class="tag-dot"></span>
+            <div class="uxui-design">2025</div>
+          </div>
+
+          <div class="revamping-loan-servicing-parent">
+            <div class="revamping-loan-servicing">
+              Revamping Loan Servicing
+            </div>
+            <div class="designing-a-scalable-container">
+              <span>Designing a scalable, user-centered lending platform that reduced processing time by </span>
+              <span class="span">67%</span>
+              <span> and increased customer satisfaction scores by </span>
+              <span class="landing-page-span">45%</span>
+              <span>.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-meta-row">
+          <div class="hero-ellipse-item">
+            <div class="frame-inner"></div>
+            <div class="weeks">12 weeks</div>
+          </div>
+          <div class="hero-ellipse-item">
+            <div class="ellipse-div"></div>
+            <div class="weeks">Lead Designer</div>
+          </div>
+          <div class="hero-ellipse-item">
+            <div class="landing-page-frame-child"></div>
+            <div class="weeks">B2B FinTech</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rectangle-parent">
+        <div class="group-child"></div>
+        <div class="group-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW / PROBLEM / HYPOTHESIS SECTION -->
+  <div class="body1">
+    <div class="frame-parent">
+      <!-- Hero image for this section -->
+      <div class="group-wrapper">
+        <img
+          class="overview-image"
+          src="assets/Image1.png"
+          alt="Loan servicing dashboard overview"
+        />
+      </div>
+
+      <div class="frame-group">
+        <!-- Overview -->
+        <div class="frame-wrapper">
+          <div class="overview-parent">
+            <b class="overview">Overview</b>
+            <div class="our-financial-services-client-parent">
+              <div class="our-financial-services-container">
+                <span>Our financial services client was struggling with an</span>
+                <b class="outdated-loan-servicing-platfo">
+                  <span class="span-text"> </span>
+                  <span>outdated loan servicing platform</span>
+                </b>
+                <span>
+                  <span> </span>
+                </span>
+                <span>
+                  <span>that created </span>
+                </span>
+                <span class="outdated-loan-servicing-platfo">
+                  <b>friction for both customers and internal teams</b>
+                </span>
+                <span>
+                  <span class="outdated-loan-servicing-platfo">.</span>
+                  <span>
+                    Processing times were lengthy, error rates were high, and customer
+                    satisfaction was declining.
+                  </span>
+                </span>
+              </div>
+              <div class="i-led-the-complete-redesign-of-wrapper">
+                <div class="i-led-the">
+                  I led the complete redesign of their Teller Dashboard, focusing on
+                  creating an intuitive, efficient, and scalable solution that would
+                  serve both B2B clients and their end customers.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- My role / timeline / team / tools -->
+        <div class="frame-container">
+          <div class="my-role-parent">
+            <b class="my-role">My role</b>
+            <div class="lead-uxui-designer">
+              Lead UX/UI Designer<br />Product Strategy
+            </div>
+          </div>
+          <div class="my-role-parent">
+            <b class="my-role">Time line</b>
+            <div class="lead-uxui-designer">12 weeks</div>
+          </div>
+          <div class="my-role-parent">
+            <b class="my-role">Team</b>
+            <div class="lead-uxui-designer">
+              Design (2)<br />Engineering (5)<br />Product (1)
+            </div>
+          </div>
+          <div class="my-role-parent">
+            <b class="my-role">Tools</b>
+            <div class="lead-uxui-designer">
+              Figma<br />Figjam<br />Azure DevOps
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem space -->
+        <div class="frame-wrapper">
+          <div class="overview-parent">
+            <b class="overview">The problem space</b>
+            <div class="the-old-dashboard-container">
+              <span>
+                <span>The old dashboard design was</span>
+                <b class="b"> </b>
+              </span>
+              <b class="b">
+                <span>cluttered</span>
+              </b>
+              <span>
+                <span>,</span>
+                <span class="outdated-loan-servicing-platfo"> </span>
+                <span>presenting</span>
+                <span class="outdated-loan-servicing-platfo"> </span>
+              </span>
+              <b class="b">too much information</b>
+              <span>
+                <span> at once making it</span>
+                <span class="outdated-loan-servicing-platfo"> </span>
+              </span>
+              <span class="b">
+                <b>difficult for tellers to locate key data quickly</b>
+              </span>
+              <span>
+                <span class="b">. <br /></span>
+                <span>
+                  <br />The lack of real-time updates meant cash flow tracking was
+                  inefficient, often leading to discrepancies in drawer totals. End-of-day
+                  reporting was another pain point, as the process for generating and
+                  submitting transaction reports was slow and prone to manual errors. Poor
+                  transaction searchability further hindered teller efficiency, requiring
+                  multiple steps to retrieve past transactions and extending customer
+                  service interactions. Lastly, limited drawer breakdown visibility made it
+                  challenging for tellers to see a detailed count of bills and coins,
+                  complicating cash balancing at the end of shifts.<br />
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hypothesis -->
+        <div class="hypothesis-parent">
+          <b class="overview">Hypothesis</b>
+          <div class="the-old-dashboard-container">
+            Redesigning the Teller Dashboard to simplify navigation, reduce redundant
+            steps, and surface critical customer information will enable tellers to
+            complete transactions faster, lower the risk of errors, and improve overall
+            efficiency.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

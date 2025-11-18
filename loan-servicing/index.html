@@ -1,1 +1,1456 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <title>Revamping Loan Servicing</title>
+
+  <!-- Inter font to match Figma -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" />
+
+  <style>
+    body {
+      margin: 0;
+      line-height: normal;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #111f36;
+      color: #fff;
+    }
+
+    /* =========================
+       HERO SECTION (TOP)
+    ========================== */
+    .landing-page {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      background: linear-gradient(152.59deg, #020619, #1f3250);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 19px 16px;
+      box-sizing: border-box;
+      text-align: left;
+      font-size: 10px;
+      color: #fff;
+    }
+
+    .hero-frame-parent {
+      width: 800px;
+      max-width: 100%;
+      height: 683px;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 0 0;
+      box-sizing: border-box;
+      gap: 20px;
+    }
+
+    .hero-frame-group {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-frame-container {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 58px;
+    }
+
+    .uxui-design-parent {
+      border-radius: 4px;
+      background-color: rgba(194, 199, 206, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px 8px;
+      gap: 4px;
+    }
+
+    .uxui-design {
+      position: relative;
+      letter-spacing: 0.4px;
+      line-height: 16px;
+      font-weight: 600;
+    }
+
+    /* 3x3 white dots between tags */
+    .tag-dot {
+      height: 3px;
+      width: 3px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: inline-block;
+    }
+
+    .revamping-loan-servicing-parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      font-size: 57px;
+      color: #90a1b9;
+    }
+
+    .revamping-loan-servicing {
+      position: relative;
+      font-weight: 300;
+      background: linear-gradient(90deg, #f9f9f9, #6d7a8e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      text-align: center; /* center when it wraps on mobile */
+    }
+
+    .designing-a-scalable-container {
+      align-self: stretch;
+      position: relative;
+      font-size: 25px;
+      letter-spacing: 0.15px;
+      line-height: 42px;
+      text-align: center;
+    }
+
+    .span {
+      font-weight: 600;
+      color: #00d492;
+    }
+
+    .landing-page-span {
+      font-weight: 600;
+      color: #51a2ff;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 27px;
+      font-size: 12px;
+      color: #90a1b9;
+    }
+
+    .hero-ellipse-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .frame-inner {
+      height: 9px;
+      width: 9px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #51a2ff;
+    }
+
+    .weeks {
+      position: relative;
+      letter-spacing: 0.15px;
+      line-height: 24px;
+    }
+
+    .ellipse-div {
+      height: 9px;
+      width: 9px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #00d492;
+    }
+
+    .landing-page-frame-child {
+      height: 9px;
+      width: 9px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #fe9a00;
+    }
+
+    .rectangle-parent {
+      width: 24px;
+      height: 40px;
+      position: relative;
+      opacity: 0.7;
+    }
+
+    .group-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50px;
+      border: 1px solid #90a1b9;
+      box-sizing: border-box;
+      width: 24px;
+      height: 40px;
+    }
+
+    /* Animated line inside the pill */
+    .group-line {
+      position: absolute;
+      left: 50%;
+      width: 4px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: #90a1b9;
+      transform: translateX(-50%);
+      animation: scrollLine 2.4s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0% {
+        top: 26px;  /* near bottom */
+      }
+      50% {
+        top: 10px;  /* near top */
+      }
+      100% {
+        top: 26px;  /* back to bottom */
+      }
+    }
+
+    @media (max-width: 840px) {
+      .hero-frame-parent {
+        padding-top: 60px;
+        height: auto;
+      }
+    }
+
+    /* =========================
+       OVERVIEW / PROBLEM SECTION
+    ========================== */
+    .body1 {
+      width: 100%;
+      position: relative;
+      background-color: #111f36;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 16px 50px;
+      box-sizing: border-box;
+      text-align: left;
+      font-size: 24px;
+      color: #f9f9f9;
+    }
+
+    .body1 .frame-parent {
+      width: 800px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 80px;
+    }
+
+    .group-wrapper {
+      align-self: stretch;
+      height: 497px;
+      position: relative;
+      border-radius: 12px;
+      background: linear-gradient(
+        242.19deg,
+        rgba(221, 249, 211, 0.6),
+        rgba(184, 228, 208, 0.6) 56.38%,
+        rgba(88, 201, 185, 0.6) 90.98%
+      );
+      border: 1px solid rgba(144, 161, 185, 0.2);
+      box-sizing: border-box;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .overview-image {
+      position: absolute;
+      width: 1001px;
+      height: 647px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .body1 .frame-group {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 80px;
+    }
+
+    .frame-wrapper {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .overview-parent {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+    }
+
+    .overview {
+      width: 190px;
+      position: relative;
+      letter-spacing: 0.18px;
+      line-height: 32px;
+      text-transform: uppercase;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .our-financial-services-client-parent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      font-size: 14px;
+      color: #9caec8;
+    }
+
+    .our-financial-services-container {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+    }
+
+    .outdated-loan-servicing-platfo {
+      color: #f9f9f9;
+    }
+
+    .span-text {
+      color: #9caec8;
+    }
+
+    .i-led-the-complete-redesign-of-wrapper {
+      width: 574px;
+      max-width: 100%;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: flex-start;
+      padding: 16px 24px;
+      box-sizing: border-box;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .i-led-the {
+      flex: 1;
+      position: relative;
+      letter-spacing: 0.1px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    .body1 .frame-container {
+      width: 800px;
+      max-width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .my-role-parent {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .my-role {
+      width: 160px;
+      position: relative;
+      letter-spacing: 0.15px;
+      line-height: 24px;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    .lead-uxui-designer {
+      position: relative;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      line-height: 21px;
+      color: #f9f9f9;
+    }
+
+    .the-old-dashboard-container {
+      flex: 1;
+      position: relative;
+      font-size: 14px;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+      color: #9caec8;
+    }
+
+    .b {
+      color: #fff;
+    }
+
+    @media (max-width: 840px) {
+      .body1 {
+        padding: 40px 20px 40px;
+      }
+
+      .overview-parent,
+      .hypothesis-parent {
+        flex-direction: column;
+      }
+
+      .overview {
+        width: auto;
+      }
+
+      .body1 .frame-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* =========================
+       FULL-WIDTH IMAGE SECTION
+    ========================== */
+    .full-width-image-section {
+      width: 100%;
+      background-color: #111f36;
+    }
+
+    .full-width-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* =========================
+       KEY CHALLENGES / IDEATION SECTION
+    ========================== */
+    .div {
+      width: 100%;
+      position: relative;
+      background-color: #111f36;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 0px;
+      box-sizing: border-box;
+      text-align: left;
+      font-size: 24px;
+      color: #f9f9f9;
+      font-family: Inter;
+    }
+
+    .div .frame-parent {
+      width: 800px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 80px;
+    }
+
+    .frame-group {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+      font-size: 24px;
+    }
+
+    .div .frame-container {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 34px;
+    }
+
+    .key-challenges-parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .key-challenges {
+      position: relative;
+      letter-spacing: 0.18px;
+      line-height: 32px;
+      text-transform: uppercase;
+    }
+
+    .to-validate-our-container {
+      width: 796px;
+      max-width: 100%;
+      position: relative;
+      font-size: 14px;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+      text-align: center;
+      display: inline-block;
+      color: #9caec8;
+    }
+
+    .interviews-with-10 {
+      color: #fff;
+    }
+
+    .frame-div {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: #9caec8;
+    }
+
+    .theres-so-much-crammed-onto-t-parent {
+      flex: 1;
+      border-radius: 8px;
+      background: linear-gradient(rgba(81, 162, 255, 0.05), rgba(81, 162, 255, 0.05)), #1f2c42;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 24px;
+    }
+
+    .theres-so-much {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+    }
+
+    .div-frame-parent {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+      font-size: 15px;
+      color: #f9f9f9;
+    }
+
+    .sc-wrapper {
+      border-radius: 40px;
+      background: linear-gradient(138.49deg, #58c9b9 52.79%, #ddf9d3 90.54%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .sc {
+      height: 24px;
+      width: 24px;
+      position: relative;
+      letter-spacing: 0.25px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sarah-c-parent {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1px;
+    }
+
+    .sarah-c {
+      position: relative;
+      letter-spacing: 0.25px;
+      font-weight: 500;
+    }
+
+    .senior-loan-officer {
+      position: relative;
+      font-size: 11px;
+      letter-spacing: 0.25px;
+      font-weight: 300;
+      color: #9caec8;
+    }
+
+    .it-shouldnt-take-this-many-st-parent {
+      height: 232px;
+      flex: 1;
+      border-radius: 8px;
+      background: linear-gradient(rgba(81, 162, 255, 0.05), rgba(81, 162, 255, 0.05)), #1f2c42;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 20px;
+      box-sizing: border-box;
+      gap: 20px;
+    }
+
+    .frame-parent4 {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+      font-size: 16px;
+    }
+
+    .frame-parent5 {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 70px;
+    }
+
+    .div .frame-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .dashboard-overload-parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .dashboard-overload {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.15px;
+      line-height: 24px;
+      font-weight: 500;
+    }
+
+    .horizontalfull-width-icon {
+      align-self: stretch;
+      height: 1px;
+      max-width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .of-tellers-reported {
+      align-self: stretch;
+      position: relative;
+      font-size: 14px;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+      color: #9caec8;
+    }
+
+    .time-consuming-end-of-day-repo-parent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .divider {
+      align-self: stretch;
+      height: 1px;
+      position: relative;
+      border-top: 1px solid #9caec8;
+      box-sizing: border-box;
+    }
+
+    .ideation-solution-exploratio-parent {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+    }
+
+    .ideation-solution {
+      width: 190px;
+      position: relative;
+      letter-spacing: 0.18px;
+      line-height: 32px;
+      text-transform: uppercase;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .with-our-research-insights-in-parent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 16px;
+      font-size: 14px;
+      color: #9caec8;
+    }
+
+    .frame-parent7 {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 22px;
+      color: #fff;
+    }
+
+    .task-specific-screens-parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .one-idea-was {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.25px;
+      line-height: 20px;
+      color: #9caec8;
+    }
+
+    .frame-parent8 {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .image-15-parent {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .image-15-icon {
+      flex: 1;
+      position: relative;
+      border-radius: 4px;
+      max-width: 100%;
+      overflow: hidden;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+   .image-65-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.image-65-icon {
+  position: relative;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+    .frame-parent9 {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 80px;
+    }
+
+    .div-frame-wrapper {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .interactive-prototypes-were-te-parent {
+      width: 574px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      font-size: 14px;
+      color: #9caec8;
+    }
+
+    .conclusion-parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      color: #fff;
+    }
+
+    .frame-parent10 {
+      width: 574px;
+      max-width: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .the-system-doesnt-ask-me-for-parent {
+      height: 172px;
+      flex: 1;
+      border-radius: 8px;
+      background: linear-gradient(rgba(81, 162, 255, 0.05), rgba(81, 162, 255, 0.05)), #1f2c42;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 20px;
+      box-sizing: border-box;
+      gap: 20px;
+    }
+
+    .frame-parent13 {
+      width: 574px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 34px;
+      color: #51a2ff;
+    }
+
+    .frame-parent14 {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .frame-wrapper2 {
+      align-self: stretch;
+      flex: 1;
+      border-radius: 8px;
+      background: linear-gradient(rgba(81, 162, 255, 0.05), rgba(81, 162, 255, 0.05)), #1f2c42;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px 20px;
+    }
+
+    .parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .faster-end-of-day-reports {
+      align-self: stretch;
+      position: relative;
+      font-size: 15px;
+      letter-spacing: 0.25px;
+      font-weight: 500;
+      color: #f9f9f9;
+      text-align: center;
+    }
+
+    .frame-wrapper3 {
+      align-self: stretch;
+      flex: 1;
+      border-radius: 8px;
+      background: linear-gradient(rgba(0, 212, 146, 0.05), rgba(0, 212, 146, 0.05)), #1f2c42;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px 20px;
+      text-align: center;
+      color: #00d492;
+    }
+
+    .group {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .div-b {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.25px;
+    }
+
+    .reduction-in-discrepancies {
+      align-self: stretch;
+      position: relative;
+      font-size: 15px;
+      letter-spacing: 0.15px;
+      font-weight: 500;
+      color: #f9f9f9;
+    }
+
+    .frame-wrapper4 {
+      align-self: stretch;
+      border-radius: 8px;
+      background: linear-gradient(rgba(254, 154, 0, 0.05), rgba(254, 154, 0, 0.05)), #1f2c42;
+      display: flex;
+      align-items: flex-start;
+      padding: 24px 20px;
+      color: #fe9a00;
+    }
+
+    .container {
+      width: 534px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .faster-transaction-search {
+      position: relative;
+      font-size: 15px;
+      letter-spacing: 0.25px;
+      font-weight: 500;
+      color: #f9f9f9;
+      text-align: center;
+    }
+
+    .frame-parent15 {
+      align-self: stretch;
+      height: 1044px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+ .frame-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;      
+  width: 100%;
+  height: 100%;  
+  display: block;
+  object-fit: cover; 
+}
+
+
+.group-div {
+  width: 800px;
+  max-width: 100%;
+  height: 497px;
+  position: relative;
+  border-radius: 12px;
+  background: linear-gradient(
+    242.19deg,
+    rgba(221, 249, 211, 0.6),
+    rgba(184, 228, 208, 0.6) 65.38%,
+    rgba(88, 201, 185, 0.6) 88.98%
+  );
+  border: 1px solid rgba(144, 161, 185, 0.2);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Fill the card and center contents */
+.image-441-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;      /* all positions set to 0 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional extra wrapper, keeps things centered */
+.image-444-parent {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centered image that scales nicely */
+.image-444-icon {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+    .image-435-icon,
+    .image-449-icon,
+    .image-450-icon {
+      position: relative;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+   
+    .image-435-icon { width: 52px; }
+    .image-449-icon { width: 47px; }
+    .image-450-icon { width: 70px; }
+
+    @media (max-width: 840px) {
+      .frame-div {
+        flex-direction: column;
+      }
+
+      .frame-parent5 {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .image-15-parent {
+        flex-direction: column;
+      }
+
+      .frame-parent10 {
+        flex-direction: column;
+      }
+
+      .frame-parent14 {
+        flex-direction: column;
+      }
+
+      .frame-parent15 {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO SECTION -->
+  <div class="landing-page">
+    <div class="hero-frame-parent">
+      <div class="hero-frame-group">
+        <div class="hero-frame-container">
+          <div class="uxui-design-parent">
+            <div class="uxui-design">UX/UI Design</div>
+            <span class="tag-dot"></span>
+            <div class="uxui-design">Product strategy</div>
+            <span class="tag-dot"></span>
+            <div class="uxui-design">2025</div>
+          </div>
+
+          <div class="revamping-loan-servicing-parent">
+            <div class="revamping-loan-servicing">
+              Revamping Loan Servicing
+            </div>
+            <div class="designing-a-scalable-container">
+              <span>Designing a scalable, user-centered lending platform that reduced processing time by </span>
+              <span class="span">67%</span>
+              <span> and increased customer satisfaction scores by </span>
+              <span class="landing-page-span">45%</span>
+              <span>.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-meta-row">
+          <div class="hero-ellipse-item">
+            <div class="frame-inner"></div>
+            <div class="weeks">12 weeks</div>
+          </div>
+          <div class="hero-ellipse-item">
+            <div class="ellipse-div"></div>
+            <div class="weeks">Lead Designer</div>
+          </div>
+          <div class="hero-ellipse-item">
+            <div class="landing-page-frame-child"></div>
+            <div class="weeks">B2B FinTech</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rectangle-parent">
+        <div class="group-child"></div>
+        <div class="group-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW / PROBLEM / HYPOTHESIS SECTION -->
+  <div class="body1">
+    <div class="frame-parent">
+      <div class="group-wrapper">
+        <img
+          class="overview-image"
+          src="assets/Image1.png"
+          alt="Loan servicing dashboard overview"
+          style="left: 0px; top: 0px; right: 0px; bottom: 0px;"
+        />
+      </div>
+
+      <div class="frame-group">
+        <div class="frame-wrapper">
+          <div class="overview-parent">
+            <b class="overview">Overview</b>
+            <div class="our-financial-services-client-parent">
+              <div class="our-financial-services-container">
+                <span>Our financial services client was struggling with an</span>
+                <b class="outdated-loan-servicing-platfo">
+                  <span class="span-text"> </span>
+                  <span>outdated loan servicing platform</span>
+                </b>
+                <span><span> </span></span>
+                <span><span>that created </span></span>
+                <span class="outdated-loan-servicing-platfo">
+                  <b>friction for both customers and internal teams</b>
+                </span>
+                <span>
+                  <span class="outdated-loan-servicing-platfo">.</span>
+                  <span> Processing times were lengthy, error rates were high, and customer
+                    satisfaction was declining.</span>
+                </span>
+              </div>
+              <div class="i-led-the-complete-redesign-of-wrapper">
+                <div class="i-led-the">
+                  I led the complete redesign of their Teller Dashboard, focusing on
+                  creating an intuitive, efficient, and scalable solution that would
+                  serve both B2B clients and their end customers.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="frame-container">
+          <div class="my-role-parent">
+            <b class="my-role">My role</b>
+            <div class="lead-uxui-designer">
+              Lead UX/UI Designer<br />Product Strategy
+            </div>
+          </div>
+          <div class="my-role-parent">
+            <b class="my-role">Time line</b>
+            <div class="lead-uxui-designer">12 weeks</div>
+          </div>
+          <div class="my-role-parent">
+            <b class="my-role">Team</b>
+            <div class="lead-uxui-designer">
+              Design (2)<br />Engineering (5)<br />Product (1)
+            </div>
+          </div>
+          <div class="my-role-parent">
+            <b class="my-role">Tools</b>
+            <div class="lead-uxui-designer">
+              Figma<br />Figjam<br />Azure DevOps
+            </div>
+          </div>
+        </div>
+
+        <div class="frame-wrapper">
+          <div class="overview-parent">
+            <b class="overview">The problem space</b>
+            <div class="the-old-dashboard-container">
+              <span>
+                <span>The old dashboard design was</span>
+                <b class="b"> </b>
+              </span>
+              <b class="b"><span>cluttered</span></b>
+              <span>
+                <span>,</span>
+                <span class="outdated-loan-servicing-platfo"> </span>
+                <span>presenting</span>
+                <span class="outdated-loan-servicing-platfo"> </span>
+              </span>
+              <b class="b">too much information</b>
+              <span>
+                <span> at once making it</span>
+                <span class="outdated-loan-servicing-platfo"> </span>
+              </span>
+              <span class="b">
+                <b>difficult for tellers to locate key data quickly</b>
+              </span>
+              <span>
+                <span class="b">. <br /></span>
+                <span>
+                  <br />The lack of real-time updates meant cash flow tracking was
+                  inefficient, often leading to discrepancies in drawer totals. End-of-day
+                  reporting was another pain point, as the process for generating and
+                  submitting transaction reports was slow and prone to manual errors. Poor
+                  transaction searchability further hindered teller efficiency, requiring
+                  multiple steps to retrieve past transactions and extending customer
+                  service interactions. Lastly, limited drawer breakdown visibility made it
+                  challenging for tellers to see a detailed count of bills and coins,
+                  complicating cash balancing at the end of shifts.<br />
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ideation-solution-exploratio-parent">
+  <b class="ideation-solution">Hypothesis</b>
+  <div class="with-our-research-insights-in-parent">
+    <div class="the-old-dashboard-container">
+      Redesigning the Teller Dashboard to simplify navigation, reduce redundant
+      steps, and surface critical customer information will enable tellers to
+      complete transactions faster, lower the risk of errors, and improve overall
+      efficiency.
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL-WIDTH IMAGE SECTION (Image2) -->
+  <div class="full-width-image-section">
+    <img
+      src="assets/Image2.png"
+      alt="Loan servicing flows and states"
+      class="full-width-image"
+    />
+  </div>
+
+  <!-- KEY CHALLENGES / IDEATION / TESTING / IMPACT SECTION -->
+  <div class="div">
+    <div class="frame-parent">
+      <div class="frame-group">
+        <div class="frame-container">
+          <div class="key-challenges-parent">
+            <b class="key-challenges">Key challenges</b>
+            <div class="to-validate-our-container">
+              <span>To validate our hypothesis, we conducted </span>
+              <b class="interviews-with-10">interviews with 10 users</b>
+              <span> (Bank tellers, Administrative staff, and Account managers) to understand their challenges around the Teller Dashboard workflows and payment processes. <br>These interview revealed critical insights:</span>
+            </div>
+          </div>
+          <div class="frame-div">
+            <div class="theres-so-much-crammed-onto-t-parent">
+              <div class="theres-so-much">“There’s so much crammed onto the screen that I’ve definitely clicked the wrong button more than once. You have to double check everything.”</div>
+              <div class="div-frame-parent">
+                <div class="sc-wrapper">
+                  <div class="sc">SC</div>
+                </div>
+                <div class="sarah-c-parent">
+                  <div class="sarah-c">Sarah C.</div>
+                  <div class="senior-loan-officer">Senior loan officer</div>
+                </div>
+              </div>
+            </div>
+            <div class="it-shouldnt-take-this-many-st-parent">
+              <div class="theres-so-much">“It shouldn’t take this many steps to do a simple transfer. I know the workflow by heart, but it still eats up time.”</div>
+              <div class="div-frame-parent">
+                <div class="sc-wrapper">
+                  <div class="sc">MR</div>
+                </div>
+                <div class="sarah-c-parent">
+                  <div class="sarah-c">Michael R.</div>
+                  <div class="senior-loan-officer">Teller</div>
+                </div>
+              </div>
+            </div>
+            <div class="it-shouldnt-take-this-many-st-parent">
+              <div class="theres-so-much">“A customer will ask about a transaction from last week, and it takes forever to find it. The search tool just isn’t helpful.”</div>
+              <div class="div-frame-parent">
+                <div class="sc-wrapper">
+                  <div class="sc">JP</div>
+                </div>
+                <div class="sarah-c-parent">
+                  <div class="sarah-c">Jennifer P.</div>
+                  <div class="senior-loan-officer">Teller</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="frame-parent4">
+          <div class="frame-parent5">
+            <div class="frame-wrapper">
+              <div class="dashboard-overload-parent">
+                <div class="dashboard-overload">Dashboard overload</div>
+                <img class="horizontalfull-width-icon" alt="" />
+                <div class="of-tellers-reported">70% of tellers reported feeling overwhelmed by the excessive amount of information displayed on the screen.</div>
+              </div>
+            </div>
+            <div class="time-consuming-end-of-day-repo-parent">
+              <div class="dashboard-overload">Time-consuming end-of-day reports</div>
+              <div class="divider"></div>
+              <div class="of-tellers-reported">On average, tellers spent 15-20 minutes compiling their end-of-day reports due to the manual nature of the process.</div>
+            </div>
+          </div>
+          <div class="frame-parent5">
+            <div class="time-consuming-end-of-day-repo-parent">
+              <div class="dashboard-overload">Drawer balance uncertainty</div>
+              <div class="divider"></div>
+              <div class="of-tellers-reported">60% of tellers mentioned that they often had to recount their drawers manually because the digital balance was unclear.</div>
+            </div>
+            <div class="time-consuming-end-of-day-repo-parent">
+              <div class="dashboard-overload">Slow transaction retrieval</div>
+              <div class="divider"></div>
+              <div class="of-tellers-reported">Tellers needed a faster way to locate past transactions to assist customers efficiently.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ideation & solution exploration -->
+      <div class="ideation-solution-exploratio-parent">
+        <b class="ideation-solution">Ideation & solution exploration</b>
+        <div class="with-our-research-insights-in-parent">
+          <div class="theres-so-much">With our research insights in mind, we explored several design directions for improving the Teller Dashboard:</div>
+          <div class="frame-parent7">
+            <div class="task-specific-screens-parent">
+              <b class="theres-so-much">Task-specific screens</b>
+              <div class="one-idea-was">One idea was to create dedicated screens for each transaction type. While this reduced clutter, it required frequent context switching and slowed down multi-step workflows.</div>
+            </div>
+            <div class="task-specific-screens-parent">
+              <b class="theres-so-much">Tabbed navigation</b>
+              <div class="one-idea-was">We also considered a tabbed interface that separated key functions across different sections. This approach offered clearer organization but increased the number of clicks and made it harder for tellers to maintain a holistic view of the customer’s profile.</div>
+            </div>
+            <div class="task-specific-screens-parent">
+              <b class="theres-so-much">Single-screen consolidation</b>
+              <div class="one-idea-was">Ultimately, we pursued a single-screen interface that consolidated all loan management and teller tasks. This solution streamlined workflows, minimized context switching, and lowered cognitive load, while still allowing critical information to remain accessible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image grid & flows (Image3–Image7) -->
+      <div class="frame-parent8">
+        <div class="image-15-parent">
+          <img class="image-15-icon" src="assets/Image3.png" alt="Design exploration mockup 1" />
+          <img class="image-15-icon" src="assets/Image4.png" alt="Design exploration mockup 2" />
+        </div>
+        <div class="group-wrapper">
+          <div class="image-65-parent">
+            <img class="image-65-icon" src="assets/Image5.png" alt="Consolidated teller dashboard mockup" />
+          </div>
+        </div>
+      </div>
+
+      <!-- User testing & impact -->
+      <div class="frame-parent9">
+        <div class="div-frame-wrapper">
+          <div class="ideation-solution-exploratio-parent">
+            <b class="ideation-solution">User Testing & Iteration</b>
+            <div class="interactive-prototypes-were-te-parent">
+              <div class="theres-so-much">Interactive prototypes were tested with tellers and GPS account managers to gather feedback and ensure it met tellers' needs. This included A/B testing to evaluate different layouts and navigation structures for optimal intuitiveness. These tests focused on task completion time, error rates, and overall user satisfaction.</div>
+              <div class="conclusion-parent">
+                <b class="theres-so-much">Conclusion</b>
+                <div class="one-idea-was">These insights led to final refinements, including adding quick-access buttons for commonly used features and allowing customization of table columns.</div>
+              </div>
+              <div class="frame-parent10">
+                <div class="theres-so-much-crammed-onto-t-parent">
+                  <div class="theres-so-much">“What used to take me 3–4 minutes now takes under 2. That really adds up during busy hours.”</div>
+                  <div class="div-frame-parent">
+                    <div class="sc-wrapper">
+                      <div class="sc">JP</div>
+                    </div>
+                    <div class="sarah-c-parent">
+                      <div class="sarah-c">Jennifer P.</div>
+                      <div class="senior-loan-officer">Teller</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="the-system-doesnt-ask-me-for-parent">
+                  <div class="theres-so-much">“The system doesn’t ask me for things it already knows, finally!”</div>
+                  <div class="div-frame-parent">
+                    <div class="sc-wrapper">
+                      <div class="sc">MR</div>
+                    </div>
+                    <div class="sarah-c-parent">
+                      <div class="sarah-c">Michael R.</div>
+                      <div class="senior-loan-officer">Teller</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ideation-solution-exploratio-parent">
+          <b class="ideation-solution">Impact & Results</b>
+          <div class="frame-parent13">
+            <div class="frame-parent14">
+              <div class="frame-wrapper2">
+                <div class="parent">
+                  <b class="b" style="color: #51A2FF;">45%</b>
+                  <div class="faster-end-of-day-reports">Faster End-of-Day Reports</div>
+                </div>
+              </div>
+              <div class="frame-wrapper3">
+                <div class="group">
+                  <b class="div-b">30%</b>
+                  <div class="reduction-in-discrepancies">Reduction in Discrepancies</div>
+                </div>
+              </div>
+            </div>
+            <div class="frame-wrapper4">
+              <div class="container">
+                <b class="b" style="color: #FE9A00;">87%</b>
+                <div class="faster-transaction-search">Faster Transaction Search</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final large mocks (Image6 & Image7) -->
+      <div class="frame-parent15">
+        <div class="group-wrapper">
+          <img class="frame-child" src="assets/Image6.png" alt="Final teller dashboard mockup" />
+        </div>
+        <div class="group-div">
+          <div class="image-441-parent">
+            <div class="image-444-parent">
+              <img class="image-444-icon" src="assets/Image7.png" alt="Supporting flows and states" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

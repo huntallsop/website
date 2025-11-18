@@ -23,9 +23,9 @@
       min-height: 100vh;
     }
 
-    /* HERO IMAGE */
+    /* HERO IMAGE (TOP) */
     .hero-image-container {
-      width: 100vw;              /* default: full screen width on small screens */
+      width: 100vw;              /* default full screen width */
       background-color: #000000; /* ensure black behind image */
     }
 
@@ -33,6 +33,18 @@
       display: block;
       width: 100%;   /* fill container */
       height: auto;  /* scale height appropriately */
+    }
+
+    /* BOTTOM IMAGE (FULL WIDTH 100VW) */
+    .bottom-image-container {
+      width: 100vw;              /* always full screen width */
+      background-color: #000000; /* black behind image */
+    }
+
+    .bottom-image {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     /* ROOT LAYOUT */
@@ -384,7 +396,7 @@
   </style>
 </head>
 <body>
-  <!-- HERO IMAGE -->
+  <!-- HERO IMAGE (TOP) -->
   <div class="hero-image-container">
     <img
       src="./assets/Image1.png"
@@ -602,6 +614,15 @@
         Ultimately leading to higher user satisfaction and engagement.
       </div>
     </div>
+  </div>
+
+  <!-- BOTTOM IMAGE (FULL WIDTH 100VW) -->
+  <div class="bottom-image-container">
+    <img
+      src="./assets/Image2.png"
+      alt="Hammock case study footer visual"
+      class="bottom-image"
+    />
   </div>
 </body>
 </html>

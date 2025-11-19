@@ -824,43 +824,35 @@
       font-weight: 500;
     }
 
-    /* FINAL IMAGE SECTION */
-    .final-image-section {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 80px;
-      padding: 0;
-      box-sizing: border-box;
-    }
+   /* FINAL IMAGE SECTION */
+.final-image-section {
+  width: 100%;
+  max-width: 800px;      /* caps the image at 800px */
+  margin: 0 auto 80px;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .rectangle-parent {
-      width: 100%;
-      height: 580px;
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
+.rectangle-parent {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;      /* keeps rounded corners */
+}
 
-    .rectangle-parent .frame-child {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #d9d9d9;
-      width: 800px;
-      height: 743px;
-      flex-shrink: 0;
-    }
+/* remove the gray block if you want, or leave unused */
+.rectangle-parent .frame-child {
+  display: none;
+}
 
-    .image-91-icon {
-      position: absolute;
-      top: calc(50% - 707.26px);
-      left: calc(50% - 704.18px);
-      width: 1367.2px;
-      height: 1333.3px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
+/* make the image scale, not crop */
+.image-91-icon {
+  display: block;
+  width: 100%;           /* fills up to 800px */
+  height: auto;          /* keeps aspect ratio */
+  position: static;      /* no more absolute cropping */
+  object-fit: contain;   /* optional, but safe */
+}
+
 
     /* TEST RESULTS SECTION */
     .test-results-section {

@@ -828,6 +828,7 @@
       text-align: center;
       font-size: 20px;
       color: #f9f9f9;
+      font-family: "Instrument Serif", serif;
     }
 
     .vector-container {
@@ -845,7 +846,8 @@
       object-fit: contain;
     }
 
-    .gold-point-systems {
+    /* Figma-style label for "I'm available" */
+    .im-available {
       position: relative;
       letter-spacing: 0.1px;
     }
@@ -912,8 +914,6 @@
 </head>
 <body>
   <div class="desktop-2">
-    <!-- TODO: set real image src paths for all images -->
-
     <!-- Background -->
     <img class="background-icon" src="./assets/home-bg.png" alt="Background" />
 
@@ -1215,7 +1215,7 @@
           </div>
         </div>
 
-        <!-- Bottom "I'm available" section -->
+        <!-- Bottom "I'm available" section (matches Figma structure) -->
         <div class="frame-parent8">
           <div class="vector-container">
             <img
@@ -1223,7 +1223,7 @@
               src="./assets/line-light.svg"
               alt=""
             />
-            <div class="gold-point-systems">I’m available</div>
+            <div class="im-available">I’m available</div>
             <img
               class="frame-child5"
               src="./assets/line-light.svg"

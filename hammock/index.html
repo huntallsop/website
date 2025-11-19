@@ -61,7 +61,7 @@
       color: #f9f9f9;
       font-family: Inter;
       margin: 0 auto 0;   /* no top margin, only bottom */
-      padding: 80px 0px 120px; /* top 80px, sides 24px, bottom 120px */
+      padding: 80px 0px 120px; /* top 80px, sides 0px, bottom 120px */
       box-sizing: border-box;
     }
 
@@ -439,15 +439,14 @@
       gap: 8px;
     }
 
-   .hidden-information {
-  align-self: stretch;
-  position: relative;
-  letter-spacing: 0.15px;
-  line-height: 24px;
-  font-weight: 500;
-  color: #f9f9f9; /* white text */
-}
-
+    .hidden-information {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.15px;
+      line-height: 24px;
+      font-weight: 500;
+      color: #f9f9f9; /* white text */
+    }
 
     .payment-breakdown-unclear-parent {
       flex: 1;
@@ -697,13 +696,12 @@
 
     /* USER QUOTES SECTION */
     .user-quotes-section {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto 80px; /* 80px gap before final-image-section */
-  padding: 0;
-  box-sizing: border-box;
-}
-
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 80px; /* 80px gap before final-image-section */
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     .user-quotes-parent {
       width: 100%;
@@ -731,17 +729,16 @@
       color: #f9f9f9;
     }
 
-   .user-quotes-parent .frame-parent {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;         /* keeps spacing between the two quote rows */
-  font-size: 14px;
-  max-width: 574px;
-  margin: 0;         /* remove any default margin */
-  padding: 0;        /* remove any default padding */
-}
-
+    .user-quotes-parent .frame-parent {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;         /* keeps spacing between the two quote rows */
+      font-size: 14px;
+      max-width: 574px;
+      margin: 0;         /* remove any default margin */
+      padding: 0;        /* remove any default padding */
+    }
 
     .user-quotes-parent .frame-group {
       width: 574px;
@@ -780,16 +777,15 @@
     }
 
     /* Footer row inside each quote card */
-   .user-quotes-parent .frame-container {
-  display: flex;
-  flex-direction: row;      /* force circle + text in a row */
-  align-items: center;
-  gap: 16px;
-  text-align: left;         /* match Figma, text left aligned */
-  font-size: 15px;
-  color: #f9f9f9;
-}
-
+    .user-quotes-parent .frame-container {
+      display: flex;
+      flex-direction: row;      /* force circle + text in a row */
+      align-items: center;
+      gap: 16px;
+      text-align: left;         /* match Figma, text left aligned */
+      font-size: 15px;
+      color: #f9f9f9;
+    }
 
     /* Avatar initials circle */
     .am-wrapper,
@@ -935,16 +931,6 @@
       text-align: center;
     }
 
-    .x-parent,
-    .parent {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-    }
-
     .x,
     .b {
       position: relative;
@@ -973,6 +959,7 @@
     }
 
     .group {
+      align-self: stretch;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -1645,7 +1632,7 @@
       <div class="frame-parent">
         <div class="frame-group">
           <div class="frame-wrapper">
-            <div class="x-parent">
+            <div class="group">
               <b class="x">2x</b>
               <div class="users-completed-payments">
                 Users completed payments 2x faster on average
@@ -1653,7 +1640,7 @@
             </div>
           </div>
           <div class="frame-container">
-            <div class="parent">
+            <div class="group">
               <b class="b">98%</b>
               <div class="reported-higher-trust">
                 Reported higher trust and confidence in the new design

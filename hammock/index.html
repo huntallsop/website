@@ -775,15 +775,16 @@
     }
 
     /* Footer row inside each quote card */
-    .user-quotes-parent .frame-container {
-      align-self: stretch;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      text-align: center;
-      font-size: 15px;
-      color: #f9f9f9;
-    }
+   .user-quotes-parent .frame-container {
+  display: flex;
+  flex-direction: row;      /* force circle + text in a row */
+  align-items: center;
+  gap: 16px;
+  text-align: left;         /* match Figma, text left aligned */
+  font-size: 15px;
+  color: #f9f9f9;
+}
+
 
     /* Avatar initials circle */
     .am-wrapper,

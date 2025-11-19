@@ -729,14 +729,17 @@
       color: #f9f9f9;
     }
 
-    .user-quotes-parent .frame-parent {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 14px;
-      max-width: 574px;
-    }
+   .user-quotes-parent .frame-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;         /* keeps spacing between the two quote rows */
+  font-size: 14px;
+  max-width: 574px;
+  margin: 0;         /* remove any default margin */
+  padding: 0;        /* remove any default padding */
+}
+
 
     .user-quotes-parent .frame-group {
       width: 574px;

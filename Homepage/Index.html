@@ -1,1 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+  <title>Hunter Allsop – Product Designer</title>
+
+  <!-- Fonts: Instrument Serif, Instrument Sans, Inter, Roboto -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500&family=Inter:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
+  />
+
+  <style>
+    body {
+      margin: 0;
+      line-height: normal;
+    }
+
+    .desktop-2 {
+      height: 3235px;
+      position: relative;
+      background-color: #f9f9f9;
+      width: 100%;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      isolation: isolate;
+      gap: 10px;
+      text-align: left;
+      font-size: 16px;
+      color: #2d2d2d;
+      font-family: "Instrument Serif", serif;
+    }
+
+    .background-icon {
+      height: 4129px;
+      width: 1440px;
+      position: relative;
+      object-fit: cover;
+      z-index: 0;
+      flex-shrink: 0;
+    }
+
+    .desktop-2-inner {
+      height: 1402px;
+      width: 1440px;
+      position: absolute;
+      margin: 0 !important;
+      top: 0px;
+      left: 0px;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .frame-child {
+      position: absolute;
+      top: -679px;
+      left: -1122px;
+      width: 2990px;
+      height: 2081px;
+      flex-shrink: 0;
+    }
+
+    .frame-parent {
+      height: 3255px;
+      width: 1440px;
+      margin: 0 !important;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      isolation: isolate;
+      gap: 110px;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .frame-group {
+      width: 1150px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 16px 0px 0px;
+      box-sizing: border-box;
+      isolation: isolate;
+      gap: 20px;
+      z-index: 1;
+    }
+
+    .hunter-allsop-wrapper {
+      backdrop-filter: blur(9px);
+      border-radius: 60px;
+      background-color: rgba(255, 255, 255, 0.4);
+      border: 1px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      z-index: 1;
+    }
+
+    .hunter-allsop {
+      position: relative;
+      letter-spacing: 0.4px;
+      line-height: 16px;
+    }
+
+    .vector-parent {
+      height: 40px;
+      width: 40px;
+      border-radius: 50px;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+      gap: 7px;
+      z-index: 0;
+    }
+
+    .frame-item {
+      width: 16px;
+      height: 1px;
+      position: relative;
+      max-height: 100%;
+      flex-shrink: 0;
+    }
+
+    .frame-container {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 150px;
+      z-index: 0;
+      font-size: 60px;
+    }
+
+    .hero-parent {
+      width: 1150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero {
+      width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .frame-div {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .frame-parent2 {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 29px;
+    }
+
+    .im-hunter-parent {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .im-hunter {
+      position: relative;
+    }
+
+    .hunter {
+      color: rgba(45, 45, 45, 0.6);
+    }
+
+    .instance-parent {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    .rectangle-parent {
+      height: 88px;
+      width: 150px;
+      position: relative;
+      box-shadow: 6px 6px 28px rgba(13, 13, 13, 0.32);
+    }
+
+    .instance-child {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0%;
+      right: 0%;
+      bottom: 0%;
+      left: 0%;
+      border-radius: 99.5px;
+      background-color: #04040f;
+      border: 6px solid #040612;
+      box-sizing: border-box;
+    }
+
+    .dscf0488-1-icon {
+      position: absolute;
+      width: 53.33%;
+      top: 8px;
+      right: 23.33%;
+      left: 23.33%;
+      max-width: 100%;
+      overflow: hidden;
+      height: 74px;
+      object-fit: cover;
+    }
+
+    .instance-item {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0%;
+      right: 0%;
+      bottom: 0%;
+      left: 0%;
+      border-radius: 99.5px;
+      background-color: #33acf5;
+      border: 6px solid #040612;
+      box-sizing: border-box;
+    }
+
+    .image-29-parent {
+      position: absolute;
+      top: 5px;
+      left: 30px;
+      width: 84.9px;
+      height: 79px;
+    }
+
+    .image-29-icon {
+      position: absolute;
+      top: 6.58px;
+      left: 0px;
+      width: 72.4px;
+      height: 72.4px;
+      object-fit: cover;
+    }
+
+    .image-30-icon {
+      position: absolute;
+      top: 0px;
+      left: 12.45px;
+      width: 69.1px;
+      height: 69.1px;
+      object-fit: cover;
+    }
+
+    .image-31-icon {
+      position: absolute;
+      top: 8.31px;
+      left: 32.5px;
+      width: 52.4px;
+      height: 52.4px;
+      object-fit: cover;
+    }
+
+    .instance-inner {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0%;
+      right: 0%;
+      bottom: 0%;
+      left: 0%;
+      border-radius: 99.5px;
+      border: 6px solid #040612;
+      box-sizing: border-box;
+    }
+
+    .for-the-past {
+      width: 619px;
+      position: relative;
+      font-size: 20px;
+      line-height: 33px;
+      font-family: "Instrument Sans", sans-serif;
+      color: #5a5f65;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .button {
+      height: 40px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
+      border-radius: 100px;
+      background-color: #2d2d2d;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    .state-layer {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      gap: 8px;
+      max-width: 100%;
+    }
+
+    .label-text {
+      position: relative;
+      letter-spacing: 0.1px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    .call-made-icon {
+      width: 20px;
+      position: relative;
+      max-height: 100%;
+    }
+
+    .frame-parent3 {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 250px;
+      text-align: center;
+      font-size: 13px;
+      color: #000;
+      font-family: "Instrument Sans", sans-serif;
+    }
+
+    .past-companies-parent {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .past-companies {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .frame-parent4 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .x-parent {
+      width: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .x {
+      align-self: stretch;
+      position: relative;
+    }
+
+    .vector-icon {
+      width: 1px;
+      height: 53px;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .a-few-brands {
+      position: relative;
+      font-size: 16px;
+      font-family: "Instrument Serif", serif;
+      color: #2d2d2d;
+      text-align: left;
+    }
+
+    .frame-parent5 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .bofa-1-parent {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+    }
+
+    .bofa-1-icon {
+      width: 127.5px;
+      position: relative;
+      max-height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .family-search-1 {
+      width: 172.5px;
+      position: relative;
+      max-height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .metajive-1-icon {
+      width: 132.5px;
+      position: relative;
+      max-height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .utah-tech1-1-1-parent {
+      display: flex;
+      align-items: flex-end;
+      gap: 38px;
+    }
+
+    .utah-tech1-1-1 {
+      width: 165px;
+      position: relative;
+      max-height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .era-2-icon {
+      width: 49px;
+      position: relative;
+      max-height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .suu-1-icon {
+      width: 146px;
+      position: relative;
+      max-height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .dhi-1-1 {
+      width: 102px;
+      position: relative;
+      max-height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .x-group {
+      width: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .x2 {
+      align-self: stretch;
+      position: relative;
+      line-height: 33px;
+    }
+
+    .frame-child2 {
+      width: 1px;
+      height: 53px;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-top: -3px;
+    }
+
+    .frame-wrapper {
+      width: 1150px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .frame-parent6 {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .instance-wrapper {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .group-parent {
+      height: 350px;
+      width: 800px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 16px 20px;
+      box-sizing: border-box;
+      position: relative;
+      isolation: isolate;
+      gap: 20px;
+    }
+
+    .image-parent {
+      width: 910px;
+      height: 512.7px;
+      position: absolute;
+      margin: 0 !important;
+      top: -53px;
+      right: -110px;
+      z-index: 0;
+      flex-shrink: 0;
+    }
+
+    .image {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 910px;
+      height: 512.7px;
+    }
+
+    .image-child {
+      position: absolute;
+      top: 6px;
+      right: 0px;
+      border-radius: 12px;
+      background-color: #eaeaea;
+      width: 800px;
+      height: 350px;
+    }
+
+    .psd-02-1-icon {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 800px;
+      height: 512.7px;
+      object-fit: cover;
+    }
+
+    .shadow {
+      position: absolute;
+      top: 150px;
+      left: 0px;
+      border-radius: 0px 0px 12px 12px;
+      background: linear-gradient(
+        180deg,
+        rgba(45, 45, 45, 0) 8.65%,
+        rgba(45, 45, 45, 0.65) 66.27%
+      );
+      width: 800px;
+      height: 253px;
+    }
+
+    .chips {
+      width: 248px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .chip {
+      backdrop-filter: blur(25px);
+      border-radius: 60px;
+      background-color: rgba(104, 104, 104, 0.4);
+      border: 1px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      flex-shrink: 0;
+    }
+
+    .bottom-text {
+      align-self: stretch;
+      border-radius: 0px 0px 12px 12px;
+      display: flex;
+      align-items: center;
+      gap: 100px;
+      z-index: 2;
+      flex-shrink: 0;
+      font-size: 35px;
+      color: #f9f9f9;
+    }
+
+    .gold-point-systems {
+      position: relative;
+      letter-spacing: 0.1px;
+    }
+
+    .gold-point-systems2 {
+      flex: 1;
+      position: relative;
+      font-size: 16px;
+      color: rgba(249, 249, 249, 0.8);
+    }
+
+    .ellipse-parent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+      gap: 16px;
+      text-align: left;
+      font-size: 30px;
+      color: #2d2d2d;
+      font-family: "Instrument Serif", serif;
+    }
+
+    .ellipse-div {
+      width: 770px;
+      height: 358px;
+      position: absolute;
+      margin: 0 !important;
+      top: 0px;
+      left: 115px;
+      border-radius: 50%;
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(255, 255, 255, 0.7) 16.83%,
+        rgba(255, 255, 255, 0)
+      );
+      z-index: 0;
+      flex-shrink: 0;
+    }
+
+    .vector-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .frame-child3 {
+      height: 2px;
+      width: 120px;
+      position: relative;
+      object-fit: contain;
+    }
+
+    .hello {
+      position: relative;
+      line-height: 33px;
+    }
+
+    .frame-parent7 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      z-index: 2;
+      flex-shrink: 0;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    .button-parent {
+      height: 300px;
+      width: 136px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 45px;
+    }
+
+    .button-icon {
+      width: 113.9px;
+      height: 56.4px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
+      border-radius: 100px;
+      object-fit: contain;
+    }
+
+    .button2 {
+      align-self: stretch;
+      height: 40px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
+      border-radius: 100px;
+      background-color: rgba(45, 45, 45, 0.6);
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .state-layer2 {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+
+    .button-icon2 {
+      width: 107.4px;
+      height: 57.3px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
+      border-radius: 100px;
+      object-fit: contain;
+    }
+
+    .im-an-enthusiastic {
+      width: 571px;
+      position: relative;
+      font-size: 27px;
+      line-height: 41px;
+      font-family: "Instrument Serif", serif;
+      color: #000;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .button-group {
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 45px;
+    }
+
+    .button-icon3 {
+      width: 133.9px;
+      height: 69.4px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
+      border-radius: 100px;
+      object-fit: contain;
+    }
+
+    .button3 {
+      height: 40px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
+      border-radius: 100px;
+      background-color: rgba(45, 45, 45, 0.6);
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button-icon4 {
+      width: 99.5px;
+      height: 63.9px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
+      border-radius: 100px;
+      object-fit: contain;
+    }
+
+    .frame-parent8 {
+      align-self: stretch;
+      height: 748px;
+      background-color: #141414;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      isolation: isolate;
+      gap: 29px;
+      text-align: center;
+      font-size: 20px;
+      color: #f9f9f9;
+    }
+
+    .vector-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 0;
+      flex-shrink: 0;
+    }
+
+    .frame-child5 {
+      height: 0.3px;
+      width: 52.4px;
+      position: relative;
+      object-fit: contain;
+    }
+
+    .gold-point-systems {
+      position: relative;
+      letter-spacing: 0.1px;
+    }
+
+    .lets-connect-parent {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 1;
+      flex-shrink: 0;
+      font-size: 70px;
+    }
+
+    .lets-connect {
+      align-self: stretch;
+      position: relative;
+      letter-spacing: 0.1px;
+    }
+
+    .connect {
+      color: rgba(249, 249, 249, 0.5);
+    }
+
+    .reach-out-anytime {
+      align-self: stretch;
+      position: relative;
+      font-size: 20px;
+      letter-spacing: 0.1px;
+      font-family: "Instrument Sans", sans-serif;
+    }
+
+    .button4 {
+      height: 40px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
+      border-radius: 100px;
+      background-color: #3d3d3d;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    .adobestock-142298783-1-icon {
+      width: 1475.9px;
+      position: absolute;
+      margin: 0 !important;
+      top: -150px;
+      left: -26px;
+      max-height: 100%;
+      object-fit: contain;
+      z-index: 3;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="desktop-2">
+    <!-- TODO: set real image src paths for all images -->
+
+    <!-- Background -->
+    <img class="background-icon" src="./assets/home-bg.png" alt="Background" />
+
+    <div class="desktop-2-inner">
+      <img class="frame-child" src="./assets/home-glow.png" alt="Glow" />
+    </div>
+
+    <div class="frame-parent">
+      <!-- Top nav / name -->
+      <div class="frame-group">
+        <div class="hunter-allsop-wrapper">
+          <div class="hunter-allsop">Hunter Allsop</div>
+        </div>
+        <div class="vector-parent">
+          <img class="frame-item" src="./assets/menu-line-1.svg" alt="" />
+          <img class="frame-item" src="./assets/menu-line-2.svg" alt="" />
+        </div>
+      </div>
+
+      <div class="frame-container">
+        <!-- HERO + brands + feature cards + about -->
+        <div class="hero-parent">
+          <!-- HERO -->
+          <div class="hero">
+            <div class="frame-div">
+              <div class="frame-parent2">
+                <div class="im-hunter-parent">
+                  <div class="im-hunter">
+                    <span>I’m </span>
+                    <i class="hunter">Hunter</i>
+                  </div>
+                  <div class="instance-parent">
+                    <div class="rectangle-parent">
+                      <div class="instance-child"></div>
+                      <img
+                        class="dscf0488-1-icon"
+                        src="./assets/hunter-portrait.png"
+                        alt="Hunter portrait"
+                      />
+                    </div>
+                    <div class="im-hunter">,</div>
+                  </div>
+                </div>
+
+                <div class="im-hunter-parent">
+                  <div class="im-hunter">
+                    <span>a </span>
+                    <i class="hunter">product</i>
+                  </div>
+                  <div class="rectangle-parent">
+                    <div class="instance-item"></div>
+                    <div class="image-29-parent">
+                      <img
+                        class="image-29-icon"
+                        src="./assets/product-1.png"
+                        alt=""
+                      />
+                      <img
+                        class="image-30-icon"
+                        src="./assets/product-2.png"
+                        alt=""
+                      />
+                      <img
+                        class="image-31-icon"
+                        src="./assets/product-3.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="instance-inner"></div>
+                  </div>
+                  <div class="im-hunter">Designer</div>
+                </div>
+              </div>
+
+              <div class="for-the-past">
+                For the past 7 years, I’ve been designing meaningful digital
+                experiences that connect user needs with business strategy.
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="state-layer">
+                <div class="label-text">Let’s connect</div>
+                <img
+                  class="call-made-icon"
+                  src="./assets/icon-arrow.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- BRANDS + FEATURED CASE STUDIES + ABOUT -->
+          <div class="frame-parent3">
+            <!-- Brands -->
+            <div class="past-companies-parent">
+              <div class="past-companies">
+                <div class="frame-parent4">
+                  <div class="x-parent">
+                    <div class="x">x</div>
+                    <img
+                      class="vector-icon"
+                      src="./assets/line.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="a-few-brands">
+                    A few brands I have worked with
+                  </div>
+                </div>
+                <div class="frame-parent5">
+                  <div class="bofa-1-parent">
+                    <img
+                      class="bofa-1-icon"
+                      src="./assets/bofa.png"
+                      alt="Bank of America"
+                    />
+                    <img
+                      class="family-search-1"
+                      src="./assets/familysearch.png"
+                      alt="FamilySearch"
+                    />
+                    <img
+                      class="metajive-1-icon"
+                      src="./assets/metajive.png"
+                      alt="Metajive"
+                    />
+                  </div>
+                  <div class="utah-tech1-1-1-parent">
+                    <img
+                      class="utah-tech1-1-1"
+                      src="./assets/utahtech.png"
+                      alt="Utah Tech"
+                    />
+                    <img
+                      class="era-2-icon"
+                      src="./assets/era.png"
+                      alt="ERA"
+                    />
+                    <img
+                      class="suu-1-icon"
+                      src="./assets/suu.png"
+                      alt="SUU"
+                    />
+                    <img
+                      class="dhi-1-1"
+                      src="./assets/dhi.png"
+                      alt="DHI"
+                    />
+                  </div>
+                </div>
+                <div class="x-group">
+                  <div class="x2">x</div>
+                  <img
+                    class="frame-child2"
+                    src="./assets/line.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <!-- Featured cards -->
+              <div class="frame-wrapper">
+                <div class="frame-parent6">
+                  <div class="instance-wrapper">
+                    <div class="group-parent">
+                      <div class="image-parent">
+                        <div class="image">
+                          <div class="image-child"></div>
+                          <img
+                            class="psd-02-1-icon"
+                            src="./assets/gps-dashboard.png"
+                            alt="Gold Point Systems"
+                          />
+                        </div>
+                        <div class="shadow"></div>
+                      </div>
+                      <div class="chips">
+                        <div class="chip">
+                          <b class="hunter-allsop">Product design</b>
+                        </div>
+                        <div class="chip">
+                          <b class="hunter-allsop">User research</b>
+                        </div>
+                      </div>
+                      <div class="bottom-text">
+                        <b class="gold-point-systems">
+                          Gold Point<br />Systems
+                        </b>
+                        <b class="gold-point-systems2">
+                          Gold Point Systems offers easy to use tools to track
+                          and manage banking transactions.
+                        </b>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Duplicate card (you can later change content) -->
+                  <div class="instance-wrapper">
+                    <div class="group-parent">
+                      <div class="image-parent">
+                        <div class="image">
+                          <div class="image-child"></div>
+                          <img
+                            class="psd-02-1-icon"
+                            src="./assets/gps-dashboard-2.png"
+                            alt="Case Study"
+                          />
+                        </div>
+                        <div class="shadow"></div>
+                      </div>
+                      <div class="chips">
+                        <div class="chip">
+                          <b class="hunter-allsop">Product design</b>
+                        </div>
+                        <div class="chip">
+                          <b class="hunter-allsop">User research</b>
+                        </div>
+                      </div>
+                      <div class="bottom-text">
+                        <b class="gold-point-systems">
+                          Gold Point<br />Systems
+                        </b>
+                        <b class="gold-point-systems2">
+                          Gold Point Systems offers easy to use tools to track
+                          and manage banking transactions.
+                        </b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- About section / Hello, I'm... -->
+            <div class="ellipse-parent">
+              <div class="ellipse-div"></div>
+
+              <div class="vector-group">
+                <img
+                  class="frame-child3"
+                  src="./assets/line-light.svg"
+                  alt=""
+                />
+                <div class="hello">Hello,</div>
+                <img
+                  class="frame-child3"
+                  src="./assets/line-light.svg"
+                  alt=""
+                />
+              </div>
+
+              <div class="frame-parent7">
+                <div class="button-parent">
+                  <img
+                    class="button-icon"
+                    src="./assets/pill-1.png"
+                    alt=""
+                  />
+                  <div class="button2">
+                    <div class="state-layer2">
+                      <div class="label-text">Design systems</div>
+                    </div>
+                  </div>
+                  <img
+                    class="button-icon2"
+                    src="./assets/pill-2.png"
+                    alt=""
+                  />
+                </div>
+
+                <div class="im-an-enthusiastic">
+                  I'm an enthusiastic and professional designer who’s passionate
+                  about making products better—both for the people who use them
+                  and the teams who build them. I care deeply about the details,
+                  love solving problems, and bring a collaborative, thoughtful
+                  energy to every project I work on.
+                </div>
+
+                <div class="button-group">
+                  <img
+                    class="button-icon3"
+                    src="./assets/pill-3.png"
+                    alt=""
+                  />
+                  <div class="button3">
+                    <div class="state-layer2">
+                      <div class="label-text">UI/UX Design</div>
+                    </div>
+                  </div>
+                  <img
+                    class="button-icon4"
+                    src="./assets/pill-4.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom "I'm available" section -->
+        <div class="frame-parent8">
+          <div class="vector-container">
+            <img
+              class="frame-child5"
+              src="./assets/line-light.svg"
+              alt=""
+            />
+            <div class="gold-point-systems">I’m available</div>
+            <img
+              class="frame-child5"
+              src="./assets/line-light.svg"
+              alt=""
+            />
+          </div>
+
+          <div class="lets-connect-parent">
+            <div class="lets-connect">
+              <span>Let’s </span><i class="connect">connect</i>
+            </div>
+            <div class="reach-out-anytime">
+              Reach out anytime, I’m available for new opportunities and
+              collaborations
+            </div>
+          </div>
+
+          <div class="button4">
+            <div class="state-layer">
+              <div class="label-text">Let’s connect</div>
+              <img
+                class="call-made-icon"
+                src="./assets/icon-arrow.svg"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <img
+            class="adobestock-142298783-1-icon"
+            src="./assets/footer-image.png"
+            alt="Background landscape"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
 

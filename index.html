@@ -291,21 +291,21 @@
       max-height: 100%;
     }
 
-    /* ROTATION UTILITY CLASSES FOR PILLS */
+    /* ROTATION UTILITY CLASSES FOR PILLS (correct angles) */
     .pill-rotate-neg-8 {
-      transform: rotate(16.11deg);
+      transform: rotate(-8.89deg);
     }
 
     .pill-rotate-10 {
-      transform: rotate(-18.86deg);
+      transform: rotate(10.14deg);
     }
 
     .pill-rotate-13 {
-      transform: rotate(-16.11deg);
+      transform: rotate(13.83deg);
     }
 
     .pill-rotate-neg-16 {
-      transform: rotate(18.86deg);
+      transform: rotate(-16.07deg);
     }
 
     .frame-parent3 {
@@ -561,16 +561,33 @@
       flex-shrink: 0;
     }
 
+    /* Blur only the background behind the chip, not the text */
     .chip {
-      backdrop-filter: blur(25px);
+      position: relative;
       border-radius: 60px;
-      background-color: rgba(104, 104, 104, 0.4);
-      border: 1px solid #fff;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 6px 16px;
       flex-shrink: 0;
+    }
+
+    .chip::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      background-color: rgba(104, 104, 104, 0.4);
+      border: 1px solid #fff;
+      z-index: 0;
+    }
+
+    .chip > * {
+      position: relative;
+      z-index: 1; /* ensure text stays sharp above the blurred layer */
     }
 
     .bottom-text {
@@ -583,11 +600,13 @@
       flex-shrink: 0;
       font-size: 35px;
       color: #f9f9f9;
+      position: relative;
     }
 
     .gold-point-systems {
       position: relative;
       letter-spacing: 0.1px;
+      z-index: 2;
     }
 
     .gold-point-systems2 {
@@ -595,6 +614,7 @@
       position: relative;
       font-size: 16px;
       color: rgba(249, 249, 249, 0.8);
+      z-index: 2; /* make sure description text is never part of any blur */
     }
 
     .ellipse-parent {
@@ -705,7 +725,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed; /* simple parallax */
+      background-attachment: fixed; /* parallax over the whole section */
       overflow: hidden;
       flex-shrink: 0;
       display: flex;

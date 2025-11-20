@@ -479,15 +479,15 @@
       justify-content: center;
     }
 
+    /* CARD CONTAINER – 800×350 with centered image */
     .group-parent {
-      height: 350px;
       width: 800px;
+      height: 350px;
       border-radius: 12px;
       overflow: hidden;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
       justify-content: space-between;
       padding: 16px 20px;
       box-sizing: border-box;
@@ -496,57 +496,50 @@
       gap: 20px;
     }
 
-    /* Case study images: 800×350 */
+    /* Image stack fills the card, no offsets */
     .image-parent {
-      width: 910px;
-      height: 350px;
       position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       margin: 0 !important;
-      top: -53px;
-      right: -110px;
       z-index: 0;
       flex-shrink: 0;
     }
 
     .image {
       position: absolute;
-      top: 0px;
-      right: 0px;
-      width: 910px;
-      height: 350px;
+      inset: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .image-child {
       position: absolute;
-      top: 6px;
-      right: 0px;
+      inset: 0;
       border-radius: 12px;
       background-color: #eaeaea;
-      width: 800px;
-      height: 350px;
     }
 
     .psd-02-1-icon {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 800px;
-      height: 350px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .shadow {
       position: absolute;
-      top: 150px;
-      left: 0px;
-      border-radius: 0px 0px 12px 12px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 70%;
+      border-radius: 0 0 12px 12px;
       background: linear-gradient(
         180deg,
         rgba(45, 45, 45, 0) 8.65%,
         rgba(45, 45, 45, 0.65) 66.27%
       );
-      width: 800px;
-      height: 253px;
     }
 
     .chips {
@@ -659,7 +652,7 @@
         "Segoe UI", sans-serif;
     }
 
-    /* LEFT column: Design systems (no image PNGs) */
+    /* LEFT column: Design systems (no PNG pills) */
     .button-parent {
       height: 300px;
       width: 136px;
@@ -670,7 +663,7 @@
       gap: 45px;
     }
 
-    /* RIGHT column: UI/UX Design (no image PNGs) */
+    /* RIGHT column: UI/UX Design (no PNG pills) */
     .button-group {
       height: 300px;
       display: flex;
@@ -1101,7 +1094,7 @@
           </div>
         </div>
 
-        <!-- Bottom "I'm available" section (matches Figma structure) -->
+        <!-- Bottom "I'm available" section -->
         <div class="frame-parent8">
           <div class="vector-container">
             <img

@@ -204,6 +204,7 @@
       box-shadow: 6px 6px 28px rgba(13, 13, 13, 0.32);
     }
 
+    /* Original pill container styles (used by Hunter pill) */
     .instance-child {
       position: absolute;
       height: 100%;
@@ -230,6 +231,7 @@
       object-fit: cover;
     }
 
+    /* These remain defined but are no longer used for the product pill */
     .instance-item {
       position: absolute;
       height: 100%;
@@ -290,6 +292,21 @@
       border-radius: 99.5px;
       border: 6px solid #040612;
       box-sizing: border-box;
+    }
+
+    /* NEW: clean pill version for the “product” pill */
+    .rectangle-parent-pill {
+      border-radius: 99.5px;
+      overflow: hidden;      /* Hide any corners */
+      background: transparent;
+      border: none;          /* Remove white border */
+    }
+
+    .rectangle-parent-pill .rectangle-pill-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
     }
 
     .for-the-past {
@@ -938,56 +955,51 @@
         <div class="hero-parent">
           <!-- HERO -->
           <div class="hero">
-           <div class="frame-div">
-  <div class="frame-parent2">
-    <!-- Line 1: “I’m Hunter [pill] ,” -->
-    <div class="im-hunter-parent">
-      <div class="im-hunter">
-        <span>I’m </span>
-        <i class="hunter">Hunter</i>
-      </div>
-      <div class="instance-parent">
-        <div class="rectangle-parent">
-          <div class="instance-child"></div>
-          <!-- Figma: .dscf0488-1-icon — now using Hunter pill asset -->
-          <img
-            class="dscf0488-1-icon"
-            src="./HomepageAssets/Hunter%20pill2.png"
-            alt="Hunter pill"
-          />
-        </div>
-        <div class="im-hunter">,</div>
-      </div>
-    </div>
+            <div class="frame-div">
+              <div class="frame-parent2">
+                <!-- Line 1: “I’m Hunter [pill] ,” -->
+                <div class="im-hunter-parent">
+                  <div class="im-hunter">
+                    <span>I’m </span>
+                    <i class="hunter">Hunter</i>
+                  </div>
+                  <div class="instance-parent">
+                    <div class="rectangle-parent">
+                      <div class="instance-child"></div>
+                      <!-- Hunter pill image -->
+                      <img
+                        class="dscf0488-1-icon"
+                        src="./HomepageAssets/Hunter%20pill2.png"
+                        alt="Hunter pill"
+                      />
+                    </div>
+                    <div class="im-hunter">,</div>
+                  </div>
+                </div>
 
-    <!-- Line 2: “a product [pill] Designer” -->
-    <div class="im-hunter-parent">
-      <div class="im-hunter">
-        <span>a </span>
-        <i class="hunter">product</i>
-      </div>
-      <div class="rectangle-parent">
-        <div class="instance-item"></div>
-        <div class="image-29-parent">
-          <!-- Figma had three stacked images; now replaced with a single combined pill asset -->
-          <img
-            class="image-29-icon"
-            src="./HomepageAssets/Pill2.png"
-            alt="Product design pill"
-          />
-        </div>
-        <div class="instance-inner"></div>
-      </div>
-      <div class="im-hunter">Designer</div>
-    </div>
-  </div>
+                <!-- Line 2: “a product [pill] Designer” -->
+                <div class="im-hunter-parent">
+                  <div class="im-hunter">
+                    <span>a </span>
+                    <i class="hunter">product</i>
+                  </div>
+                  <div class="rectangle-parent rectangle-parent-pill">
+                    <img
+                      class="rectangle-pill-image"
+                      src="./HomepageAssets/Pill2.png"
+                      alt="Product design pill"
+                    />
+                  </div>
+                  <div class="im-hunter">Designer</div>
+                </div>
+              </div>
 
-  <div class="for-the-past">
-    For the past 7 years, I’ve been designing meaningful digital
-    experiences that connect user needs with business strategy.
-  </div>
-</div>
-            
+              <div class="for-the-past">
+                For the past 7 years, I’ve been designing meaningful digital
+                experiences that connect user needs with business strategy.
+              </div>
+            </div>
+
             <div class="button">
               <div class="state-layer">
                 <div class="label-text">Let’s connect</div>
@@ -1004,74 +1016,74 @@
           <div class="frame-parent3">
             <!-- Brands -->
             <div class="past-companies-parent">
-            <div class="past-companies">
-  <!-- Top "x" + line + heading -->
-  <div class="frame-parent">
-    <div class="x-parent">
-      <div class="x">x</div>
-      <img
-        class="frame-child"
-        src="./HomepageAssets/Arrow1.png"
-        alt="Decorative divider"
-      />
-    </div>
-    <div class="a-few-brands">A few brands I have worked with</div>
-  </div>
+              <div class="past-companies">
+                <!-- Top "x" + line + heading -->
+                <div class="frame-parent">
+                  <div class="x-parent">
+                    <div class="x">x</div>
+                    <img
+                      class="frame-child"
+                      src="./HomepageAssets/Arrow1.png"
+                      alt="Decorative divider"
+                    />
+                  </div>
+                  <div class="a-few-brands">A few brands I have worked with</div>
+                </div>
 
-  <!-- Logo grid -->
-  <div class="frame-group">
-    <div class="bofa-1-parent">
-      <img
-        class="bofa-1-icon"
-        src="./HomepageAssets/BOFA%201.png"
-        alt="Bank of America"
-      />
-      <img
-        class="family-search-1"
-        src="./HomepageAssets/Family%20search%201.png"
-        alt="FamilySearch"
-      />
-      <img
-        class="metajive-1-icon"
-        src="./HomepageAssets/Metajive%201.png"
-        alt="Metajive"
-      />
-    </div>
+                <!-- Logo grid -->
+                <div class="frame-parent5">
+                  <div class="bofa-1-parent">
+                    <img
+                      class="bofa-1-icon"
+                      src="./HomepageAssets/BOFA%201.png"
+                      alt="Bank of America"
+                    />
+                    <img
+                      class="family-search-1"
+                      src="./HomepageAssets/Family%20search%201.png"
+                      alt="FamilySearch"
+                    />
+                    <img
+                      class="metajive-1-icon"
+                      src="./HomepageAssets/Metajive%201.png"
+                      alt="Metajive"
+                    />
+                  </div>
 
-    <div class="utah-tech1-1-1-parent">
-      <img
-        class="utah-tech1-1-1"
-        src="./HomepageAssets/utah-tech(1)%201%201.png"
-        alt="Utah Tech"
-      />
-      <img
-        class="era-2-icon"
-        src="./HomepageAssets/ERA%202.png"
-        alt="ERA"
-      />
-      <img
-        class="suu-1-icon"
-        src="./HomepageAssets/SUU%201.png"
-        alt="Southern Utah University"
-      />
-      <img
-        class="dhi-1-1"
-        src="./HomepageAssets/DHI%201%201.png"
-        alt="DHI"
-      />
-    </div>
-  </div>
+                  <div class="utah-tech1-1-1-parent">
+                    <img
+                      class="utah-tech1-1-1"
+                      src="./HomepageAssets/utah-tech(1)%201%201.png"
+                      alt="Utah Tech"
+                    />
+                    <img
+                      class="era-2-icon"
+                      src="./HomepageAssets/ERA%202.png"
+                      alt="ERA"
+                    />
+                    <img
+                      class="suu-1-icon"
+                      src="./HomepageAssets/SUU%201.png"
+                      alt="Southern Utah University"
+                    />
+                    <img
+                      class="dhi-1-1"
+                      src="./HomepageAssets/DHI%201%201.png"
+                      alt="DHI"
+                    />
+                  </div>
+                </div>
 
-  <!-- Bottom "x" + line -->
-  <div class="x-group">
-    <div class="x2">x</div>
-    <img
-      class="frame-item"
-      src="./HomepageAssets/Arrow2.png"
-      alt="Decorative divider"
-    />
-  </div>
-</div>
+                <!-- Bottom "x" + line -->
+                <div class="x-group">
+                  <div class="x2">x</div>
+                  <img
+                    class="frame-child2"
+                    src="./HomepageAssets/Arrow2.png"
+                    alt="Decorative divider"
+                  />
+                </div>
+              </div>
 
               <!-- Featured cards -->
               <div class="frame-wrapper">

@@ -410,13 +410,16 @@
       position: relative;
     }
 
+    /* UPDATED: arrow images with full X visible and black line */
     .vector-icon {
-      width: 1px;
+      width: 12px;          /* allow full X width */
       height: 53px;
       position: relative;
       max-width: 100%;
       overflow: hidden;
       flex-shrink: 0;
+      object-fit: contain;  /* keep proportions */
+      filter: brightness(0);/* force black */
     }
 
     .a-few-brands {
@@ -515,14 +518,17 @@
       line-height: 33px;
     }
 
+    /* UPDATED: bottom arrow same behavior as top */
     .frame-child2 {
-      width: 1px;
+      width: 12px;          /* allow full X width */
       height: 53px;
       position: relative;
       max-width: 100%;
       overflow: hidden;
       flex-shrink: 0;
       margin-top: -3px;
+      object-fit: contain;
+      filter: brightness(0);/* force black */
     }
 
     .frame-wrapper {
@@ -1016,76 +1022,73 @@
           <div class="frame-parent3">
             <!-- Brands -->
             <div class="past-companies-parent">
-             <div class="past-companies">
-  <!-- Top "x" + arrow + heading -->
-  <div class="frame-parent4">
-    <div class="x-parent">
-      <div class="x">x</div>
-      <img
-        class="vector-icon"
-        src="./HomepageAssets/Arrow1.png"
-        alt="Decorative divider"
-      />
-    </div>
-    <div class="a-few-brands">A few brands I have worked with</div>
-  </div>
+              <div class="past-companies">
+                <!-- Top "x" + arrow + heading -->
+                <div class="frame-parent4">
+                  <div class="x-parent">
+                    <div class="x">x</div>
+                    <img
+                      class="vector-icon"
+                      src="./HomepageAssets/Arrow1.png"
+                      alt="Decorative divider"
+                    />
+                  </div>
+                  <div class="a-few-brands">A few brands I have worked with</div>
+                </div>
 
-  <!-- Logo grid -->
-  <div class="frame-parent5">
-    <div class="bofa-1-parent">
-      <img
-        class="bofa-1-icon"
-        src="./HomepageAssets/BOFA%201.png"
-        alt="Bank of America"
-      />
-      <img
-        class="family-search-1"
-        src="./HomepageAssets/Family%20search%201.png"
-        alt="FamilySearch"
-      />
-      <img
-        class="metajive-1-icon"
-        src="./HomepageAssets/Metajive%201.png"
-        alt="Metajive"
-      />
-    </div>
+                <!-- Logo grid -->
+                <div class="frame-parent5">
+                  <div class="bofa-1-parent">
+                    <img
+                      class="bofa-1-icon"
+                      src="./HomepageAssets/BOFA%201.png"
+                      alt="Bank of America"
+                    />
+                    <img
+                      class="family-search-1"
+                      src="./HomepageAssets/Family%20search%201.png"
+                      alt="FamilySearch"
+                    />
+                    <img
+                      class="metajive-1-icon"
+                      src="./HomepageAssets/Metajive%201.png"
+                      alt="Metajive"
+                    />
+                  </div>
 
-    <div class="utah-tech1-1-1-parent">
-      <img
-        class="utah-tech1-1-1"
-        src="./HomepageAssets/utah-tech(1)%201%201.png"
-        alt="Utah Tech"
-      />
-      <img
-        class="era-2-icon"
-        src="./HomepageAssets/ERA%202.png"
-        alt="ERA"
-      />
-      <img
-        class="suu-1-icon"
-        src="./HomepageAssets/SUU%201.png"
-        alt="Southern Utah University"
-      />
-      <img
-        class="dhi-1-1"
-        src="./HomepageAssets/DHI%201%201.png"
-        alt="DHI"
-      />
-    </div>
-  </div>
+                  <div class="utah-tech1-1-1-parent">
+                    <img
+                      class="utah-tech1-1-1"
+                      src="./HomepageAssets/utah-tech(1)%201%201.png"
+                      alt="Utah Tech"
+                    />
+                    <img
+                      class="era-2-icon"
+                      src="./HomepageAssets/ERA%202.png"
+                      alt="ERA"
+                    />
+                    <img
+                      class="suu-1-icon"
+                      src="./HomepageAssets/SUU%201.png"
+                      alt="Southern Utah University"
+                    />
+                    <img
+                      class="dhi-1-1"
+                      src="./HomepageAssets/DHI%201%201.png"
+                      alt="DHI"
+                    />
+                  </div>
+                </div>
 
-  <!-- Bottom "x" + arrow -->
-  <div class="x-group">
-    <div class="x2">x</div>
-    <img
-      class="frame-child2"
-      src="./HomepageAssets/Arrow2.png"
-      alt="Decorative divider"
-    />
-  </div>
-</div>
-
-
+                <!-- Bottom "x" + arrow -->
+                <div class="x-group">
+                  <div class="x2">x</div>
+                  <img
+                    class="frame-child2"
+                    src="./HomepageAssets/Arrow2.png"
+                    alt="Decorative divider"
+                  />
+                </div>
               </div>
 
               <!-- Featured cards -->

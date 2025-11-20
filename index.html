@@ -197,116 +197,44 @@
         "Segoe UI", sans-serif;
     }
 
-    .rectangle-parent {
+    /* SHARED pill container for both Hunter + Product */
+    .rectangle-parent,
+    .rectangle-parent-pill {
       height: 88px;
       width: 150px;
       position: relative;
       box-shadow: 6px 6px 28px rgba(13, 13, 13, 0.32);
-    }
-
-    /* Original pill container styles (used by Hunter pill) */
-    .instance-child {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0%;
-      right: 0%;
-      bottom: 0%;
-      left: 0%;
       border-radius: 99.5px;
-      background-color: #04040f;
-      border: 6px solid #040612;
-      box-sizing: border-box;
-    }
-
-    .dscf0488-1-icon {
-      position: absolute;
-      width: 53.33%;
-      top: 8px;
-      right: 23.33%;
-      left: 23.33%;
-      max-width: 100%;
       overflow: hidden;
-      height: 74px;
-      object-fit: cover;
-    }
-
-    /* These remain defined but are no longer used for the product pill */
-    .instance-item {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0%;
-      right: 0%;
-      bottom: 0%;
-      left: 0%;
-      border-radius: 99.5px;
-      background-color: #33acf5;
-      border: 6px solid #040612;
-      box-sizing: border-box;
-    }
-
-    .image-29-parent {
-      position: absolute;
-      top: 5px;
-      left: 30px;
-      width: 84.9px;
-      height: 79px;
-    }
-
-    .image-29-icon {
-      position: absolute;
-      top: 6.58px;
-      left: 0px;
-      width: 72.4px;
-      height: 72.4px;
-      object-fit: cover;
-    }
-
-    .image-30-icon {
-      position: absolute;
-      top: 0px;
-      left: 12.45px;
-      width: 69.1px;
-      height: 69.1px;
-      object-fit: cover;
-    }
-
-    .image-31-icon {
-      position: absolute;
-      top: 8.31px;
-      left: 32.5px;
-      width: 52.4px;
-      height: 52.4px;
-      object-fit: cover;
-    }
-
-    .instance-inner {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0%;
-      right: 0%;
-      bottom: 0%;
-      left: 0%;
-      border-radius: 99.5px;
-      border: 6px solid #040612;
-      box-sizing: border-box;
-    }
-
-    /* NEW: clean pill version for the “product” pill */
-    .rectangle-parent-pill {
-      border-radius: 99.5px;
-      overflow: hidden;      /* Hide any corners */
       background: transparent;
-      border: none;          /* Remove white border */
+      border: none;
     }
 
-    .rectangle-parent-pill .rectangle-pill-image {
+    /* Hunter pill image */
+    .dscf0488-1-icon {
       width: 100%;
       height: 100%;
       display: block;
       object-fit: cover;
+    }
+
+    /* Product pill image */
+    .rectangle-pill-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Unused legacy pieces kept for safety, but not in DOM anymore */
+    .instance-child,
+    .instance-item,
+    .image-29-parent,
+    .image-29-icon,
+    .image-30-icon,
+    .image-31-icon,
+    .instance-inner {
+      /* no-op / legacy */
     }
 
     .for-the-past {
@@ -410,16 +338,16 @@
       position: relative;
     }
 
-    /* UPDATED: arrow images with full X visible and black line */
+    /* Arrow images with full X visible and black line */
     .vector-icon {
-      width: 12px;          /* allow full X width */
+      width: 12px;
       height: 53px;
       position: relative;
       max-width: 100%;
       overflow: hidden;
       flex-shrink: 0;
-      object-fit: contain;  /* keep proportions */
-      filter: brightness(0);/* force black */
+      object-fit: contain;
+      filter: brightness(0);
     }
 
     .a-few-brands {
@@ -512,15 +440,9 @@
       align-items: center;
     }
 
-    .x2 {
-      align-self: stretch;
-      position: relative;
-      line-height: 33px;
-    }
-
-    /* UPDATED: bottom arrow same behavior as top */
+    /* bottom arrow */
     .frame-child2 {
-      width: 12px;          /* allow full X width */
+      width: 12px;
       height: 53px;
       position: relative;
       max-width: 100%;
@@ -528,7 +450,7 @@
       flex-shrink: 0;
       margin-top: -3px;
       object-fit: contain;
-      filter: brightness(0);/* force black */
+      filter: brightness(0);
     }
 
     .frame-wrapper {
@@ -971,8 +893,7 @@
                   </div>
                   <div class="instance-parent">
                     <div class="rectangle-parent">
-                      <div class="instance-child"></div>
-                      <!-- Hunter pill image -->
+                      <!-- Hunter pill image only -->
                       <img
                         class="dscf0488-1-icon"
                         src="./HomepageAssets/Hunter%20pill2.png"
@@ -990,6 +911,7 @@
                     <i class="hunter">product</i>
                   </div>
                   <div class="rectangle-parent rectangle-parent-pill">
+                    <!-- Product design pill image only -->
                     <img
                       class="rectangle-pill-image"
                       src="./HomepageAssets/Pill2.png"
@@ -1023,13 +945,12 @@
             <!-- Brands -->
             <div class="past-companies-parent">
               <div class="past-companies">
-                <!-- Top "x" + arrow + heading -->
+                <!-- Top arrow + heading -->
                 <div class="frame-parent4">
                   <div class="x-parent">
-                    <div class="x">x</div>
                     <img
                       class="vector-icon"
-                      src="./HomepageAssets/Arrowicon.png"
+                      src="./HomepageAssets/Arrow1.png"
                       alt="Decorative divider"
                     />
                   </div>
@@ -1080,9 +1001,8 @@
                   </div>
                 </div>
 
-                <!-- Bottom "x" + arrow -->
+                <!-- Bottom arrow only -->
                 <div class="x-group">
-                  <div class="x2">x</div>
                   <img
                     class="frame-child2"
                     src="./HomepageAssets/Arrow2.png"

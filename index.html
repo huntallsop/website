@@ -248,6 +248,7 @@
       display: inline-block;
     }
 
+    /* Primary CTA button (hero) */
     .button {
       height: 40px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
@@ -495,19 +496,18 @@
       gap: 20px;
     }
 
-    /* UPDATED: match image height to 350px */
+    /* Case study images: 800×350 */
     .image-parent {
       width: 910px;
       height: 350px;
       position: absolute;
       margin: 0 !important;
-      top: 0px;
-      right: 0px;
+      top: -53px;
+      right: -110px;
       z-index: 0;
       flex-shrink: 0;
     }
 
-    /* UPDATED: match image height to 350px */
     .image {
       position: absolute;
       top: 0px;
@@ -526,7 +526,6 @@
       height: 350px;
     }
 
-    /* UPDATED: enforce 800×350 for both case study images */
     .psd-02-1-icon {
       position: absolute;
       top: 0px;
@@ -660,12 +659,23 @@
         "Segoe UI", sans-serif;
     }
 
+    /* LEFT column: Design systems (no image PNGs) */
     .button-parent {
       height: 300px;
       width: 136px;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      justify-content: center;
+      gap: 45px;
+    }
+
+    /* RIGHT column: UI/UX Design (no image PNGs) */
+    .button-group {
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       justify-content: center;
       gap: 45px;
     }
@@ -678,57 +688,12 @@
       object-fit: contain;
     }
 
-    .button2 {
-      align-self: stretch;
-      height: 40px;
-      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
-      border-radius: 100px;
-      background-color: rgba(45, 45, 45, 0.6);
-      overflow: hidden;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .state-layer2 {
-      width: 100%;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px;
-      box-sizing: border-box;
-      max-width: 100%;
-    }
-
     .button-icon2 {
       width: 107.4px;
       height: 57.3px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
       border-radius: 100px;
       object-fit: contain;
-    }
-
-    .im-an-enthusiastic {
-      width: 571px;
-      position: relative;
-      font-size: 27px;
-      line-height: 41px;
-      font-family: "Instrument Serif", serif;
-      color: #000;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-    .button-group {
-      height: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 45px;
     }
 
     .button-icon3 {
@@ -739,25 +704,18 @@
       object-fit: contain;
     }
 
-    .button3 {
-      height: 40px;
-      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
-      border-radius: 100px;
-      background-color: rgba(45, 45, 45, 0.6);
-      overflow: hidden;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
     .button-icon4 {
       width: 99.5px;
       height: 63.9px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
       border-radius: 100px;
       object-fit: contain;
+    }
+
+    /* Make the ABOUT-section pills semi-transparent, keep hero CTA solid */
+    .button-parent .button,
+    .button-group .button {
+      background-color: rgba(45, 45, 45, 0.6);
     }
 
     .frame-parent8 {
@@ -1105,22 +1063,17 @@
               </div>
 
               <div class="frame-parent7">
+                <!-- LEFT: Design systems, no PNG pill -->
                 <div class="button-parent">
-                  <img
-                    class="button-icon"
-                    src="./assets/pill-1.png"
-                    alt=""
-                  />
-                  <div class="button2">
-                    <div class="state-layer2">
+                  <div class="button-icon"></div>
+
+                  <div class="button">
+                    <div class="state-layer">
                       <div class="label-text">Design systems</div>
                     </div>
                   </div>
-                  <img
-                    class="button-icon2"
-                    src="./assets/pill-2.png"
-                    alt=""
-                  />
+
+                  <div class="button-icon2"></div>
                 </div>
 
                 <div class="im-an-enthusiastic">
@@ -1131,22 +1084,17 @@
                   energy to every project I work on.
                 </div>
 
+                <!-- RIGHT: UI/UX Design, no PNG pill -->
                 <div class="button-group">
-                  <img
-                    class="button-icon3"
-                    src="./assets/pill-3.png"
-                    alt=""
-                  />
-                  <div class="button3">
-                    <div class="state-layer2">
+                  <div class="button-icon3"></div>
+
+                  <div class="button">
+                    <div class="state-layer">
                       <div class="label-text">UI/UX Design</div>
                     </div>
                   </div>
-                  <img
-                    class="button-icon4"
-                    src="./assets/pill-4.png"
-                    alt=""
-                  />
+
+                  <div class="button-icon4"></div>
                 </div>
               </div>
             </div>

@@ -652,6 +652,18 @@
   font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
 }
+    
+    .im-an-enthusiastic {
+  width: 571px;
+  position: relative;
+  font-size: 27px;
+  line-height: 41px;
+  font-family: "Instrument Serif", serif;
+  color: #000;                  /* ✅ make sure it’s visible */
+  display: inline-block;
+  /* remove flex-shrink: 0 to let it resize on smaller screens */
+  z-index: 3;                   /* ✅ ensure it sits above the radial background */
+}
 
     /* LEFT column: Design systems (no PNG pills) */
     .button-parent {

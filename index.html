@@ -248,15 +248,13 @@
       display: inline-block;
     }
 
-    /* Primary CTA button (hero) */
+    /* GENERIC BUTTON (hero CTA + pills) */
     .button {
       height: 40px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
       border-radius: 100px;
-      background-color: #2d2d2d;
-      overflow: hidden;
-      flex-shrink: 0;
-      display: flex;
+      background-color: rgba(45, 45, 45, 0.6);
+      display: inline-flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -265,18 +263,18 @@
       color: #fff;
       font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
+      border: none;
     }
 
     .state-layer {
-      width: 100%;
+      width: auto;
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 16px;
+      padding: 10px 16px; /* 16px left/right as requested */
       box-sizing: border-box;
       gap: 8px;
-      max-width: 100%;
     }
 
     .label-text {
@@ -284,12 +282,30 @@
       letter-spacing: 0.1px;
       line-height: 20px;
       font-weight: 500;
+      white-space: nowrap;
     }
 
     .call-made-icon {
       width: 20px;
       position: relative;
       max-height: 100%;
+    }
+
+    /* ROTATION UTILITY CLASSES FOR PILLS */
+    .pill-rotate-neg-8 {
+      transform: rotate(-8.89deg);
+    }
+
+    .pill-rotate-10 {
+      transform: rotate(10.14deg);
+    }
+
+    .pill-rotate-13 {
+      transform: rotate(13.83deg);
+    }
+
+    .pill-rotate-neg-16 {
+      transform: rotate(-16.07deg);
     }
 
     .frame-parent3 {
@@ -479,15 +495,15 @@
       justify-content: center;
     }
 
-    /* CARD CONTAINER – 800×350 with centered image */
     .group-parent {
-      width: 800px;
       height: 350px;
+      width: 800px;
       border-radius: 12px;
       overflow: hidden;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
+      align-items: flex-end;
       justify-content: space-between;
       padding: 16px 20px;
       box-sizing: border-box;
@@ -496,12 +512,12 @@
       gap: 20px;
     }
 
-    /* Image stack fills the card, no offsets */
     .image-parent {
+      width: 800px;
+      height: 350px;
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      top: 0;
+      left: 0;
       margin: 0 !important;
       z-index: 0;
       flex-shrink: 0;
@@ -509,37 +525,31 @@
 
     .image {
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .image-child {
-      position: absolute;
-      inset: 0;
-      border-radius: 12px;
-      background-color: #eaeaea;
+      top: 0;
+      left: 0;
+      width: 800px;
+      height: 350px;
     }
 
     .psd-02-1-icon {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 800px;
+      height: 350px;
       display: block;
+      object-fit: cover;
     }
 
     .shadow {
       position: absolute;
-      left: 0;
-      right: 0;
       bottom: 0;
-      height: 70%;
-      border-radius: 0 0 12px 12px;
+      left: 0;
+      border-radius: 0px 0px 12px 12px;
       background: linear-gradient(
         180deg,
-        rgba(45, 45, 45, 0) 8.65%,
-        rgba(45, 45, 45, 0.65) 66.27%
+        rgba(45, 45, 45, 0) 0%,
+        rgba(45, 45, 45, 0.7) 100%
       );
+      width: 800px;
+      height: 180px;
     }
 
     .chips {
@@ -621,7 +631,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 0;
       z-index: 1;
       flex-shrink: 0;
     }
@@ -636,39 +646,27 @@
     .hello {
       position: relative;
       line-height: 33px;
+      padding: 0 20px; /* 20px left/right around "Hello," */
     }
 
-  .frame-parent7 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 48px;
-  z-index: 2;
-  flex-shrink: 0;
-  flex-wrap: wrap;              /* ✅ allow wrapping so text doesn’t disappear */
-  text-align: center;
-  font-size: 14px;
-  color: #fff;
-  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-}
-    
-    .im-an-enthusiastic {
-  width: 571px;
-  position: relative;
-  font-size: 27px;
-  line-height: 41px;
-  font-family: "Instrument Serif", serif;
-  color: #000;                  /* ✅ make sure it’s visible */
-  display: inline-block;
-  /* remove flex-shrink: 0 to let it resize on smaller screens */
-  z-index: 3;                   /* ✅ ensure it sits above the radial background */
-}
+    .frame-parent7 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      z-index: 2;
+      flex-shrink: 0;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
 
-    /* LEFT column: Design systems (no PNG pills) */
+    /* Left vertical pills column */
     .button-parent {
       height: 300px;
-      width: 136px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
@@ -676,9 +674,10 @@
       gap: 45px;
     }
 
-    /* RIGHT column: UI/UX Design (no PNG pills) */
+    /* Right vertical pills column */
     .button-group {
       height: 300px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -686,48 +685,27 @@
       gap: 45px;
     }
 
-    .button-icon {
-      width: 113.9px;
-      height: 56.4px;
-      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
-      border-radius: 100px;
-      object-fit: contain;
-    }
-
-    .button-icon2 {
-      width: 107.4px;
-      height: 57.3px;
-      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
-      border-radius: 100px;
-      object-fit: contain;
-    }
-
-    .button-icon3 {
-      width: 133.9px;
-      height: 69.4px;
-      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
-      border-radius: 100px;
-      object-fit: contain;
-    }
-
-    .button-icon4 {
-      width: 99.5px;
-      height: 63.9px;
-      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
-      border-radius: 100px;
-      object-fit: contain;
-    }
-
-    /* Make the ABOUT-section pills semi-transparent, keep hero CTA solid */
-    .button-parent .button,
-    .button-group .button {
-      background-color: rgba(45, 45, 45, 0.6);
+    .im-an-enthusiastic {
+      width: 571px;
+      position: relative;
+      font-size: 27px;
+      line-height: 41px;
+      font-family: "Instrument Serif", serif;
+      color: #000;
+      display: inline-block;
+      flex-shrink: 0;
     }
 
     .frame-parent8 {
       align-self: stretch;
-      height: 748px;
+      min-height: 100vh;
+      width: 100%;
       background-color: #141414;
+      background-image: url("./HomepageAssets/lightbackground.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* simple parallax */
       overflow: hidden;
       flex-shrink: 0;
       display: flex;
@@ -809,18 +787,11 @@
       color: #fff;
       font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
+      border: none;
     }
 
     .adobestock-142298783-1-icon {
-      width: 1475.9px;
-      position: absolute;
-      margin: 0 !important;
-      top: -150px;
-      left: -26px;
-      max-height: 100%;
-      object-fit: contain;
-      z-index: 3;
-      flex-shrink: 0;
+      /* legacy, image removed from DOM */
     }
   </style>
 </head>
@@ -1050,80 +1021,81 @@
               </div>
             </div>
 
-           <!-- About section / Hello, I'm... -->
-<div class="ellipse-parent">
-  <div class="ellipse-div"></div>
+            <!-- About section / Hello, I'm... -->
+            <div class="ellipse-parent">
+              <div class="ellipse-div"></div>
 
-  <div class="vector-group">
-    <img
-      class="frame-child3"
-      src="./assets/line-light.svg"
-      alt=""
-    />
-    <div class="hello">Hello,</div>
-    <img
-      class="frame-child3"
-      src="./assets/line-light.svg"
-      alt=""
-    />
-  </div>
+              <div class="vector-group">
+                <img
+                  class="frame-child3"
+                  src="./HomepageAssets/Helloline.png"
+                  alt=""
+                />
+                <div class="hello">Hello,</div>
+                <img
+                  class="frame-child3"
+                  src="./HomepageAssets/Helloline.png"
+                  alt=""
+                />
+              </div>
 
-  <div class="frame-parent7">
-    <!-- LEFT COLUMN: Design systems -->
-    <div class="button-parent">
-      <div class="button">
-        <div class="state-layer">
-          <div class="label-text">Design systems</div>
+              <div class="frame-parent7">
+                <!-- LEFT COLUMN: User testing / Design systems / Prototypes -->
+                <div class="button-parent">
+                  <div class="button pill-rotate-neg-8">
+                    <div class="state-layer">
+                      <div class="label-text">User testing</div>
+                    </div>
+                  </div>
+
+                  <div class="button">
+                    <div class="state-layer">
+                      <div class="label-text">Design systems</div>
+                    </div>
+                  </div>
+
+                  <div class="button pill-rotate-10">
+                    <div class="state-layer">
+                      <div class="label-text">Prototypes</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- MIDDLE COPY -->
+                <div class="im-an-enthusiastic">
+                  I'm an enthusiastic and professional designer who’s passionate
+                  about making products better—both for the people who use them
+                  and the teams who build them. I care deeply about the details,
+                  love solving problems, and bring a collaborative, thoughtful
+                  energy to every project I work on.
+                </div>
+
+                <!-- RIGHT COLUMN: Problem solver / UI/UX Design / Research -->
+                <div class="button-group">
+                  <div class="button pill-rotate-13">
+                    <div class="state-layer">
+                      <div class="label-text">Problem solver</div>
+                    </div>
+                  </div>
+
+                  <div class="button">
+                    <div class="state-layer">
+                      <div class="label-text">UI/UX Design</div>
+                    </div>
+                  </div>
+
+                  <div class="button pill-rotate-neg-16">
+                    <div class="state-layer">
+                      <div class="label-text">Research</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="button">
-        <div class="state-layer">
-          <div class="label-text">Design systems</div>
-        </div>
-      </div>
-
-      <div class="button">
-        <div class="state-layer">
-          <div class="label-text">Design systems</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MIDDLE COPY -->
-    <div class="im-an-enthusiastic">
-      I'm an enthusiastic and professional designer who’s passionate
-      about making products better—both for the people who use them
-      and the teams who build them. I care deeply about the details,
-      love solving problems, and bring a collaborative, thoughtful
-      energy to every project I work on.
-    </div>
-
-    <!-- RIGHT COLUMN: UI/UX Design -->
-    <div class="button-group">
-      <div class="button">
-        <div class="state-layer">
-          <div class="label-text">UI/UX Design</div>
-        </div>
-      </div>
-
-      <div class="button">
-        <div class="state-layer">
-          <div class="label-text">UI/UX Design</div>
-        </div>
-      </div>
-
-      <div class="button">
-        <div class="state-layer">
-          <div class="label-text">UI/UX Design</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-        <!-- Bottom "I'm available" section -->
+        <!-- Bottom "I'm available" section with parallax background -->
         <div class="frame-parent8">
           <div class="vector-container">
             <img
@@ -1159,12 +1131,6 @@
               />
             </div>
           </div>
-
-          <img
-            class="adobestock-142298783-1-icon"
-            src="./assets/footer-image.png"
-            alt="Background landscape"
-          />
         </div>
       </div>
     </div>

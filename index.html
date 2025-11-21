@@ -1137,96 +1137,50 @@
           </div>
         </div>
 
-        <!-- Bottom "I'm available" section with black parallax background -->
-        <div class="frame-parent8">
-          <!-- empty block – just holds the black background -->
-        </div>
+       <!-- Bottom "I'm available" section with black parallax background -->
+<div class="frame-parent8">
+  <div class="frame-parent8-inner">
+    <div class="vector-container">
+      <img
+        class="frame-child5"
+        src="./assets/line-light.svg"
+        alt=""
+      />
+      <div class="im-available">I’m available</div>
+      <img
+        class="frame-child5"
+        src="./assets/line-light.svg"
+        alt=""
+      />
+    </div>
 
-        <!-- The parallax "I'm available" content (controlled by JS) -->
-        <div class="frame-parent8-inner">
-          <div class="vector-container">
-            <img
-              class="frame-child5"
-              src="./assets/line-light.svg"
-              alt=""
-            />
-            <div class="im-available">I’m available</div>
-            <img
-              class="frame-child5"
-              src="./assets/line-light.svg"
-              alt=""
-            />
-          </div>
+    <div class="lets-connect-parent">
+      <div class="lets-connect">
+        <span>Let’s </span><i class="connect">connect</i>
+      </div>
+      <div class="reach-out-anytime">
+        Reach out anytime, I’m available for new opportunities and
+        collaborations
+      </div>
+    </div>
 
-          <div class="lets-connect-parent">
-            <div class="lets-connect">
-              <span>Let’s </span><i class="connect">connect</i>
-            </div>
-            <div class="reach-out-anytime">
-              Reach out anytime, I’m available for new opportunities and
-              collaborations
-            </div>
-          </div>
-
-          <div class="button4">
-            <div class="state-layer">
-              <div class="label-text">Let’s connect</div>
-              <img
-                class="call-made-icon"
-                src="./HomepageAssets/Arrowicon.png"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-        <!-- end parallax section -->
+    <div class="button4">
+      <div class="state-layer">
+        <div class="label-text">Let’s connect</div>
+        <img
+          class="call-made-icon"
+          src="./HomepageAssets/Arrowicon.png"
+          alt=""
+        />
       </div>
     </div>
   </div>
+</div>
+<!-- end parallax section -->
 
-  <!-- Parallax control script -->
-  <script>
-    (function () {
-      const section = document.querySelector(".frame-parent8");
-      const inner = document.querySelector(".frame-parent8-inner");
-      const scroller = document.querySelector(".desktop-2");
-
-      if (!section || !inner) return;
-
-      function updateParallax() {
-        const rect = section.getBoundingClientRect();
-        const vh = window.innerHeight || document.documentElement.clientHeight;
-
-        // Section completely below viewport: keep text hidden off-screen
-        if (rect.top >= vh) {
-          inner.style.opacity = "0";
-          inner.style.top = "100%";
-          return;
-        }
-
-        // Section fully covering the top of viewport (background at 100vh)
-        // -> lock text in the center
-        if (rect.top <= 0) {
-          inner.style.opacity = "1";
-          inner.style.top = "50%"; // center of viewport
-          return;
-        }
-
-        // Between: section is sliding up, map rect.top in [vh, 0] to top in [100%, 50%]
-        const progress = (vh - rect.top) / vh; // 0..1
-        const topPercent = 100 - 50 * progress; // 100 -> 50
-
-        inner.style.opacity = "1";
-        inner.style.top = topPercent + "%";
-      }
-
-      updateParallax();
-      window.addEventListener("scroll", updateParallax);
-      if (scroller) {
-        scroller.addEventListener("scroll", updateParallax);
-      }
-      window.addEventListener("resize", updateParallax);
-    })();
-  </script>
+      </div>
+    </div>
+  </div>
+  
 </body>
 </html>

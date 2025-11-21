@@ -78,7 +78,7 @@
       align-items: center;
       isolation: isolate;
       gap: 110px;
-      z-index: 2;
+      z-index: 2; /* above white background image */
       flex-shrink: 0;
     }
 
@@ -718,31 +718,31 @@
       flex-shrink: 0;
     }
 
-    /* BOTTOM SECTION – full-screen background + scrolling-then-pinned text */
+    /* BOTTOM SECTION – full-screen black with parallax text */
     .frame-parent8 {
       align-self: stretch;
-      height: 220vh; /* extra scroll room so the text can travel, then pin */
+      height: 100vh; /* background fills viewport when this section is in view */
       width: 100vw;
       background-color: #141414;
       background-image: url("./HomepageAssets/lightbackground.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
-      overflow: hidden;
+      overflow: visible;
       flex-shrink: 0;
       position: relative;
       isolation: isolate;
       margin: 0;
       padding: 0;
+      z-index: 1;
     }
 
-    /* Text block: scrolls with the page at first, then stops in the center */
+    /* Parallax text: we control top & opacity via JS */
     .frame-parent8-inner {
-      position: sticky;
-      top: 50%;                 /* pin when the middle of the viewport is reached */
-      transform: translateY(-50%);
-      margin-top: 10vh;         /* lets it "enter" from higher up before pinning */
+      position: fixed;              /* attached to viewport for smooth slide */
+      left: 50%;
+      top: 100%;                    /* start off-screen at bottom */
+      transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -753,6 +753,9 @@
       color: #f9f9f9;
       font-family: "Instrument Serif", serif;
       padding: 0 16px;
+      opacity: 0;                   /* hidden until section scrolls into view */
+      pointer-events: none;         /* let scroll pass through */
+      z-index: 3;                   /* above black background */
     }
 
     .vector-container {
@@ -827,19 +830,6 @@
     .adobestock-142298783-1-icon {
       /* legacy, image removed from DOM */
     }
-
-    /* ===== Subtle scroll reveal animations (Goodfight-style) ===== */
-    .fade-section {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      will-change: opacity, transform;
-    }
-
-    .fade-section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
   </style>
 </head>
 <body>
@@ -868,7 +858,7 @@
       </div>
 
       <div class="frame-container">
-        <!-- HERO (full screen) + brands + feature cards + about -->
+        <!-- HERO + brands + feature cards + about -->
         <div class="hero-parent">
           <!-- HERO -->
           <div class="hero">
@@ -932,7 +922,7 @@
           <!-- BRANDS + FEATURED CASE STUDIES + ABOUT -->
           <div class="frame-parent3">
             <!-- Brands -->
-            <div class="past-companies-parent fade-section">
+            <div class="past-companies-parent">
               <div class="past-companies">
                 <!-- Top arrow + heading -->
                 <div class="frame-parent4">
@@ -1001,7 +991,7 @@
               </div>
 
               <!-- Featured cards -->
-              <div class="frame-wrapper fade-section">
+              <div class="frame-wrapper">
                 <div class="frame-parent6">
                   <!-- CARD 1 – GPS -->
                   <div class="instance-wrapper">
@@ -1073,7 +1063,7 @@
             </div>
 
             <!-- About section / Hello, I'm... -->
-            <div class="ellipse-parent fade-section">
+            <div class="ellipse-parent">
               <div class="ellipse-div"></div>
 
               <div class="vector-group">
@@ -1146,51 +1136,54 @@
           </div>
         </div>
 
-        <!-- Bottom "I'm available" section with parallax background -->
+        <!-- Bottom "I'm available" section with black parallax background -->
         <div class="frame-parent8">
-          <div class="frame-parent8-inner fade-section">
-            <div class="vector-container">
+          <!-- empty block – just holds the black background -->
+        </div>
+
+        <!-- The parallax "I'm available" content (controlled by JS) -->
+        <div class="frame-parent8-inner">
+          <div class="vector-container">
+            <img
+              class="frame-child5"
+              src="./assets/line-light.svg"
+              alt=""
+            />
+            <div class="im-available">I’m available</div>
+            <img
+              class="frame-child5"
+              src="./assets/line-light.svg"
+              alt=""
+            />
+          </div>
+
+          <div class="lets-connect-parent">
+            <div class="lets-connect">
+              <span>Let’s </span><i class="connect">connect</i>
+            </div>
+            <div class="reach-out-anytime">
+              Reach out anytime, I’m available for new opportunities and
+              collaborations
+            </div>
+          </div>
+
+          <div class="button4">
+            <div class="state-layer">
+              <div class="label-text">Let’s connect</div>
               <img
-                class="frame-child5"
-                src="./assets/line-light.svg"
+                class="call-made-icon"
+                src="./HomepageAssets/Arrowicon.png"
                 alt=""
               />
-              <div class="im-available">I’m available</div>
-              <img
-                class="frame-child5"
-                src="./assets/line-light.svg"
-                alt=""
-              />
-            </div>
-
-            <div class="lets-connect-parent">
-              <div class="lets-connect">
-                <span>Let’s </span><i class="connect">connect</i>
-              </div>
-              <div class="reach-out-anytime">
-                Reach out anytime, I’m available for new opportunities and
-                collaborations
-              </div>
-            </div>
-
-            <div class="button4">
-              <div class="state-layer">
-                <div class="label-text">Let’s connect</div>
-                <img
-                  class="call-made-icon"
-                  src="./HomepageAssets/Arrowicon.png"
-                  alt=""
-                />
-              </div>
             </div>
           </div>
         </div>
-        <!-- end frame-parent8 -->
+        <!-- end parallax section -->
       </div>
     </div>
   </div>
 
-   <!-- Parallax control script -->
+  <!-- Parallax control script -->
   <script>
     (function () {
       const section = document.querySelector(".frame-parent8");
@@ -1210,7 +1203,7 @@
           return;
         }
 
-           // Section fully covering the top of viewport (background at 100vh)
+        // Section fully covering the top of viewport (background at 100vh)
         // -> lock text in the center
         if (rect.top <= 0) {
           inner.style.opacity = "1";
@@ -1234,6 +1227,5 @@
       window.addEventListener("resize", updateParallax);
     })();
   </script>
-
 </body>
 </html>

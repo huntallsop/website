@@ -1218,7 +1218,7 @@
 
         // At this point, black section fully covers the viewport (rect.top <= 0).
         // We animate the text in as you scroll further into this section.
-        const progressRaw = -rect.top / vh; // 0 when top == 0, 1 when top == -vh
+        const progressRaw = -rect.top / (vh * 1.2); // 0 when top == 0, 1 when top == -vh
         const progress = Math.max(0, Math.min(1, progressRaw));
 
         // Slide from bottom (100%) up to center (50%)

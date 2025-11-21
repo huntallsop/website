@@ -1203,18 +1203,27 @@
         const rect = section.getBoundingClientRect();
         const vh = window.innerHeight || document.documentElement.clientHeight;
 
-        // When the black section has NOT yet filled the viewport,
-        // or when it has already scrolled past, keep the text hidden
-        if (rect.top > 0 || rect.bottom < vh) {
+        // Section completely below viewport: keep text hidden off-screen
+        if (rect.top >= vh) {
           inner.style.opacity = "0";
-          inner.style.top = "100%"; // keep it off-screen at the bottom
+          inner.style.top = "100%";
           return;
         }
 
-        // When the black background fully fills the viewport:
-        // lock the text in the center and show it
+           // Section fully covering the top of viewport (background at 100vh)
+        // -> lock text in the center
+        if (rect.top <= 0) {
+          inner.style.opacity = "1";
+          inner.style.top = "50%"; // center of viewport
+          return;
+        }
+
+        // Between: section is sliding up, map rect.top in [vh, 0] to top in [100%, 50%]
+        const progress = (vh - rect.top) / vh; // 0..1
+        const topPercent = 100 - 50 * progress; // 100 -> 50
+
         inner.style.opacity = "1";
-        inner.style.top = "50%"; // vertically centered (with translate(-50%, -50%))
+        inner.style.top = topPercent + "%";
       }
 
       updateParallax();

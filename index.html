@@ -19,7 +19,7 @@
     }
 
     .desktop-2 {
-      height: 3235px;
+      min-height: 100vh;
       position: relative;
       background-color: #f9f9f9;
       width: 100%;
@@ -67,12 +67,10 @@
     }
 
     .frame-parent {
-      height: 3255px;
+      min-height: 100vh;
       width: 100vw;
       margin: 0 !important;
-      position: absolute;
-      top: 0px;
-      left: 0px;
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -80,6 +78,7 @@
       gap: 110px;
       z-index: 2;
       flex-shrink: 0;
+      padding-bottom: 0;
     }
 
     .frame-group {
@@ -155,6 +154,7 @@
 
     .hero {
       width: 800px;
+      max-width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -242,6 +242,7 @@
 
     .for-the-past {
       width: 619px;
+      max-width: 100%;
       position: relative;
       font-size: 20px;
       line-height: 33px;
@@ -501,6 +502,7 @@
     .group-parent {
       height: 350px;
       width: 800px;
+      max-width: 100%;
       border-radius: 12px;
       overflow: hidden;
       flex-shrink: 0;
@@ -518,6 +520,7 @@
     .image-parent {
       width: 800px;
       height: 350px;
+      max-width: 100%;
       position: absolute;
       top: 0;
       left: 0;
@@ -537,6 +540,7 @@
     .psd-02-1-icon {
       width: 800px;
       height: 350px;
+      max-width: 100%;
       display: block;
       object-fit: cover;
     }
@@ -564,7 +568,7 @@
       flex-shrink: 0;
     }
 
-    /* CHIP – match Figma spec, blur only background behind chip */
+    /* CHIP – match Figma spec */
     .chip {
       position: relative;
       backdrop-filter: blur(25px);
@@ -573,6 +577,7 @@
       background-color: rgba(104, 104, 104, 0.4);
       border: 1px solid #fff;
       box-sizing: border-box;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -706,6 +711,7 @@
 
     .im-an-enthusiastic {
       width: 571px;
+      max-width: 100%;
       position: relative;
       font-size: 27px;
       line-height: 41px;
@@ -715,42 +721,49 @@
       flex-shrink: 0;
     }
 
-   /* BOTTOM SECTION – full-screen background + scrolling-then-pinned text */
-.frame-parent8 {
-  align-self: stretch;
-  height: 220vh; /* extra scroll room so the text can travel, then pin */
-  width: 100vw;
-  background-color: #141414;
-  background-image: url("./HomepageAssets/lightbackground.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow: hidden;
-  flex-shrink: 0;
-  position: relative;
-  isolation: isolate;
-  margin: 0;
-  padding: 0;
-}
+    /* BOTTOM SECTION – black background that we scroll through */
+    .frame-parent8 {
+      align-self: stretch;
+      height: 200vh; /* gives room for the parallax movement */
+      width: 100vw;
+      background-color: #141414;
+      background-image: url("./HomepageAssets/lightbackground.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+      isolation: isolate;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Text block: scrolls with the page at first, then stops in the center */
-.frame-parent8-inner {
-  position: sticky;
-  top: 50%;                 /* pin when the middle of the viewport is reached */
-  transform: translateY(-50%);
-  margin-top: 10vh;         /* lets it "enter" from higher up before pinning */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 29px;
-  text-align: center;
-  font-size: 20px;
-  color: #f9f9f9;
-  font-family: "Instrument Serif", serif;
-  padding: 0 16px;
-}
+    /* Parallax text: fixed in viewport, animated with JS */
+    .frame-parent8-inner {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, calc(-50% + var(--slide, 0px)));
+      min-height: 0;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 29px;
+      text-align: center;
+      font-size: 20px;
+      color: #f9f9f9;
+      font-family: "Instrument Serif", serif;
+      padding: 0 16px;
+      box-sizing: border-box;
+      will-change: transform, opacity;
+      pointer-events: none; /* so it doesn't block scroll or clicks */
+      opacity: 0;          /* JS will fade it in when section is in view */
+      z-index: 3;
+    }
 
     .vector-container {
       display: flex;
@@ -775,6 +788,7 @@
 
     .lets-connect-parent {
       width: 400px;
+      max-width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1127,51 +1141,90 @@
                 </div>
               </div>
             </div>
+          </div> <!-- end frame-parent3 -->
+        </div>   <!-- end hero-parent -->
+      </div>     <!-- end frame-container -->
+
+      <!-- Bottom "I'm available" section with JS parallax -->
+      <div class="frame-parent8" id="bottom-section">
+        <div class="frame-parent8-inner" id="bottom-content">
+          <div class="vector-container">
+            <img
+              class="frame-child5"
+              src="./assets/line-light.svg"
+              alt=""
+            />
+            <div class="im-available">I’m available</div>
+            <img
+              class="frame-child5"
+              src="./assets/line-light.svg"
+              alt=""
+            />
           </div>
-        </div>
 
-        <!-- Bottom "I'm available" section with parallax background -->
-        <div class="frame-parent8">
-          <div class="frame-parent8-inner">
-            <div class="vector-container">
-              <img
-                class="frame-child5"
-                src="./assets/line-light.svg"
-                alt=""
-              />
-              <div class="im-available">I’m available</div>
-              <img
-                class="frame-child5"
-                src="./assets/line-light.svg"
-                alt=""
-              />
+          <div class="lets-connect-parent">
+            <div class="lets-connect">
+              <span>Let’s </span><i class="connect">connect</i>
             </div>
-
-            <div class="lets-connect-parent">
-              <div class="lets-connect">
-                <span>Let’s </span><i class="connect">connect</i>
-              </div>
-              <div class="reach-out-anytime">
-                Reach out anytime, I’m available for new opportunities and
-                collaborations
-              </div>
-            </div>
-
-            <div class="button4">
-              <div class="state-layer">
-                <div class="label-text">Let’s connect</div>
-                <img
-                  class="call-made-icon"
-                  src="./HomepageAssets/Arrowicon.png"
-                  alt=""
-                />
-              </div>
+            <div class="reach-out-anytime">
+              Reach out anytime, I’m available for new opportunities and
+              collaborations
             </div>
           </div>
+
+          <div class="button4">
+            <div class="state-layer">
+              <div class="label-text">Let’s connect</div>
+              <img
+                class="call-made-icon"
+                src="./HomepageAssets/Arrowicon.png"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
-        <!-- end frame-parent8 -->
       </div>
-    </div>
-  </div>
+      <!-- end frame-parent8 -->
+    </div> <!-- end frame-parent -->
+  </div> <!-- end desktop-2 -->
+
+  <script>
+    (function () {
+      const section = document.getElementById("bottom-section");
+      const content = document.getElementById("bottom-content");
+      if (!section || !content) return;
+
+      function onScroll() {
+        const rect = section.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+
+        // If the black section is completely out of view, hide the text
+        if (rect.bottom <= 0 || rect.top >= vh) {
+          content.style.opacity = "0";
+          return;
+        }
+
+        content.style.opacity = "1";
+
+        // progress: 0 when section top is at bottom of viewport (just starting to appear)
+        //           1 when section top reaches top of viewport
+        const start = vh;
+        const end = 0;
+        let p = (start - rect.top) / (start - end);
+        if (p < 0) p = 0;
+        if (p > 1) p = 1;
+
+        // Start 40% of viewport height ABOVE center, then slide down to exact center
+        const maxOffset = -0.4 * vh; // negative = above center
+        const offset = (1 - p) * maxOffset; // goes to 0 when p → 1
+
+        content.style.setProperty("--slide", offset + "px");
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      onScroll();
+    })();
+  </script>
 </body>
 </html>

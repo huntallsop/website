@@ -32,18 +32,15 @@
       font-size: 16px;
       color: #2d2d2d;
       font-family: "Instrument Serif", serif;
-
-      /* NEW: white background image filling 100vw */
-      background-image: url("./HomepageAssets/Whitebackground.png");
-      background-repeat: no-repeat;
-      background-size: cover;        /* fills viewport width */
-      background-position: top center;
     }
 
+    /* White background image behind everything above the black section */
     .background-icon {
-      height: 4129px;
-      width: 1440px;
-      position: relative;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: 0;
       flex-shrink: 0;
@@ -69,22 +66,20 @@
       flex-shrink: 0;
     }
 
-    /* MAIN COLUMN – centered on the screen */
     .frame-parent {
       height: 3255px;
-      width: 100%;
-      max-width: 1440px;
-      margin: 0 auto;
+      width: 1440px;
+      margin: 0 !important;
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 0px;
+      left: 0px;
       display: flex;
       flex-direction: column;
       align-items: center;
       isolation: isolate;
       gap: 110px;
       z-index: 2;
+      flex-shrink: 0;
     }
 
     .frame-group {
@@ -256,7 +251,7 @@
       display: inline-block;
     }
 
-    /* GENERIC BUTTON (hero CTA + rotated pills) */
+    /* GENERIC BUTTON (hero CTA + pills) */
     .button {
       height: 40px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
@@ -280,7 +275,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 16px;
+      padding: 10px 16px; /* 16px left/right as requested */
       box-sizing: border-box;
       gap: 8px;
     }
@@ -569,33 +564,29 @@
       flex-shrink: 0;
     }
 
-    /* Blur only the background behind the chip, not the text */
+    /* CHIP – match Figma spec, blur only background behind chip */
     .chip {
       position: relative;
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       border-radius: 60px;
-      overflow: hidden;
+      background-color: rgba(104, 104, 104, 0.4);
+      border: 1px solid #fff;
+      box-sizing: border-box;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 6px 16px;
-      flex-shrink: 0;
+      text-align: left;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: "Instrument Sans", sans-serif;
     }
 
-    .chip::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      background-color: rgba(104, 104, 104, 0.4);
-      border: 1px solid #fff;
-      z-index: 0;
-    }
-
-    .chip > * {
+    .chip .hunter-allsop {
       position: relative;
-      z-index: 1; /* text stays sharp */
+      letter-spacing: 0.4px;
+      line-height: 16px;
     }
 
     .bottom-text {
@@ -724,22 +715,25 @@
       flex-shrink: 0;
     }
 
-    /* Bottom "I'm available" section – full-screen, centered, parallax bg */
+    /* BOTTOM SECTION – full-screen parallax-style with pinned content */
     .frame-parent8 {
       align-self: stretch;
-      min-height: 100vh;
-      width: 100%;
+      height: 200vh; /* extra scroll room so text can "slide" then pin */
+      width: 100vw;
       background-color: #141414;
       background-image: url("./HomepageAssets/lightbackground.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      position: relative;
       overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+      isolation: isolate;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Inner content slides down then sticks centered using sticky */
     .frame-parent8-inner {
       position: sticky;
       top: 50%;
@@ -771,6 +765,7 @@
       object-fit: contain;
     }
 
+    /* Figma-style label for "I'm available" */
     .im-available {
       position: relative;
       letter-spacing: 0.1px;
@@ -831,8 +826,12 @@
 </head>
 <body>
   <div class="desktop-2">
-    <!-- Background image (still present but now overridden visually by Whitebackground on .desktop-2) -->
-    <img class="background-icon" src="./assets/home-bg.png" alt="Background" />
+    <!-- Background above black section -->
+    <img
+      class="background-icon"
+      src="./HomepageAssets/Whitebackground.png"
+      alt="Background"
+    />
 
     <div class="desktop-2-inner">
       <img class="frame-child" src="./assets/home-glow.png" alt="Glow" />
@@ -1088,89 +1087,4 @@
                     </div>
                   </div>
 
-                  <div class="button pill-rotate-10">
-                    <div class="state-layer">
-                      <div class="label-text">Prototypes</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- MIDDLE COPY -->
-                <div class="im-an-enthusiastic">
-                  I'm an enthusiastic and professional designer who’s passionate
-                  about making products better—both for the people who use them
-                  and the teams who build them. I care deeply about the details,
-                  love solving problems, and bring a collaborative, thoughtful
-                  energy to every project I work on.
-                </div>
-
-                <!-- RIGHT COLUMN: Problem solver / UI/UX Design / Research -->
-                <div class="button-group">
-                  <div class="button pill-rotate-13">
-                    <div class="state-layer">
-                      <div class="label-text">Problem solver</div>
-                    </div>
-                  </div>
-
-                  <div class="button">
-                    <div class="state-layer">
-                      <div class="label-text">UI/UX Design</div>
-                    </div>
-                  </div>
-
-                  <div class="button pill-rotate-neg-16">
-                    <div class="state-layer">
-                      <div class="label-text">Research</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom "I'm available" section with sticky/parallax behavior -->
-        <div class="frame-parent8">
-          <div class="frame-parent8-inner">
-            <div class="vector-container">
-              <img
-                class="frame-child5"
-                src="./assets/line-light.svg"
-                alt=""
-              />
-              <div class="im-available">I’m available</div>
-              <img
-                class="frame-child5"
-                src="./assets/line-light.svg"
-                alt=""
-              />
-            </div>
-
-            <div class="lets-connect-parent">
-              <div class="lets-connect">
-                <span>Let’s </span><i class="connect">connect</i>
-              </div>
-              <div class="reach-out-anytime">
-                Reach out anytime, I’m available for new opportunities and
-                collaborations
-              </div>
-            </div>
-
-            <div class="button4">
-              <div class="state-layer">
-                <div class="label-text">Let’s connect</div>
-                <img
-                  class="call-made-icon"
-                  src="./HomepageAssets/Arrowicon.png"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+                  <div class="b

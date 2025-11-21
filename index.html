@@ -210,7 +210,6 @@
       border: none;
     }
 
-    /* Hunter pill image */
     .dscf0488-1-icon {
       width: 100%;
       height: 100%;
@@ -218,7 +217,6 @@
       object-fit: cover;
     }
 
-    /* Product pill image */
     .rectangle-pill-image {
       width: 100%;
       height: 100%;
@@ -226,7 +224,6 @@
       object-fit: cover;
     }
 
-    /* Unused legacy pieces kept for safety */
     .instance-child,
     .instance-item,
     .image-29-parent,
@@ -272,7 +269,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 16px; /* 16px left/right as requested */
+      padding: 10px 16px;
       box-sizing: border-box;
       gap: 8px;
     }
@@ -291,7 +288,7 @@
       max-height: 100%;
     }
 
-    /* ROTATION UTILITY CLASSES FOR PILLS (using your current values) */
+    /* ROTATION UTILITY CLASSES FOR PILLS */
     .pill-rotate-neg-8 {
       transform: rotate(16deg);
     }
@@ -355,7 +352,6 @@
       position: relative;
     }
 
-    /* Arrow images with full X visible and black line */
     .vector-icon {
       width: 12px;
       height: 53px;
@@ -457,7 +453,6 @@
       align-items: center;
     }
 
-    /* bottom arrow */
     .frame-child2 {
       width: 12px;
       height: 53px;
@@ -587,7 +582,7 @@
 
     .chip > * {
       position: relative;
-      z-index: 1; /* ensure text stays sharp above the blurred layer */
+      z-index: 1;
     }
 
     .bottom-text {
@@ -614,7 +609,7 @@
       position: relative;
       font-size: 16px;
       color: rgba(249, 249, 249, 0.8);
-      z-index: 2; /* make sure description text is never part of any blur */
+      z-index: 2;
     }
 
     .ellipse-parent {
@@ -666,7 +661,7 @@
     .hello {
       position: relative;
       line-height: 33px;
-      padding: 0 20px; /* 20px left/right around "Hello," */
+      padding: 0 20px;
     }
 
     .frame-parent7 {
@@ -683,7 +678,6 @@
         "Segoe UI", sans-serif;
     }
 
-    /* Left vertical pills column */
     .button-parent {
       height: 300px;
       width: 100%;
@@ -694,7 +688,6 @@
       gap: 45px;
     }
 
-    /* Right vertical pills column */
     .button-group {
       height: 300px;
       width: 100%;
@@ -716,32 +709,35 @@
       flex-shrink: 0;
     }
 
-    /* BOTTOM SECTION – background + parallax text */
+    /* BOTTOM SECTION – fills viewport, no margins/padding around it */
     .frame-parent8 {
       align-self: stretch;
       min-height: 100vh;
-      width: 100%;
+      width: 100vw;               /* full viewport width */
+      margin: 0;                  /* no margin around */
+      padding: 0;                 /* no padding around */
       background-color: #141414;
       background-image: url("./HomepageAssets/lightbackground.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed; /* parallax-ish background */
+      background-attachment: fixed;
       overflow: hidden;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: center;    /* center content by default */
       position: relative;
       isolation: isolate;
       text-align: center;
       font-size: 20px;
       color: #f9f9f9;
       font-family: "Instrument Serif", serif;
+      box-sizing: border-box;
     }
 
-    /* NEW: inner content wrapper we animate on scroll */
+    /* Inner content that slides down a bit, then stops at center */
     .frame-parent8-content {
       display: flex;
       flex-direction: column;
@@ -766,7 +762,6 @@
       object-fit: contain;
     }
 
-    /* Figma-style label for "I'm available" */
     .im-available {
       position: relative;
       letter-spacing: 0.1px;
@@ -821,13 +816,12 @@
     }
 
     .adobestock-142298783-1-icon {
-      /* legacy, image removed from DOM */
+      /* legacy */
     }
   </style>
 </head>
 <body>
   <div class="desktop-2">
-    <!-- Background -->
     <img class="background-icon" src="./assets/home-bg.png" alt="Background" />
 
     <div class="desktop-2-inner">
@@ -835,7 +829,6 @@
     </div>
 
     <div class="frame-parent">
-      <!-- Top nav / name -->
       <div class="frame-group">
         <div class="hunter-allsop-wrapper">
           <div class="hunter-allsop">Hunter Allsop</div>
@@ -847,13 +840,11 @@
       </div>
 
       <div class="frame-container">
-        <!-- HERO + brands + feature cards + about -->
         <div class="hero-parent">
           <!-- HERO -->
           <div class="hero">
             <div class="frame-div">
               <div class="frame-parent2">
-                <!-- Line 1: “I’m Hunter [pill] ,” -->
                 <div class="im-hunter-parent">
                   <div class="im-hunter">
                     <span>I’m </span>
@@ -861,7 +852,6 @@
                   </div>
                   <div class="instance-parent">
                     <div class="rectangle-parent">
-                      <!-- Hunter pill image only -->
                       <img
                         class="dscf0488-1-icon"
                         src="./HomepageAssets/Hunter pill2.png"
@@ -872,14 +862,12 @@
                   </div>
                 </div>
 
-                <!-- Line 2: “a product [pill] Designer” -->
                 <div class="im-hunter-parent">
                   <div class="im-hunter">
                     <span>a </span>
                     <i class="hunter">product</i>
                   </div>
                   <div class="rectangle-parent rectangle-parent-pill">
-                    <!-- Product design pill image only -->
                     <img
                       class="rectangle-pill-image"
                       src="./HomepageAssets/Blue pill2.png"
@@ -910,10 +898,8 @@
 
           <!-- BRANDS + FEATURED CASE STUDIES + ABOUT -->
           <div class="frame-parent3">
-            <!-- Brands -->
             <div class="past-companies-parent">
               <div class="past-companies">
-                <!-- Top arrow + heading -->
                 <div class="frame-parent4">
                   <div class="x-parent">
                     <img
@@ -925,7 +911,6 @@
                   <div class="a-few-brands">A few brands I have worked with</div>
                 </div>
 
-                <!-- Logo grid -->
                 <div class="frame-parent5">
                   <div class="bofa-1-parent">
                     <img
@@ -969,7 +954,6 @@
                   </div>
                 </div>
 
-                <!-- Bottom arrow only -->
                 <div class="x-group">
                   <img
                     class="frame-child2"
@@ -979,10 +963,9 @@
                 </div>
               </div>
 
-              <!-- Featured cards -->
+              <!-- FEATURED CARDS -->
               <div class="frame-wrapper">
                 <div class="frame-parent6">
-                  <!-- CARD 1 – GPS -->
                   <div class="instance-wrapper">
                     <div class="group-parent">
                       <div class="image-parent">
@@ -1015,7 +998,6 @@
                     </div>
                   </div>
 
-                  <!-- CARD 2 – Hammock -->
                   <div class="instance-wrapper">
                     <div class="group-parent">
                       <div class="image-parent">
@@ -1051,7 +1033,7 @@
               </div>
             </div>
 
-            <!-- About section / Hello, I'm... -->
+            <!-- ABOUT / HELLO SECTION -->
             <div class="ellipse-parent">
               <div class="ellipse-div"></div>
 
@@ -1070,7 +1052,6 @@
               </div>
 
               <div class="frame-parent7">
-                <!-- LEFT COLUMN: User testing / Design systems / Prototypes -->
                 <div class="button-parent">
                   <div class="button pill-rotate-neg-8">
                     <div class="state-layer">
@@ -1091,7 +1072,6 @@
                   </div>
                 </div>
 
-                <!-- MIDDLE COPY -->
                 <div class="im-an-enthusiastic">
                   I'm an enthusiastic and professional designer who’s passionate
                   about making products better—both for the people who use them
@@ -1100,7 +1080,6 @@
                   energy to every project I work on.
                 </div>
 
-                <!-- RIGHT COLUMN: Problem solver / UI/UX Design / Research -->
                 <div class="button-group">
                   <div class="button pill-rotate-13">
                     <div class="state-layer">
@@ -1125,7 +1104,7 @@
           </div>
         </div>
 
-        <!-- Bottom "I'm available" section with parallax background + sliding text -->
+        <!-- BOTTOM SECTION -->
         <div class="frame-parent8">
           <div class="frame-parent8-content">
             <div class="vector-container">
@@ -1164,11 +1143,12 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 
-  <!-- Simple parallax scroll for the bottom section content -->
+  <!-- Parallax-style slide for the bottom text, clamped at center -->
   <script>
     (function () {
       const section = document.querySelector('.frame-parent8');
@@ -1177,20 +1157,23 @@
 
       function onScroll() {
         const rect = section.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const vh = window.innerHeight || document.documentElement.clientHeight;
 
-        // Skip if the section is fully off-screen
-        if (rect.bottom <= 0 || rect.top >= windowHeight) return;
+        // if section is entirely off screen, skip
+        if (rect.bottom <= 0 || rect.top >= vh) return;
 
         // progress: 0 when top of section is at bottom of viewport,
-        // 1 when top has reached the top of viewport
-        const clampedTop = Math.min(Math.max(rect.top, 0), windowHeight);
-        const progress = 1 - clampedTop / windowHeight;
+        // 1 when top reaches the top of viewport
+        const clampedTop = Math.min(Math.max(rect.top, 0), vh);
+        let progress = 1 - clampedTop / vh;
+        progress = Math.min(Math.max(progress, 0), 1); // clamp 0–1
 
-        const maxShift = 120; // how far down the text can slide
-        const translateY = -40 + progress * maxShift;
+        const startOffset = -40;  // starting Y shift (higher up)
+        const maxShift = 40;      // total distance it can move down
+        const translateY = startOffset + progress * maxShift;
 
-        content.style.transform = `translateY(${translateY}px)`;
+        // Once translateY reaches 0, content is centered; don't move further
+        content.style.transform = `translateY(${Math.min(0, translateY)}px)`;
       }
 
       window.addEventListener('scroll', onScroll, { passive: true });

@@ -734,12 +734,15 @@
       margin: 0;
       padding: 0;
       z-index: 1;
+
+      display: flex;
+      justify-content: center;
     }
 
-    /* Parallax text block – JS will control its position & opacity */
+    /* Parallax-ish text: scrolls up from top, then sticks in the middle */
     .frame-parent8-inner {
       max-width: 800px;
-      margin: 0 auto;
+      width: 100%;
       padding: 0 16px;
 
       display: flex;
@@ -752,14 +755,9 @@
       color: #f9f9f9;
       font-family: "Instrument Serif", serif;
 
-      /* Start hidden; JS will turn this on when the black section is in view */
-      position: fixed;
-      left: 50%;
-      top: 100%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 3;
+      position: sticky;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .vector-container {
@@ -1141,42 +1139,41 @@
         </div>
 
         <!-- Bottom "I'm available" section with black parallax background -->
-        <div class="frame-parent8"></div>
-
-        <!-- Parallax "I'm available" content (JS-controlled) -->
-        <div class="frame-parent8-inner">
-          <div class="vector-container">
-            <img
-              class="frame-child5"
-              src="./assets/line-light.svg"
-              alt=""
-            />
-            <div class="im-available">I’m available</div>
-            <img
-              class="frame-child5"
-              src="./assets/line-light.svg"
-              alt=""
-            />
-          </div>
-
-          <div class="lets-connect-parent">
-            <div class="lets-connect">
-              <span>Let’s </span><i class="connect">connect</i>
-            </div>
-            <div class="reach-out-anytime">
-              Reach out anytime, I’m available for new opportunities and
-              collaborations
-            </div>
-          </div>
-
-          <div class="button4">
-            <div class="state-layer">
-              <div class="label-text">Let’s connect</div>
+        <div class="frame-parent8">
+          <div class="frame-parent8-inner">
+            <div class="vector-container">
               <img
-                class="call-made-icon"
-                src="./HomepageAssets/Arrowicon.png"
+                class="frame-child5"
+                src="./assets/line-light.svg"
                 alt=""
               />
+              <div class="im-available">I’m available</div>
+              <img
+                class="frame-child5"
+                src="./assets/line-light.svg"
+                alt=""
+              />
+            </div>
+
+            <div class="lets-connect-parent">
+              <div class="lets-connect">
+                <span>Let’s </span><i class="connect">connect</i>
+              </div>
+              <div class="reach-out-anytime">
+                Reach out anytime, I’m available for new opportunities and
+                collaborations
+              </div>
+            </div>
+
+            <div class="button4">
+              <div class="state-layer">
+                <div class="label-text">Let’s connect</div>
+                <img
+                  class="call-made-icon"
+                  src="./HomepageAssets/Arrowicon.png"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1184,59 +1181,5 @@
       </div>
     </div>
   </div>
-
-  <!-- Parallax control script -->
-  <script>
-    (function () {
-      const section = document.querySelector(".frame-parent8");
-      const inner = document.querySelector(".frame-parent8-inner");
-      const scroller = document.querySelector(".desktop-2");
-
-      if (!section || !inner) return;
-
-      function updateParallax() {
-        const rect = section.getBoundingClientRect();
-        const vh =
-          window.innerHeight || document.documentElement.clientHeight;
-
-        // If black section is completely above or below viewport → hide text
-        if (rect.bottom <= 0 || rect.top >= vh) {
-          inner.style.opacity = "0";
-          inner.style.pointerEvents = "none";
-          inner.style.top = "100%";
-          return;
-        }
-
-        // If top of black section is still below top of viewport,
-        // white background is still visible → keep text hidden
-        if (rect.top > 0) {
-          inner.style.opacity = "0";
-          inner.style.pointerEvents = "none";
-          inner.style.top = "100%";
-          return;
-        }
-
-        // At this point, black section fully covers the viewport (rect.top <= 0).
-        // We animate the text in as you scroll further into this section.
-        const progressRaw = -rect.top / (vh * 1.2); // 0 when top == 0, 1 when top == -vh
-        const progress = Math.max(0, Math.min(1, progressRaw));
-
-        // Slide from bottom (100%) up to center (50%)
-        const topPercent = 100 - 50 * progress; // 100 -> 50
-
-        inner.style.top = topPercent + "%";
-        inner.style.opacity = progress; // fade in from 0 to 1
-        inner.style.pointerEvents = "auto";
-      }
-
-      updateParallax();
-
-      window.addEventListener("scroll", updateParallax);
-      if (scroller) {
-        scroller.addEventListener("scroll", updateParallax);
-      }
-      window.addEventListener("resize", updateParallax);
-    })();
-  </script>
 </body>
 </html>

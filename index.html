@@ -718,45 +718,46 @@
       flex-shrink: 0;
     }
 
-    /* BOTTOM SECTION – full-screen black with parallax text */
-    .frame-parent8 {
-      align-self: stretch;
-      height: 100vh; /* background fills viewport when this section is in view */
-      width: 100vw;
-      background-color: #141414;
-      background-image: url("./HomepageAssets/lightbackground.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      overflow: visible;
-      flex-shrink: 0;
-      position: relative;
-      isolation: isolate;
-      margin: 0;
-      padding: 0;
-      z-index: 1;
-    }
+   /* BOTTOM SECTION – tall black area so text can slide then pin */
+.frame-parent8 {
+  align-self: stretch;
+  height: 200vh;           /* extra scroll space for the slide effect */
+  width: 100vw;
+  background-color: #141414;
+  background-image: url("./HomepageAssets/lightbackground.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
 
-    /* Parallax text: we control top & opacity via JS */
-    .frame-parent8-inner {
-      position: fixed;              /* attached to viewport for smooth slide */
-      left: 50%;
-      top: 100%;                    /* start off-screen at bottom */
-      transform: translate(-50%, -50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 29px;
-      text-align: center;
-      font-size: 20px;
-      color: #f9f9f9;
-      font-family: "Instrument Serif", serif;
-      padding: 0 16px;
-      opacity: 0;                   /* hidden until section scrolls into view */
-      pointer-events: none;         /* let scroll pass through */
-      z-index: 3;                   /* above black background */
-    }
+  display: flex;           /* center the inner block horizontally */
+  justify-content: center;
+}
+
+
+   /* Parallax-ish text: scrolls with the section, then sticks in the middle */
+.frame-parent8-inner {
+  position: sticky;
+  top: 50%;                     /* pin when it reaches the middle */
+  transform: translateY(-50%);  /* vertically center while pinned */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 29px;
+  text-align: center;
+  font-size: 20px;
+  color: #f9f9f9;
+  font-family: "Instrument Serif", serif;
+  padding: 0 16px;
+}
+
 
     .vector-container {
       display: flex;

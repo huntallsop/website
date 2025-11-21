@@ -13,15 +13,6 @@
   />
 
   <style>
-  
-    :root {
-  /* 🎨 Grain base + dot colors – tweak these as you like */
-  --grain-base: #e3e4e6;                 /* main background tint */
-  --grain-dot-dark: rgba(0, 0, 0, 0.06); /* darker specks */
-  --grain-dot-light: rgba(255, 255, 255, 0.35); /* lighter specks */
-  --grain-opacity: 0.55;                 /* overall intensity of grain */
-}
-    
     body {
       margin: 0;
       line-height: normal;
@@ -41,6 +32,12 @@
       font-size: 16px;
       color: #2d2d2d;
       font-family: "Instrument Serif", serif;
+
+      /* NEW: white background image filling 100vw */
+      background-image: url("./HomepageAssets/Whitebackground.png");
+      background-repeat: no-repeat;
+      background-size: cover;        /* fills viewport width */
+      background-position: top center;
     }
 
     .background-icon {
@@ -72,36 +69,23 @@
       flex-shrink: 0;
     }
 
+    /* MAIN COLUMN – centered on the screen */
     .frame-parent {
       height: 3255px;
-      width: 1440px;
-      margin: 0 !important;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
       position: absolute;
-      top: 0px;
-      left: 0px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
       isolation: isolate;
       gap: 110px;
       z-index: 2;
-      flex-shrink: 0;
     }
-.frame-parent::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;              /* sits behind all the content */
-  pointer-events: none;
-  background-color: var(--grain-base);
-  background-image:
-    radial-gradient(circle at 0 0, var(--grain-dot-dark) 0.8px, transparent 0),
-    radial-gradient(circle at 80px 40px, var(--grain-dot-dark) 0.8px, transparent 0),
-    radial-gradient(circle at 160px 120px, var(--grain-dot-light) 0.8px, transparent 0),
-    radial-gradient(circle at 40px 160px, var(--grain-dot-light) 0.8px, transparent 0);
-  background-size: 220px 220px;
-  opacity: var(--grain-opacity);
-}
 
     .frame-group {
       width: 1150px;
@@ -234,6 +218,7 @@
       border: none;
     }
 
+    /* Hunter pill image */
     .dscf0488-1-icon {
       width: 100%;
       height: 100%;
@@ -241,6 +226,7 @@
       object-fit: cover;
     }
 
+    /* Product pill image */
     .rectangle-pill-image {
       width: 100%;
       height: 100%;
@@ -248,6 +234,7 @@
       object-fit: cover;
     }
 
+    /* Unused legacy pieces kept for safety, but not in DOM anymore */
     .instance-child,
     .instance-item,
     .image-29-parent,
@@ -269,7 +256,7 @@
       display: inline-block;
     }
 
-    /* GENERIC BUTTON (hero CTA + pills) */
+    /* GENERIC BUTTON (hero CTA + rotated pills) */
     .button {
       height: 40px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
@@ -312,7 +299,7 @@
       max-height: 100%;
     }
 
-    /* ROTATION UTILITY CLASSES FOR PILLS */
+    /* ROTATION UTILITY CLASSES FOR PILLS (approx angles) */
     .pill-rotate-neg-8 {
       transform: rotate(16deg);
     }
@@ -376,6 +363,7 @@
       position: relative;
     }
 
+    /* Arrow images with full X visible and black line */
     .vector-icon {
       width: 12px;
       height: 53px;
@@ -477,6 +465,7 @@
       align-items: center;
     }
 
+    /* bottom arrow */
     .frame-child2 {
       width: 12px;
       height: 53px;
@@ -606,7 +595,7 @@
 
     .chip > * {
       position: relative;
-      z-index: 1;
+      z-index: 1; /* text stays sharp */
     }
 
     .bottom-text {
@@ -685,7 +674,7 @@
     .hello {
       position: relative;
       line-height: 33px;
-      padding: 0 20px;
+      padding: 0 20px; /* 20px left/right around "Hello," */
     }
 
     .frame-parent7 {
@@ -702,6 +691,7 @@
         "Segoe UI", sans-serif;
     }
 
+    /* Left vertical pills column */
     .button-parent {
       height: 300px;
       width: 100%;
@@ -712,6 +702,7 @@
       gap: 45px;
     }
 
+    /* Right vertical pills column */
     .button-group {
       height: 300px;
       width: 100%;
@@ -733,42 +724,36 @@
       flex-shrink: 0;
     }
 
-    /* BOTTOM SECTION – fills viewport, no margins/padding around it */
+    /* Bottom "I'm available" section – full-screen, centered, parallax bg */
     .frame-parent8 {
       align-self: stretch;
       min-height: 100vh;
-      width: 100vw;               /* full viewport width */
-      margin: 0;                  /* no margin around */
-      padding: 0;                 /* no padding around */
+      width: 100%;
       background-color: #141414;
       background-image: url("./HomepageAssets/lightbackground.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      position: relative;
       overflow: hidden;
-      flex-shrink: 0;
+    }
+
+    /* Inner content slides down then sticks centered using sticky */
+    .frame-parent8-inner {
+      position: sticky;
+      top: 50%;
+      transform: translateY(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;    /* center content by default */
-      position: relative;
-      isolation: isolate;
+      justify-content: center;
+      gap: 29px;
       text-align: center;
       font-size: 20px;
       color: #f9f9f9;
       font-family: "Instrument Serif", serif;
-      box-sizing: border-box;
-    }
-
-    /* Inner content that slides down a bit, then stops at center */
-    .frame-parent8-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 29px;
-      will-change: transform;
-      transform: translateY(-40px); /* start slightly higher */
+      padding: 0 16px;
     }
 
     .vector-container {
@@ -840,12 +825,13 @@
     }
 
     .adobestock-142298783-1-icon {
-      /* legacy */
+      /* legacy, image removed from DOM */
     }
   </style>
 </head>
 <body>
   <div class="desktop-2">
+    <!-- Background image (still present but now overridden visually by Whitebackground on .desktop-2) -->
     <img class="background-icon" src="./assets/home-bg.png" alt="Background" />
 
     <div class="desktop-2-inner">
@@ -853,6 +839,7 @@
     </div>
 
     <div class="frame-parent">
+      <!-- Top nav / name -->
       <div class="frame-group">
         <div class="hunter-allsop-wrapper">
           <div class="hunter-allsop">Hunter Allsop</div>
@@ -864,11 +851,13 @@
       </div>
 
       <div class="frame-container">
+        <!-- HERO + brands + feature cards + about -->
         <div class="hero-parent">
           <!-- HERO -->
           <div class="hero">
             <div class="frame-div">
               <div class="frame-parent2">
+                <!-- Line 1: “I’m Hunter [pill] ,” -->
                 <div class="im-hunter-parent">
                   <div class="im-hunter">
                     <span>I’m </span>
@@ -876,6 +865,7 @@
                   </div>
                   <div class="instance-parent">
                     <div class="rectangle-parent">
+                      <!-- Hunter pill image only -->
                       <img
                         class="dscf0488-1-icon"
                         src="./HomepageAssets/Hunter pill2.png"
@@ -886,12 +876,14 @@
                   </div>
                 </div>
 
+                <!-- Line 2: “a product [pill] Designer” -->
                 <div class="im-hunter-parent">
                   <div class="im-hunter">
                     <span>a </span>
                     <i class="hunter">product</i>
                   </div>
                   <div class="rectangle-parent rectangle-parent-pill">
+                    <!-- Product design pill image only -->
                     <img
                       class="rectangle-pill-image"
                       src="./HomepageAssets/Blue pill2.png"
@@ -922,8 +914,10 @@
 
           <!-- BRANDS + FEATURED CASE STUDIES + ABOUT -->
           <div class="frame-parent3">
+            <!-- Brands -->
             <div class="past-companies-parent">
               <div class="past-companies">
+                <!-- Top arrow + heading -->
                 <div class="frame-parent4">
                   <div class="x-parent">
                     <img
@@ -935,6 +929,7 @@
                   <div class="a-few-brands">A few brands I have worked with</div>
                 </div>
 
+                <!-- Logo grid -->
                 <div class="frame-parent5">
                   <div class="bofa-1-parent">
                     <img
@@ -978,6 +973,7 @@
                   </div>
                 </div>
 
+                <!-- Bottom arrow only -->
                 <div class="x-group">
                   <img
                     class="frame-child2"
@@ -987,9 +983,10 @@
                 </div>
               </div>
 
-              <!-- FEATURED CARDS -->
+              <!-- Featured cards -->
               <div class="frame-wrapper">
                 <div class="frame-parent6">
+                  <!-- CARD 1 – GPS -->
                   <div class="instance-wrapper">
                     <div class="group-parent">
                       <div class="image-parent">
@@ -1022,6 +1019,7 @@
                     </div>
                   </div>
 
+                  <!-- CARD 2 – Hammock -->
                   <div class="instance-wrapper">
                     <div class="group-parent">
                       <div class="image-parent">
@@ -1057,7 +1055,7 @@
               </div>
             </div>
 
-            <!-- ABOUT / HELLO SECTION -->
+            <!-- About section / Hello, I'm... -->
             <div class="ellipse-parent">
               <div class="ellipse-div"></div>
 
@@ -1076,6 +1074,7 @@
               </div>
 
               <div class="frame-parent7">
+                <!-- LEFT COLUMN: User testing / Design systems / Prototypes -->
                 <div class="button-parent">
                   <div class="button pill-rotate-neg-8">
                     <div class="state-layer">
@@ -1096,6 +1095,7 @@
                   </div>
                 </div>
 
+                <!-- MIDDLE COPY -->
                 <div class="im-an-enthusiastic">
                   I'm an enthusiastic and professional designer who’s passionate
                   about making products better—both for the people who use them
@@ -1104,6 +1104,7 @@
                   energy to every project I work on.
                 </div>
 
+                <!-- RIGHT COLUMN: Problem solver / UI/UX Design / Research -->
                 <div class="button-group">
                   <div class="button pill-rotate-13">
                     <div class="state-layer">
@@ -1128,9 +1129,9 @@
           </div>
         </div>
 
-        <!-- BOTTOM SECTION -->
+        <!-- Bottom "I'm available" section with sticky/parallax behavior -->
         <div class="frame-parent8">
-          <div class="frame-parent8-content">
+          <div class="frame-parent8-inner">
             <div class="vector-container">
               <img
                 class="frame-child5"
@@ -1171,39 +1172,5 @@
       </div>
     </div>
   </div>
-
-  <!-- Parallax-style slide for the bottom text, clamped at center -->
-  <script>
-    (function () {
-      const section = document.querySelector('.frame-parent8');
-      const content = document.querySelector('.frame-parent8-content');
-      if (!section || !content) return;
-
-      function onScroll() {
-        const rect = section.getBoundingClientRect();
-        const vh = window.innerHeight || document.documentElement.clientHeight;
-
-        // if section is entirely off screen, skip
-        if (rect.bottom <= 0 || rect.top >= vh) return;
-
-        // progress: 0 when top of section is at bottom of viewport,
-        // 1 when top reaches the top of viewport
-        const clampedTop = Math.min(Math.max(rect.top, 0), vh);
-        let progress = 1 - clampedTop / vh;
-        progress = Math.min(Math.max(progress, 0), 1); // clamp 0–1
-
-        const startOffset = -40;  // starting Y shift (higher up)
-        const maxShift = 40;      // total distance it can move down
-        const translateY = startOffset + progress * maxShift;
-
-        // Once translateY reaches 0, content is centered; don't move further
-        content.style.transform = `translateY(${Math.min(0, translateY)}px)`;
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      onScroll();
-    })();
-  </script>
 </body>
 </html>

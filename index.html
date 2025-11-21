@@ -88,6 +88,21 @@
       z-index: 2;
       flex-shrink: 0;
     }
+.frame-parent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;              /* sits behind all the content */
+  pointer-events: none;
+  background-color: var(--grain-base);
+  background-image:
+    radial-gradient(circle at 0 0, var(--grain-dot-dark) 0.8px, transparent 0),
+    radial-gradient(circle at 80px 40px, var(--grain-dot-dark) 0.8px, transparent 0),
+    radial-gradient(circle at 160px 120px, var(--grain-dot-light) 0.8px, transparent 0),
+    radial-gradient(circle at 40px 160px, var(--grain-dot-light) 0.8px, transparent 0);
+  background-size: 220px 220px;
+  opacity: var(--grain-opacity);
+}
 
     .frame-group {
       width: 1150px;

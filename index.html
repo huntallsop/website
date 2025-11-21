@@ -226,7 +226,7 @@
       object-fit: cover;
     }
 
-    /* Unused legacy pieces kept for safety, but not in DOM anymore */
+    /* Unused legacy pieces kept for safety */
     .instance-child,
     .instance-item,
     .image-29-parent,
@@ -291,7 +291,7 @@
       max-height: 100%;
     }
 
-    /* ROTATION UTILITY CLASSES FOR PILLS (correct angles) */
+    /* ROTATION UTILITY CLASSES FOR PILLS (using your current values) */
     .pill-rotate-neg-8 {
       transform: rotate(16deg);
     }
@@ -716,6 +716,7 @@
       flex-shrink: 0;
     }
 
+    /* BOTTOM SECTION – background + parallax text */
     .frame-parent8 {
       align-self: stretch;
       min-height: 100vh;
@@ -725,7 +726,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed; /* parallax over the whole section */
+      background-attachment: fixed; /* parallax-ish background */
       overflow: hidden;
       flex-shrink: 0;
       display: flex;
@@ -734,11 +735,20 @@
       justify-content: center;
       position: relative;
       isolation: isolate;
-      gap: 29px;
       text-align: center;
       font-size: 20px;
       color: #f9f9f9;
       font-family: "Instrument Serif", serif;
+    }
+
+    /* NEW: inner content wrapper we animate on scroll */
+    .frame-parent8-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 29px;
+      will-change: transform;
+      transform: translateY(-40px); /* start slightly higher */
     }
 
     .vector-container {
@@ -1115,45 +1125,78 @@
           </div>
         </div>
 
-        <!-- Bottom "I'm available" section with parallax background -->
+        <!-- Bottom "I'm available" section with parallax background + sliding text -->
         <div class="frame-parent8">
-          <div class="vector-container">
-            <img
-              class="frame-child5"
-              src="./assets/line-light.svg"
-              alt=""
-            />
-            <div class="im-available">I’m available</div>
-            <img
-              class="frame-child5"
-              src="./assets/line-light.svg"
-              alt=""
-            />
-          </div>
-
-          <div class="lets-connect-parent">
-            <div class="lets-connect">
-              <span>Let’s </span><i class="connect">connect</i>
-            </div>
-            <div class="reach-out-anytime">
-              Reach out anytime, I’m available for new opportunities and
-              collaborations
-            </div>
-          </div>
-
-          <div class="button4">
-            <div class="state-layer">
-              <div class="label-text">Let’s connect</div>
+          <div class="frame-parent8-content">
+            <div class="vector-container">
               <img
-                class="call-made-icon"
-                src="./HomepageAssets/Arrowicon.png"
+                class="frame-child5"
+                src="./assets/line-light.svg"
                 alt=""
               />
+              <div class="im-available">I’m available</div>
+              <img
+                class="frame-child5"
+                src="./assets/line-light.svg"
+                alt=""
+              />
+            </div>
+
+            <div class="lets-connect-parent">
+              <div class="lets-connect">
+                <span>Let’s </span><i class="connect">connect</i>
+              </div>
+              <div class="reach-out-anytime">
+                Reach out anytime, I’m available for new opportunities and
+                collaborations
+              </div>
+            </div>
+
+            <div class="button4">
+              <div class="state-layer">
+                <div class="label-text">Let’s connect</div>
+                <img
+                  class="call-made-icon"
+                  src="./HomepageAssets/Arrowicon.png"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Simple parallax scroll for the bottom section content -->
+  <script>
+    (function () {
+      const section = document.querySelector('.frame-parent8');
+      const content = document.querySelector('.frame-parent8-content');
+      if (!section || !content) return;
+
+      function onScroll() {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        // Skip if the section is fully off-screen
+        if (rect.bottom <= 0 || rect.top >= windowHeight) return;
+
+        // progress: 0 when top of section is at bottom of viewport,
+        // 1 when top has reached the top of viewport
+        const clampedTop = Math.min(Math.max(rect.top, 0), windowHeight);
+        const progress = 1 - clampedTop / windowHeight;
+
+        const maxShift = 120; // how far down the text can slide
+        const translateY = -40 + progress * maxShift;
+
+        content.style.transform = `translateY(${translateY}px)`;
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll();
+    })();
+  </script>
 </body>
 </html>

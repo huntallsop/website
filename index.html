@@ -462,15 +462,19 @@
       padding-right: 200px;
     }
 
-    /* Smooth hover grow + tint transition for logos */
-    .logo-strip img {
-      transition: transform 0.25s ease, filter 0.25s ease;
-      transform-origin: center;
-    }
+ /* Base logos: slightly muted */
+.logo-strip img {
+  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+  opacity: 0.65; /* muted by default */
+}
 
-    .logo-strip img:hover {
-      transform: scale(1.2);
-    }
+/* Hover: bigger, fully opaque, ready for strong tint */
+.logo-strip img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
 
     .bofa-1-icon,
     .family-search-1,
@@ -482,7 +486,7 @@
       position: relative;
       max-height: 100%;
       object-fit: cover;
-      opacity: 0.8;
+      /* opacity: 0.8; */
     }
 
     /* Exact logo heights for consistent scale */
@@ -1413,26 +1417,26 @@
     </div>
   </div>
 
-  <!-- RANDOM COLOR TINT ON HOVER FOR LOGO IMAGES (no glow) -->
-  <script>
-    const logoColors = ['#00FF8C', '#FF1800', '#FF5600', '#00A8FF'];
+ <script>
+  const logoColors = ['#1C9D63', '#7B5AE0', '#EC4938', '#EA7438', '#0DA3F1'];
 
-    document.querySelectorAll('.logo-strip img').forEach((img) => {
-      img.addEventListener('mouseenter', () => {
-        const randomColor =
-          logoColors[Math.floor(Math.random() * logoColors.length)];
+  document.querySelectorAll('.logo-strip img').forEach((img) => {
+    img.addEventListener('mouseenter', () => {
+      const randomColor =
+        logoColors[Math.floor(Math.random() * logoColors.length)];
 
-        // Vibrant flat tint using your palette, no visible glow
-        img.style.filter =
-          'brightness(0) saturate(1000%) drop-shadow(0 0 0 ' +
-          randomColor +
-          ')';
-      });
-
-      img.addEventListener('mouseleave', () => {
-        img.style.filter = '';
-      });
+      // Stronger, crisper tint: flat recolor + contrast/brightness boost
+      img.style.filter =
+        'brightness(1.15) contrast(1.4) saturate(1.8) drop-shadow(0 0 0 ' +
+        randomColor +
+        ')';
     });
-  </script>
+
+    img.addEventListener('mouseleave', () => {
+      img.style.filter = '';
+    });
+  });
+</script>
+
 </body>
 </html>

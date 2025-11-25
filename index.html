@@ -180,20 +180,6 @@
       border-radius: 40px;
     }
 
-    .wireless-inear-headphones-with-icon {
-      top: 0;
-      left: 150.02px;
-      width: 87.7px;
-      height: 126.7px;
-    }
-
-    .wireless-inear-headphones-with-icon2 {
-      top: 146.64px;
-      left: 156.26px;
-      width: 125.7px;
-      height: 69.1px;
-    }
-
     /* Center text block */
     .hero-text-block {
       position: relative;
@@ -476,17 +462,15 @@
       padding-right: 200px;
     }
 
-   /* Smooth hover grow + color transition for logos */
-.logo-strip img {
-  transition: transform 0.25s ease, filter 0.25s ease;
-  transform-origin: center;
-  filter: grayscale(1) opacity(0.6); /* muted by default */
-}
+    /* Smooth hover grow + tint transition for logos */
+    .logo-strip img {
+      transition: transform 0.25s ease, filter 0.25s ease;
+      transform-origin: center;
+    }
 
-/* Grow ~20px taller on hover (scale up) */
-.logo-strip img:hover {
-  transform: scale(1.2);
-}
+    .logo-strip img:hover {
+      transform: scale(1.2);
+    }
 
     .bofa-1-icon,
     .family-search-1,
@@ -648,42 +632,39 @@
       opacity: 0.95;
     }
 
-   .chips {
-  /* let the container hug its content / wrap rows as needed */
-  width: auto;
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  z-index: 1;
-  flex-shrink: 0;
-  flex-wrap: wrap; /* chips can move to a new line if needed */
-}
+    .chips {
+      width: auto;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      z-index: 1;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
 
-.chip {
-  position: relative;
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border-radius: 60px;
-  background-color: rgba(104, 104, 104, 0.4);
-  border: 1px solid #fff;
-  box-sizing: border-box;
+    .chip {
+      position: relative;
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-radius: 60px;
+      background-color: rgba(104, 104, 104, 0.4);
+      border: 1px solid #fff;
+      box-sizing: border-box;
 
-  display: inline-flex;      /* hug content */
-  align-items: center;
-  justify-content: center;
-  padding: 6px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
 
-  /* key bits to stop wrapping inside and let the chip grow */
-  width: auto;
-  white-space: nowrap;
+      width: auto;
+      white-space: nowrap;
 
-  text-align: left;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.8);
-  font-family: "Instrument Sans", sans-serif;
-  transition: background-color 0.25s ease, border-color 0.25s ease;
-}
-
+      text-align: left;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: "Instrument Sans", sans-serif;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
 
     /* Chips brighten slightly on hover */
     .group-parent:hover .chip {
@@ -807,7 +788,7 @@
       gap: 45px;
     }
 
-    /* ABOUT SECTION PILLS (User testing, Design systems, etc.) */
+    /* ABOUT SECTION PILLS */
     .about-pill {
       height: 40px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
@@ -851,30 +832,35 @@
       flex-shrink: 0;
     }
 
-    /* Bottom black / parallax-style section */
+    /* =========================
+       FULL-VIEWPORT FOOTER
+       ("I'm available" section)
+    ========================== */
+
     .frame-parent8 {
-      align-self: stretch;
-      height: 200vh;
       width: 100vw;
+      min-height: 100vh; /* fill the viewport height */
       background-color: #141414;
       background-image: url("./HomepageAssets/lightbackground.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;     /* center vertically */
+      justify-content: center; /* center horizontally */
+      padding: 120px 16px;
+      box-sizing: border-box;
+
       position: relative;
       isolation: isolate;
       margin: 0;
-      padding: 0;
       z-index: 1;
-      display: flex;
-      justify-content: center;
     }
 
     .frame-parent8-inner {
       max-width: 800px;
       width: 100%;
-      padding: 0 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -884,9 +870,6 @@
       font-size: 20px;
       color: #f9f9f9;
       font-family: "Instrument Serif", serif;
-      position: sticky;
-      top: 50%;
-      transform: translateY(-50%);
     }
 
     .vector-container {
@@ -955,6 +938,28 @@
       cursor: pointer;
     }
 
+    .button4 .state-layer {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      gap: 8px;
+    }
+
+    .button4 .label-text {
+      letter-spacing: 0.1px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    .button4 .call-made-icon {
+      width: 20px;
+      max-height: 100%;
+    }
+
     .adobestock-142298783-1-icon {
       /* legacy, unused */
     }
@@ -992,6 +997,13 @@
       .rectangle-parent-pill {
         height: 64px;
         width: 110px;
+      }
+      .lets-connect-parent {
+        font-size: 48px;
+        width: 100%;
+      }
+      .reach-out-anytime {
+        font-size: 18px;
       }
     }
   </style>
@@ -1100,7 +1112,7 @@
     </div>
   </div>
 
-  <!-- REST OF PAGE (BRANDS, CASE STUDIES, ABOUT, PARALLAX) -->
+  <!-- REST OF PAGE (BRANDS, CASE STUDIES, ABOUT, FOOTER) -->
   <div class="desktop-2">
     <!-- Background above black section -->
     <img
@@ -1357,7 +1369,7 @@
           </div> <!-- /frame-parent3 -->
         </div> <!-- /hero-parent -->
 
-        <!-- Bottom "I'm available" section with black parallax background -->
+        <!-- Bottom "I'm available" section with full viewport black background -->
         <div class="frame-parent8">
           <div class="frame-parent8-inner">
             <div class="vector-container">
@@ -1396,33 +1408,31 @@
             </button>
           </div>
         </div>
-        <!-- end parallax section -->
+        <!-- end footer section -->
       </div>
     </div>
   </div>
 
-  <!-- Java- RANDOM COLOR ON HOVER FOR LOGO IMAGES -->
- <script>
-  const logoColors = ['#1C9D63', '#7B5AE0', '#EC4938', '#EA7438', '#0DA3F1'];
+  <!-- RANDOM COLOR TINT ON HOVER FOR LOGO IMAGES (no glow) -->
+  <script>
+    const logoColors = ['#1C9D63', '#7B5AE0', '#EC4938', '#EA7438', '#0DA3F1'];
 
-  document.querySelectorAll('.logo-strip img').forEach((img) => {
-    img.addEventListener('mouseenter', () => {
-      const randomColor =
-        logoColors[Math.floor(Math.random() * logoColors.length)];
+    document.querySelectorAll('.logo-strip img').forEach((img) => {
+      img.addEventListener('mouseenter', () => {
+        const randomColor =
+          logoColors[Math.floor(Math.random() * logoColors.length)];
 
-      // Vibrant glow + full-color logo
-      img.style.filter =
-        'grayscale(0) brightness(1.35) contrast(1.25) drop-shadow(0 0 16px ' +
-        randomColor +
-        ')';
+        // Vibrant flat tint using your palette, no visible glow
+        img.style.filter =
+          'brightness(0) saturate(1000%) drop-shadow(0 0 0 ' +
+          randomColor +
+          ')';
+      });
+
+      img.addEventListener('mouseleave', () => {
+        img.style.filter = '';
+      });
     });
-
-    img.addEventListener('mouseleave', () => {
-      // Reset to the base muted state defined in CSS
-      img.style.filter = '';
-    });
-  });
-</script>
-
+  </script>
 </body>
 </html>

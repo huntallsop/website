@@ -74,6 +74,25 @@
   align-items: center;
   gap: 0; /* spacing handled by divider margin */
 }
+/* Nav icon buttons on the right (from Figma spec) */
+.nav-buttons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.nav-icon-link {
+  display: inline-flex;
+}
+
+.nav-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  object-fit: cover;
+}
 
 
 
@@ -97,13 +116,36 @@
       display: block;
     }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-    }
+         <!-- RIGHT: icon buttons (LinkedIn + Connect) -->
+      <div class="nav-right">
+        <div class="nav-buttons">
+          <!-- LEFT ICON: LinkedIn -->
+          <a
+            href="https://www.linkedin.com/"  <!-- put your actual profile URL here -->
+            target="_blank"
+            rel="noopener"
+            class="nav-icon-link"
+          >
+            <img
+              class="nav-icon"
+              src="./HomepageAssets/nav-linkedin.png"  <!-- replace with your LinkedIn icon asset -->
+              alt="LinkedIn"
+            />
+          </a>
+
+          <!-- RIGHT ICON: Connect page -->
+          <a
+            href="/connect"   <!-- future 'connect with me' page -->
+            class="nav-icon-link"
+          >
+            <img
+              class="nav-icon"
+              src="./HomepageAssets/nav-connect.png"  <!-- replace with your connect icon asset -->
+              alt="Contact / Connect"
+            />
+          </a>
+        </div>
+      </div>
 
    .nav-divider {
   width: 1px;

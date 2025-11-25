@@ -4,1654 +4,1490 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-  <title>Loan Management App – Case Study</title>
+  <title>Hunter Allsop – Product Designer</title>
 
-  <!-- Inter font -->
+  <!-- Fonts: Instrument Serif, Instrument Sans, Inter, Roboto -->
   <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500&family=Inter:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
   />
 
   <style>
     body {
       margin: 0;
       line-height: normal;
-      background-color: #000000; /* pure black */
-      color: #f9f9f9;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: #f9f9f9;
     }
 
-    /* HERO IMAGE (TOP) */
-    .hero-image-container {
-      width: 100vw;              /* default full screen width */
-      background-color: #000000; /* ensure black behind image */
-    }
-
-    .hero-image {
-      display: block;
-      width: 100%;   /* fill container */
-      height: auto;  /* scale height appropriately */
-    }
-
-    /* BOTTOM IMAGE (FULL WIDTH 100VW) */
-    .bottom-image-container {
-      width: 100vw;              /* always full screen width */
-      background-color: #000000; /* black behind image */
-    }
-
-    .bottom-image {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* ROOT LAYOUT (MAIN CONTENT) */
-    .frame-parent {
-      width: 100%;
-      max-width: 800px;   /* constrain content to 800px */
+    /* =========================
+       HERO SECTION (FULL VIEWPORT)
+    ========================== */
+    .hero-section-1920x1080 {
+      width: 100vw;
+      height: 100vh;
+      min-height: 700px;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 80px;
-      text-align: left;
-      font-size: 24px;
-      color: #f9f9f9;
-      font-family: Inter;
-      margin: 0 auto 0;   /* no top margin, only bottom */
-      padding: 80px 0px 120px; /* top 80px, sides 0px, bottom 120px */
-      box-sizing: border-box;
-    }
-
-    .frame-wrapper {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    /* OVERVIEW SECTION */
-    .overview-parent {
-      align-self: stretch;
-      display: flex;
-      align-items: flex-start;
-      gap: 36px;
-    }
-
-    .overview {
-      width: 190px;
-      position: relative;
-      letter-spacing: 0.18px;
-      line-height: 32px;
-      text-transform: uppercase;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-    .our-team-was-tasked-with-redes-parent {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 24px;
-      font-size: 14px;
-      color: #b9b9b9;
-    }
-
-    .our-team-was-container {
-      align-self: stretch;
-      position: relative;
-      letter-spacing: 0.25px;
-      line-height: 20px;
-    }
-
-    .outdated {
-      color: #eaeaea;
-    }
-
-    .i-led-the-complete-ux-redesign-wrapper {
-      width: 574px;
-      border-radius: 10px;
-      background-color: rgba(225, 245, 254, 0.17);
-      display: flex;
-      align-items: flex-start;
-      padding: 16px 24px;
-      box-sizing: border-box;
-      font-size: 12px;
-      color: #fff;
-    }
-
-    .i-led-the {
-      flex: 1;
-      position: relative;
-      letter-spacing: 0.1px;
-      line-height: 20px;
-      font-weight: 500;
-    }
-
-    /* MY ROLE / TIMELINE / TEAM / TOOLS */
-    .frame-group {
-      width: 100%;
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-      text-align: left;
-      font-size: 18px;
-      color: #fff;
-      font-family: Inter;
-    }
-
-    .my-role-parent {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-    }
-
-    .my-role {
-      width: 160px;
-      position: relative;
-      letter-spacing: 0.15px;
-      line-height: 24px;
-      text-transform: uppercase;
-      display: inline-block;
-    }
-
-    .lead-uxui-designer {
-      position: relative;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-      line-height: 21px;
-      color: #f9f9f9;
-    }
-
-    /* DESIGN PROCESS SECTION */
-    .design-process-parent {
-      width: 100%;
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      gap: 36px;
-      text-align: left;
-      font-size: 24px;
-      color: #b9b9b9;
-      font-family: Inter;
-    }
-
-    .design-process {
-      width: 190px;
-      position: relative;
-      letter-spacing: 0.18px;
-      line-height: 32px;
-      text-transform: uppercase;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-    .process {
-      color: #f9f9f9;
-    }
-
-    .design-process-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      text-align: right;
-      font-size: 16px;
-    }
-
-    .design-process-steps {
-      width: 100%;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-      text-align: right;
-      font-size: 16px;
-      color: #b9b9b9;
-      font-family: Inter;
-    }
-
-    .design-process-steps .parent {
-      align-self: stretch;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .design-process-steps .div {
-      width: 32px;
-      position: relative;
-      letter-spacing: 0.25px;
-      line-height: 20px;
-      font-weight: 300;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-    .design-process-steps .user-research-wrapper {
+      background-color: #f9f9f9;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      padding: 13px 0 0;
-      color: #fff;
+      justify-content: center;
+      isolation: isolate;
+      text-align: left;
+      font-size: clamp(42px, 4vw, 80px);
+      color: #2d2d2d;
+      font-family: "Instrument Serif", serif;
+      z-index: 5;
     }
 
-    .design-process-steps .user-research {
-      position: relative;
-      letter-spacing: 0.25px;
-      line-height: 20px;
+    .grainy-texture-icon {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      flex-shrink: 0;
     }
 
-    .design-process-steps .frame-child {
-      align-self: stretch;
-      height: 0.8px;
+    .light-effect-icon {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      max-height: none;
+      opacity: 0.7;
+      z-index: 1;
+      flex-shrink: 0;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .hero-content {
       position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      isolation: isolate;
+    }
+
+    /* Wrapper that holds/scales all hero visuals */
+    .hero-visuals {
+      position: absolute;
+      inset: 0;
+      transform: scale(1);
+      transform-origin: center;
+      pointer-events: none;
+    }
+
+    /* Device / prop images around the hero */
+    .ipad-icon {
+      position: absolute;
+      width: 33vw;
+      max-width: 732px;
+      height: auto;
+      top: 18%;
+      right: -8%;
+      object-fit: contain;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .stickynote {
+      width: 19vw;
+      height: 286.7px;
+      position: absolute;
+      top: 10%;
+      left: 3%;
+      z-index: 4;
+      pointer-events: none;
+      transform: rotate(349deg);
+    }
+
+    .drop-shadow {
+      position: absolute;
+      height: 10.08%;
+      width: 88.64%;
+      top: 66%;
+      right: 3.38%;
+      bottom: 11.15%;
+      left: 4.98%;
+      box-shadow: 0px 32.2763633728px 6.15px rgba(0, 0, 0, 0.14);
+      border-radius: 6.15px;
+      background-color: #424242;
+      transform: rotate(-4.1deg);
+      transform-origin: 0 0;
+    }
+
+    .stickynote-child {
+      position: absolute;
+      height: 101.01%;
+      width: 108.35%;
+      top: -0.51%;
+      right: -4.18%;
+      bottom: -0.5%;
+      left: -4.17%;
       max-width: 100%;
       overflow: hidden;
       max-height: 100%;
-      background-color: rgba(255, 255, 255, 0.16);
+      object-fit: contain;
     }
 
-    .my-design-process-focuses-on-s-wrapper {
-      align-self: stretch;
-      border-radius: 10px;
-      background-color: rgba(225, 245, 254, 0.17);
-      display: flex;
-      align-items: flex-start;
-      padding: 16px 24px;
-      text-align: left;
-      font-size: 12px;
-      color: #fff;
-      margin-top: 32px;
+    .notepad {
+      width: 35vw;
+      height: 58vh;
+      max-width: 824px;
+      aspect-ratio: 1 / 1;
+      position: absolute;
+      bottom: -34%;
+      left: 44%;
+      z-index: 3;
+      pointer-events: none;
     }
 
-    .my-design-process {
-      flex: 1;
-      position: relative;
-      letter-spacing: 0.1px;
-      line-height: 20px;
-      font-weight: 500;
-    }
-
-    /* PROBLEM SPACE */
-    .frame-wrapper2 {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      color: #b9b9b9;
-    }
-
-    .the-original-app-container {
-      flex: 1;
-      position: relative;
-      font-size: 14px;
-      letter-spacing: 0.25px;
-      line-height: 20px;
-    }
-
-    .the-original-app {
-      margin: 0;
-    }
-
-    .blank-line {
-      margin: 0;
-      color: #eaeaea;
-    }
-
-    .overwhelming-dashboard-with-no {
-      margin: 0;
-      font-size: inherit;
-      padding-left: 19px;
-    }
-
-    .confusing-loan-breakdowns-pri {
-      margin-bottom: 0px;
-    }
-
-    .confusing-loan-breakdowns {
-      font-family: Inter;
-      color: #eaeaea;
-    }
-
-    .principal-vs-interest {
-      font-family: Inter;
-      color: #b9b9b9;
-    }
-
-    /* HYPOTHESIS */
-    .hypothesis-parent {
+    .blank-ruled-notebook-white-tab-icon {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      max-width: 800px;
-      display: flex;
-      align-items: flex-start;
-      gap: 36px;
+      height: 100%;
+      object-fit: contain;
     }
 
-    .redesigning-the-loan {
-      flex: 1;
-      position: relative;
-      font-size: 14px;
-      letter-spacing: 0.25px;
-      line-height: 20px;
-      color: #fff;
+    .phone {
+      width: 33vw;
+      aspect-ratio: 380.8 / 598.1;
+      position: absolute;
+      top: 60%;
+      left: 3%;
+      z-index: 2;
+      pointer-events: none;
     }
 
-    /* RESEARCH & INSIGHTS SECTION (UNDER IMAGE 2) */
-    .research-section {
+    .image-37-icon {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      max-width: 800px;
+      max-width: 100%;
+      overflow: hidden;
+      object-fit: cover;
+      border-radius: 40px;
+    }
+
+    /* Center text block */
+    .hero-text-block {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 60px;
-      text-align: left;
-      font-size: 40px;
-      color: #f9f9f9;
-      font-family: Inter;
-      margin: 80px auto 0px;
-      padding: 0 0px 0;
-      box-sizing: border-box;
-    }
-
-    .research-wrapper {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .research-insights-parent {
-      align-self: stretch;
+      z-index: 6;
+      width: min(800px, 90vw);
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 36px;
-    }
-
-    .research-insights {
-      position: relative;
-      letter-spacing: 0.18px;
-      line-height: 32px;
-      text-transform: uppercase;
-    }
-
-    .we-conducted-user-container {
-      align-self: stretch;
-      position: relative;
-      font-size: 14px;
-      letter-spacing: 0.25px;
-      line-height: 20px;
+      gap: 24px;
       text-align: center;
-      color: #b9b9b9;
     }
 
-    .users {
-      color: #eaeaea;
-    }
-
-    .research-frame-group {
-      align-self: stretch;
+    .hero-heading {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 80px;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-line {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .im-hunter {
+      position: relative;
+      font-size: clamp(42px, 4vw, 80px);
+    }
+
+    .hunter {
+      color: rgba(45, 45, 45, 0.6);
+      font-style: italic;
+    }
+
+    .instance-parent {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      font-size: clamp(42px, 4vw, 80px);
+      color: #2d2d2d;
+    }
+
+    .rectangle-parent,
+    .rectangle-parent-pill {
+      height: 88px;
+      width: 150px;
+      position: relative;
+      box-shadow:
+        23px 18px 30px rgba(0, 0, 0, 0.25),
+        9px 9px 14px rgba(13, 13, 13, 0.32);
+      border-radius: 99.5px;
+      overflow: hidden;
+      background: transparent;
+      border: none;
+      flex-shrink: 0;
+    }
+
+    .dscf0488-1-icon,
+    .rectangle-pill-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .designer {
+      position: relative;
+      font-style: italic;
+      color: #2d2d2d;
+      font-size: clamp(42px, 4vw, 80px);
+    }
+
+    .hero-tagline {
+      width: min(619px, 90vw);
+      margin: 0;
+      font-size: 20px;
+      line-height: 33px;
+      font-family: "Instrument Sans", sans-serif;
+      color: #5a5f65;
+    }
+
+    /* HERO CTA BUTTON (top hero section only) */
+    .hero-cta {
+      height: 40px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
+      border-radius: 7px;
+      background-color: #000000;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      border: none;
+      cursor: pointer;
+      margin-top: 4px;
+      padding-right: 0;
+    }
+
+    .state-layer {
+      width: auto;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      gap: 8px;
+    }
+
+    .label-text {
+      letter-spacing: 0.1px;
+      line-height: 20px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .call-made-icon {
+      width: 20px;
+      max-height: 100%;
+    }
+
+    /* =========================
+       REST OF PAGE
+    ========================== */
+
+    .desktop-2 {
+      min-height: 100vh;
+      position: relative;
+      background-color: #f9f9f9;
+      width: 100%;
+      overflow-y: visible;
+      display: flex;
+      align-items: stretch;
+      isolation: isolate;
+      gap: 10px;
+      text-align: left;
       font-size: 16px;
+      color: #2d2d2d;
+      font-family: "Instrument Serif", serif;
+    }
+
+    .background-icon {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .desktop-2-inner {
+      height: 1402px;
+      width: 1440px;
+      position: absolute;
+      margin: 0 !important;
+      top: 0px;
+      left: 0px;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .frame-child {
+      position: absolute;
+      top: -679px;
+      left: -1122px;
+      width: 2990px;
+      height: 2081px;
+      flex-shrink: 0;
+    }
+
+    .frame-parent {
+      width: 100vw;
+      margin: 0 auto;
+      position: relative;           /* was absolute */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      isolation: isolate;
+      gap: 0;
+      z-index: 2;
+      /* let the height be defined by its content */
     }
 
     .frame-container {
       align-self: stretch;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 32px;
+      align-items: center;
+      z-index: 0;
+      font-size: 60px;
     }
 
-    .frame-div {
-      align-self: stretch;
-      display: flex;
-      align-items: flex-start;
-      gap: 70px;
-    }
-
-    .frame-wrapper2 {
-      flex: 1;
+    .hero-parent {
+      width: 1150px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-    }
-
-    .hidden-information-parent {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .hidden-information {
-      align-self: stretch;
-      position: relative;
-      letter-spacing: 0.15px;
-      line-height: 24px;
-      font-weight: 500;
-      color: #f9f9f9; /* white text */
-    }
-
-    .payment-breakdown-unclear-parent {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .divider {
-      align-self: stretch;
-      height: 1px;
-      position: relative;
-      border-top: 1px solid #b9b9b9;
-      box-sizing: border-box;
-    }
-
-    .many-users-were {
-      align-self: stretch;
-      position: relative;
-      font-size: 14px;
-      letter-spacing: 0.25px;
-      line-height: 20px;
-      color: #b9b9b9;
+      align-items: center;
+      gap: 60px;
+      padding-bottom: 150px;
     }
 
     .frame-parent3 {
       align-self: stretch;
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 14px;
+      flex-direction: column;
+      align-items: center;
+      gap: 100px;
+      text-align: center;
+      font-size: 13px;
+      color: #000;
+      font-family: "Instrument Sans", sans-serif;
     }
 
-    .its-hard-to-tell-what-ive-pa-parent {
-      height: 155px;
-      flex: 1;
-      border-radius: 40px 0px 40px 40px;
-      background-color: rgba(225, 245, 254, 0.17);
+    .past-companies-parent {
+      align-self: stretch;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 20px;
-      box-sizing: border-box;
+      align-items: center;
+      gap: 150px;
+      padding: 80px 0;
+    }
+
+    .past-companies {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 20px;
     }
 
-    .its-hard-to {
-      align-self: stretch;
-      position: relative;
-      letter-spacing: 0.25px;
-      line-height: 20px;
-    }
-
     .frame-parent4 {
-      align-self: stretch;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      text-align: center;
-      font-size: 15px;
-    }
-
-    .al-wrapper {
-      border-radius: 40px;
-      background-color: rgba(255, 255, 255, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px;
-    }
-
-    .al {
-      height: 27px;
-      width: 27px;
-      position: relative;
-      letter-spacing: 0.25px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .alex-l-parent {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 1px;
+      align-items: center;
+      gap: 8px;
     }
 
-    .alex-l {
+    .a-few-brands {
       position: relative;
-      letter-spacing: 0.25px;
-      font-weight: 500;
-    }
-
-    .app-user {
-      position: relative;
-      font-size: 11px;
-      letter-spacing: 0.25px;
-      font-weight: 300;
-      color: #b9b9b9;
-    }
-
-    /* IMAGE GRID SECTION UNDER RESEARCH (800PX WIDE) */
-    .image-grid-section {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 80px;
-      padding: 80px 0px 0; /* 80px padding above first row */
-      box-sizing: border-box;
-    }
-
-    .image-row {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    /* First row: left 459px, right flex */
-    .image-row-top .image-top-left {
-      height: 194px;
-      width: 459px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .image-row-top .image-top-right {
-      height: 194px;
-      flex: 1;
-      border-radius: 10px;
-      max-width: 100%;
-      overflow: hidden;
-      object-fit: cover;
-    }
-
-    /* Second row: 12px above, left 349px */
-    .image-row-bottom {
-      margin-top: 12px; /* 12px space above this row */
-    }
-
-    .image-row-bottom .image-bottom-left {
-      height: 194px;
-      width: 349px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .image-row-bottom .image-bottom-right {
-      height: 194px;
-      flex: 1;
-      border-radius: 10px;
-      max-width: 100%;
-      overflow: hidden;
-      object-fit: cover;
-    }
-
-    /* KEY IMPROVEMENTS SECTION (UNDER IMAGE GRID) */
-    .key-improvements-section {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 80px;
-      padding: 0 0px 0;
-      box-sizing: border-box;
-      display: flex;
-      align-items: flex-start;
-      gap: 36px;
+      font-size: 16px;
+      font-family: "Instrument Serif", serif;
+      color: #2d2d2d;
       text-align: left;
-      font-size: 24px;
-      color: #b9b9b9;
-      font-family: Inter;
     }
 
-    .key-improvements-heading {
-      width: 190px;
+    /* ===== LOGO CAROUSEL ===== */
+
+    .logo-carousel {
       position: relative;
-      letter-spacing: 0.18px;
-      line-height: 32px;
-      text-transform: uppercase;
-      display: inline-block;
-      flex-shrink: 0;
+      width: 100vw;
+      overflow: hidden;
+      padding: 32px 0;
+      padding-top: 0px;
     }
 
-    .key-improvements-label-highlight {
-      color: #f9f9f9;
+    .logo-track {
+      display: flex;
+      width: max-content;
+      animation: logo-marquee 40s linear infinite;
     }
 
-    .key-improvements-content {
-      flex: 1;
+    .logo-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 200px;
+      padding-right: 200px;
+    }
+
+    .logo-strip img {
+      transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+      transform-origin: center;
+      opacity: 0.7;   /* slightly muted by default */
+    }
+
+    .logo-strip img:hover {
+      transform: scale(1.2);
+      opacity: 1;     /* full strength on hover */
+    }
+
+    .bofa-1-icon,
+    .family-search-1,
+    .metajive-1-icon,
+    .utah-tech1-1-1,
+    .era-2-icon,
+    .suu-1-icon,
+    .dhi-1-1 {
+      position: relative;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    /* Exact logo heights for consistent scale */
+    .bofa-1-icon {
+      height: 57px;
+    }
+
+    .family-search-1 {
+      height: 64px;
+    }
+
+    .metajive-1-icon {
+      height: 40px;
+    }
+
+    .utah-tech1-1-1 {
+      height: 35px;
+    }
+
+    .era-2-icon {
+      height: 69px;
+    }
+
+    .suu-1-icon {
+      height: 52px;
+    }
+
+    .dhi-1-1 {
+      height: 42px;
+    }
+
+    @keyframes logo-marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ===== END LOGO CAROUSEL ===== */
+
+    .frame-wrapper {
+      width: 1150px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 32px;
-      font-size: 14px;
-      color: #fff;
+      text-align: left;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
     }
 
-    .key-improvements-row-top {
+    .frame-parent6 {
       align-self: stretch;
       display: flex;
+      flex-direction: column;
       align-items: flex-start;
       gap: 24px;
     }
 
-    .key-improvements-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .key-improvements-title {
-      align-self: stretch;
-      position: relative;
-      letter-spacing: 0.25px;
-      line-height: 20px;
-    }
-
-    .key-improvements-description {
-      align-self: stretch;
-      position: relative;
-      letter-spacing: 0.25px;
-      line-height: 20px;
-      color: #b9b9b9;
-    }
-
-    .key-improvements-row-bottom {
+    .instance-wrapper {
       align-self: stretch;
       display: flex;
-      align-items: flex-start;
-      gap: 22px;
+      align-items: center;
+      justify-content: center;
     }
 
-    .key-improvements-item-narrow {
-      width: 175.3px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
+    /* clickable card wrapper */
+    .case-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
 
-    /* USER QUOTES SECTION */
-    .user-quotes-section {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 80px; /* 80px gap before final-image-section */
-      padding: 0;
-      box-sizing: border-box;
+    .case-card-link:focus .group-parent {
+      outline: 2px solid #51A2FF;
+      outline-offset: 4px;
     }
 
-    .user-quotes-parent {
-      width: 100%;
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      gap: 36px;
-      text-align: left;
-      font-size: 24px;
-      color: #b9b9b9;
-      font-family: Inter;
-    }
-
-    .user-quotes {
-      width: 190px;
-      position: relative;
-      letter-spacing: 0.18px;
-      line-height: 32px;
-      text-transform: uppercase;
-      display: inline-block;
+    .group-parent {
+      height: 350px;
+      width: 800px;
+      border-radius: 12px;
+      overflow: hidden;
       flex-shrink: 0;
-    }
-
-    .quotes {
-      color: #f9f9f9;
-    }
-
-    .user-quotes-parent .frame-parent {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;         /* keeps spacing between the two quote rows */
-      font-size: 14px;
-      max-width: 574px;
-      margin: 0;         /* remove any default margin */
-      padding: 0;        /* remove any default padding */
-    }
-
-    .user-quotes-parent .frame-group {
-      width: 574px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    /* Quote card styles – applied to all 4 cards (Figma match) */
-    .this-version-is-so-much-easier-parent,
-    .being-able-to-see-my-payment-h-parent {
-      height: 172px;
-      flex: 1;
-      width: 100%;
-      position: relative;
-      border-radius: 40px 0px 40px 40px;
-      background-color: rgba(225, 245, 254, 0.17);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
       justify-content: space-between;
-      padding: 20px;
+      padding: 16px 20px;
       box-sizing: border-box;
+      position: relative;
+      isolation: isolate;
       gap: 20px;
+
+      /* hover animation */
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+
+    /* Card hover: lift + stronger shadow */
+    .group-parent:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .image-parent {
+      width: 800px;
+      height: 350px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0 !important;
+      z-index: 0;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 800px;
+      height: 350px;
+      overflow: hidden;
+    }
+
+    .psd-02-1-icon {
+      width: 800px;
+      height: 350px;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    /* Slight image zoom on hover */
+    .group-parent:hover .psd-02-1-icon {
+      transform: scale(1.05);
+    }
+
+    .shadow {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 0px 0px 12px 12px;
+      background: linear-gradient(
+        180deg,
+        rgba(45, 45, 45, 0) 0%,
+        rgba(45, 45, 45, 0.7) 100%
+      );
+      width: 800px;
+      height: 180px;
+      transition: opacity 0.35s ease;
+    }
+
+    /* Darker overlay on hover */
+    .group-parent:hover .shadow {
+      opacity: 0.95;
+    }
+
+    .chips {
+      width: auto;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      z-index: 1;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      position: relative;
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-radius: 60px;
+      background-color: rgba(104, 104, 104, 0.4);
+      border: 1px solid #fff;
+      box-sizing: border-box;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+
+      width: auto;
+      white-space: nowrap;
+
       text-align: left;
-      font-size: 14px;
-      color: #b9b9b9;
-      font-family: Inter;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: "Instrument Sans", sans-serif;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
-    .this-version-is {
+    /* Chips brighten slightly on hover */
+    .group-parent:hover .chip {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .chip .hunter-allsop {
+      letter-spacing: 0.4px;
+      line-height: 16px;
+    }
+
+    .bottom-text {
       align-self: stretch;
-      position: relative;
-      letter-spacing: 0.25px;
-      line-height: 20px;
-    }
-
-    /* Footer row inside each quote card */
-    .user-quotes-parent .frame-container {
+      border-radius: 0px 0px 12px 12px;
       display: flex;
-      flex-direction: row;      /* force circle + text in a row */
       align-items: center;
-      gap: 16px;
-      text-align: left;         /* match Figma, text left aligned */
-      font-size: 15px;
+      gap: 100px;
+      z-index: 2;
+      flex-shrink: 0;
+      font-size: 35px;
       color: #f9f9f9;
-    }
-
-    /* Avatar initials circle */
-    .am-wrapper,
-    .jr-wrapper {
-      border-radius: 40px;
-      background-color: rgba(255, 255, 255, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px;
-    }
-
-    .am {
-      height: 27px;
-      width: 27px;
       position: relative;
-      letter-spacing: 0.25px;
-      font-weight: 500;
+    }
+
+    .gold-point-systems {
+      letter-spacing: 0.1px;
+      z-index: 2;
+    }
+
+    .gold-point-systems2 {
+      flex: 1;
+      font-size: 16px;
+      color: rgba(249, 249, 249, 0.8);
+      z-index: 2;
+    }
+
+    .ellipse-parent {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      position: relative;
+      isolation: isolate;
+      gap: 16px;
+      text-align: left;
+      font-size: 30px;
+      color: #2d2d2d;
+      font-family: "Instrument Serif", serif;
+    }
+
+    .ellipse-div {
+      width: 770px;
+      height: 358px;
+      position: absolute;
+      margin: 0 !important;
+      top: 0px;
+      left: 115px;
+      border-radius: 50%;
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(255, 255, 255, 0.7) 16.83%,
+        rgba(255, 255, 255, 0)
+      );
+      z-index: 0;
       flex-shrink: 0;
     }
 
-    .angela-m-parent {
+    .vector-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .frame-child3 {
+      height: 2px;
+      width: 120px;
+      position: relative;
+      object-fit: contain;
+    }
+
+    .hello {
+      position: relative;
+      line-height: 33px;
+      padding: 0 20px;
+    }
+
+    .frame-parent7 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      z-index: 2;
+      flex-shrink: 0;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    .button-parent {
+      height: 300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 45px;
+    }
+
+    .button-group {
+      height: 300px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      gap: 1px;
+      gap: 45px;
     }
 
-    .angela-m {
-      position: relative;
-      letter-spacing: 0.25px;
-      font-weight: 500;
+    /* ABOUT SECTION PILLS */
+    .about-pill {
+      height: 40px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
+      border-radius: 100px;
+      background-color: #3d3d3d96;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      border: none;
     }
 
-   /* FINAL IMAGE SECTION */
-.final-image-section {
-  width: 100%;
-  max-width: 800px;      /* caps the image at 800px */
-  margin: 0 auto 80px;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.rectangle-parent {
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;      /* keeps rounded corners */
-}
-
-/* remove the gray block if you want, or leave unused */
-.rectangle-parent .frame-child {
-  display: none;
-}
-
-/* make the image scale, not crop */
-.image-91-icon {
-  display: block;
-  width: 100%;           /* fills up to 800px */
-  height: auto;          /* keeps aspect ratio */
-  position: static;      /* no more absolute cropping */
-  object-fit: contain;   /* optional, but safe */
-}
-
-
-    /* TEST RESULTS SECTION */
-    .test-results-section {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 0px;
-      padding: 0 0px 80px;
-      box-sizing: border-box;
-    }
-    /* Let test results cards inherit the 34px from their parent */
-.test-results-section .frame-group {
-  font-size: inherit;
-}
-    
-    .test-results-parent {
-      width: 100%;
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      gap: 36px;
-      text-align: left;
-      font-size: 24px;
-      color: #b9b9b9;
-      font-family: Inter;
+    .pill-rotate-neg-8 {
+      transform: rotate(16deg);
     }
 
-    .test-results {
-      width: 190px;
-      position: relative;
-      letter-spacing: 0.18px;
-      line-height: 32px;
-      text-transform: uppercase;
+    .pill-rotate-10 {
+      transform: rotate(-15deg);
+    }
+
+    .pill-rotate-13 {
+      transform: rotate(-16deg);
+    }
+
+    .pill-rotate-neg-16 {
+      transform: rotate(15deg);
+    }
+
+    .im-an-enthusiastic {
+      width: 571px;
+      font-size: 27px;
+      line-height: 41px;
+      font-family: "Instrument Serif", serif;
+      color: #000;
       display: inline-block;
       flex-shrink: 0;
     }
 
-    .results {
-      color: #f9f9f9;
-    }
+    /* =========================
+       FULL-VIEWPORT FOOTER
+       ("I'm available" section)
+    ========================== */
 
-    .test-results-parent .frame-parent {
-      width: 574px;
+    .frame-parent8 {
+      width: 100vw;
+      min-height: 100vh; /* fill the viewport height */
+      background-color: #141414;
+      background-image: url("./HomepageAssets/lightbackground.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 34px;
-      color: #fff;
+      align-items: center;     /* center vertically */
+      justify-content: center; /* center horizontally */
+      padding: 120px 16px;
+      box-sizing: border-box;
+
+      position: relative;
+      isolation: isolate;
       margin: 0;
-      padding: 0;
+      z-index: 1;
     }
 
-    .test-results-parent .frame-group {
-      align-self: stretch;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      width: 100%;
-    }
-
-    .test-results-parent .frame-wrapper,
-    .test-results-parent .frame-container {
-      align-self: stretch;
-      flex: 1;
-      border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 24px 20px;
-      box-sizing: border-box;
-      text-align: center;
-    }
-
-    .x,
-    .b {
-      position: relative;
-      letter-spacing: 0.25px;
-    }
-
-    .users-completed-payments,
-    .reported-higher-trust {
-      align-self: stretch;
-      position: relative;
-      font-size: 15px;
-      letter-spacing: 0.25px;
-      font-weight: 500;
-      color: #f9f9f9;
-      text-align: center;
-    }
-
-    .test-results-parent .frame-div {
-      align-self: stretch;
-      border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: flex-start;
-      padding: 24px 20px;
-      box-sizing: border-box;
-    }
-
-    .group {
-      align-self: stretch;
+    .frame-parent8-inner {
+      max-width: 800px;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-    }
-
-    .task-success-rate {
-      position: relative;
-      font-size: 15px;
-      letter-spacing: 0.25px;
-      font-weight: 500;
+      gap: 29px;
+      text-align: center;
+      font-size: 20px;
       color: #f9f9f9;
+      font-family: "Instrument Serif", serif;
+
+      /* for parallax */
+      will-change: transform;
+      transform: translateY(0);
     }
 
-    /* DESKTOP: hero image at 80% of screen width */
-    @media (min-width: 1024px) {
-      .hero-image-container {
-        width: 80vw;
-        margin: 0 auto; /* center the image block */
+    .vector-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 0;
+      flex-shrink: 0;
+    }
+
+    .frame-child5 {
+      height: 0.3px;
+      width: 52.4px;
+      position: relative;
+      object-fit: contain;
+    }
+
+    .im-available {
+      letter-spacing: 0.1px;
+    }
+
+    .lets-connect-parent {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 1;
+      flex-shrink: 0;
+      font-size: 70px;
+    }
+
+    .lets-connect {
+      align-self: stretch;
+      letter-spacing: 0.1px;
+    }
+
+    .connect {
+      color: rgba(249, 249, 249, 0.5);
+    }
+
+    .reach-out-anytime {
+      align-self: stretch;
+      font-size: 20px;
+      letter-spacing: 0.1px;
+      font-family: "Instrument Sans", sans-serif;
+    }
+
+    .button4 {
+      height: 40px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.21);
+      border-radius: 100px;
+      background-color: #3d3d3d;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button4 .state-layer {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      gap: 8px;
+    }
+
+    .button4 .label-text {
+      letter-spacing: 0.1px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    .button4 .call-made-icon {
+      width: 20px;
+      max-height: 100%;
+    }
+
+    .adobestock-142298783-1-icon {
+      /* legacy, unused */
+    }
+
+    @media (max-width: 1024px) {
+      .ipad-icon {
+        right: -15%;
+      }
+      .stickynote {
+        left: -1%;
+      }
+      .notepad {
+        left: 44%;
+      }
+      .phone {
+        left: 5%;
+        top: 77%;
       }
     }
 
-    /* simple responsiveness */
-    @media (max-width: 900px) {
-      .frame-parent {
-        margin: 0 auto 80px;
-        padding: 0 20px 80px;
+    @media (max-width: 768px) {
+      .ipad-icon,
+      .stickynote,
+      .notepad,
+      .phone {
+        opacity: 0.25;
       }
-
-      .overview-parent,
-      .design-process-parent,
-      .hypothesis-parent {
-        flex-direction: column;
+      .hero-text-block {
+        align-items: center;
+      }
+      .hero-line {
+        gap: 12px;
+      }
+      .rectangle-parent,
+      .rectangle-parent-pill {
+        height: 64px;
+        width: 110px;
+      }
+      .lets-connect-parent {
+        font-size: 48px;
         width: 100%;
       }
-
-      .frame-group,
-      .hypothesis-parent {
-        width: 100%;
-      }
-
-      .design-process-content {
-        align-items: flex-start;
-        text-align: left;
-      }
-
-      .design-process-steps {
-        text-align: left;
-      }
-
-      .research-section {
-        margin: 64px auto 96px;
-        padding: 0 20px;
-      }
-
-      .frame-div {
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .image-grid-section {
-        padding: 64px 0px 0;
-        margin-bottom: 96px;
-      }
-
-      .image-row {
-        flex-direction: column;
-      }
-
-      .image-row-top .image-top-left,
-      .image-row-top .image-top-right,
-      .image-row-bottom .image-bottom-left,
-      .image-row-bottom .image-bottom-right {
-        width: 100%;
-      }
-
-      .key-improvements-section {
-        flex-direction: column;
-        margin-bottom: 96px;
-        padding: 0 20px;
-      }
-
-      .key-improvements-row-top,
-      .key-improvements-row-bottom {
-        flex-direction: column;
-      }
-
-      .key-improvements-item-narrow {
-        width: 100%;
-      }
-
-      .user-quotes-parent {
-        flex-direction: column;
-      }
-
-      .user-quotes-parent .frame-parent {
-        width: 100%;
-      }
-
-      .user-quotes-parent .frame-group {
-        width: 100%;
-        flex-direction: column;
-      }
-
-      .final-image-section {
-        padding: 0 20px;
-      }
-
-      .test-results-parent {
-        flex-direction: column;
-      }
-
-      .test-results-parent .frame-parent {
-        width: 100%;
-      }
-
-      .test-results-parent .frame-group {
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .frame-parent {
-        margin: 0 auto 64px;
-        padding: 0 16px 64px;
-        gap: 56px;
-      }
-
-      .frame-group {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .research-section {
-        margin: 48px auto 80px;
-        padding: 0 16px;
-      }
-
-      .image-grid-section {
-        padding: 48px 16px 0;
-        margin-bottom: 80px;
-      }
-
-      .key-improvements-section {
-        margin-bottom: 80px;
-        padding: 0 16px;
-      }
-
-      .user-quotes-section {
-        margin-bottom: 80px;
-        padding: 0 16px;
-      }
-
-      .final-image-section {
-        margin-bottom: 80px;
-        padding: 0 16px;
-      }
-
-      .test-results-section {
-        margin-bottom: 80px;
-        padding: 0 16px 80px;
+      .reach-out-anytime {
+        font-size: 18px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- HERO IMAGE (TOP) -->
-  <div class="hero-image-container">
+  <!-- NEW HERO SECTION -->
+  <div class="hero-section-1920x1080">
+    <!-- Backgrounds -->
     <img
-      src="./assets/Image1.png"
-      alt="Hammock loan management case study hero"
-      class="hero-image"
+      class="grainy-texture-icon"
+      src="./HomepageAssets/Herobackground.png"
+      alt=""
     />
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <div class="frame-parent">
-    <!-- OVERVIEW -->
-    <div class="frame-wrapper">
-      <div class="overview-parent">
-        <b class="overview">Overview</b>
-        <div class="our-team-was-tasked-with-redes-parent">
-          <div class="our-team-was-container">
-            <span>
-              Our team was tasked with redesigning an existing loan management
-              app that had become
-            </span>
-            <b class="outdated"> outdated</b>
-            <span>, </span>
-            <b class="outdated">cluttered</b>
-            <span>, and </span>
-            <b class="outdated">frustrating for users</b>
-            <span>
-              . The original experience made it difficult to view loan details,
-              track due dates, and make payments. This lead to poor engagement,
-              missed payments, and frequent support tickets.
-            </span>
-          </div>
-          <div class="i-led-the-complete-ux-redesign-wrapper">
-            <div class="i-led-the">
-              I led the complete UX redesign, focusing on creating a more
-              intuitive, efficient, and user-centered experience that would
-              empower users to manage their loans confidently and independently.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MY ROLE / TIMELINE / TEAM / TOOLS -->
-    <div class="frame-group">
-      <div class="my-role-parent">
-        <b class="my-role">My role</b>
-        <div class="lead-uxui-designer">
-          Lead UX/UI Designer<br />Product Strategy
-        </div>
-      </div>
-      <div class="my-role-parent">
-        <b class="my-role">Time line</b>
-        <div class="lead-uxui-designer">12 weeks</div>
-      </div>
-      <div class="my-role-parent">
-        <b class="my-role">Team</b>
-        <div class="lead-uxui-designer">
-          Design (2)<br />Engineering (5)<br />Product (2)
-        </div>
-      </div>
-      <div class="my-role-parent">
-        <b class="my-role">Tools</b>
-        <div class="lead-uxui-designer">
-          Figma<br />Figjam<br />Azure DevOps
-        </div>
-      </div>
-    </div>
-
-    <!-- DESIGN PROCESS -->
-    <div class="design-process-parent">
-      <b class="design-process">
-        <span>Design </span>
-        <span class="process">process</span>
-      </b>
-      <div class="design-process-content">
-        <div class="design-process-steps">
-          <div class="parent">
-            <div class="div">01</div>
-            <div class="user-research-wrapper">
-              <div class="user-research">User research</div>
-            </div>
-          </div>
-          <div class="frame-child"></div>
-
-          <div class="parent">
-            <div class="div">02</div>
-            <div class="user-research-wrapper">
-              <div class="user-research">User interview</div>
-            </div>
-          </div>
-          <div class="frame-child"></div>
-
-          <div class="parent">
-            <div class="div">03</div>
-            <div class="user-research-wrapper">
-              <div class="user-research">User persona</div>
-            </div>
-          </div>
-          <div class="frame-child"></div>
-
-          <div class="parent">
-            <div class="div">04</div>
-            <div class="user-research-wrapper">
-              <div class="user-research">Empathy mapping</div>
-            </div>
-          </div>
-          <div class="frame-child"></div>
-
-          <div class="parent">
-            <div class="div">05</div>
-            <div class="user-research-wrapper">
-              <div class="user-research">User persona</div>
-            </div>
-          </div>
-          <div class="frame-child"></div>
-
-          <div class="parent">
-            <div class="div">06</div>
-            <div class="user-research-wrapper">
-              <div class="user-research">User flow</div>
-            </div>
-          </div>
-          <div class="frame-child"></div>
-
-          <div class="parent">
-            <div class="div">07</div>
-            <div class="user-research-wrapper">
-              <div class="user-research">Wireframes, Visual design</div>
-            </div>
-          </div>
-          <div class="frame-child"></div>
-
-          <div class="parent">
-            <div class="div">08</div>
-            <div class="user-research-wrapper">
-              <div class="user-research">Prototyping, Testing</div>
-            </div>
-          </div>
-          <div class="frame-child"></div>
-        </div>
-
-        <div class="my-design-process-focuses-on-s-wrapper">
-          <div class="my-design-process">
-            My design process focuses on shaping and evolving Hammock financials
-            digital experience to ensure a clear, user-friendly, and consistent
-            brand identity across all touchpoints
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROBLEM SPACE -->
-    <div class="frame-wrapper2">
-      <div class="overview-parent">
-        <b class="overview">
-          <span>The</span>
-          <span class="process"> problem </span>
-          <span>space</span>
-        </b>
-        <div class="the-original-app-container">
-          <p class="the-original-app">
-            The original app was functional but deeply flawed from a user
-            experience perspective. Common issues included:
-          </p>
-          <p class="blank-line">
-            <b>&nbsp;</b>
-          </p>
-          <ul class="overwhelming-dashboard-with-no">
-            <li class="confusing-loan-breakdowns-pri">
-              <b>Overwhelming dashboard</b>
-              <span> with no clear next steps</span>
-            </li>
-            <li class="confusing-loan-breakdowns-pri">
-              <b class="confusing-loan-breakdowns">
-                Confusing loan breakdowns
-              </b>
-              <span class="principal-vs-interest">
-                (principal vs. interest)
-              </span>
-            </li>
-            <li class="confusing-loan-breakdowns-pri">
-              <b class="confusing-loan-breakdowns">
-                Cumbersome payment process
-              </b>
-              <span class="principal-vs-interest">
-                requiring multiple taps
-              </span>
-            </li>
-            <li class="confusing-loan-breakdowns-pri">
-              <b class="confusing-loan-breakdowns">
-                Lack of mobile optimization
-              </b>
-              <span class="principal-vs-interest">
-                , despite majority mobile users
-              </span>
-            </li>
-            <li class="confusing-loan-breakdowns-pri">
-              <b class="confusing-loan-breakdowns">Poor accessibility</b>
-              <span class="principal-vs-interest">
-                , with small text and low contrast
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- HYPOTHESIS -->
-    <div class="hypothesis-parent">
-      <b class="overview">Hypothesis</b>
-      <div class="redesigning-the-loan">
-        Redesigning the loan management app to simplify navigation, surface key
-        loan information, and streamline the payment process will improve task
-        completion rates, reduce user confusion, and decrease support requests.
-        Ultimately leading to higher user satisfaction and engagement.
-      </div>
-    </div>
-  </div>
-
-  <!-- BOTTOM IMAGE (FULL WIDTH 100VW) -->
-  <div class="bottom-image-container">
     <img
-      src="./assets/Image9.png"
-      alt="Hammock case study footer visual"
-      class="bottom-image"
+      class="light-effect-icon"
+      src="./assets/home-glow.png"
+      alt=""
     />
-  </div>
 
-  <!-- RESEARCH & INSIGHTS SECTION (800PX WIDE, UNDER IMAGE 2) -->
-  <div class="research-section">
-    <div class="research-wrapper">
-      <div class="research-insights-parent">
-        <b class="research-insights">Research &amp; Insights</b>
-        <div class="we-conducted-user-container">
-          <span>We conducted user interviews with </span>
-          <b class="users">10 users</b>
-          <span>
-            and reviewed analytics and customer support logs. <br />
-            Key findings included:
-          </span>
+    <div class="hero-content">
+      <!-- All visuals grouped for scaling -->
+      <div class="hero-visuals">
+        <!-- Devices / props -->
+        <img
+          class="ipad-icon"
+          src="./HomepageAssets/Ipad.png"
+          alt="iPad with design work"
+        />
+
+        <div class="stickynote">
+          <img
+            class="stickynote-child"
+            src="./HomepageAssets/Stickynote.png"
+            alt="Sticky note"
+          />
+        </div>
+
+        <div class="notepad">
+          <img
+            class="blank-ruled-notebook-white-tab-icon"
+            src="./HomepageAssets/Notepad.png"
+            alt="Notepad with design notes"
+          />
+        </div>
+
+        <div class="phone">
+          <img
+            class="image-37-icon"
+            src="./HomepageAssets/Phone.png"
+            alt="Phone with product UI"
+          />
         </div>
       </div>
+
+      <!-- Center hero text -->
+      <div class="hero-text-block">
+        <div class="hero-heading">
+          <div class="hero-line">
+            <div class="im-hunter">
+              <span>I’m </span><i class="hunter">Hunter</i>
+            </div>
+            <div class="instance-parent">
+              <div class="rectangle-parent">
+                <img
+                  class="dscf0488-1-icon"
+                  src="./HomepageAssets/Hunter pill2.png"
+                  alt="Hunter pill"
+                />
+              </div>
+              <div class="im-hunter">,</div>
+            </div>
+          </div>
+
+          <div class="hero-line">
+            <div class="im-hunter">
+              <span>a </span><i class="hunter">product</i>
+            </div>
+            <div class="rectangle-parent rectangle-parent-pill">
+              <img
+                class="rectangle-pill-image"
+                src="./HomepageAssets/Blue pill2.png"
+                alt="Product design pill"
+              />
+            </div>
+            <i class="designer">Designer</i>
+          </div>
+        </div>
+
+        <p class="hero-tagline">
+          Senior-level UI, UX, &amp; Web Design for digital products.<br />
+          Design that solves real problems for real users.
+        </p>
+
+        <!-- HERO CTA uses its own class -->
+        <button class="hero-cta">
+          <div class="state-layer">
+            <div class="label-text">Let’s connect</div>
+            <img
+              class="call-made-icon"
+              src="./HomepageAssets/Arrowicon.png"
+              alt=""
+            />
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REST OF PAGE (BRANDS, CASE STUDIES, ABOUT, FOOTER) -->
+  <div class="desktop-2">
+    <!-- Background above black section -->
+    <img
+      class="background-icon"
+      src="./HomepageAssets/Whitebackground.png"
+      alt="Background"
+    />
+
+    <div class="desktop-2-inner">
+      <img class="frame-child" src="./assets/home-glow.png" alt="Glow" />
     </div>
 
-    <div class="research-frame-group">
+    <div class="frame-parent">
       <div class="frame-container">
-        <div class="frame-div">
-          <div class="frame-wrapper2">
-            <div class="hidden-information-parent">
-              <div class="hidden-information">Hidden information</div>
-              <div class="divider"></div>
-              <div class="many-users-were">
-                7 out of 10 users couldn’t locate their next due date within 10
-                seconds.
+        <!-- WRAPPER FOR BRANDS / CASE STUDIES / ABOUT -->
+        <div class="hero-parent">
+          <div class="frame-parent3">
+            <!-- Brands -->
+            <div class="past-companies-parent">
+              <div class="past-companies">
+                <div class="frame-parent4">
+                  <div class="a-few-brands">
+                    A few brands I have worked with
+                  </div>
+                </div>
+
+                <!-- LOGO CAROUSEL -->
+                <div class="logo-carousel">
+                  <div class="logo-track">
+                    <!-- strip 1 -->
+                    <div class="logo-strip">
+                      <img
+                        class="bofa-1-icon"
+                        src="./HomepageAssets/BOFA%201.png"
+                        alt="Bank of America"
+                      />
+                      <img
+                        class="family-search-1"
+                        src="./HomepageAssets/Family%20search%201.png"
+                        alt="FamilySearch"
+                      />
+                      <img
+                        class="metajive-1-icon"
+                        src="./HomepageAssets/Metajive%201.png"
+                        alt="Metajive"
+                      />
+                      <img
+                        class="utah-tech1-1-1"
+                        src="./HomepageAssets/utah-tech(1)%201%201.png"
+                        alt="Utah Tech"
+                      />
+                      <img
+                        class="era-2-icon"
+                        src="./HomepageAssets/ERA%202.png"
+                        alt="ERA"
+                      />
+                      <img
+                        class="suu-1-icon"
+                        src="./HomepageAssets/SUU%201.png"
+                        alt="Southern Utah University"
+                      />
+                      <img
+                        class="dhi-1-1"
+                        src="./HomepageAssets/DHI%201%201.png"
+                        alt="DHI"
+                      />
+                    </div>
+
+                    <!-- strip 2 (duplicate for seamless loop) -->
+                    <div class="logo-strip">
+                      <img
+                        class="bofa-1-icon"
+                        src="./HomepageAssets/BOFA%201.png"
+                        alt="Bank of America"
+                      />
+                      <img
+                        class="family-search-1"
+                        src="./HomepageAssets/Family%20search%201.png"
+                        alt="FamilySearch"
+                      />
+                      <img
+                        class="metajive-1-icon"
+                        src="./HomepageAssets/Metajive%201.png"
+                        alt="Metajive"
+                      />
+                      <img
+                        class="utah-tech1-1-1"
+                        src="./HomepageAssets/utah-tech(1)%201%201.png"
+                        alt="Utah Tech"
+                      />
+                      <img
+                        class="era-2-icon"
+                        src="./HomepageAssets/ERA%202.png"
+                        alt="ERA"
+                      />
+                      <img
+                        class="suu-1-icon"
+                        src="./HomepageAssets/SUU%201.png"
+                        alt="Southern Utah University"
+                      />
+                      <img
+                        class="dhi-1-1"
+                        src="./HomepageAssets/DHI%201%201.png"
+                        alt="DHI"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Featured cards -->
+              <div class="frame-wrapper">
+                <div class="frame-parent6">
+                  <!-- CARD 1 – GPS -->
+                  <div class="instance-wrapper">
+                    <a class="case-card-link" href="./gps-case-study.html">
+                      <div class="group-parent">
+                        <div class="image-parent">
+                          <div class="image">
+                            <img
+                              class="psd-02-1-icon"
+                              src="./HomepageAssets/CasestudyGPS1.png"
+                              alt="Gold Point Systems"
+                            />
+                          </div>
+                          <div class="shadow"></div>
+                        </div>
+                        <div class="chips">
+                          <div class="chip">
+                            <b class="hunter-allsop">Product design</b>
+                          </div>
+                          <div class="chip">
+                            <b class="hunter-allsop">User research</b>
+                          </div>
+                        </div>
+                        <div class="bottom-text">
+                          <b class="gold-point-systems">
+                            DHI
+                          </b>
+                          <b class="gold-point-systems2">
+                            Gold Point Systems offers easy to use tools to track
+                            and manage banking transactions.
+                          </b>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- CARD 2 – Hammock -->
+                  <div class="instance-wrapper">
+                    <a class="case-card-link" href="./hammock-case-study.html">
+                      <div class="group-parent">
+                        <div class="image-parent">
+                          <div class="image">
+                            <img
+                              class="psd-02-1-icon"
+                              src="./HomepageAssets/Casestudyhammock.png"
+                              alt="Hammock Case Study"
+                            />
+                          </div>
+                          <div class="shadow"></div>
+                        </div>
+                        <div class="chips">
+                          <div class="chip">
+                            <b class="hunter-allsop">User testing</b>
+                          </div>
+                          <div class="chip">
+                            <b class="hunter-allsop">Accessibility</b>
+                          </div>
+                        </div>
+                        <div class="bottom-text">
+                          <b class="gold-point-systems">
+                            DHI
+                          </b>
+                          <b class="gold-point-systems2">
+                            Gold Point Systems offers easy to use tools to track
+                            and manage banking transactions.
+                          </b>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="payment-breakdown-unclear-parent">
-            <div class="hidden-information">Payment Breakdown Unclear</div>
-            <div class="divider"></div>
-            <div class="many-users-were">
-              Many users were unsure what their payment was going toward
-              (interest or principal).
-            </div>
-          </div>
-        </div>
 
-        <div class="frame-div">
-          <div class="payment-breakdown-unclear-parent">
-            <div class="hidden-information">Frequent Support Requests</div>
-            <div class="divider"></div>
-            <div class="many-users-were">
-              Support tickets were frequently related to payment confirmation
-              and transaction history.
-            </div>
-          </div>
-          <div class="payment-breakdown-unclear-parent">
-            <div class="hidden-information">Mobile Usability Issues</div>
-            <div class="divider"></div>
-            <div class="many-users-were">
-              Mobile users struggled most with tap targets and screen
-              responsiveness.
-            </div>
-          </div>
-        </div>
-      </div>
+            <!-- About / Hello section -->
+            <div class="ellipse-parent">
+              <div class="ellipse-div"></div>
 
-      <div class="frame-parent3">
-        <div class="its-hard-to-tell-what-ive-pa-parent">
-          <div class="its-hard-to">
-            “It’s hard to tell what I’ve paid and what I still owe.”
-          </div>
-          <div class="frame-parent4">
-            <div class="al-wrapper">
-              <div class="al">AL</div>
-            </div>
-            <div class="alex-l-parent">
-              <div class="alex-l">Alex L.</div>
-              <div class="app-user">App user</div>
-            </div>
-          </div>
-        </div>
+              <div class="vector-group">
+                <img
+                  class="frame-child3"
+                  src="./HomepageAssets/Helloline.png"
+                  alt=""
+                />
+                <div class="hello">Hello,</div>
+                <img
+                  class="frame-child3"
+                  src="./HomepageAssets/Helloline.png"
+                  alt=""
+                />
+              </div>
 
-        <div class="its-hard-to-tell-what-ive-pa-parent">
-          <div class="its-hard-to">
-            "I wish it showed me exactly how close I am to paying it off."
-          </div>
-          <div class="frame-parent4">
-            <div class="al-wrapper">
-              <div class="al">NW</div>
+              <div class="frame-parent7">
+                <!-- LEFT COLUMN: User testing / Design systems / Prototypes -->
+                <div class="button-parent">
+                  <div class="about-pill pill-rotate-neg-8">
+                    <div class="state-layer">
+                      <div class="label-text">User testing</div>
+                    </div>
+                  </div>
+
+                  <div class="about-pill">
+                    <div class="state-layer">
+                      <div class="label-text">Design systems</div>
+                    </div>
+                  </div>
+
+                  <div class="about-pill pill-rotate-10">
+                    <div class="state-layer">
+                      <div class="label-text">Prototypes</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- MIDDLE COPY -->
+                <div class="im-an-enthusiastic">
+                  I'm an enthusiastic and professional designer who’s passionate
+                  about making products better—both for the people who use them
+                  and the teams who build them. I care deeply about the details,
+                  love solving problems, and bring a collaborative, thoughtful
+                  energy to every project I work on.
+                </div>
+
+                <!-- RIGHT COLUMN: Problem solver / UI/UX Design / Research -->
+                <div class="button-group">
+                  <div class="about-pill pill-rotate-13">
+                    <div class="state-layer">
+                      <div class="label-text">Problem solver</div>
+                    </div>
+                  </div>
+
+                  <div class="about-pill">
+                    <div class="state-layer">
+                      <div class="label-text">UI/UX Design</div>
+                    </div>
+                  </div>
+
+                  <div class="about-pill pill-rotate-neg-16">
+                    <div class="state-layer">
+                      <div class="label-text">Research</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="alex-l-parent">
-              <div class="alex-l">Nina W.</div>
-              <div class="app-user">App user</div>
+          </div> <!-- /frame-parent3 -->
+        </div> <!-- /hero-parent -->
+
+        <!-- Bottom "I'm available" section with full viewport black background -->
+        <div class="frame-parent8">
+          <div class="frame-parent8-inner">
+            <div class="vector-container">
+              <img
+                class="frame-child5"
+                src="./assets/line-light.svg"
+                alt=""
+              />
+              <div class="im-available">I’m available</div>
+              <img
+                class="frame-child5"
+                src="./assets/line-light.svg"
+                alt=""
+              />
             </div>
+
+            <div class="lets-connect-parent">
+              <div class="lets-connect">
+                <span>Let’s </span><i class="connect">connect</i>
+              </div>
+              <div class="reach-out-anytime">
+                Reach out anytime, I’m available for new opportunities and
+                collaborations
+              </div>
+            </div>
+
+            <button class="button4">
+              <div class="state-layer">
+                <div class="label-text">Let’s connect</div>
+                <img
+                  class="call-made-icon"
+                  src="./HomepageAssets/Arrowicon.png"
+                  alt=""
+                />
+              </div>
+            </button>
           </div>
         </div>
+        <!-- end footer section -->
       </div>
     </div>
   </div>
 
-  <!-- IMAGE GRID SECTION UNDER RESEARCH -->
-  <div class="image-grid-section">
-    <div class="image-row image-row-top">
-      <!-- Top-left: Image3 -->
-      <img
-        src="./assets/Image3.png"
-        alt="Hammock screen 1"
-        class="image-top-left"
-      />
-      <!-- Top-right: Image4 -->
-      <img
-        src="./assets/Image4.png"
-        alt="Hammock screen 2"
-        class="image-top-right"
-      />
-    </div>
+<script>
+  const logoColors = [
+    '#51A2FF', // bright blue
+    '#FE9A00', // strong orange
+    '#58C9B9', // aqua green
+    '#FF5C5C', // bright red
+    '#9B6BFF'  // vivid purple
+  ];
 
-    <div class="image-row image-row-bottom">
-      <!-- Bottom-left: Image5 -->
-      <img
-        src="./assets/Image5.png"
-        alt="Hammock screen 3"
-        class="image-bottom-left"
-      />
-      <!-- Bottom-right: Image6 -->
-      <img
-        src="./assets/Image6.png"
-        alt="Hammock screen 4"
-        class="image-bottom-right"
-      />
-    </div>
-  </div>
+  document.querySelectorAll('.logo-strip img').forEach((img) => {
+    img.addEventListener('mouseenter', () => {
+      const randomColor =
+        logoColors[Math.floor(Math.random() * logoColors.length)];
 
-  <!-- KEY IMPROVEMENTS SECTION UNDER IMAGE GRID -->
-  <div class="key-improvements-section">
-    <b class="key-improvements-heading">
-      <span>kEY</span>
-      <span class="key-improvements-label-highlight"> IMPROVMENTS</span>
-    </b>
-    <div class="key-improvements-content">
-      <div class="key-improvements-row-top">
-        <div class="key-improvements-item">
-          <b class="key-improvements-title">Clear Dashboard</b>
-          <div class="key-improvements-description">
-            Redesigned to show loan balance, next payment due, and a primary
-            call-to-action right up front.
-          </div>
-        </div>
-        <div class="key-improvements-item">
-          <b class="key-improvements-title">Simplified Payments</b>
-          <div class="key-improvements-description">
-            Users can now make a payment in 3 taps, with options for one-time,
-            scheduled, or recurring payments.
-          </div>
-        </div>
-        <div class="key-improvements-item">
-          <b class="key-improvements-title">Transparent Loan Info</b>
-          <div class="key-improvements-description">
-            Loan breakdown includes visual indicators for principal, interest,
-            and payoff progress.
-          </div>
-        </div>
-      </div>
+      // Super strong flat tint:
+      img.style.filter =
+        'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
+        randomColor +
+        ')';
+    });
 
-      <div class="key-improvements-row-bottom">
-        <div class="key-improvements-item-narrow">
-          <b class="key-improvements-title">Responsive Design</b>
-          <div class="key-improvements-description">
-            Optimized for mobile devices with larger touch targets and better
-            responsiveness.
-          </div>
-        </div>
-        <div class="key-improvements-item-narrow">
-          <b class="key-improvements-title">Improved Accessibility</b>
-          <div class="key-improvements-description">
-            Updated color palette, scalable fonts, and screen reader support to
-            meet WCAG 2.1 guidelines.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    img.addEventListener('mouseleave', () => {
+      img.style.filter = '';
+    });
+  });
 
-  <!-- USER QUOTES SECTION -->
-  <div class="user-quotes-section">
-    <div class="user-quotes-parent">
-      <b class="user-quotes">
-        <span>User<br /></span>
-        <span class="quotes">quotes</span>
-      </b>
-      <div class="frame-parent">
-        <div class="frame-group">
-          <div class="this-version-is-so-much-easier-parent">
-            <div class="this-version-is">
-              “This version is so much easier to use, I can actually find what I
-              need in seconds.”
-            </div>
-            <div class="frame-container">
-              <div class="am-wrapper">
-                <div class="am">AM</div>
-              </div>
-              <div class="angela-m-parent">
-                <div class="angela-m">Angela M.</div>
-                <div class="app-user">App user</div>
-              </div>
-            </div>
-          </div>
-          <div class="being-able-to-see-my-payment-h-parent">
-            <div class="this-version-is">
-              “Being able to see my payment history and what I still owe at a
-              glance is a game changer."
-            </div>
-            <div class="frame-container">
-              <div class="jr-wrapper">
-                <div class="am">JR</div>
-              </div>
-              <div class="angela-m-parent">
-                <div class="angela-m">James R.</div>
-                <div class="app-user">App user</div>
-              </div>
-            </div>
-          </div>
-        </div>
+  // ============================
+  // Parallax for frame-parent8-inner
+  // ============================
 
-        <div class="frame-group">
-          <div class="this-version-is-so-much-easier-parent">
-            <div class="this-version-is">
-              “Before, signing in felt like a chore... Now it’s smooth and takes
-              just a few seconds.”
-            </div>
-            <div class="frame-container">
-              <div class="am-wrapper">
-                <div class="am">MC</div>
-              </div>
-              <div class="angela-m-parent">
-                <div class="angela-m">Maya C.</div>
-                <div class="app-user">App user</div>
-              </div>
-            </div>
-          </div>
-          <div class="being-able-to-see-my-payment-h-parent">
-            <div class="this-version-is">
-              "The whole experience feels faster and more trustworthy. I don't
-              second-guess anything anymore."
-            </div>
-            <div class="frame-container">
-              <div class="jr-wrapper">
-                <div class="am">DK</div>
-              </div>
-              <div class="angela-m-parent">
-                <div class="angela-m">Daniel K.</div>
-                <div class="app-user">App user</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  function updateFooterParallax() {
+    const footer = document.querySelector('.frame-parent8');
+    const inner = document.querySelector('.frame-parent8-inner');
+    if (!footer || !inner) return;
 
-  <!-- BIG FINAL IMAGE SECTION -->
-  <div class="final-image-section">
-    <div class="rectangle-parent">
-      <div class="frame-child"></div>
-      <img
-        class="image-91-icon"
-        src="./assets/Image7.png"
-        alt="Hammock summary visualization"
-      />
-    </div>
-  </div>
+    const rect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-  <!-- TEST RESULTS SECTION -->
-  <div class="test-results-section">
-    <div class="test-results-parent">
-      <b class="test-results">
-        <span>tEST <br /></span>
-        <span class="results">RESULTS</span>
-      </b>
-      <div class="frame-parent">
-        <div class="frame-group">
-          <div class="frame-wrapper">
-            <div class="group">
-              <b class="x">2x</b>
-              <div class="users-completed-payments">
-                Users completed payments 2x faster on average
-              </div>
-            </div>
-          </div>
-          <div class="frame-container">
-            <div class="group">
-              <b class="b">98%</b>
-              <div class="reported-higher-trust">
-                Reported higher trust and confidence in the new design
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="frame-div">
-          <div class="group">
-            <b class="x">95%</b>
-            <div class="task-success-rate">Task success rate</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    // Only run when the footer section is on screen
+    if (rect.bottom < 0 || rect.top > windowHeight) return;
+
+    /*
+      progress ~ 0 when footer just entering,
+      ~1 when it's fully scrolled past.
+    */
+    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+    const clamped = Math.max(0, Math.min(1, progress));
+
+    // Move between -30px and +30px for a subtle parallax
+    const translateY = (clamped - 0.5) * 60;
+
+    inner.style.transform = 'translateY(' + translateY + 'px)';
+  }
+
+  window.addEventListener('scroll', updateFooterParallax);
+  window.addEventListener('resize', updateFooterParallax);
+  window.addEventListener('load', updateFooterParallax);
+</script>
+
 </body>
 </html>

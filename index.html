@@ -476,16 +476,17 @@
       padding-right: 200px;
     }
 
-    /* Smooth hover grow + color transition for logos */
-    .logo-strip img {
-      transition: transform 0.2s ease, filter 0.2s ease;
-      transform-origin: center;
-    }
+   /* Smooth hover grow + color transition for logos */
+.logo-strip img {
+  transition: transform 0.25s ease, filter 0.25s ease;
+  transform-origin: center;
+  filter: grayscale(1) opacity(0.6); /* muted by default */
+}
 
-    /* Grow ~20px taller on hover (scale up) */
-    .logo-strip img:hover {
-      transform: scale(1.2);
-    }
+/* Grow ~20px taller on hover (scale up) */
+.logo-strip img:hover {
+  transform: scale(1.2);
+}
 
     .bofa-1-icon,
     .family-search-1,
@@ -1400,24 +1401,28 @@
     </div>
   </div>
 
-  <!-- RANDOM COLOR ON HOVER FOR LOGO IMAGES -->
-  <script>
-    const logoColors = ['#1C9D63', '#7B5AE0', '#EC4938', '#EA7438', '#0DA3F1'];
+  <!-- Java- RANDOM COLOR ON HOVER FOR LOGO IMAGES -->
+ <script>
+  const logoColors = ['#1C9D63', '#7B5AE0', '#EC4938', '#EA7438', '#0DA3F1'];
 
-    document.querySelectorAll('.logo-strip img').forEach((img) => {
-      img.addEventListener('mouseenter', () => {
-        const randomColor =
-          logoColors[Math.floor(Math.random() * logoColors.length)];
+  document.querySelectorAll('.logo-strip img').forEach((img) => {
+    img.addEventListener('mouseenter', () => {
+      const randomColor =
+        logoColors[Math.floor(Math.random() * logoColors.length)];
 
-        // Tint the logo using a colorized shadow trick
-        img.style.filter =
-          'brightness(0) saturate(100%) drop-shadow(0 0 0 ' + randomColor + ')';
-      });
-
-      img.addEventListener('mouseleave', () => {
-        img.style.filter = '';
-      });
+      // Vibrant glow + full-color logo
+      img.style.filter =
+        'grayscale(0) brightness(1.35) contrast(1.25) drop-shadow(0 0 16px ' +
+        randomColor +
+        ')';
     });
-  </script>
+
+    img.addEventListener('mouseleave', () => {
+      // Reset to the base muted state defined in CSS
+      img.style.filter = '';
+    });
+  });
+</script>
+
 </body>
 </html>

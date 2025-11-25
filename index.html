@@ -313,7 +313,8 @@
       color: #5a5f65;
     }
 
-    .button {
+    /* HERO CTA BUTTON (top hero section only) */
+    .hero-cta {
       height: 40px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
       border-radius: 7px;
@@ -329,12 +330,8 @@
         "Segoe UI", sans-serif;
       border: none;
       cursor: pointer;
-    }
-
-    .hero-cta {
       margin-top: 4px;
-      padding-right: 0px;
-
+      padding-right: 0;
     }
 
     .state-layer {
@@ -462,7 +459,7 @@
       flex-direction: column;
       align-items: center;
       gap: 150px;
-      padding: 80px 0; /* 150px top & bottom as requested */
+      padding: 80px 0;
     }
 
     .past-companies {
@@ -491,11 +488,10 @@
 
     .logo-carousel {
       position: relative;
-      width: 100vw;                     
+      width: 100vw;
       overflow: hidden;
       padding: 32px 0;
       padding-top: 0px;
-
     }
 
     .logo-track {
@@ -510,7 +506,6 @@
       justify-content: center;
       gap: 200px;
       padding-right: 200px;
-
     }
 
     .bofa-1-icon,
@@ -525,34 +520,35 @@
       object-fit: cover;
       opacity: 0.8;
     }
-    /* Exact logo sizes */
-.bofa-1-icon {
-  height: 57px;
-}
 
-.family-search-1 {
-  height: 64px;
-}
+    /* Exact logo heights for consistent scale */
+    .bofa-1-icon {
+      height: 57px;
+    }
 
-.metajive-1-icon {
-  height: 40px;
-}
+    .family-search-1 {
+      height: 64px;
+    }
 
-.utah-tech1-1-1 {
-  height: 35px;
-}
+    .metajive-1-icon {
+      height: 40px;
+    }
 
-.era-2-icon {
-  height: 69px;
-}
+    .utah-tech1-1-1 {
+      height: 35px;
+    }
 
-.suu-1-icon {
-  height: 52px;
-}
+    .era-2-icon {
+      height: 69px;
+    }
 
-.dhi-1-1 {
-  height: 42px;
-}
+    .suu-1-icon {
+      height: 52px;
+    }
+
+    .dhi-1-1 {
+      height: 42px;
+    }
 
     @keyframes logo-marquee {
       0% {
@@ -790,6 +786,24 @@
       gap: 45px;
     }
 
+    /* ABOUT SECTION PILLS (User testing, Design systems, etc.) */
+    .about-pill {
+      height: 40px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
+      border-radius: 100px;
+      background-color: #3d3d3d96;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      border: none;
+    }
+
     .pill-rotate-neg-8 {
       transform: rotate(16deg);
     }
@@ -965,11 +979,11 @@
   <!-- NEW HERO SECTION -->
   <div class="hero-section-1920x1080">
     <!-- Backgrounds -->
-   <img
-  class="grainy-texture-icon"
-  src="./HomepageAssets/Herobackground.png"
-  alt=""
-/>
+    <img
+      class="grainy-texture-icon"
+      src="./HomepageAssets/Herobackground.png"
+      alt=""
+    />
     <img
       class="light-effect-icon"
       src="./assets/home-glow.png"
@@ -1060,7 +1074,8 @@
           Design that solves real problems for real users.
         </p>
 
-        <button class="button hero-cta">
+        <!-- HERO CTA uses its own class -->
+        <button class="hero-cta">
           <div class="state-layer">
             <div class="label-text">Let’s connect</div>
             <img
@@ -1278,19 +1293,19 @@
               <div class="frame-parent7">
                 <!-- LEFT COLUMN: User testing / Design systems / Prototypes -->
                 <div class="button-parent">
-                  <div class="button pill-rotate-neg-8">
+                  <div class="about-pill pill-rotate-neg-8">
                     <div class="state-layer">
                       <div class="label-text">User testing</div>
                     </div>
                   </div>
 
-                  <div class="button">
+                  <div class="about-pill">
                     <div class="state-layer">
                       <div class="label-text">Design systems</div>
                     </div>
                   </div>
 
-                  <div class="button pill-rotate-10">
+                  <div class="about-pill pill-rotate-10">
                     <div class="state-layer">
                       <div class="label-text">Prototypes</div>
                     </div>
@@ -1308,19 +1323,19 @@
 
                 <!-- RIGHT COLUMN: Problem solver / UI/UX Design / Research -->
                 <div class="button-group">
-                  <div class="button pill-rotate-13">
+                  <div class="about-pill pill-rotate-13">
                     <div class="state-layer">
                       <div class="label-text">Problem solver</div>
                     </div>
                   </div>
 
-                  <div class="button">
+                  <div class="about-pill">
                     <div class="state-layer">
                       <div class="label-text">UI/UX Design</div>
                     </div>
                   </div>
 
-                  <div class="button pill-rotate-neg-16">
+                  <div class="about-pill pill-rotate-neg-16">
                     <div class="state-layer">
                       <div class="label-text">Research</div>
                     </div>

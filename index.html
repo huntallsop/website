@@ -462,17 +462,15 @@
       padding-right: 200px;
     }
 
- /* Base logos: slightly muted */
 .logo-strip img {
   transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
   transform-origin: center;
-  opacity: 0.65; /* muted by default */
+  opacity: 0.7;   /* slightly muted by default */
 }
 
-/* Hover: bigger, fully opaque, ready for strong tint */
 .logo-strip img:hover {
   transform: scale(1.2);
-  opacity: 1;
+  opacity: 1;     /* full strength on hover */
 }
 
 
@@ -1417,17 +1415,25 @@
     </div>
   </div>
 
- <script>
-  const logoColors = ['#00FF8C', '#FF1800', '#FF5600', '#00A8FF'];
+<script>
+  const logoColors = [
+    '#51A2FF', // bright blue
+    '#FE9A00', // strong orange
+    '#58C9B9', // aqua green
+    '#FF5C5C', // bright red
+    '#9B6BFF'  // vivid purple
+  ];
 
   document.querySelectorAll('.logo-strip img').forEach((img) => {
     img.addEventListener('mouseenter', () => {
       const randomColor =
         logoColors[Math.floor(Math.random() * logoColors.length)];
 
-      // Stronger, crisper tint: flat recolor + contrast/brightness boost
+      // Super strong flat tint:
+      // - brightness(0) → turn logo effectively black
+      // - saturate + contrast → make the tint feel inky & bold
       img.style.filter =
-        'brightness(30.15) contrast(2) saturate(2.2) drop-shadow(0 0 0 ' +
+        'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
         randomColor +
         ')';
     });
@@ -1437,6 +1443,7 @@
     });
   });
 </script>
+
 
 </body>
 </html>

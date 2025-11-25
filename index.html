@@ -580,6 +580,17 @@
       position: relative;
       isolation: isolate;
       gap: 20px;
+
+      /* hover animation */
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+
+    /* Card hover: lift + stronger shadow */
+    .group-parent:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
     }
 
     .image-parent {
@@ -591,6 +602,7 @@
       margin: 0 !important;
       z-index: 0;
       flex-shrink: 0;
+      overflow: hidden;
     }
 
     .image {
@@ -599,6 +611,7 @@
       left: 0;
       width: 800px;
       height: 350px;
+      overflow: hidden;
     }
 
     .psd-02-1-icon {
@@ -606,6 +619,12 @@
       height: 350px;
       display: block;
       object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    /* Slight image zoom on hover */
+    .group-parent:hover .psd-02-1-icon {
+      transform: scale(1.05);
     }
 
     .shadow {
@@ -620,10 +639,16 @@
       );
       width: 800px;
       height: 180px;
+      transition: opacity 0.35s ease;
+    }
+
+    /* Darker overlay on hover */
+    .group-parent:hover .shadow {
+      opacity: 0.95;
     }
 
     .chips {
-      width: 261px;
+      width: 248px;
       display: flex;
       align-items: center;
       gap: 11px;
@@ -648,6 +673,13 @@
       font-size: 12px;
       color: rgba(255, 255, 255, 0.8);
       font-family: "Instrument Sans", sans-serif;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    /* Chips brighten slightly on hover */
+    .group-parent:hover .chip {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.9);
     }
 
     .chip .hunter-allsop {

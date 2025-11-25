@@ -859,18 +859,23 @@
     }
 
     .frame-parent8-inner {
-      max-width: 800px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 29px;
-      text-align: center;
-      font-size: 20px;
-      color: #f9f9f9;
-      font-family: "Instrument Serif", serif;
-    }
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 29px;
+  text-align: center;
+  font-size: 20px;
+  color: #f9f9f9;
+  font-family: "Instrument Serif", serif;
+
+  /* for parallax */
+  will-change: transform;
+  transform: translateY(0);
+}
+
 
     .vector-container {
       display: flex;
@@ -1428,8 +1433,6 @@
         logoColors[Math.floor(Math.random() * logoColors.length)];
 
       // Super strong flat tint:
-      // - brightness(0) → turn logo effectively black
-      // - saturate + contrast → make the tint feel inky & bold
       img.style.filter =
         'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
         randomColor +
@@ -1440,7 +1443,40 @@
       img.style.filter = '';
     });
   });
+
+  // ============================
+  // Parallax for frame-parent8-inner
+  // ============================
+
+  function updateFooterParallax() {
+    const footer = document.querySelector('.frame-parent8');
+    const inner = document.querySelector('.frame-parent8-inner');
+    if (!footer || !inner) return;
+
+    const rect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    // Only run when the footer section is on screen
+    if (rect.bottom < 0 || rect.top > windowHeight) return;
+
+    /*
+      progress ~ 0 when footer just entering,
+      ~1 when it's fully scrolled past.
+    */
+    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+    const clamped = Math.max(0, Math.min(1, progress));
+
+    // Move between -30px and +30px for a subtle parallax
+    const translateY = (clamped - 0.5) * 60;
+
+    inner.style.transform = 'translateY(' + translateY + 'px)';
+  }
+
+  window.addEventListener('scroll', updateFooterParallax);
+  window.addEventListener('resize', updateFooterParallax);
+  window.addEventListener('load', updateFooterParallax);
 </script>
+
 
 
 </body>

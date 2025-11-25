@@ -69,11 +69,12 @@
       pointer-events: auto; /* only the nav panel itself captures events */
     }
 
-    .nav-left {
+   .nav-left {
   display: flex;
   align-items: center;
-  gap: 8px; /* 8px between logo and "Hunter Allsop" */
+  gap: 0; /* spacing handled by divider margin */
 }
+
 
 
     /* Small round logo using your Hunter pill image */
@@ -104,12 +105,14 @@
         "Segoe UI", sans-serif;
     }
 
-    .nav-divider {
-      width: 1px;
-      height: 24px;
-      background-color: rgba(0, 0, 0, 0.1);
-      border-radius: 1px;
-    }
+   .nav-divider {
+  width: 1px;
+  height: 24px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+  margin-left: 16px; /* 16px to the right of the image */
+}
+
     
 .nav-text-link {
   font-size: 16px;
@@ -122,8 +125,10 @@
 }
 
 .nav-text-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 600; /* bold on hover */
 }
+
 
 
     .nav-link,
@@ -1201,21 +1206,24 @@
 <header class="site-header">
   <div class="nav-shell">
     <div class="nav-inner">
-      <!-- LEFT: logo only -->
+      <!-- LEFT: logo + divider -->
       <div class="nav-left">
         <a href="./" class="nav-logo">
           <img src="./HomepageAssets/Hunter pill2.png" alt="Hunter Allsop logo">
         </a>
+        <div class="nav-divider"></div>
       </div>
 
-      <!-- RIGHT: simple text links -->
+      <!-- RIGHT: text links -->
       <div class="nav-right">
         <a href="./" class="nav-text-link">Home</a>
+        <a href="#work" class="nav-text-link">Work</a>
         <a href="#connect" class="nav-text-link">Let’s connect</a>
       </div>
     </div>
   </div>
 </header>
+
 
 
   <!-- NEW HERO SECTION -->

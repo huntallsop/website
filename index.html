@@ -647,34 +647,42 @@
       opacity: 0.95;
     }
 
-    .chips {
-      width: 261px;
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      z-index: 1;
-      flex-shrink: 0;
-    }
+   .chips {
+  /* let the container hug its content / wrap rows as needed */
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  z-index: 1;
+  flex-shrink: 0;
+  flex-wrap: wrap; /* chips can move to a new line if needed */
+}
 
-    .chip {
-      position: relative;
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border-radius: 60px;
-      background-color: rgba(104, 104, 104, 0.4);
-      border: 1px solid #fff;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      width: 100%;
-      justify-content: center;
-      padding: 6px 16px;
-      text-align: left;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.8);
-      font-family: "Instrument Sans", sans-serif;
-      transition: background-color 0.25s ease, border-color 0.25s ease;
-    }
+.chip {
+  position: relative;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 60px;
+  background-color: rgba(104, 104, 104, 0.4);
+  border: 1px solid #fff;
+  box-sizing: border-box;
+
+  display: inline-flex;      /* hug content */
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+
+  /* key bits to stop wrapping inside and let the chip grow */
+  width: auto;
+  white-space: nowrap;
+
+  text-align: left;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Instrument Sans", sans-serif;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
 
     /* Chips brighten slightly on hover */
     .group-parent:hover .chip {

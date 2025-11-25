@@ -13,11 +13,180 @@
   />
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       line-height: normal;
       overflow-x: hidden;
       background-color: #f9f9f9;
+    }
+
+    /* =========================
+       FROSTED HEADER (GOODFIGHT STYLE)
+    ========================== */
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px 16px 0; /* outer padding similar to Good Fight */
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      pointer-events: none; /* allow content underneath to still be interactive outside nav */
+    }
+
+    .nav-shell {
+      width: 100%;
+      max-width: 1150px; /* matches your main content width */
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      padding: 10px 18px; /* inner padding – approximated from Good Fight nav */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(179, 179, 179, 0.4);
+      border-radius: 8px;
+      box-shadow:
+        rgba(255, 255, 255, 0.07) 0px 0.120725px 0.362176px 0px inset,
+        rgba(255, 255, 255, 0.6) 0px 1px 3px 0px inset,
+        rgba(0, 0, 0, 0.01) 0px -0.120725px 0.362176px 0px inset,
+        rgba(0, 0, 0, 0.05) 0px -1px 3px 0px inset,
+        rgba(0, 0, 0, 0.07) 0px 30px 40px 0px;
+      pointer-events: auto; /* only the nav panel itself captures events */
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Small round logo using your Hunter pill image */
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      overflow: hidden;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 24px;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 1px;
+    }
+
+    .nav-name-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .nav-link,
+    .nav-button {
+      font-size: 14px;
+      font-weight: 500;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      transition: background-color 0.2s ease, color 0.2s ease,
+        transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-link {
+      background-color: transparent;
+      color: #ffffff;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+    }
+
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-button {
+      background-color: #000000;
+      color: #ffffff;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-button:active {
+      transform: translateY(0);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        padding: 8px 12px;
+        gap: 12px;
+      }
+
+      .nav-right {
+        gap: 10px;
+      }
+
+      .nav-name-link,
+      .nav-link,
+      .nav-button {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+
+      .nav-logo {
+        width: 28px;
+        height: 28px;
+      }
     }
 
     /* =========================
@@ -364,14 +533,13 @@
     .frame-parent {
       width: 100vw;
       margin: 0 auto;
-      position: relative;           /* was absolute */
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       isolation: isolate;
       gap: 0;
       z-index: 2;
-      /* let the height be defined by its content */
     }
 
     .frame-container {
@@ -462,12 +630,12 @@
     .logo-strip img {
       transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
       transform-origin: center;
-      opacity: 0.7;   /* slightly muted by default */
+      opacity: 0.7;
     }
 
     .logo-strip img:hover {
       transform: scale(1.2);
-      opacity: 1;     /* full strength on hover */
+      opacity: 1;
     }
 
     .bofa-1-icon,
@@ -1022,6 +1190,33 @@
   </style>
 </head>
 <body>
+  <!-- NEW FROSTED HEADER -->
+  <header class="site-header">
+    <div class="nav-shell">
+      <div class="nav-inner">
+        <div class="nav-left">
+          <!-- logo linking to home -->
+          <a href="./" class="nav-logo">
+            <img src="./HomepageAssets/Hunter pill2.png" alt="Hunter Allsop logo">
+          </a>
+        </div>
+
+        <div class="nav-right">
+          <!-- Hunter allsop text, links to homepage -->
+          <a href="./" class="nav-name-link">Hunter allsop</a>
+
+          <div class="nav-divider"></div>
+
+          <!-- Home button linking to landing page -->
+          <a href="./" class="nav-link">Home</a>
+
+          <!-- Let's connect button linking to footer section -->
+          <a href="#connect" class="nav-button">Let’s connect</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <!-- NEW HERO SECTION -->
   <div class="hero-section-1920x1080">
     <!-- Backgrounds -->
@@ -1110,8 +1305,8 @@
           Design that solves real problems for real users.
         </p>
 
-        <!-- HERO CTA uses its own class -->
-        <button class="hero-cta">
+        <!-- HERO CTA scrolls to connect section -->
+        <button class="hero-cta" onclick="document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });">
           <div class="state-layer">
             <div class="label-text">Let’s connect</div>
             <img
@@ -1387,7 +1582,7 @@
         </div> <!-- /hero-parent -->
 
         <!-- Bottom "I'm available" section with full viewport black background -->
-        <div class="frame-parent8">
+        <div class="frame-parent8" id="connect">
           <div class="frame-parent8-inner">
             <div class="vector-container">
               <img
@@ -1430,64 +1625,63 @@
     </div>
   </div>
 
-<script>
-  const logoColors = [
-    '#51A2FF', // bright blue
-    '#FE9A00', // strong orange
-    '#58C9B9', // aqua green
-    '#FF5C5C', // bright red
-    '#9B6BFF'  // vivid purple
-  ];
+  <script>
+    const logoColors = [
+      '#51A2FF', // bright blue
+      '#FE9A00', // strong orange
+      '#58C9B9', // aqua green
+      '#FF5C5C', // bright red
+      '#9B6BFF'  // vivid purple
+    ];
 
-  document.querySelectorAll('.logo-strip img').forEach((img) => {
-    img.addEventListener('mouseenter', () => {
-      const randomColor =
-        logoColors[Math.floor(Math.random() * logoColors.length)];
+    document.querySelectorAll('.logo-strip img').forEach((img) => {
+      img.addEventListener('mouseenter', () => {
+        const randomColor =
+          logoColors[Math.floor(Math.random() * logoColors.length)];
 
-      // Super strong flat tint:
-      img.style.filter =
-        'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
-        randomColor +
-        ')';
+        img.style.filter =
+          'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
+          randomColor +
+          ')';
+      });
+
+      img.addEventListener('mouseleave', () => {
+        img.style.filter = '';
+      });
     });
 
-    img.addEventListener('mouseleave', () => {
-      img.style.filter = '';
-    });
-  });
+    // ============================
+    // Parallax for frame-parent8-inner
+    // ============================
 
-  // ============================
-  // Parallax for frame-parent8-inner
-  // ============================
+    function updateFooterParallax() {
+      const footer = document.querySelector('.frame-parent8');
+      const inner = document.querySelector('.frame-parent8-inner');
+      if (!footer || !inner) return;
 
-  function updateFooterParallax() {
-    const footer = document.querySelector('.frame-parent8');
-    const inner = document.querySelector('.frame-parent8-inner');
-    if (!footer || !inner) return;
+      const rect = footer.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-    const rect = footer.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      // Only run when the footer section is on screen
+      if (rect.bottom < 0 || rect.top > windowHeight) return;
 
-    // Only run when the footer section is on screen
-    if (rect.bottom < 0 || rect.top > windowHeight) return;
+      /*
+        progress ~ 0 when footer just entering,
+        ~1 when it's fully scrolled past.
+      */
+      const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+      const clamped = Math.max(0, Math.min(1, progress));
 
-    /*
-      progress ~ 0 when footer just entering,
-      ~1 when it's fully scrolled past.
-    */
-    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-    const clamped = Math.max(0, Math.min(1, progress));
+      // Move between -30px and +30px for a subtle parallax
+      const translateY = (clamped - 0.5) * 60;
 
-    // Move between -30px and +30px for a subtle parallax
-    const translateY = (clamped - 0.5) * 60;
+      inner.style.transform = 'translateY(' + translateY + 'px)';
+    }
 
-    inner.style.transform = 'translateY(' + translateY + 'px)';
-  }
-
-  window.addEventListener('scroll', updateFooterParallax);
-  window.addEventListener('resize', updateFooterParallax);
-  window.addEventListener('load', updateFooterParallax);
-</script>
+    window.addEventListener('scroll', updateFooterParallax);
+    window.addEventListener('resize', updateFooterParallax);
+    window.addEventListener('load', updateFooterParallax);
+  </script>
 
 </body>
 </html>

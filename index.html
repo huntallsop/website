@@ -16,7 +16,350 @@
     body {
       margin: 0;
       line-height: normal;
+      overflow-x: hidden;
+      background-color: #f9f9f9;
     }
+
+    /* =========================
+       HERO SECTION (FULL VIEWPORT)
+    ========================== */
+    .hero-section-1920x1080 {
+      width: 100vw;
+      height: 100vh;
+      min-height: 700px;
+      position: relative;
+      background-color: #f9f9f9;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+      text-align: left;
+      font-size: clamp(42px, 4vw, 80px);
+      color: #2d2d2d;
+      font-family: "Instrument Serif", serif;
+    }
+
+    .grainy-texture-icon {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      flex-shrink: 0;
+    }
+
+    .light-effect-icon {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      max-height: none;
+      opacity: 0.7;
+      z-index: 1;
+      flex-shrink: 0;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      isolation: isolate;
+    }
+
+    /* Device / prop images around the hero */
+    .ipad-icon {
+      position: absolute;
+      width: 38vw;
+      max-width: 732px;
+      height: auto;
+      top: 18%;
+      left: -6%;
+      object-fit: contain;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .stickynote {
+      width: 352px;
+      height: 286.7px;
+      position: absolute;
+      top: 8%;
+      right: -4%;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .drop-shadow {
+      position: absolute;
+      height: 10.08%;
+      width: 88.64%;
+      top: 78.77%;
+      right: 3.38%;
+      bottom: 11.15%;
+      left: 7.98%;
+      box-shadow: 0px 32.2763633728px 6.15px rgba(0, 0, 0, 0.14);
+      border-radius: 6.15px;
+      background-color: #424242;
+      transform: rotate(-4.1deg);
+      transform-origin: 0 0;
+    }
+
+    .stickynote-child {
+      position: absolute;
+      height: 101.01%;
+      width: 108.35%;
+      top: -0.51%;
+      right: -4.18%;
+      bottom: -0.5%;
+      left: -4.17%;
+      max-width: 100%;
+      overflow: hidden;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .notepad {
+      width: 35vw;
+      max-width: 824px;
+      aspect-ratio: 1 / 1;
+      position: absolute;
+      bottom: -26%;
+      left: 18%;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .blank-ruled-notebook-white-tab-icon {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .phone {
+      width: 380px;
+      max-width: 22vw;
+      aspect-ratio: 380.8 / 598.1;
+      position: absolute;
+      top: 52%;
+      right: 5%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .drop-shadow3 {
+      position: absolute;
+      height: 73.38%;
+      width: 64.42%;
+      top: 7.76%;
+      right: 5.84%;
+      bottom: 18.86%;
+      left: 29.75%;
+      box-shadow:
+        12.35px 5.73px 25.37px rgba(0, 0, 0, 0.34),
+        40.35px 22.91px 35.06px rgba(0, 0, 0, 0.21);
+      border-radius: 36.52px;
+      background-color: #d9d9d9;
+      transform: rotate(10.8deg);
+      transform-origin: 0 0;
+    }
+
+    .image-37-icon {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      object-fit: cover;
+      border-radius: 40px;
+    }
+
+    .airpods {
+      width: 282px;
+      height: 224.5px;
+      position: absolute;
+      bottom: -3%;
+      left: 4%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .wireless-inear-headphones-with-icon,
+    .wireless-inear-headphones-with-icon2,
+    .wireless-inear-headphones-with-icon3 {
+      position: absolute;
+      object-fit: cover;
+    }
+
+    .wireless-inear-headphones-with-icon {
+      top: 0;
+      left: 150.02px;
+      width: 87.7px;
+      height: 126.7px;
+    }
+
+    .wireless-inear-headphones-with-icon2 {
+      top: 146.64px;
+      left: 156.26px;
+      width: 125.7px;
+      height: 69.1px;
+    }
+
+    .wireless-inear-headphones-with-icon3 {
+      top: 67.74px;
+      left: 0;
+      width: 173.8px;
+      height: 156.7px;
+    }
+
+    /* Center text block */
+    .hero-text-block {
+      position: relative;
+      z-index: 6;
+      width: min(800px, 90vw);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .hero-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-line {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .im-hunter {
+      position: relative;
+      font-size: clamp(42px, 4vw, 80px);
+    }
+
+    .hunter {
+      color: rgba(45, 45, 45, 0.6);
+      font-style: italic;
+    }
+
+    .instance-parent {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      font-size: clamp(42px, 4vw, 80px);
+      color: #2d2d2d;
+    }
+
+    .rectangle-parent,
+    .rectangle-parent-pill {
+      height: 88px;
+      width: 150px;
+      position: relative;
+      box-shadow:
+        23px 18px 30px rgba(0, 0, 0, 0.25),
+        9px 9px 14px rgba(13, 13, 13, 0.32);
+      border-radius: 99.5px;
+      overflow: hidden;
+      background: transparent;
+      border: none;
+      flex-shrink: 0;
+    }
+
+    .dscf0488-1-icon,
+    .rectangle-pill-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .designer {
+      position: relative;
+      font-style: italic;
+      color: #2d2d2d;
+      font-size: clamp(42px, 4vw, 80px);
+    }
+
+    .hero-tagline {
+      width: min(619px, 90vw);
+      margin: 0;
+      font-size: 20px;
+      line-height: 33px;
+      font-family: "Instrument Sans", sans-serif;
+      color: #5a5f65;
+    }
+
+    .button {
+      height: 40px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
+      border-radius: 100px;
+      background-color: #000;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero-cta {
+      margin-top: 4px;
+    }
+
+    .state-layer {
+      width: auto;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      gap: 8px;
+    }
+
+    .label-text {
+      letter-spacing: 0.1px;
+      line-height: 20px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .call-made-icon {
+      width: 20px;
+      max-height: 100%;
+    }
+
+    /* =========================
+       REST OF PAGE (UNCHANGED STRUCTURE)
+    ========================== */
 
     .desktop-2 {
       height: 3235px;
@@ -34,7 +377,6 @@
       font-family: "Instrument Serif", serif;
     }
 
-    /* White background image behind everything above the black section */
     .background-icon {
       position: fixed;
       top: 0;
@@ -77,8 +419,8 @@
       flex-direction: column;
       align-items: center;
       isolation: isolate;
-      gap: 0; /* no gap now that the top bar is removed */
-      z-index: 2; /* above white background image */
+      gap: 0;
+      z-index: 2;
       flex-shrink: 0;
     }
 
@@ -100,166 +442,8 @@
       gap: 60px;
     }
 
-    /* HERO – full viewport height so it's the only thing visible at load */
-    .hero {
-      width: 100%;
-      max-width: 800px;
-      min-height: 100vh; /* full viewport height */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center; /* center vertically */
-      gap: 24px;
-    }
-
-    .frame-div {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .frame-parent2 {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 29px;
-    }
-
-    .im-hunter-parent {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .im-hunter {
-      position: relative;
-    }
-
-    .hunter {
-      color: rgba(45, 45, 45, 0.6);
-    }
-
-    .instance-parent {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-    }
-
-    /* SHARED pill container for both Hunter + Product */
-    .rectangle-parent,
-    .rectangle-parent-pill {
-      height: 88px;
-      width: 150px;
-      position: relative;
-      box-shadow: 6px 6px 28px rgba(13, 13, 13, 0.32);
-      border-radius: 99.5px;
-      overflow: hidden;
-      background: transparent;
-      border: none;
-    }
-
-    /* Hunter pill image */
-    .dscf0488-1-icon {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    /* Product pill image */
-    .rectangle-pill-image {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    /* Unused legacy pieces kept for safety, but not in DOM anymore */
-    .instance-child,
-    .instance-item,
-    .image-29-parent,
-    .image-29-icon,
-    .image-30-icon,
-    .image-31-icon,
-    .instance-inner {
-      /* no-op / legacy */
-    }
-
-    .for-the-past {
-      width: 619px;
-      position: relative;
-      font-size: 20px;
-      line-height: 33px;
-      font-family: "Instrument Sans", sans-serif;
-      color: #5a5f65;
-      text-align: center;
-      display: inline-block;
-    }
-
-    /* GENERIC BUTTON (hero CTA + pills) */
-    .button {
-      height: 40px;
-      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
-      border-radius: 100px;
-      background-color: rgba(45, 45, 45, 0.6);
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 14px;
-      color: #fff;
-      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      border: none;
-    }
-
-    .state-layer {
-      width: auto;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px; /* 16px left/right as requested */
-      box-sizing: border-box;
-      gap: 8px;
-    }
-
-    .label-text {
-      position: relative;
-      letter-spacing: 0.1px;
-      line-height: 20px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .call-made-icon {
-      width: 20px;
-      position: relative;
-      max-height: 100%;
-    }
-
-    /* ROTATION UTILITY CLASSES FOR PILLS (approx angles) */
-    .pill-rotate-neg-8 {
-      transform: rotate(16deg);
-    }
-
-    .pill-rotate-10 {
-      transform: rotate(-15deg);
-    }
-
-    .pill-rotate-13 {
-      transform: rotate(-16deg);
-    }
-
-    .pill-rotate-neg-16 {
-      transform: rotate(15deg);
-    }
+    /* We no longer use the old .hero, .frame-div, .frame-parent2 for the hero text.
+       They’re now handled by the top hero-section. */
 
     .frame-parent3 {
       align-self: stretch;
@@ -308,7 +492,6 @@
       position: relative;
     }
 
-    /* Arrow images with full X visible and black line */
     .vector-icon {
       width: 12px;
       height: 53px;
@@ -410,7 +593,6 @@
       align-items: center;
     }
 
-    /* bottom arrow */
     .frame-child2 {
       width: 12px;
       height: 53px;
@@ -514,7 +696,6 @@
       flex-shrink: 0;
     }
 
-    /* CHIP – match Figma spec, blur only background behind chip */
     .chip {
       position: relative;
       backdrop-filter: blur(25px);
@@ -534,7 +715,6 @@
     }
 
     .chip .hunter-allsop {
-      position: relative;
       letter-spacing: 0.4px;
       line-height: 16px;
     }
@@ -553,14 +733,12 @@
     }
 
     .gold-point-systems {
-      position: relative;
       letter-spacing: 0.1px;
       z-index: 2;
     }
 
     .gold-point-systems2 {
       flex: 1;
-      position: relative;
       font-size: 16px;
       color: rgba(249, 249, 249, 0.8);
       z-index: 2;
@@ -615,7 +793,7 @@
     .hello {
       position: relative;
       line-height: 33px;
-      padding: 0 20px; /* 20px left/right around "Hello," */
+      padding: 0 20px;
     }
 
     .frame-parent7 {
@@ -632,7 +810,6 @@
         "Segoe UI", sans-serif;
     }
 
-    /* Left vertical pills column */
     .button-parent {
       height: 300px;
       width: 100%;
@@ -643,7 +820,6 @@
       gap: 45px;
     }
 
-    /* Right vertical pills column */
     .button-group {
       height: 300px;
       width: 100%;
@@ -654,9 +830,24 @@
       gap: 45px;
     }
 
+    .pill-rotate-neg-8 {
+      transform: rotate(16deg);
+    }
+
+    .pill-rotate-10 {
+      transform: rotate(-15deg);
+    }
+
+    .pill-rotate-13 {
+      transform: rotate(-16deg);
+    }
+
+    .pill-rotate-neg-16 {
+      transform: rotate(15deg);
+    }
+
     .im-an-enthusiastic {
       width: 571px;
-      position: relative;
       font-size: 27px;
       line-height: 41px;
       font-family: "Instrument Serif", serif;
@@ -665,10 +856,10 @@
       flex-shrink: 0;
     }
 
-    /* BOTTOM SECTION – tall black area so text can slide then pin */
+    /* Bottom black / parallax-style section */
     .frame-parent8 {
       align-self: stretch;
-      height: 200vh;           /* extra scroll space for the slide effect */
+      height: 200vh;
       width: 100vw;
       background-color: #141414;
       background-image: url("./HomepageAssets/lightbackground.png");
@@ -681,17 +872,14 @@
       margin: 0;
       padding: 0;
       z-index: 1;
-
       display: flex;
       justify-content: center;
     }
 
-    /* Parallax-ish text: scrolls up from top, then sticks in the middle */
     .frame-parent8-inner {
       max-width: 800px;
       width: 100%;
       padding: 0 16px;
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -701,7 +889,6 @@
       font-size: 20px;
       color: #f9f9f9;
       font-family: "Instrument Serif", serif;
-
       position: sticky;
       top: 50%;
       transform: translateY(-50%);
@@ -722,9 +909,7 @@
       object-fit: contain;
     }
 
-    /* Figma-style label for "I'm available" */
     .im-available {
-      position: relative;
       letter-spacing: 0.1px;
     }
 
@@ -741,7 +926,6 @@
 
     .lets-connect {
       align-self: stretch;
-      position: relative;
       letter-spacing: 0.1px;
     }
 
@@ -751,7 +935,6 @@
 
     .reach-out-anytime {
       align-self: stretch;
-      position: relative;
       font-size: 20px;
       letter-spacing: 0.1px;
       font-family: "Instrument Sans", sans-serif;
@@ -774,14 +957,171 @@
       font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
       border: none;
+      cursor: pointer;
     }
 
     .adobestock-142298783-1-icon {
-      /* legacy, image removed from DOM */
+      /* legacy, unused */
+    }
+
+    @media (max-width: 1024px) {
+      .ipad-icon {
+        left: -15%;
+      }
+      .stickynote {
+        right: -20%;
+      }
+      .notepad {
+        left: 5%;
+      }
+      .phone {
+        right: -5%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ipad-icon,
+      .stickynote,
+      .notepad,
+      .phone,
+      .airpods {
+        opacity: 0.25;
+      }
+      .hero-text-block {
+        align-items: center;
+      }
+      .hero-line {
+        gap: 12px;
+      }
+      .rectangle-parent,
+      .rectangle-parent-pill {
+        height: 64px;
+        width: 110px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- NEW HERO SECTION -->
+  <div class="hero-section-1920x1080">
+    <!-- Backgrounds -->
+    <img
+      class="grainy-texture-icon"
+      src="./HomepageAssets/Whitebackground.png"
+      alt=""
+    />
+    <img
+      class="light-effect-icon"
+      src="./assets/home-glow.png"
+      alt=""
+    />
+
+    <div class="hero-content">
+      <!-- Devices / props -->
+      <img
+        class="ipad-icon"
+        src="./HomepageAssets/Ipad.png"
+        alt="iPad with design work"
+      />
+
+      <div class="stickynote">
+        <div class="drop-shadow"></div>
+        <img
+          class="stickynote-child"
+          src="./HomepageAssets/Stickynote.png"
+          alt="Sticky note"
+        />
+      </div>
+
+      <div class="notepad">
+        <img
+          class="blank-ruled-notebook-white-tab-icon"
+          src="./HomepageAssets/Notepad.png"
+          alt="Notepad with design notes"
+        />
+      </div>
+
+      <div class="phone">
+        <div class="drop-shadow3"></div>
+        <img
+          class="image-37-icon"
+          src="./HomepageAssets/Phone.png"
+          alt="Phone with product UI"
+        />
+      </div>
+
+      <div class="airpods">
+        <img
+          class="wireless-inear-headphones-with-icon"
+          src="./HomepageAssets/Airpods.png"
+          alt="AirPods"
+        />
+        <img
+          class="wireless-inear-headphones-with-icon2"
+          src="./HomepageAssets/Airpods.png"
+          alt=""
+        />
+        <img
+          class="wireless-inear-headphones-with-icon3"
+          src="./HomepageAssets/Airpods.png"
+          alt=""
+        />
+      </div>
+
+      <!-- Center hero text -->
+      <div class="hero-text-block">
+        <div class="hero-heading">
+          <div class="hero-line">
+            <div class="im-hunter">
+              <span>I’m </span><i class="hunter">Hunter</i>
+            </div>
+            <div class="instance-parent">
+              <div class="rectangle-parent">
+                <img
+                  class="dscf0488-1-icon"
+                  src="./HomepageAssets/Hunter pill2.png"
+                  alt="Hunter pill"
+                />
+              </div>
+              <div class="im-hunter">,</div>
+            </div>
+          </div>
+
+          <div class="hero-line">
+            <div class="im-hunter">
+              <span>a </span><i class="hunter">product</i>
+            </div>
+            <div class="rectangle-parent rectangle-parent-pill">
+              <img
+                class="rectangle-pill-image"
+                src="./HomepageAssets/Blue pill2.png"
+                alt="Product design pill"
+              />
+            </div>
+            <i class="designer">Designer</i>
+          </div>
+        </div>
+
+        <p class="hero-tagline">
+          Senior-level UI, UX, &amp; Web Design for digital products.<br />
+          Design that solves real problems for real users.
+        </p>
+
+        <button class="button hero-cta">
+          <div class="state-layer">
+            <div class="label-text">Let’s connect</div>
+            <img
+              class="call-made-icon"
+              src="./HomepageAssets/Arrowicon.png"
+              alt=""
+            />
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REST OF PAGE (BRANDS, CASE STUDIES, ABOUT, PARALLAX) -->
   <div class="desktop-2">
     <!-- Background above black section -->
     <img
@@ -796,73 +1136,12 @@
 
     <div class="frame-parent">
       <div class="frame-container">
-        <!-- HERO + brands + feature cards + about -->
+        <!-- WRAPPER FOR BRANDS / CASE STUDIES / ABOUT -->
         <div class="hero-parent">
-          <!-- HERO -->
-          <div class="hero">
-            <div class="frame-div">
-              <div class="frame-parent2">
-                <!-- Line 1: “I’m Hunter [pill] ,” -->
-                <div class="im-hunter-parent">
-                  <div class="im-hunter">
-                    <span>I’m </span>
-                    <i class="hunter">Hunter</i>
-                  </div>
-                  <div class="instance-parent">
-                    <div class="rectangle-parent">
-                      <!-- Hunter pill image only -->
-                      <img
-                        class="dscf0488-1-icon"
-                        src="./HomepageAssets/Hunter pill2.png"
-                        alt="Hunter pill"
-                      />
-                    </div>
-                    <div class="im-hunter">,</div>
-                  </div>
-                </div>
-
-                <!-- Line 2: “a product [pill] Designer” -->
-                <div class="im-hunter-parent">
-                  <div class="im-hunter">
-                    <span>a </span>
-                    <i class="hunter">product</i>
-                  </div>
-                  <div class="rectangle-parent rectangle-parent-pill">
-                    <!-- Product design pill image only -->
-                    <img
-                      class="rectangle-pill-image"
-                      src="./HomepageAssets/Blue pill2.png"
-                      alt="Product design pill"
-                    />
-                  </div>
-                  <div class="im-hunter">Designer</div>
-                </div>
-              </div>
-
-              <div class="for-the-past">
-                For the past 7 years, I’ve been designing meaningful digital
-                experiences that connect user needs with business strategy.
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="state-layer">
-                <div class="label-text">Let’s connect</div>
-                <img
-                  class="call-made-icon"
-                  src="HomepageAssets/Arrowicon.png"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- BRANDS + FEATURED CASE STUDIES + ABOUT -->
           <div class="frame-parent3">
             <!-- Brands -->
             <div class="past-companies-parent">
               <div class="past-companies">
-                <!-- Top arrow + heading -->
                 <div class="frame-parent4">
                   <div class="x-parent">
                     <img
@@ -871,7 +1150,9 @@
                       alt="Decorative divider"
                     />
                   </div>
-                  <div class="a-few-brands">A few brands I have worked with</div>
+                  <div class="a-few-brands">
+                    A few brands I have worked with
+                  </div>
                 </div>
 
                 <!-- Logo grid -->
@@ -1000,7 +1281,7 @@
               </div>
             </div>
 
-            <!-- About section / Hello, I'm... -->
+            <!-- About / Hello section -->
             <div class="ellipse-parent">
               <div class="ellipse-div"></div>
 
@@ -1071,8 +1352,8 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> <!-- /frame-parent3 -->
+        </div> <!-- /hero-parent -->
 
         <!-- Bottom "I'm available" section with black parallax background -->
         <div class="frame-parent8">
@@ -1101,7 +1382,7 @@
               </div>
             </div>
 
-            <div class="button4">
+            <button class="button4">
               <div class="state-layer">
                 <div class="label-text">Let’s connect</div>
                 <img
@@ -1110,7 +1391,7 @@
                   alt=""
                 />
               </div>
-            </div>
+            </button>
           </div>
         </div>
         <!-- end parallax section -->

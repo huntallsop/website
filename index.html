@@ -23,24 +23,23 @@
     /* =========================
        HERO SECTION (FULL VIEWPORT)
     ========================== */
- .hero-section-1920x1080 {
-  width: 100vw;
-  height: 100vh;
-  min-height: 700px;
-  position: relative;
-  background-color: #f9f9f9;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  isolation: isolate;
-  text-align: left;
-  font-size: clamp(42px, 4vw, 80px);
-  color: #2d2d2d;
-  font-family: "Instrument Serif", serif;
-  z-index: 5;
-}
-
+    .hero-section-1920x1080 {
+      width: 100vw;
+      height: 100vh;
+      min-height: 700px;
+      position: relative;
+      background-color: #f9f9f9;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+      text-align: left;
+      font-size: clamp(42px, 4vw, 80px);
+      color: #2d2d2d;
+      font-family: "Instrument Serif", serif;
+      z-index: 5;
+    }
 
     .grainy-texture-icon {
       position: absolute;
@@ -79,6 +78,15 @@
       isolation: isolate;
     }
 
+    /* NEW: wrapper that scales the whole hero illustration */
+    .hero-visuals {
+      position: absolute;
+      inset: 0;                 /* fill the hero */
+      transform: scale(0.75);   /* <— tweak this to make everything smaller/larger */
+      transform-origin: center;
+      pointer-events: none;     /* so clicks on text/CTA still work */
+    }
+
     /* Device / prop images around the hero */
     .ipad-icon {
       position: absolute;
@@ -91,16 +99,17 @@
       z-index: 5;
       pointer-events: none;
     }
-    
-.airpods {
-  width: 282px;
-  height: 224.5px;
-  position: absolute;
-  bottom: 6%;
-  left: 8%;
-  z-index: 1;
-  pointer-events: none;
-}
+
+    .airpods {
+      width: 282px;
+      height: 224.5px;
+      position: absolute;
+      bottom: 6%;
+      left: 8%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
     .stickynote {
       width: 290px;
       height: 286.7px;
@@ -365,14 +374,14 @@
     }
 
     .background-icon {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;  
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
 
     .desktop-2-inner {
       height: 1402px;
@@ -427,9 +436,6 @@
       align-items: center;
       gap: 60px;
     }
-
-    /* We no longer use the old .hero, .frame-div, .frame-parent2 for the hero text.
-       They’re now handled by the top hero-section. */
 
     .frame-parent3 {
       align-self: stretch;
@@ -1003,46 +1009,50 @@
     />
 
     <div class="hero-content">
-      <!-- Devices / props -->
-      <img
-        class="ipad-icon"
-        src="./HomepageAssets/Ipad.png"
-        alt="iPad with design work"
-      />
-
-      <div class="stickynote">
-        <div class="drop-shadow"></div>
+      <!-- NEW WRAPPER: all visuals get scaled together -->
+      <div class="hero-visuals">
+        <!-- Devices / props -->
         <img
-          class="stickynote-child"
-          src="./HomepageAssets/Stickynote.png"
-          alt="Sticky note"
+          class="ipad-icon"
+          src="./HomepageAssets/Ipad.png"
+          alt="iPad with design work"
         />
+
+        <div class="stickynote">
+          <div class="drop-shadow"></div>
+          <img
+            class="stickynote-child"
+            src="./HomepageAssets/Stickynote.png"
+            alt="Sticky note"
+          />
+        </div>
+
+        <div class="notepad">
+          <img
+            class="blank-ruled-notebook-white-tab-icon"
+            src="./HomepageAssets/Notepad.png"
+            alt="Notepad with design notes"
+          />
+        </div>
+
+        <div class="phone">
+          <div class="drop-shadow3"></div>
+          <img
+            class="image-37-icon"
+            src="./HomepageAssets/Phone.png"
+            alt="Phone with product UI"
+          />
+        </div>
+
+        <div class="airpods">
+          <img
+            class="wireless-inear-headphones-with-icon3"
+            src="./HomepageAssets/Airpods.png"
+            alt="AirPods"
+          />
+        </div>
       </div>
 
-      <div class="notepad">
-        <img
-          class="blank-ruled-notebook-white-tab-icon"
-          src="./HomepageAssets/Notepad.png"
-          alt="Notepad with design notes"
-        />
-      </div>
-
-      <div class="phone">
-        <div class="drop-shadow3"></div>
-        <img
-          class="image-37-icon"
-          src="./HomepageAssets/Phone.png"
-          alt="Phone with product UI"
-        />
-      </div>
-
-     <div class="airpods">
-  <img
-    class="wireless-inear-headphones-with-icon3"
-    src="./HomepageAssets/Airpods.png"
-    alt="AirPods"
-  />
-</div>
       <!-- Center hero text -->
       <div class="hero-text-block">
         <div class="hero-heading">

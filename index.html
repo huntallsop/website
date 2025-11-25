@@ -475,6 +475,18 @@
       gap: 200px;
       padding-right: 200px;
     }
+    /* Smooth hover grow for logos */
+.logo-strip img {
+  transition: transform 0.2s ease;
+  transform-origin: center;
+}
+
+/* Grow ~20px taller on hover (scale up) */
+.logo-strip img:hover {
+  transform: scale(1.2);
+}
+
+    
 
     .bofa-1-icon,
     .family-search-1,

@@ -23,22 +23,24 @@
     /* =========================
        HERO SECTION (FULL VIEWPORT)
     ========================== */
-    .hero-section-1920x1080 {
-      width: 100vw;
-      height: 100vh;
-      min-height: 700px;
-      position: relative;
-      background-color: #f9f9f9;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      isolation: isolate;
-      text-align: left;
-      font-size: clamp(42px, 4vw, 80px);
-      color: #2d2d2d;
-      font-family: "Instrument Serif", serif;
-    }
+ .hero-section-1920x1080 {
+  width: 100vw;
+  height: 100vh;
+  min-height: 700px;
+  position: relative;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  text-align: left;
+  font-size: clamp(42px, 4vw, 80px);
+  color: #2d2d2d;
+  font-family: "Instrument Serif", serif;
+  z-index: 5;
+}
+
 
     .grainy-texture-icon {
       position: absolute;
@@ -378,15 +380,14 @@
     }
 
     .background-icon {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 0;
-      flex-shrink: 0;
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;  
+}
 
     .desktop-2-inner {
       height: 1402px;

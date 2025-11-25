@@ -364,21 +364,24 @@
        REST OF PAGE (UNCHANGED STRUCTURE)
     ========================== */
 
-    .desktop-2 {
-      height: 3235px;
-      position: relative;
-      background-color: #f9f9f9;
-      width: 100%;
-      overflow-y: auto;
-      display: flex;
-      align-items: center;
-      isolation: isolate;
-      gap: 10px;
-      text-align: left;
-      font-size: 16px;
-      color: #2d2d2d;
-      font-family: "Instrument Serif", serif;
-    }
+.desktop-2 {
+  /* let content define height instead of forcing 3235px */
+  min-height: 100vh;
+  position: relative;
+  background-color: #f9f9f9;
+  width: 100%;
+  /* remove the inner scroll */
+  overflow-y: visible;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  gap: 10px;
+  text-align: left;
+  font-size: 16px;
+  color: #2d2d2d;
+  font-family: "Instrument Serif", serif;
+}
+
 
     .background-icon {
       position: fixed;

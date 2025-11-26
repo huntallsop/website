@@ -100,7 +100,7 @@
       height: 32px;
       background-color: rgba(0, 0, 0, 0.1);
       border-radius: 1px;
-      margin-left: 17px; /* 16px to the right of the image */
+      margin-left: 17px;
     }
 
     .nav-right {
@@ -322,13 +322,14 @@
       pointer-events: none;
     }
 
-   .hero-parallax {
-  will-change: transform;
-  transform: translate3d(0, 0, 0); /* no rotation here */
-}
-
+    /* Shared parallax base styles */
+    .hero-parallax {
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+    }
 
     /* Device / prop images around the hero */
+
     .ipad-icon {
       position: absolute;
       width: 33vw;
@@ -341,24 +342,23 @@
       pointer-events: none;
     }
 
-   .stickynote {
-  width: 19vw;
-  height: 286.7px;
-  position: absolute;
-  top: 10%;
-  left: 3%;
-  z-index: 4;
-  pointer-events: none;
-}
+    .stickynote {
+      width: 19vw;
+      height: 286.7px;
+      position: absolute;
+      top: 10%;
+      left: 3%;
+      z-index: 4;
+      pointer-events: none;
+    }
 
-/* This keeps your angle, parallax only moves the outer wrapper */
-.stickynote-inner {
-  width: 100%;
-  height: 100%;
-  transform: rotate(349deg);
-  transform-origin: center;
-}
-
+    /* keep the visual rotation on an inner wrapper so JS only moves the outer div */
+    .stickynote-inner {
+      width: 100%;
+      height: 100%;
+      transform: rotate(349deg);
+      transform-origin: center;
+    }
 
     .drop-shadow {
       position: absolute;
@@ -1278,63 +1278,61 @@
 
     <div class="hero-content">
       <!-- All visuals grouped for scaling -->
-   <div class="hero-visuals">
-  <!-- iPad -->
-  <img
-    class="ipad-icon hero-parallax"
-    src="./HomepageAssets/Ipad.png"
-    alt="iPad with design work"
-    data-offset="40"
-    data-dir-x="0.6"
-    data-dir-y="-0.2"
-  />
+      <div class="hero-visuals">
+        <!-- iPad: move up/right -->
+        <img
+          class="ipad-icon hero-parallax"
+          src="./HomepageAssets/Ipad.png"
+          alt="iPad with design work"
+          data-offset="40"
+          data-dir-x="0.6"
+          data-dir-y="-0.2"
+        />
 
-  <!-- Sticky note -->
-  <div
-    class="stickynote hero-parallax"
-    data-offset="45"
-    data-dir-x="-0.5"
-    data-dir-y="-0.2"
-  >
-    <div class="stickynote-inner">
-      <img
-        class="stickynote-child"
-        src="./HomepageAssets/Stickynote.png"
-        alt="Sticky note"
-      />
-    </div>
-  </div>
+        <!-- Sticky note: move up/left, keep angle -->
+        <div
+          class="stickynote hero-parallax"
+          data-offset="40"
+          data-dir-x="-0.5"
+          data-dir-y="-0.2"
+        >
+          <div class="stickynote-inner">
+            <img
+              class="stickynote-child"
+              src="./HomepageAssets/Stickynote.png"
+              alt="Sticky note"
+            />
+          </div>
+        </div>
 
-  <!-- Notepad -->
-  <div
-    class="notepad hero-parallax"
-    data-offset="40"
-    data-dir-x="0.4"
-    data-dir-y="0.6"
-  >
-    <img
-      class="blank-ruled-notebook-white-tab-icon"
-      src="./HomepageAssets/Notepad.png"
-      alt="Notepad with design notes"
-    />
-  </div>
+        <!-- Notepad: move down/right -->
+        <div
+          class="notepad hero-parallax"
+          data-offset="40"
+          data-dir-x="0.4"
+          data-dir-y="0.6"
+        >
+          <img
+            class="blank-ruled-notebook-white-tab-icon"
+            src="./HomepageAssets/Notepad.png"
+            alt="Notepad with design notes"
+          />
+        </div>
 
-  <!-- Phone -->
-  <div
-    class="phone hero-parallax"
-    data-offset="35"
-    data-dir-x="-0.4"
-    data-dir-y="0.5"
-  >
-    <img
-      class="image-37-icon"
-      src="./HomepageAssets/Phone.png"
-      alt="Phone with product UI"
-    />
-  </div>
-</div>
-
-
+        <!-- Phone: move down/left -->
+        <div
+          class="phone hero-parallax"
+          data-offset="35"
+          data-dir-x="-0.4"
+          data-dir-y="0.5"
+        >
+          <img
+            class="image-37-icon"
+            src="./HomepageAssets/Phone.png"
+            alt="Phone with product UI"
+          />
+        </div>
+      </div>
 
       <!-- Center hero text -->
       <div class="hero-text-block">
@@ -1531,7 +1529,7 @@
                             DHI
                           </b>
                           <b class="gold-point-systems2">
-                            DHI offers easy to use tools to track
+                            Gold Point Systems offers easy to use tools to track
                             and manage banking transactions.
                           </b>
                         </div>
@@ -1566,7 +1564,8 @@
                             DHI
                           </b>
                           <b class="gold-point-systems2">
-                            DHI gives you simple, powerful tools to track and manage your money on the go.
+                            Gold Point Systems offers easy to use tools to track
+                            and manage banking transactions.
                           </b>
                         </div>
                       </div>
@@ -1744,30 +1743,24 @@
   }
 
   // ============================
-  // Hero parallax – scroll inside/through hero
+  // Hero parallax – simple scrollY based
   // ============================
 
   function updateHeroParallax() {
-    const hero = document.querySelector('.hero-section-1920x1080');
-    if (!hero) return;
-
     const elements = document.querySelectorAll('.hero-parallax');
     if (!elements.length) return;
 
-    const heroHeight = hero.offsetHeight || hero.getBoundingClientRect().height;
+    const maxScroll = 400; // px of scroll where we reach full offset
     const scrollY = window.scrollY || window.pageYOffset || 0;
-
-    // We only animate for the first heroHeight worth of scroll
-    const clampedScroll = Math.min(heroHeight, Math.max(0, scrollY));
-    const progress = clampedScroll / heroHeight; // 0 → 1
+    const clamped = Math.max(0, Math.min(1, scrollY / maxScroll));
 
     elements.forEach((el) => {
       const maxOffset = parseFloat(el.getAttribute('data-offset')) || 40;
       const dirX = parseFloat(el.getAttribute('data-dir-x')) || 0;
       const dirY = parseFloat(el.getAttribute('data-dir-y')) || -1;
 
-      const translateX = dirX * maxOffset * progress;
-      const translateY = dirY * maxOffset * progress;
+      const translateX = dirX * maxOffset * clamped;
+      const translateY = dirY * maxOffset * clamped;
 
       el.style.transform =
         'translate3d(' + translateX + 'px, ' + translateY + 'px, 0)';
@@ -1781,7 +1774,7 @@
 
   window.addEventListener('scroll', handleScrollResize);
   window.addEventListener('resize', handleScrollResize);
-  // no load animation – everything starts moving only when you scroll
+  // no load handler for hero – it starts moving only when you scroll
 
   // ============================
   // Nav icon hover interactions
@@ -1814,9 +1807,6 @@
     });
   }
 </script>
-
-
-
 
 </body>
 </html>

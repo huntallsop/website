@@ -1665,124 +1665,139 @@
     </div>
   </div>
 
-  <script>
-    const logoColors = [
-      '#51A2FF',
-      '#FE9A00',
-      '#58C9B9',
-      '#FF5C5C',
-      '#9B6BFF'
-    ];
+ <script>
+  const logoColors = [
+    '#51A2FF',
+    '#FE9A00',
+    '#58C9B9',
+    '#FF5C5C',
+    '#9B6BFF'
+  ];
 
-    document.querySelectorAll('.logo-strip img').forEach((img) => {
-      img.addEventListener('mouseenter', () => {
-        const randomColor =
-          logoColors[Math.floor(Math.random() * logoColors.length)];
+  document.querySelectorAll('.logo-strip img').forEach((img) => {
+    img.addEventListener('mouseenter', () => {
+      const randomColor =
+        logoColors[Math.floor(Math.random() * logoColors.length)];
 
-        img.style.filter =
-          'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
-          randomColor +
-          ')';
-      });
-
-      img.addEventListener('mouseleave', () => {
-        img.style.filter = '';
-      });
+      img.style.filter =
+        'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
+        randomColor +
+        ')';
     });
 
-    // ============================
-    // Footer parallax
-    // ============================
+    img.addEventListener('mouseleave', () => {
+      img.style.filter = '';
+    });
+  });
 
-    function updateFooterParallax() {
-      const footer = document.querySelector('.frame-parent8');
-      const inner = document.querySelector('.frame-parent8-inner');
-      if (!footer || !inner) return;
+  // ============================
+  // Footer parallax
+  // ============================
 
-      const rect = footer.getBoundingClientRect();
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  function updateFooterParallax() {
+    const footer = document.querySelector('.frame-parent8');
+    const inner = document.querySelector('.frame-parent8-inner');
+    if (!footer || !inner) return;
 
-      if (rect.bottom < 0 || rect.top > windowHeight) return;
+    const rect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-      const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-      const clamped = Math.max(0, Math.min(1, progress));
+    if (rect.bottom < 0 || rect.top > windowHeight) return;
 
-      const translateY = (clamped - 0.5) * 60;
+    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+    const clamped = Math.max(0, Math.min(1, progress));
 
-      inner.style.transform = 'translateY(' + translateY + 'px)';
-    }
+    const translateY = (clamped - 0.5) * 60;
 
-    // ============================
-    // Hero parallax (Goodfight-like)
-    // ============================
+    inner.style.transform = 'translateY(' + translateY + 'px)';
+  }
 
-    function updateHeroParallax() {
-      const hero = document.querySelector('.hero-section-1920x1080');
-      if (!hero) return;
+  // ============================
+  // Hero parallax – only when leaving hero
+  // ============================
 
-      const rect = hero.getBoundingClientRect();
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  function updateHeroParallax() {
+    const hero = document.querySelector('.hero-section-1920x1080');
+    if (!hero) return;
 
-      // Only animate while hero is on screen
-      if (rect.bottom < 0 || rect.top > windowHeight) return;
+    const rect = hero.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-      const heroCenter = rect.top + rect.height / 2;
-      const windowCenter = windowHeight / 2;
-      const distanceFromCenter = windowCenter - heroCenter; // px
-      const normalized = distanceFromCenter / windowHeight; // roughly -1..1
+    // If hero is completely off-screen, do nothing
+    if (rect.bottom <= 0 || rect.top >= windowHeight) return;
 
-      document.querySelectorAll('.hero-parallax').forEach((el) => {
-        const speed = parseFloat(el.getAttribute('data-speed')) || 40;
+    const elements = document.querySelectorAll('.hero-parallax');
+    if (!elements.length) return;
+
+    // While hero is fully at the top (page just loaded / scrolled back to top),
+    // keep everything in its base position (no parallax yet).
+    if (rect.top >= 0) {
+      elements.forEach((el) => {
         const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
-
-        const translateY = normalized * speed * -1;
-
-        el.style.transform =
-          'translateY(' + translateY + 'px) rotate(' + baseRotate + 'deg)';
+        el.style.transform = 'translateY(0px) rotate(' + baseRotate + 'deg)';
       });
+      return;
     }
 
-    // Combined handler for scroll/resize/load
-    function handleScrollResize() {
-      updateFooterParallax();
-      updateHeroParallax();
-    }
+    // Once rect.top < 0, we’ve started to leave the hero section:
+    // progress = 0 when we just start leaving,
+    // progress = 1 when the hero is almost fully scrolled past.
+    const progress = Math.min(1, Math.max(0, -rect.top / rect.height));
 
-    window.addEventListener('scroll', handleScrollResize);
-    window.addEventListener('resize', handleScrollResize);
-    window.addEventListener('load', handleScrollResize);
+    elements.forEach((el) => {
+      const speed = parseFloat(el.getAttribute('data-speed')) || 40;
+      const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
 
-    // ============================
-    // Nav icon hover interactions
-    // ============================
+      const offset = progress * speed; // how far to move based on scroll
+      const translateY = -offset;      // move upward as we scroll down
 
-    const linkedinLink = document.querySelector('.nav-icon-link--linkedin');
-    const connectLink  = document.querySelector('.nav-icon-link--connect');
+      el.style.transform =
+        'translateY(' + translateY + 'px) rotate(' + baseRotate + 'deg)';
+    });
+  }
 
-    if (linkedinLink && connectLink) {
-      // Hover LinkedIn: blue, shrink Connect
-      linkedinLink.addEventListener('mouseenter', () => {
-        linkedinLink.classList.add('is-hover');
-        connectLink.classList.add('is-small');
-      });
+  // Combined handler for scroll/resize/load
+  function handleScrollResize() {
+    updateFooterParallax();
+    updateHeroParallax();
+  }
 
-      linkedinLink.addEventListener('mouseleave', () => {
-        linkedinLink.classList.remove('is-hover');
-        connectLink.classList.remove('is-small');
-      });
+  window.addEventListener('scroll', handleScrollResize);
+  window.addEventListener('resize', handleScrollResize);
+  window.addEventListener('load', handleScrollResize);
 
-      // Hover Connect: orange, shrink LinkedIn
-      connectLink.addEventListener('mouseenter', () => {
-        connectLink.classList.add('is-hover');
-        linkedinLink.classList.add('is-small');
-      });
+  // ============================
+  // Nav icon hover interactions
+  // ============================
 
-      connectLink.addEventListener('mouseleave', () => {
-        connectLink.classList.remove('is-hover');
-        linkedinLink.classList.remove('is-small');
-      });
-    }
-  </script>
+  const linkedinLink = document.querySelector('.nav-icon-link--linkedin');
+  const connectLink  = document.querySelector('.nav-icon-link--connect');
+
+  if (linkedinLink && connectLink) {
+    // Hover LinkedIn: blue, shrink Connect
+    linkedinLink.addEventListener('mouseenter', () => {
+      linkedinLink.classList.add('is-hover');
+      connectLink.classList.add('is-small');
+    });
+
+    linkedinLink.addEventListener('mouseleave', () => {
+      linkedinLink.classList.remove('is-hover');
+      connectLink.classList.remove('is-small');
+    });
+
+    // Hover Connect: orange, shrink LinkedIn
+    connectLink.addEventListener('mouseenter', () => {
+      connectLink.classList.add('is-hover');
+      linkedinLink.classList.add('is-small');
+    });
+
+    connectLink.addEventListener('mouseleave', () => {
+      connectLink.classList.remove('is-hover');
+      linkedinLink.classList.remove('is-small');
+    });
+  }
+</script>
+
 
 </body>
 </html>

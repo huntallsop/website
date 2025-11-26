@@ -322,12 +322,11 @@
       pointer-events: none;
     }
 
-    /* Shared parallax base styles */
-    .hero-parallax {
-      will-change: transform;
-      transform: translateY(0) rotate(0deg);
-      transition: transform 0.1s linear;
-    }
+   .hero-parallax {
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* no rotation here */
+}
+
 
     /* Device / prop images around the hero */
     .ipad-icon {
@@ -342,16 +341,24 @@
       pointer-events: none;
     }
 
-    .stickynote {
-      width: 19vw;
-      height: 286.7px;
-      position: absolute;
-      top: 10%;
-      left: 3%;
-      z-index: 4;
-      pointer-events: none;
-      /* rotation now handled via JS using data-rotate */
-    }
+   .stickynote {
+  width: 19vw;
+  height: 286.7px;
+  position: absolute;
+  top: 10%;
+  left: 3%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* This keeps your angle, parallax only moves the outer wrapper */
+.stickynote-inner {
+  width: 100%;
+  height: 100%;
+  transform: rotate(349deg);
+  transform-origin: center;
+}
+
 
     .drop-shadow {
       position: absolute;
@@ -1271,34 +1278,39 @@
 
     <div class="hero-content">
       <!-- All visuals grouped for scaling -->
-    <div class="hero-visuals">
+   <div class="hero-visuals">
   <!-- iPad -->
   <img
     class="ipad-icon hero-parallax"
     src="./HomepageAssets/Ipad.png"
     alt="iPad with design work"
-    data-offset="30"   
-    data-rotate="0"
+    data-offset="40"
+    data-dir-x="0.6"
+    data-dir-y="-0.2"
   />
 
   <!-- Sticky note -->
   <div
     class="stickynote hero-parallax"
-    data-offset="35"   
-    data-rotate="349"  <!-- keep your angled sticky -->
+    data-offset="45"
+    data-dir-x="-0.5"
+    data-dir-y="-0.2"
   >
-    <img
-      class="stickynote-child"
-      src="./HomepageAssets/Stickynote.png"
-      alt="Sticky note"
-    />
+    <div class="stickynote-inner">
+      <img
+        class="stickynote-child"
+        src="./HomepageAssets/Stickynote.png"
+        alt="Sticky note"
+      />
+    </div>
   </div>
 
-  <!-- Notepad (only ~20px movement, no spinning) -->
+  <!-- Notepad -->
   <div
     class="notepad hero-parallax"
-    data-offset="20"  
-    data-rotate="0"
+    data-offset="40"
+    data-dir-x="0.4"
+    data-dir-y="0.6"
   >
     <img
       class="blank-ruled-notebook-white-tab-icon"
@@ -1310,8 +1322,9 @@
   <!-- Phone -->
   <div
     class="phone hero-parallax"
-    data-offset="25"   
-    data-rotate="0"
+    data-offset="35"
+    data-dir-x="-0.4"
+    data-dir-y="0.5"
   >
     <img
       class="image-37-icon"
@@ -1320,6 +1333,7 @@
     />
   </div>
 </div>
+
 
 
       <!-- Center hero text -->
@@ -1731,42 +1745,33 @@
   }
 
   // ============================
-  // Hero parallax – only after leaving hero
+  // Hero parallax – scroll inside/through hero
   // ============================
 
   function updateHeroParallax() {
     const hero = document.querySelector('.hero-section-1920x1080');
     if (!hero) return;
 
-    const rect = hero.getBoundingClientRect();
-    const heroHeight = rect.height;
-
     const elements = document.querySelectorAll('.hero-parallax');
     if (!elements.length) return;
 
-    // While hero top is still at/above viewport top, reset transforms
-    if (rect.top >= 0) {
-      elements.forEach((el) => {
-        const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
-        el.style.transform =
-          'translateY(0px) rotate(' + baseRotate + 'deg)';
-      });
-      return;
-    }
+    const heroHeight = hero.offsetHeight || hero.getBoundingClientRect().height;
+    const scrollY = window.scrollY || window.pageYOffset || 0;
 
-    // How far we've scrolled past the top of the hero (0 → heroHeight)
-    const distancePastTop = Math.min(heroHeight, -rect.top);
-    const progress = distancePastTop / heroHeight; // 0 → 1
+    // We only animate for the first heroHeight worth of scroll
+    const clampedScroll = Math.min(heroHeight, Math.max(0, scrollY));
+    const progress = clampedScroll / heroHeight; // 0 → 1
 
     elements.forEach((el) => {
-      const maxOffset = parseFloat(el.getAttribute('data-offset')) || 20; // px
-      const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
+      const maxOffset = parseFloat(el.getAttribute('data-offset')) || 40;
+      const dirX = parseFloat(el.getAttribute('data-dir-x')) || 0;
+      const dirY = parseFloat(el.getAttribute('data-dir-y')) || -1;
 
-      // Move up to -maxOffset px as we scroll past the hero
-      const translateY = -progress * maxOffset;
+      const translateX = dirX * maxOffset * progress;
+      const translateY = dirY * maxOffset * progress;
 
       el.style.transform =
-        'translateY(' + translateY + 'px) rotate(' + baseRotate + 'deg)';
+        'translate3d(' + translateX + 'px, ' + translateY + 'px, 0)';
     });
   }
 
@@ -1777,7 +1782,7 @@
 
   window.addEventListener('scroll', handleScrollResize);
   window.addEventListener('resize', handleScrollResize);
-  // (no 'load' handler, so nothing animates on page load)
+  // no load animation – everything starts moving only when you scroll
 
   // ============================
   // Nav icon hover interactions
@@ -1810,6 +1815,7 @@
     });
   }
 </script>
+
 
 
 

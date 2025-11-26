@@ -33,12 +33,12 @@
       top: 0;
       left: 0;
       width: 100%;
-      padding: 16px 16px 0; /* outer padding similar to Good Fight */
+      padding: 16px 16px 0;
       box-sizing: border-box;
       display: flex;
       justify-content: center;
       z-index: 1000;
-      pointer-events: none; /* allow content underneath to still be interactive outside nav */
+      pointer-events: none;
     }
 
     .nav-shell {
@@ -55,7 +55,7 @@
       justify-content: space-between;
       gap: 24px;
 
-      padding: 16px 24px; /* inner padding – approximated from Good Fight nav */
+      padding: 16px 24px;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       background-color: rgba(179, 179, 179, 0.4);
@@ -66,13 +66,13 @@
         rgba(0, 0, 0, 0.01) 0px -0.120725px 0.362176px 0px inset,
         rgba(0, 0, 0, 0.05) 0px -1px 3px 0px inset,
         rgba(0, 0, 0, 0.07) 0px 30px 40px 0px;
-      pointer-events: auto; /* only the nav panel itself captures events */
+      pointer-events: auto;
     }
 
     .nav-left {
       display: flex;
       align-items: center;
-      gap: 0; /* spacing handled by divider margin */
+      gap: 0;
     }
 
     /* Small round logo using your Hunter pill image */
@@ -127,9 +127,18 @@
       width: 40px;
       border-radius: 5px;
 
-      background-color: rgb(0 0 0 / 40%);
+      background-color: rgba(200, 200, 200, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow:
+        rgba(255, 255, 255, 0.4) 0 1px 2px inset,
+        rgba(0, 0, 0, 0.12) 0 4px 10px;
       text-decoration: none;
-      transition: box-shadow 0.2s ease, transform 0.15s ease;
+      transition:
+        box-shadow 0.2s ease,
+        transform 0.15s ease,
+        background-color 0.2s ease,
+        width 0.2s ease,
+        height 0.2s ease;
     }
 
     .nav-icon-link:hover {
@@ -137,6 +146,21 @@
         rgba(255, 255, 255, 0.6) 0 1px 3px inset,
         rgba(0, 0, 0, 0.18) 0 6px 16px;
       transform: translateY(-1px);
+    }
+
+    /* State when we want the tile smaller (used via JS) */
+    .nav-icon-link.is-small {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Hover color states (toggled via JS) */
+    .nav-icon-link--linkedin.is-hover {
+      background-color: #136bc5;
+    }
+
+    .nav-icon-link--connect.is-hover {
+      background-color: #fe5d21;
     }
 
     .nav-icon {
@@ -147,7 +171,7 @@
       display: block;
     }
 
-    /* (Unused now, but kept in case you re-add text links later) */
+    /* (Unused now, but kept just in case you re-add text links later) */
     .nav-text-link {
       font-size: 16px;
       font-weight: 500;
@@ -693,42 +717,17 @@
       object-fit: cover;
     }
 
-    /* Exact logo heights for consistent scale */
-    .bofa-1-icon {
-      height: 57px;
-    }
-
-    .family-search-1 {
-      height: 64px;
-    }
-
-    .metajive-1-icon {
-      height: 40px;
-    }
-
-    .utah-tech1-1-1 {
-      height: 35px;
-    }
-
-    .era-2-icon {
-      height: 69px;
-    }
-
-    .suu-1-icon {
-      height: 52px;
-    }
-
-    .dhi-1-1 {
-      height: 42px;
-    }
+    .bofa-1-icon { height: 57px; }
+    .family-search-1 { height: 64px; }
+    .metajive-1-icon { height: 40px; }
+    .utah-tech1-1-1 { height: 35px; }
+    .era-2-icon { height: 69px; }
+    .suu-1-icon { height: 52px; }
+    .dhi-1-1 { height: 42px; }
 
     @keyframes logo-marquee {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* ===== END LOGO CAROUSEL ===== */
@@ -758,7 +757,6 @@
       justify-content: center;
     }
 
-    /* clickable card wrapper */
     .case-card-link {
       display: block;
       text-decoration: none;
@@ -786,13 +784,11 @@
       isolation: isolate;
       gap: 20px;
 
-      /* hover animation */
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
       cursor: pointer;
     }
 
-    /* Card hover: lift + stronger shadow */
     .group-parent:hover {
       transform: translateY(-10px);
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
@@ -827,7 +823,6 @@
       transition: transform 0.35s ease;
     }
 
-    /* Slight image zoom on hover */
     .group-parent:hover .psd-02-1-icon {
       transform: scale(1.05);
     }
@@ -847,7 +842,6 @@
       transition: opacity 0.35s ease;
     }
 
-    /* Darker overlay on hover */
     .group-parent:hover .shadow {
       opacity: 0.95;
     }
@@ -886,7 +880,6 @@
       transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
-    /* Chips brighten slightly on hover */
     .group-parent:hover .chip {
       background-color: rgba(255, 255, 255, 0.12);
       border-color: rgba(255, 255, 255, 0.9);
@@ -1008,7 +1001,6 @@
       gap: 45px;
     }
 
-    /* ABOUT SECTION PILLS */
     .about-pill {
       height: 40px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
@@ -1026,21 +1018,10 @@
       border: none;
     }
 
-    .pill-rotate-neg-8 {
-      transform: rotate(16deg);
-    }
-
-    .pill-rotate-10 {
-      transform: rotate(-15deg);
-    }
-
-    .pill-rotate-13 {
-      transform: rotate(-16deg);
-    }
-
-    .pill-rotate-neg-16 {
-      transform: rotate(15deg);
-    }
+    .pill-rotate-neg-8 { transform: rotate(16deg); }
+    .pill-rotate-10 { transform: rotate(-15deg); }
+    .pill-rotate-13 { transform: rotate(-16deg); }
+    .pill-rotate-neg-16 { transform: rotate(15deg); }
 
     .im-an-enthusiastic {
       width: 571px;
@@ -1054,12 +1035,11 @@
 
     /* =========================
        FULL-VIEWPORT FOOTER
-       ("I'm available" section)
     ========================== */
 
     .frame-parent8 {
       width: 100vw;
-      min-height: 100vh; /* fill the viewport height */
+      min-height: 100vh;
       background-color: #141414;
       background-image: url("./HomepageAssets/lightbackground.png");
       background-size: cover;
@@ -1067,8 +1047,8 @@
       background-repeat: no-repeat;
 
       display: flex;
-      align-items: center;     /* center vertically */
-      justify-content: center; /* center horizontally */
+      align-items: center;
+      justify-content: center;
       padding: 120px 16px;
       box-sizing: border-box;
 
@@ -1091,7 +1071,6 @@
       color: #f9f9f9;
       font-family: "Instrument Serif", serif;
 
-      /* for parallax */
       will-change: transform;
       transform: translateY(0);
     }
@@ -1189,19 +1168,10 @@
     }
 
     @media (max-width: 1024px) {
-      .ipad-icon {
-        right: -15%;
-      }
-      .stickynote {
-        left: -1%;
-      }
-      .notepad {
-        left: 44%;
-      }
-      .phone {
-        left: 5%;
-        top: 77%;
-      }
+      .ipad-icon { right: -15%; }
+      .stickynote { left: -1%; }
+      .notepad { left: 44%; }
+      .phone { left: 5%; top: 77%; }
     }
 
     @media (max-width: 768px) {
@@ -1253,7 +1223,7 @@
               href="https://www.linkedin.com/"
               target="_blank"
               rel="noopener"
-              class="nav-icon-link"
+              class="nav-icon-link nav-icon-link--linkedin"
             >
               <img
                 class="nav-icon"
@@ -1265,7 +1235,7 @@
             <!-- Connect page (future) -->
             <a
               href="/connect"
-              class="nav-icon-link"
+              class="nav-icon-link nav-icon-link--connect"
             >
               <img
                 class="nav-icon"
@@ -1588,7 +1558,7 @@
               </div>
 
               <div class="frame-parent7">
-                <!-- LEFT COLUMN: User testing / Design systems / Prototypes -->
+                <!-- LEFT COLUMN -->
                 <div class="button-parent">
                   <div class="about-pill pill-rotate-neg-8">
                     <div class="state-layer">
@@ -1618,7 +1588,7 @@
                   energy to every project I work on.
                 </div>
 
-                <!-- RIGHT COLUMN: Problem solver / UI/UX Design / Research -->
+                <!-- RIGHT COLUMN -->
                 <div class="button-group">
                   <div class="about-pill pill-rotate-13">
                     <div class="state-layer">
@@ -1643,7 +1613,7 @@
           </div> <!-- /frame-parent3 -->
         </div> <!-- /hero-parent -->
 
-        <!-- Bottom "I'm available" section with full viewport black background -->
+        <!-- Bottom "I'm available" section -->
         <div class="frame-parent8" id="connect">
           <div class="frame-parent8-inner">
             <div class="vector-container">
@@ -1724,17 +1694,11 @@
       const rect = footer.getBoundingClientRect();
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-      // Only run when the footer section is on screen
       if (rect.bottom < 0 || rect.top > windowHeight) return;
 
-      /*
-        progress ~ 0 when footer just entering,
-        ~1 when it's fully scrolled past.
-      */
       const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
       const clamped = Math.max(0, Math.min(1, progress));
 
-      // Move between -30px and +30px for a subtle parallax
       const translateY = (clamped - 0.5) * 60;
 
       inner.style.transform = 'translateY(' + translateY + 'px)';
@@ -1743,6 +1707,37 @@
     window.addEventListener('scroll', updateFooterParallax);
     window.addEventListener('resize', updateFooterParallax);
     window.addEventListener('load', updateFooterParallax);
+
+    // ============================
+    // Nav icon hover interactions
+    // ============================
+
+    const linkedinLink = document.querySelector('.nav-icon-link--linkedin');
+    const connectLink  = document.querySelector('.nav-icon-link--connect');
+
+    if (linkedinLink && connectLink) {
+      // Hover LinkedIn: blue, shrink Connect
+      linkedinLink.addEventListener('mouseenter', () => {
+        linkedinLink.classList.add('is-hover');
+        connectLink.classList.add('is-small');
+      });
+
+      linkedinLink.addEventListener('mouseleave', () => {
+        linkedinLink.classList.remove('is-hover');
+        connectLink.classList.remove('is-small');
+      });
+
+      // Hover Connect: orange, shrink LinkedIn
+      connectLink.addEventListener('mouseenter', () => {
+        connectLink.classList.add('is-hover');
+        linkedinLink.classList.add('is-small');
+      });
+
+      connectLink.addEventListener('mouseleave', () => {
+        connectLink.classList.remove('is-hover');
+        linkedinLink.classList.remove('is-small');
+      });
+    }
   </script>
 
 </body>

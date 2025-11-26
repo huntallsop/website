@@ -1271,40 +1271,55 @@
 
     <div class="hero-content">
       <!-- All visuals grouped for scaling -->
-      <div class="hero-visuals">
-        <!-- Devices / props with parallax -->
-        <img
-          class="ipad-icon hero-parallax"
-          data-speed="40"
-          data-rotate="0"
-          src="./HomepageAssets/Ipad.png"
-          alt="iPad with design work"
-        />
+     <div class="hero-visuals">
+  <!-- iPad -->
+  <img
+    class="ipad-icon hero-parallax"
+    src="./HomepageAssets/Ipad.png"
+    alt="iPad with design work"
+    data-speed="50"
+    data-rotate="0"
+  />
 
-        <div class="stickynote hero-parallax" data-speed="55" data-rotate="-11">
-          <img
-            class="stickynote-child"
-            src="./HomepageAssets/Stickynote.png"
-            alt="Sticky note"
-          />
-        </div>
+  <!-- Sticky note -->
+  <div
+    class="stickynote hero-parallax"
+    data-speed="65"
+    data-rotate="349"
+  >
+    <img
+      class="stickynote-child"
+      src="./HomepageAssets/Stickynote.png"
+      alt="Sticky note"
+    />
+  </div>
 
-        <div class="notepad hero-parallax" data-speed="45" data-rotate="4">
-          <img
-            class="blank-ruled-notebook-white-tab-icon"
-            src="./HomepageAssets/Notepad.png"
-            alt="Notepad with design notes"
-          />
-        </div>
+  <!-- Notepad -->
+  <div
+    class="notepad hero-parallax"
+    data-speed="55"
+    data-rotate="0"
+  >
+    <img
+      class="blank-ruled-notebook-white-tab-icon"
+      src="./HomepageAssets/Notepad.png"
+      alt="Notepad with design notes"
+    />
+  </div>
 
-        <div class="phone hero-parallax" data-speed="35" data-rotate="-6">
-          <img
-            class="image-37-icon"
-            src="./HomepageAssets/Phone.png"
-            alt="Phone with product UI"
-          />
-        </div>
-      </div>
+  <!-- Phone -->
+  <div
+    class="phone hero-parallax"
+    data-speed="45"
+    data-rotate="0"
+  >
+    <img
+      class="image-37-icon"
+      src="./HomepageAssets/Phone.png"
+      alt="Phone with product UI"
+    />
+  </div>
+</div>
 
       <!-- Center hero text -->
       <div class="hero-text-block">
@@ -1665,7 +1680,7 @@
     </div>
   </div>
 
- <script>
+<script>
   const logoColors = [
     '#51A2FF',
     '#FE9A00',
@@ -1700,11 +1715,13 @@
     if (!footer || !inner) return;
 
     const rect = footer.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const windowHeight =
+      window.innerHeight || document.documentElement.clientHeight;
 
     if (rect.bottom < 0 || rect.top > windowHeight) return;
 
-    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+    const progress =
+      (windowHeight - rect.top) / (windowHeight + rect.height);
     const clamped = Math.max(0, Math.min(1, progress));
 
     const translateY = (clamped - 0.5) * 60;
@@ -1713,7 +1730,7 @@
   }
 
   // ============================
-  // Hero parallax – only when leaving hero
+  // Hero parallax – ONLY after leaving hero
   // ============================
 
   function updateHeroParallax() {
@@ -1721,42 +1738,34 @@
     if (!hero) return;
 
     const rect = hero.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const heroHeight = rect.height;
 
-    // If hero is completely off-screen, do nothing
-    if (rect.bottom <= 0 || rect.top >= windowHeight) return;
+    // While hero is still fully occupying the top of the viewport,
+    // don't apply any parallax at all.
+    if (rect.top >= 0) {
+      return;
+    }
 
     const elements = document.querySelectorAll('.hero-parallax');
     if (!elements.length) return;
 
-    // While hero is fully at the top (page just loaded / scrolled back to top),
-    // keep everything in its base position (no parallax yet).
-    if (rect.top >= 0) {
-      elements.forEach((el) => {
-        const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
-        el.style.transform = 'translateY(0px) rotate(' + baseRotate + 'deg)';
-      });
-      return;
-    }
-
-    // Once rect.top < 0, we’ve started to leave the hero section:
-    // progress = 0 when we just start leaving,
-    // progress = 1 when the hero is almost fully scrolled past.
-    const progress = Math.min(1, Math.max(0, -rect.top / rect.height));
+    // How far we've scrolled past the top of the hero, clamped to hero height
+    const distancePastTop = Math.min(heroHeight, -rect.top); // 0 → heroHeight
+    const progress = distancePastTop / heroHeight; // 0 → 1
 
     elements.forEach((el) => {
       const speed = parseFloat(el.getAttribute('data-speed')) || 40;
       const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
 
-      const offset = progress * speed; // how far to move based on scroll
-      const translateY = -offset;      // move upward as we scroll down
+      const offset = progress * speed;
+      const translateY = -offset; // move upward as we scroll down past hero
 
       el.style.transform =
         'translateY(' + translateY + 'px) rotate(' + baseRotate + 'deg)';
     });
   }
 
-  // Combined handler for scroll/resize/load
+  // Combined handler
   function handleScrollResize() {
     updateFooterParallax();
     updateHeroParallax();
@@ -1764,7 +1773,7 @@
 
   window.addEventListener('scroll', handleScrollResize);
   window.addEventListener('resize', handleScrollResize);
-  window.addEventListener('load', handleScrollResize);
+  // 🔴 Notice: no "load" event here, so nothing runs on page load
 
   // ============================
   // Nav icon hover interactions
@@ -1797,6 +1806,7 @@
     });
   }
 </script>
+
 
 
 </body>

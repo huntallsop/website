@@ -144,13 +144,11 @@
       transform: translateY(-1px);
     }
 
-    /* State when we want the tile smaller (used via JS) */
     .nav-icon-link.is-small {
       width: 30px;
       height: 30px;
     }
 
-    /* Hover color states (toggled via JS) */
     .nav-icon-link--linkedin.is-hover {
       background-color: #136bc5;
     }
@@ -160,19 +158,19 @@
     }
 
     .nav-icon {
-  height: 24px;
-  width: 24px;
-  border-radius: 3px;
-  object-fit: contain;
-  display: block;
-  transition: width 0.2s ease, height 0.2s ease;
-}
-    .nav-icon-link.is-small .nav-icon {
-  width: 18px;
-  height: 18px;
-}
+      height: 24px;
+      width: 24px;
+      border-radius: 3px;
+      object-fit: contain;
+      display: block;
+      transition: width 0.2s ease, height 0.2s ease;
+    }
 
-    /* (Unused now, but kept just in case you re-add text links later) */
+    .nav-icon-link.is-small .nav-icon {
+      width: 18px;
+      height: 18px;
+    }
+
     .nav-text-link {
       font-size: 16px;
       font-weight: 500;
@@ -324,6 +322,13 @@
       pointer-events: none;
     }
 
+    /* Shared parallax base styles */
+    .hero-parallax {
+      will-change: transform;
+      transform: translateY(0) rotate(0deg);
+      transition: transform 0.1s linear;
+    }
+
     /* Device / prop images around the hero */
     .ipad-icon {
       position: absolute;
@@ -345,7 +350,7 @@
       left: 3%;
       z-index: 4;
       pointer-events: none;
-      transform: rotate(349deg);
+      /* rotation now handled via JS using data-rotate */
     }
 
     .drop-shadow {
@@ -504,7 +509,7 @@
       color: #5a5f65;
     }
 
-    /* HERO CTA BUTTON (top hero section only) */
+    /* HERO CTA BUTTON */
     .hero-cta {
       height: 40px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
@@ -1250,7 +1255,7 @@
     </div>
   </header>
 
-  <!-- NEW HERO SECTION -->
+  <!-- HERO SECTION -->
   <div class="hero-section-1920x1080">
     <!-- Backgrounds -->
     <img
@@ -1267,14 +1272,16 @@
     <div class="hero-content">
       <!-- All visuals grouped for scaling -->
       <div class="hero-visuals">
-        <!-- Devices / props -->
+        <!-- Devices / props with parallax -->
         <img
-          class="ipad-icon"
+          class="ipad-icon hero-parallax"
+          data-speed="40"
+          data-rotate="0"
           src="./HomepageAssets/Ipad.png"
           alt="iPad with design work"
         />
 
-        <div class="stickynote">
+        <div class="stickynote hero-parallax" data-speed="55" data-rotate="-11">
           <img
             class="stickynote-child"
             src="./HomepageAssets/Stickynote.png"
@@ -1282,7 +1289,7 @@
           />
         </div>
 
-        <div class="notepad">
+        <div class="notepad hero-parallax" data-speed="45" data-rotate="4">
           <img
             class="blank-ruled-notebook-white-tab-icon"
             src="./HomepageAssets/Notepad.png"
@@ -1290,7 +1297,7 @@
           />
         </div>
 
-        <div class="phone">
+        <div class="phone hero-parallax" data-speed="35" data-rotate="-6">
           <img
             class="image-37-icon"
             src="./HomepageAssets/Phone.png"
@@ -1353,7 +1360,7 @@
     </div>
   </div>
 
-  <!-- REST OF PAGE (BRANDS, CASE STUDIES, ABOUT, FOOTER) -->
+  <!-- REST OF PAGE -->
   <div class="desktop-2">
     <!-- Background above black section -->
     <img
@@ -1660,11 +1667,11 @@
 
   <script>
     const logoColors = [
-      '#51A2FF', // bright blue
-      '#FE9A00', // strong orange
-      '#58C9B9', // aqua green
-      '#FF5C5C', // bright red
-      '#9B6BFF'  // vivid purple
+      '#51A2FF',
+      '#FE9A00',
+      '#58C9B9',
+      '#FF5C5C',
+      '#9B6BFF'
     ];
 
     document.querySelectorAll('.logo-strip img').forEach((img) => {
@@ -1684,7 +1691,7 @@
     });
 
     // ============================
-    // Parallax for frame-parent8-inner
+    // Footer parallax
     // ============================
 
     function updateFooterParallax() {
@@ -1705,9 +1712,45 @@
       inner.style.transform = 'translateY(' + translateY + 'px)';
     }
 
-    window.addEventListener('scroll', updateFooterParallax);
-    window.addEventListener('resize', updateFooterParallax);
-    window.addEventListener('load', updateFooterParallax);
+    // ============================
+    // Hero parallax (Goodfight-like)
+    // ============================
+
+    function updateHeroParallax() {
+      const hero = document.querySelector('.hero-section-1920x1080');
+      if (!hero) return;
+
+      const rect = hero.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      // Only animate while hero is on screen
+      if (rect.bottom < 0 || rect.top > windowHeight) return;
+
+      const heroCenter = rect.top + rect.height / 2;
+      const windowCenter = windowHeight / 2;
+      const distanceFromCenter = windowCenter - heroCenter; // px
+      const normalized = distanceFromCenter / windowHeight; // roughly -1..1
+
+      document.querySelectorAll('.hero-parallax').forEach((el) => {
+        const speed = parseFloat(el.getAttribute('data-speed')) || 40;
+        const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
+
+        const translateY = normalized * speed * -1;
+
+        el.style.transform =
+          'translateY(' + translateY + 'px) rotate(' + baseRotate + 'deg)';
+      });
+    }
+
+    // Combined handler for scroll/resize/load
+    function handleScrollResize() {
+      updateFooterParallax();
+      updateHeroParallax();
+    }
+
+    window.addEventListener('scroll', handleScrollResize);
+    window.addEventListener('resize', handleScrollResize);
+    window.addEventListener('load', handleScrollResize);
 
     // ============================
     // Nav icon hover interactions

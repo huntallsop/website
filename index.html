@@ -1129,8 +1129,7 @@
       alt=""
     />
 
-  <div class="hero-visuals">
-  <!-- iPad -->
+ <div class="hero-visuals">
   <img
     class="ipad-icon hero-parallax"
     src="./HomepageAssets/Ipad.png"
@@ -1139,9 +1138,8 @@
     data-dir-x="0.5"
     data-dir-y="-0.2"
     data-rotate="0"
-  />
+  >
 
-  <!-- Sticky note -->
   <div
     class="stickynote hero-parallax"
     data-offset="50"
@@ -1153,10 +1151,9 @@
       class="stickynote-child"
       src="./HomepageAssets/Stickynote.png"
       alt="Sticky note"
-    />
+    >
   </div>
 
-  <!-- Notepad -->
   <div
     class="notepad hero-parallax"
     data-offset="60"
@@ -1168,10 +1165,9 @@
       class="blank-ruled-notebook-white-tab-icon"
       src="./HomepageAssets/Notepad.png"
       alt="Notepad with design notes"
-    />
+    >
   </div>
 
-  <!-- Phone -->
   <div
     class="phone hero-parallax"
     data-offset="40"
@@ -1183,7 +1179,7 @@
       class="image-37-icon"
       src="./HomepageAssets/Phone.png"
       alt="Phone with product UI"
-    />
+    >
   </div>
 </div>
 
@@ -1535,7 +1531,7 @@
     </div>
   </div>
 
- <script>
+<script>
   // ============================
   // Logo hover colors
   // ============================
@@ -1574,12 +1570,14 @@
     const rect = footer.getBoundingClientRect();
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
+    // Only run when the footer section is on screen
     if (rect.bottom < 0 || rect.top > windowHeight) return;
 
     const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
     const clamped = Math.max(0, Math.min(1, progress));
-    const translateY = (clamped - 0.5) * 60; // -30px to +30px
 
+    // Move between -30px and +30px
+    const translateY = (clamped - 0.5) * 60;
     inner.style.transform = 'translateY(' + translateY + 'px)';
   }
 
@@ -1595,18 +1593,19 @@
     const rect = heroSection.getBoundingClientRect();
     const winH = window.innerHeight || document.documentElement.clientHeight;
 
-    // If hero is completely above or below viewport, reset and bail
+    // If hero completely off-screen, reset transforms
     if (rect.bottom <= 0 || rect.top >= winH) {
       heroParallaxEls.forEach((el) => {
         const baseRotate = parseFloat(el.dataset.rotate) || 0;
-        el.style.transform = 'translate(0px, 0px) rotate(' + baseRotate + 'deg)';
+        el.style.transform =
+          'translate(0px, 0px) rotate(' + baseRotate + 'deg)';
       });
       return;
     }
 
-    // Start effect once hero top moves above the top of the viewport
-    const distancePastTop = Math.max(0, -rect.top); // 0 -> hero height
-    const progress = Math.min(1, distancePastTop / rect.height); // 0–1
+    // Start effect once hero top goes above top of viewport
+    const distancePastTop = Math.max(0, -rect.top);     // 0 → hero height
+    const progress = Math.min(1, distancePastTop / rect.height); // 0 → 1
 
     heroParallaxEls.forEach((el) => {
       const maxOffset = parseFloat(el.dataset.offset) || 40;
@@ -1614,7 +1613,7 @@
       const dirY = parseFloat(el.dataset.dirY) || 0;
       const baseRotate = parseFloat(el.dataset.rotate) || 0;
 
-      const move = maxOffset * progress; // how far along we are
+      const move = maxOffset * progress;
       const tx = move * dirX;
       const ty = move * dirY;
 
@@ -1624,7 +1623,7 @@
   }
 
   // ============================
-  // Tie both parallax systems to scroll/resize/load
+  // Hook everything up
   // ============================
   function handleScrollResize() {
     updateHeroParallax();

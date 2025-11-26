@@ -1127,65 +1127,64 @@
       alt=""
     />
 
-    <div class="hero-content">
-      <!-- All visuals grouped for scaling -->
-      <div class="hero-visuals">
-        <!-- iPad -->
-        <img
-          class="ipad-icon hero-parallax"
-          src="./HomepageAssets/Ipad.png"
-          alt="iPad with design work"
-          data-offset="60"
-          data-dir-x="0.5"
-          data-dir-y="-0.2"
-          data-rotate="0"
-        />
+   <div class="hero-visuals">
+  <!-- iPad -->
+  <img
+    class="ipad-icon hero-parallax"
+    src="./HomepageAssets/Ipad.png"
+    alt="iPad with design work"
+    data-offset="60"
+    data-dir-x="0.5"
+    data-dir-y="-0.2"
+    data-rotate="0"
+  />
 
-        <!-- Sticky note -->
-        <div
-          class="stickynote hero-parallax"
-          data-offset="50"
-          data-dir-x="-0.4"
-          data-dir-y="-0.15"
-          data-rotate="349"
-        >
-          <img
-            class="stickynote-child"
-            src="./HomepageAssets/Stickynote.png"
-            alt="Sticky note"
-          />
-        </div>
+  <!-- Sticky note -->
+  <div
+    class="stickynote hero-parallax"
+    data-offset="50"
+    data-dir-x="-0.4"
+    data-dir-y="-0.15"
+    data-rotate="349"
+  >
+    <img
+      class="stickynote-child"
+      src="./HomepageAssets/Stickynote.png"
+      alt="Sticky note"
+    />
+  </div>
 
-        <!-- Notepad -->
-        <div
-          class="notepad hero-parallax"
-          data-offset="60"
-          data-dir-x="0.3"
-          data-dir-y="0.3"
-          data-rotate="0"
-        >
-          <img
-            class="blank-ruled-notebook-white-tab-icon"
-            src="./HomepageAssets/Notepad.png"
-            alt="Notepad with design notes"
-          />
-        </div>
+  <!-- Notepad -->
+  <div
+    class="notepad hero-parallax"
+    data-offset="60"
+    data-dir-x="0.3"
+    data-dir-y="0.3"
+    data-rotate="0"
+  >
+    <img
+      class="blank-ruled-notebook-white-tab-icon"
+      src="./HomepageAssets/Notepad.png"
+      alt="Notepad with design notes"
+    />
+  </div>
 
-        <!-- Phone -->
-        <div
-          class="phone hero-parallax"
-          data-offset="40"
-          data-dir-x="-0.3"
-          data-dir-y="0.3"
-          data-rotate="0"
-        >
-          <img
-            class="image-37-icon"
-            src="./HomepageAssets/Phone.png"
-            alt="Phone with product UI"
-          />
-        </div>
-      </div>
+  <!-- Phone -->
+  <div
+    class="phone hero-parallax"
+    data-offset="40"
+    data-dir-x="-0.3"
+    data-dir-y="0.3"
+    data-rotate="0"
+  >
+    <img
+      class="image-37-icon"
+      src="./HomepageAssets/Phone.png"
+      alt="Phone with product UI"
+    />
+  </div>
+</div>
+
 
       <!-- Center hero text -->
       <div class="hero-text-block">
@@ -1535,101 +1534,95 @@
     </div>
   </div>
 
-  <script>
-    const logoColors = [
-      '#51A2FF',
-      '#FE9A00',
-      '#58C9B9',
-      '#FF5C5C',
-      '#9B6BFF'
-    ];
+ <script>
+  // ===== Logo hover colors (unchanged) =====
+  const logoColors = ['#51A2FF', '#FE9A00', '#58C9B9', '#FF5C5C', '#9B6BFF'];
 
-    document.querySelectorAll('.logo-strip img').forEach((img) => {
-      img.addEventListener('mouseenter', () => {
-        const randomColor =
-          logoColors[Math.floor(Math.random() * logoColors.length)];
+  document.querySelectorAll('.logo-strip img').forEach((img) => {
+    img.addEventListener('mouseenter', () => {
+      const randomColor =
+        logoColors[Math.floor(Math.random() * logoColors.length)];
 
-        img.style.filter =
-          'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
-          randomColor +
-          ')';
-      });
-
-      img.addEventListener('mouseleave', () => {
-        img.style.filter = '';
-      });
+      img.style.filter =
+        'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
+        randomColor +
+        ')';
     });
 
-    // ============================
-    // Footer parallax
-    // ============================
+    img.addEventListener('mouseleave', () => {
+      img.style.filter = '';
+    });
+  });
 
-    function updateFooterParallax() {
-      const footer = document.querySelector('.frame-parent8');
-      const inner = document.querySelector('.frame-parent8-inner');
-      if (!footer || !inner) return;
+  // ============================
+  // Footer parallax (same idea)
+  // ============================
+  function updateFooterParallax() {
+    const footer = document.querySelector('.frame-parent8');
+    const inner = document.querySelector('.frame-parent8-inner');
+    if (!footer || !inner) return;
 
-      const rect = footer.getBoundingClientRect();
-      const windowHeight =
-        window.innerHeight || document.documentElement.clientHeight;
+    const rect = footer.getBoundingClientRect();
+    const windowHeight =
+      window.innerHeight || document.documentElement.clientHeight;
 
-      if (rect.bottom < 0 || rect.top > windowHeight) return;
+    if (rect.bottom < 0 || rect.top > windowHeight) return;
 
-      const progress =
-        (windowHeight - rect.top) / (windowHeight + rect.height);
-      const clamped = Math.max(0, Math.min(1, progress));
+    const progress =
+      (windowHeight - rect.top) / (windowHeight + rect.height);
+    const clamped = Math.max(0, Math.min(1, progress));
 
-      const translateY = (clamped - 0.5) * 60;
+    const translateY = (clamped - 0.5) * 60;
+    inner.style.transform = 'translateY(' + translateY + 'px)';
+  }
 
-      inner.style.transform = 'translateY(' + translateY + 'px)';
-    }
+  // ============================
+  // Hero parallax (images)
+  // ============================
+  function updateHeroParallax() {
+    const hero = document.querySelector('.hero-section-1920x1080');
+    if (!hero) return;
 
-    // ============================
-    // Hero parallax (images only)
-    // ============================
+    const rect = hero.getBoundingClientRect();
+    const viewportH =
+      window.innerHeight || document.documentElement.clientHeight;
 
-    function updateHeroParallax() {
-      const hero = document.querySelector('.hero-section-1920x1080');
-      if (!hero) return;
+    const els = document.querySelectorAll('.hero-parallax');
+    if (!els.length) return;
 
-      const rect = hero.getBoundingClientRect();
-      const viewportH =
-        window.innerHeight || document.documentElement.clientHeight;
-      const elements = document.querySelectorAll('.hero-parallax');
-      if (!elements.length) return;
+    // How far we've scrolled past the top of the hero (0 → viewportH)
+    const distancePastTop = Math.min(Math.max(-rect.top, 0), viewportH);
+    const progress = distancePastTop / viewportH; // 0 → 1
 
-      // Distance we've scrolled past hero top (0 → viewportH)
-      const distancePastTop = Math.min(Math.max(-rect.top, 0), viewportH);
-      const progress = distancePastTop / viewportH; // 0 → 1
+    els.forEach((el) => {
+      const maxOffset = parseFloat(el.getAttribute('data-offset')) || 40;
+      const dirX = parseFloat(el.getAttribute('data-dir-x')) || 0;
+      const dirY = parseFloat(el.getAttribute('data-dir-y')) || 0;
+      const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
 
-      elements.forEach((el) => {
-        const maxOffset = parseFloat(el.getAttribute('data-offset')) || 40;
-        const dirX = parseFloat(el.getAttribute('data-dir-x')) || 0;
-        const dirY = parseFloat(el.getAttribute('data-dir-y')) || 0;
-        const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
+      const translateX = dirX * maxOffset * progress;
+      const translateY = dirY * maxOffset * progress;
 
-        const translateX = dirX * maxOffset * progress;
-        const translateY = dirY * maxOffset * progress;
+      el.style.transform =
+        'translate(' +
+        translateX +
+        'px,' +
+        translateY +
+        'px) rotate(' +
+        baseRotate +
+        'deg)';
+    });
+  }
 
-        el.style.transform =
-          'translate3d(' +
-          translateX +
-          'px,' +
-          translateY +
-          'px,0) rotate(' +
-          baseRotate +
-          'deg)';
-      });
-    }
+  function handleScrollResize() {
+    updateFooterParallax();
+    updateHeroParallax();
+  }
 
-    function handleScrollResize() {
-      updateFooterParallax();
-      updateHeroParallax();
-    }
+  window.addEventListener('scroll', handleScrollResize);
+  window.addEventListener('resize', handleScrollResize);
+  window.addEventListener('load', handleScrollResize);
+</script>
 
-    window.addEventListener('scroll', handleScrollResize);
-    window.addEventListener('resize', handleScrollResize);
-    window.addEventListener('load', handleScrollResize);
-  </script>
 </body>
 </html>

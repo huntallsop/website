@@ -25,7 +25,7 @@
     }
 
     /* =========================
-       FROSTED HEADER (GOODFIGHT STYLE)
+       FROSTED HEADER
     ========================== */
 
     .site-header {
@@ -43,7 +43,7 @@
 
     .nav-shell {
       width: 100%;
-      max-width: 400px;
+      max-width: 800px;
       display: flex;
       justify-content: center;
     }
@@ -75,7 +75,6 @@
       gap: 0;
     }
 
-    /* Small round logo using your Hunter pill image */
     .nav-logo {
       display: inline-flex;
       align-items: center;
@@ -106,69 +105,7 @@
     .nav-right {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      flex: 1;
-    }
-
-    /* Nav icon buttons on the right */
-    .nav-buttons {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 18px;
-    }
-
-    .nav-icon-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 40px;
-      width: 40px;
-      border-radius: 5px;
-
-      background-color: rgba(0, 0, 0, 0.4);
-      text-decoration: none;
-      transition:
-        box-shadow 0.2s ease,
-        transform 0.15s ease,
-        background-color 0.2s ease,
-        width 0.2s ease,
-        height 0.2s ease;
-    }
-
-    .nav-icon-link:hover {
-      box-shadow:
-        rgba(255, 255, 255, 0.6) 0 1px 3px inset,
-        rgba(0, 0, 0, 0.18) 0 6px 16px;
-      transform: translateY(-1px);
-    }
-
-    .nav-icon-link.is-small {
-      width: 30px;
-      height: 30px;
-    }
-
-    .nav-icon-link--linkedin.is-hover {
-      background-color: #136bc5;
-    }
-
-    .nav-icon-link--connect.is-hover {
-      background-color: #fe5d21;
-    }
-
-    .nav-icon {
-      height: 24px;
-      width: 24px;
-      border-radius: 3px;
-      object-fit: contain;
-      display: block;
-      transition: width 0.2s ease, height 0.2s ease;
-    }
-
-    .nav-icon-link.is-small .nav-icon {
-      width: 18px;
-      height: 18px;
+      gap: 20px;
     }
 
     .nav-text-link {
@@ -186,72 +123,23 @@
       font-weight: 600;
     }
 
-    .nav-link,
-    .nav-button {
-      font-size: 14px;
-      font-weight: 500;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      text-decoration: none;
-      white-space: nowrap;
-      cursor: pointer;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 14px;
-      transition: background-color 0.2s ease, color 0.2s ease,
-        transform 0.15s ease, box-shadow 0.2s ease;
-    }
-
-    .nav-link {
-      background-color: transparent;
-      color: #ffffff;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-    }
-
-    .nav-link:hover {
-      background-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .nav-button {
-      background-color: #000000;
-      color: #ffffff;
-      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.35);
-    }
-
-    .nav-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .nav-button:active {
-      transform: translateY(0);
-      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.35);
-    }
-
     @media (max-width: 768px) {
       .nav-inner {
         padding: 8px 12px;
         gap: 12px;
       }
 
+      .nav-right {
+        gap: 10px;
+      }
+
+      .nav-text-link {
+        font-size: 12px;
+      }
+
       .nav-logo {
         width: 28px;
         height: 28px;
-      }
-
-      .nav-icon-link {
-        height: 36px;
-        width: 36px;
-      }
-
-      .nav-icon {
-        height: 20px;
-        width: 20px;
       }
     }
 
@@ -322,14 +210,13 @@
       pointer-events: none;
     }
 
-    /* Shared parallax base styles */
+    /* Shared parallax base */
     .hero-parallax {
       will-change: transform;
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0) rotate(0deg);
     }
 
     /* Device / prop images around the hero */
-
     .ipad-icon {
       position: absolute;
       width: 33vw;
@@ -350,14 +237,7 @@
       left: 3%;
       z-index: 4;
       pointer-events: none;
-    }
-
-    /* keep the visual rotation on an inner wrapper so JS only moves the outer div */
-    .stickynote-inner {
-      width: 100%;
-      height: 100%;
-      transform: rotate(349deg);
-      transform-origin: center;
+      /* rotation now handled via JS using data-rotate */
     }
 
     .drop-shadow {
@@ -516,7 +396,6 @@
       color: #5a5f65;
     }
 
-    /* HERO CTA BUTTON */
     .hero-cta {
       height: 40px;
       box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.33);
@@ -742,8 +621,6 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-
-    /* ===== END LOGO CAROUSEL ===== */
 
     .frame-wrapper {
       width: 1150px;
@@ -1216,11 +1093,10 @@
   </style>
 </head>
 <body>
-  <!-- NEW FROSTED HEADER -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="nav-shell">
       <div class="nav-inner">
-        <!-- LEFT: logo + divider -->
         <div class="nav-left">
           <a href="./" class="nav-logo">
             <img src="./HomepageAssets/Hunter pill2.png" alt="Hunter Allsop logo">
@@ -1228,35 +1104,10 @@
           <div class="nav-divider"></div>
         </div>
 
-        <!-- RIGHT: icon buttons -->
         <div class="nav-right">
-          <div class="nav-buttons">
-            <!-- LinkedIn -->
-            <a
-              href="https://www.linkedin.com/in/hunterallsop/"
-              target="_blank"
-              rel="noopener"
-              class="nav-icon-link nav-icon-link--linkedin"
-            >
-              <img
-                class="nav-icon"
-                src="./HomepageAssets/nav-linkedin.png"
-                alt="LinkedIn"
-              />
-            </a>
-
-            <!-- Connect page (future) -->
-            <a
-              href="/connect"
-              class="nav-icon-link nav-icon-link--connect"
-            >
-              <img
-                class="nav-icon"
-                src="./HomepageAssets/nav-connect.png"
-                alt="Contact / Connect"
-              />
-            </a>
-          </div>
+          <a href="./" class="nav-text-link">Home</a>
+          <a href="#work" class="nav-text-link">Work</a>
+          <a href="#connect" class="nav-text-link">Let’s connect</a>
         </div>
       </div>
     </div>
@@ -1279,38 +1130,39 @@
     <div class="hero-content">
       <!-- All visuals grouped for scaling -->
       <div class="hero-visuals">
-        <!-- iPad: move up/right -->
+        <!-- iPad -->
         <img
           class="ipad-icon hero-parallax"
           src="./HomepageAssets/Ipad.png"
           alt="iPad with design work"
-          data-offset="40"
-          data-dir-x="0.6"
+          data-offset="60"
+          data-dir-x="0.5"
           data-dir-y="-0.2"
+          data-rotate="0"
         />
 
-        <!-- Sticky note: move up/left, keep angle -->
+        <!-- Sticky note -->
         <div
           class="stickynote hero-parallax"
-          data-offset="40"
-          data-dir-x="-0.5"
-          data-dir-y="-0.2"
+          data-offset="50"
+          data-dir-x="-0.4"
+          data-dir-y="-0.15"
+          data-rotate="349"
         >
-          <div class="stickynote-inner">
-            <img
-              class="stickynote-child"
-              src="./HomepageAssets/Stickynote.png"
-              alt="Sticky note"
-            />
-          </div>
+          <img
+            class="stickynote-child"
+            src="./HomepageAssets/Stickynote.png"
+            alt="Sticky note"
+          />
         </div>
 
-        <!-- Notepad: move down/right -->
+        <!-- Notepad -->
         <div
           class="notepad hero-parallax"
-          data-offset="40"
-          data-dir-x="0.4"
-          data-dir-y="0.6"
+          data-offset="60"
+          data-dir-x="0.3"
+          data-dir-y="0.3"
+          data-rotate="0"
         >
           <img
             class="blank-ruled-notebook-white-tab-icon"
@@ -1319,12 +1171,13 @@
           />
         </div>
 
-        <!-- Phone: move down/left -->
+        <!-- Phone -->
         <div
           class="phone hero-parallax"
-          data-offset="35"
-          data-dir-x="-0.4"
-          data-dir-y="0.5"
+          data-offset="40"
+          data-dir-x="-0.3"
+          data-dir-y="0.3"
+          data-rotate="0"
         >
           <img
             class="image-37-icon"
@@ -1373,7 +1226,6 @@
           Design that solves real problems for real users.
         </p>
 
-        <!-- HERO CTA scrolls to connect section -->
         <button class="hero-cta" onclick="document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });">
           <div class="state-layer">
             <div class="label-text">Let’s connect</div>
@@ -1390,7 +1242,6 @@
 
   <!-- REST OF PAGE -->
   <div class="desktop-2">
-    <!-- Background above black section -->
     <img
       class="background-icon"
       src="./HomepageAssets/Whitebackground.png"
@@ -1403,7 +1254,6 @@
 
     <div class="frame-parent">
       <div class="frame-container">
-        <!-- WRAPPER FOR BRANDS / CASE STUDIES / ABOUT -->
         <div class="hero-parent">
           <div class="frame-parent3">
             <!-- Brands -->
@@ -1457,7 +1307,7 @@
                       />
                     </div>
 
-                    <!-- strip 2 (duplicate for seamless loop) -->
+                    <!-- strip 2 -->
                     <div class="logo-strip">
                       <img
                         class="bofa-1-icon"
@@ -1502,9 +1352,9 @@
               <!-- Featured cards -->
               <div class="frame-wrapper">
                 <div class="frame-parent6" id="work">
-                  <!-- CARD 1 – GPS -->
+                  <!-- CARD 1 -->
                   <div class="instance-wrapper">
-                    <a class="case-card-link" href="https://hunterallsop.com/loan-servicing/">
+                    <a class="case-card-link" href="./gps-case-study.html">
                       <div class="group-parent">
                         <div class="image-parent">
                           <div class="image">
@@ -1525,9 +1375,7 @@
                           </div>
                         </div>
                         <div class="bottom-text">
-                          <b class="gold-point-systems">
-                            DHI
-                          </b>
+                          <b class="gold-point-systems">DHI</b>
                           <b class="gold-point-systems2">
                             Gold Point Systems offers easy to use tools to track
                             and manage banking transactions.
@@ -1537,7 +1385,7 @@
                     </a>
                   </div>
 
-                  <!-- CARD 2 – Hammock -->
+                  <!-- CARD 2 -->
                   <div class="instance-wrapper">
                     <a class="case-card-link" href="https://hunterallsop.com/hammock/">
                       <div class="group-parent">
@@ -1560,9 +1408,7 @@
                           </div>
                         </div>
                         <div class="bottom-text">
-                          <b class="gold-point-systems">
-                            DHI
-                          </b>
+                          <b class="gold-point-systems">DHI</b>
                           <b class="gold-point-systems2">
                             Gold Point Systems offers easy to use tools to track
                             and manage banking transactions.
@@ -1594,7 +1440,6 @@
               </div>
 
               <div class="frame-parent7">
-                <!-- LEFT COLUMN -->
                 <div class="button-parent">
                   <div class="about-pill pill-rotate-neg-8">
                     <div class="state-layer">
@@ -1615,7 +1460,6 @@
                   </div>
                 </div>
 
-                <!-- MIDDLE COPY -->
                 <div class="im-an-enthusiastic">
                   I'm an enthusiastic and professional designer who’s passionate
                   about making products better—both for the people who use them
@@ -1624,7 +1468,6 @@
                   energy to every project I work on.
                 </div>
 
-                <!-- RIGHT COLUMN -->
                 <div class="button-group">
                   <div class="about-pill pill-rotate-13">
                     <div class="state-layer">
@@ -1688,125 +1531,105 @@
             </button>
           </div>
         </div>
-        <!-- end footer section -->
       </div>
     </div>
   </div>
 
-<script>
-  const logoColors = [
-    '#51A2FF',
-    '#FE9A00',
-    '#58C9B9',
-    '#FF5C5C',
-    '#9B6BFF'
-  ];
+  <script>
+    const logoColors = [
+      '#51A2FF',
+      '#FE9A00',
+      '#58C9B9',
+      '#FF5C5C',
+      '#9B6BFF'
+    ];
 
-  document.querySelectorAll('.logo-strip img').forEach((img) => {
-    img.addEventListener('mouseenter', () => {
-      const randomColor =
-        logoColors[Math.floor(Math.random() * logoColors.length)];
+    document.querySelectorAll('.logo-strip img').forEach((img) => {
+      img.addEventListener('mouseenter', () => {
+        const randomColor =
+          logoColors[Math.floor(Math.random() * logoColors.length)];
 
-      img.style.filter =
-        'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
-        randomColor +
-        ')';
+        img.style.filter =
+          'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
+          randomColor +
+          ')';
+      });
+
+      img.addEventListener('mouseleave', () => {
+        img.style.filter = '';
+      });
     });
 
-    img.addEventListener('mouseleave', () => {
-      img.style.filter = '';
-    });
-  });
+    // ============================
+    // Footer parallax
+    // ============================
 
-  // ============================
-  // Footer parallax
-  // ============================
+    function updateFooterParallax() {
+      const footer = document.querySelector('.frame-parent8');
+      const inner = document.querySelector('.frame-parent8-inner');
+      if (!footer || !inner) return;
 
-  function updateFooterParallax() {
-    const footer = document.querySelector('.frame-parent8');
-    const inner = document.querySelector('.frame-parent8-inner');
-    if (!footer || !inner) return;
+      const rect = footer.getBoundingClientRect();
+      const windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
 
-    const rect = footer.getBoundingClientRect();
-    const windowHeight =
-      window.innerHeight || document.documentElement.clientHeight;
+      if (rect.bottom < 0 || rect.top > windowHeight) return;
 
-    if (rect.bottom < 0 || rect.top > windowHeight) return;
+      const progress =
+        (windowHeight - rect.top) / (windowHeight + rect.height);
+      const clamped = Math.max(0, Math.min(1, progress));
 
-    const progress =
-      (windowHeight - rect.top) / (windowHeight + rect.height);
-    const clamped = Math.max(0, Math.min(1, progress));
+      const translateY = (clamped - 0.5) * 60;
 
-    const translateY = (clamped - 0.5) * 60;
+      inner.style.transform = 'translateY(' + translateY + 'px)';
+    }
 
-    inner.style.transform = 'translateY(' + translateY + 'px)';
-  }
+    // ============================
+    // Hero parallax (images only)
+    // ============================
 
-  // ============================
-  // Hero parallax – simple scrollY based
-  // ============================
+    function updateHeroParallax() {
+      const hero = document.querySelector('.hero-section-1920x1080');
+      if (!hero) return;
 
-  function updateHeroParallax() {
-    const elements = document.querySelectorAll('.hero-parallax');
-    if (!elements.length) return;
+      const rect = hero.getBoundingClientRect();
+      const viewportH =
+        window.innerHeight || document.documentElement.clientHeight;
+      const elements = document.querySelectorAll('.hero-parallax');
+      if (!elements.length) return;
 
-    const maxScroll = 400; // px of scroll where we reach full offset
-    const scrollY = window.scrollY || window.pageYOffset || 0;
-    const clamped = Math.max(0, Math.min(1, scrollY / maxScroll));
+      // Distance we've scrolled past hero top (0 → viewportH)
+      const distancePastTop = Math.min(Math.max(-rect.top, 0), viewportH);
+      const progress = distancePastTop / viewportH; // 0 → 1
 
-    elements.forEach((el) => {
-      const maxOffset = parseFloat(el.getAttribute('data-offset')) || 40;
-      const dirX = parseFloat(el.getAttribute('data-dir-x')) || 0;
-      const dirY = parseFloat(el.getAttribute('data-dir-y')) || -1;
+      elements.forEach((el) => {
+        const maxOffset = parseFloat(el.getAttribute('data-offset')) || 40;
+        const dirX = parseFloat(el.getAttribute('data-dir-x')) || 0;
+        const dirY = parseFloat(el.getAttribute('data-dir-y')) || 0;
+        const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
 
-      const translateX = dirX * maxOffset * clamped;
-      const translateY = dirY * maxOffset * clamped;
+        const translateX = dirX * maxOffset * progress;
+        const translateY = dirY * maxOffset * progress;
 
-      el.style.transform =
-        'translate3d(' + translateX + 'px, ' + translateY + 'px, 0)';
-    });
-  }
+        el.style.transform =
+          'translate3d(' +
+          translateX +
+          'px,' +
+          translateY +
+          'px,0) rotate(' +
+          baseRotate +
+          'deg)';
+      });
+    }
 
-  function handleScrollResize() {
-    updateFooterParallax();
-    updateHeroParallax();
-  }
+    function handleScrollResize() {
+      updateFooterParallax();
+      updateHeroParallax();
+    }
 
-  window.addEventListener('scroll', handleScrollResize);
-  window.addEventListener('resize', handleScrollResize);
-  // no load handler for hero – it starts moving only when you scroll
-
-  // ============================
-  // Nav icon hover interactions
-  // ============================
-
-  const linkedinLink = document.querySelector('.nav-icon-link--linkedin');
-  const connectLink  = document.querySelector('.nav-icon-link--connect');
-
-  if (linkedinLink && connectLink) {
-    // Hover LinkedIn: blue, shrink Connect
-    linkedinLink.addEventListener('mouseenter', () => {
-      linkedinLink.classList.add('is-hover');
-      connectLink.classList.add('is-small');
-    });
-
-    linkedinLink.addEventListener('mouseleave', () => {
-      linkedinLink.classList.remove('is-hover');
-      connectLink.classList.remove('is-small');
-    });
-
-    // Hover Connect: orange, shrink LinkedIn
-    connectLink.addEventListener('mouseenter', () => {
-      connectLink.classList.add('is-hover');
-      linkedinLink.classList.add('is-small');
-    });
-
-    connectLink.addEventListener('mouseleave', () => {
-      connectLink.classList.remove('is-hover');
-      linkedinLink.classList.remove('is-small');
-    });
-  }
-</script>
-
+    window.addEventListener('scroll', handleScrollResize);
+    window.addEventListener('resize', handleScrollResize);
+    window.addEventListener('load', handleScrollResize);
+  </script>
 </body>
 </html>

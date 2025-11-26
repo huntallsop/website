@@ -69,32 +69,11 @@
       pointer-events: auto; /* only the nav panel itself captures events */
     }
 
-   .nav-left {
-  display: flex;
-  align-items: center;
-  gap: 0; /* spacing handled by divider margin */
-}
-/* Nav icon buttons on the right (from Figma spec) */
-.nav-buttons {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 18px;
-}
-
-.nav-icon-link {
-  display: inline-flex;
-}
-
-.nav-icon {
-  height: 40px;
-  width: 40px;
-  border-radius: 5px;
-  object-fit: cover;
-}
-
-
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0; /* spacing handled by divider margin */
+    }
 
     /* Small round logo using your Hunter pill image */
     .nav-logo {
@@ -116,62 +95,77 @@
       display: block;
     }
 
-        
-      <div class="nav-right">
-        <div class="nav-buttons">
-         
-          <a
-            href="https://www.linkedin.com/"  <!-- put your actual profile URL here -->
-            target="_blank"
-            rel="noopener"
-            class="nav-icon-link"
-          >
-            <img
-              class="nav-icon"
-              src="./HomepageAssets/nav-linkedin.png"  <!-- replace with your LinkedIn icon asset -->
-              alt="LinkedIn"
-            />
-          </a>
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 1px;
+      margin-left: 17px; /* 16px to the right of the image */
+    }
 
-       
-          <a
-            href="/connect"   <!-- future 'connect with me' page -->
-            class="nav-icon-link"
-          >
-            <img
-              class="nav-icon"
-              src="./HomepageAssets/nav-connect.png"  <!-- replace with your connect icon asset -->
-              alt="Contact / Connect"
-            />
-          </a>
-        </div>
-      </div>
+    .nav-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1;
+    }
 
-   .nav-divider {
-  width: 1px;
-  height: 32px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 1px;
-  margin-left: 17px; /* 16px to the right of the image */
-}
+    /* Nav icon buttons on the right */
+    .nav-buttons {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 18px;
+    }
 
-    
-.nav-text-link {
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  color: #000000; /* black */
-  text-decoration: none;
-  white-space: nowrap;
-}
+    .nav-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 40px;
+      border-radius: 5px;
 
-.nav-text-link:hover {
-  text-decoration: none;
-  font-weight: 600; /* bold on hover */
-}
+      background-color: rgba(200, 200, 200, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow:
+        rgba(255, 255, 255, 0.4) 0 1px 2px inset,
+        rgba(0, 0, 0, 0.12) 0 4px 10px;
+      text-decoration: none;
+      transition: box-shadow 0.2s ease, transform 0.15s ease;
+    }
 
+    .nav-icon-link:hover {
+      box-shadow:
+        rgba(255, 255, 255, 0.6) 0 1px 3px inset,
+        rgba(0, 0, 0, 0.18) 0 6px 16px;
+      transform: translateY(-1px);
+    }
 
+    .nav-icon {
+      height: 24px;
+      width: 24px;
+      border-radius: 3px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* (Unused now, but kept in case you re-add text links later) */
+    .nav-text-link {
+      font-size: 16px;
+      font-weight: 500;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: #000000;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-text-link:hover {
+      text-decoration: none;
+      font-weight: 600;
+    }
 
     .nav-link,
     .nav-button {
@@ -226,20 +220,19 @@
         gap: 12px;
       }
 
-      .nav-right {
-        gap: 10px;
-      }
-
-      .nav-name-link,
-      .nav-link,
-      .nav-button {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-
       .nav-logo {
         width: 28px;
         height: 28px;
+      }
+
+      .nav-icon-link {
+        height: 36px;
+        width: 36px;
+      }
+
+      .nav-icon {
+        height: 20px;
+        width: 20px;
       }
     }
 
@@ -1245,28 +1238,50 @@
 </head>
 <body>
   <!-- NEW FROSTED HEADER -->
-<header class="site-header">
-  <div class="nav-shell">
-    <div class="nav-inner">
-      <!-- LEFT: logo + divider -->
-      <div class="nav-left">
-        <a href="./" class="nav-logo">
-          <img src="./HomepageAssets/Hunter pill2.png" alt="Hunter Allsop logo">
-        </a>
-        <div class="nav-divider"></div>
-      </div>
+  <header class="site-header">
+    <div class="nav-shell">
+      <div class="nav-inner">
+        <!-- LEFT: logo + divider -->
+        <div class="nav-left">
+          <a href="./" class="nav-logo">
+            <img src="./HomepageAssets/Hunter pill2.png" alt="Hunter Allsop logo">
+          </a>
+          <div class="nav-divider"></div>
+        </div>
 
-      <!-- RIGHT: text links -->
-      <div class="nav-right">
-        <a href="./" class="nav-text-link">Home</a>
-        <a href="#work" class="nav-text-link">Work</a>
-        <a href="#connect" class="nav-text-link">Let’s connect</a>
+        <!-- RIGHT: icon buttons -->
+        <div class="nav-right">
+          <div class="nav-buttons">
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener"
+              class="nav-icon-link"
+            >
+              <img
+                class="nav-icon"
+                src="./HomepageAssets/nav-linkedin.png"
+                alt="LinkedIn"
+              />
+            </a>
+
+            <!-- Connect page (future) -->
+            <a
+              href="/connect"
+              class="nav-icon-link"
+            >
+              <img
+                class="nav-icon"
+                src="./HomepageAssets/nav-connect.png"
+                alt="Contact / Connect"
+              />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</header>
-
-
+  </header>
 
   <!-- NEW HERO SECTION -->
   <div class="hero-section-1920x1080">

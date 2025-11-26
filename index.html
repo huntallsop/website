@@ -1271,21 +1271,21 @@
 
     <div class="hero-content">
       <!-- All visuals grouped for scaling -->
-     <div class="hero-visuals">
+    <div class="hero-visuals">
   <!-- iPad -->
   <img
     class="ipad-icon hero-parallax"
     src="./HomepageAssets/Ipad.png"
     alt="iPad with design work"
-    data-speed="50"
+    data-offset="30"   <!-- max ~30px -->
     data-rotate="0"
   />
 
   <!-- Sticky note -->
   <div
     class="stickynote hero-parallax"
-    data-speed="65"
-    data-rotate="349"
+    data-offset="35"   <!-- max ~35px -->
+    data-rotate="349"  <!-- keep your angled sticky -->
   >
     <img
       class="stickynote-child"
@@ -1294,10 +1294,10 @@
     />
   </div>
 
-  <!-- Notepad -->
+  <!-- Notepad (only ~20px movement, no spinning) -->
   <div
     class="notepad hero-parallax"
-    data-speed="55"
+    data-offset="20"   <!-- 🔸 this is the cap you asked for -->
     data-rotate="0"
   >
     <img
@@ -1310,7 +1310,7 @@
   <!-- Phone -->
   <div
     class="phone hero-parallax"
-    data-speed="45"
+    data-offset="25"   <!-- max ~25px -->
     data-rotate="0"
   >
     <img
@@ -1320,6 +1320,7 @@
     />
   </div>
 </div>
+
 
       <!-- Center hero text -->
       <div class="hero-text-block">
@@ -1730,7 +1731,7 @@
   }
 
   // ============================
-  // Hero parallax – ONLY after leaving hero
+  // Hero parallax – only after leaving hero
   // ============================
 
   function updateHeroParallax() {
@@ -1740,32 +1741,35 @@
     const rect = hero.getBoundingClientRect();
     const heroHeight = rect.height;
 
-    // While hero is still fully occupying the top of the viewport,
-    // don't apply any parallax at all.
-    if (rect.top >= 0) {
-      return;
-    }
-
     const elements = document.querySelectorAll('.hero-parallax');
     if (!elements.length) return;
 
-    // How far we've scrolled past the top of the hero, clamped to hero height
-    const distancePastTop = Math.min(heroHeight, -rect.top); // 0 → heroHeight
+    // While hero top is still at/above viewport top, reset transforms
+    if (rect.top >= 0) {
+      elements.forEach((el) => {
+        const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
+        el.style.transform =
+          'translateY(0px) rotate(' + baseRotate + 'deg)';
+      });
+      return;
+    }
+
+    // How far we've scrolled past the top of the hero (0 → heroHeight)
+    const distancePastTop = Math.min(heroHeight, -rect.top);
     const progress = distancePastTop / heroHeight; // 0 → 1
 
     elements.forEach((el) => {
-      const speed = parseFloat(el.getAttribute('data-speed')) || 40;
+      const maxOffset = parseFloat(el.getAttribute('data-offset')) || 20; // px
       const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
 
-      const offset = progress * speed;
-      const translateY = -offset; // move upward as we scroll down past hero
+      // Move up to -maxOffset px as we scroll past the hero
+      const translateY = -progress * maxOffset;
 
       el.style.transform =
         'translateY(' + translateY + 'px) rotate(' + baseRotate + 'deg)';
     });
   }
 
-  // Combined handler
   function handleScrollResize() {
     updateFooterParallax();
     updateHeroParallax();
@@ -1773,7 +1777,7 @@
 
   window.addEventListener('scroll', handleScrollResize);
   window.addEventListener('resize', handleScrollResize);
-  // 🔴 Notice: no "load" event here, so nothing runs on page load
+  // (no 'load' handler, so nothing animates on page load)
 
   // ============================
   // Nav icon hover interactions

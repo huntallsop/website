@@ -209,7 +209,9 @@
       transform-origin: center;
       pointer-events: none;
     }
-
+.hero-parallax {
+  will-change: transform;
+}
     /* Shared parallax base */
     .hero-parallax {
       will-change: transform;
@@ -1127,7 +1129,7 @@
       alt=""
     />
 
-   <div class="hero-visuals">
+  <div class="hero-visuals">
   <!-- iPad -->
   <img
     class="ipad-icon hero-parallax"
@@ -1534,8 +1536,16 @@
   </div>
 
  <script>
-  // ===== Logo hover colors (unchanged) =====
-  const logoColors = ['#51A2FF', '#FE9A00', '#58C9B9', '#FF5C5C', '#9B6BFF'];
+  // ============================
+  // Logo hover colors
+  // ============================
+  const logoColors = [
+    '#51A2FF', // bright blue
+    '#FE9A00', // strong orange
+    '#58C9B9', // aqua green
+    '#FF5C5C', // bright red
+    '#9B6BFF'  // vivid purple
+  ];
 
   document.querySelectorAll('.logo-strip img').forEach((img) => {
     img.addEventListener('mouseenter', () => {
@@ -1554,7 +1564,7 @@
   });
 
   // ============================
-  // Footer parallax (same idea)
+  // Footer parallax
   // ============================
   function updateFooterParallax() {
     const footer = document.querySelector('.frame-parent8');
@@ -1562,66 +1572,70 @@
     if (!footer || !inner) return;
 
     const rect = footer.getBoundingClientRect();
-    const windowHeight =
-      window.innerHeight || document.documentElement.clientHeight;
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
     if (rect.bottom < 0 || rect.top > windowHeight) return;
 
-    const progress =
-      (windowHeight - rect.top) / (windowHeight + rect.height);
+    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
     const clamped = Math.max(0, Math.min(1, progress));
+    const translateY = (clamped - 0.5) * 60; // -30px to +30px
 
-    const translateY = (clamped - 0.5) * 60;
     inner.style.transform = 'translateY(' + translateY + 'px)';
   }
 
   // ============================
-  // Hero parallax (images)
+  // HERO PARALLAX ON SCROLL
   // ============================
+  const heroSection = document.querySelector('.hero-section-1920x1080');
+  const heroParallaxEls = document.querySelectorAll('.hero-parallax');
+
   function updateHeroParallax() {
-    const hero = document.querySelector('.hero-section-1920x1080');
-    if (!hero) return;
+    if (!heroSection || !heroParallaxEls.length) return;
 
-    const rect = hero.getBoundingClientRect();
-    const viewportH =
-      window.innerHeight || document.documentElement.clientHeight;
+    const rect = heroSection.getBoundingClientRect();
+    const winH = window.innerHeight || document.documentElement.clientHeight;
 
-    const els = document.querySelectorAll('.hero-parallax');
-    if (!els.length) return;
+    // If hero is completely above or below viewport, reset and bail
+    if (rect.bottom <= 0 || rect.top >= winH) {
+      heroParallaxEls.forEach((el) => {
+        const baseRotate = parseFloat(el.dataset.rotate) || 0;
+        el.style.transform = 'translate(0px, 0px) rotate(' + baseRotate + 'deg)';
+      });
+      return;
+    }
 
-    // How far we've scrolled past the top of the hero (0 → viewportH)
-    const distancePastTop = Math.min(Math.max(-rect.top, 0), viewportH);
-    const progress = distancePastTop / viewportH; // 0 → 1
+    // Start effect once hero top moves above the top of the viewport
+    const distancePastTop = Math.max(0, -rect.top); // 0 -> hero height
+    const progress = Math.min(1, distancePastTop / rect.height); // 0–1
 
-    els.forEach((el) => {
-      const maxOffset = parseFloat(el.getAttribute('data-offset')) || 40;
-      const dirX = parseFloat(el.getAttribute('data-dir-x')) || 0;
-      const dirY = parseFloat(el.getAttribute('data-dir-y')) || 0;
-      const baseRotate = parseFloat(el.getAttribute('data-rotate')) || 0;
+    heroParallaxEls.forEach((el) => {
+      const maxOffset = parseFloat(el.dataset.offset) || 40;
+      const dirX = parseFloat(el.dataset.dirX) || 0;
+      const dirY = parseFloat(el.dataset.dirY) || 0;
+      const baseRotate = parseFloat(el.dataset.rotate) || 0;
 
-      const translateX = dirX * maxOffset * progress;
-      const translateY = dirY * maxOffset * progress;
+      const move = maxOffset * progress; // how far along we are
+      const tx = move * dirX;
+      const ty = move * dirY;
 
       el.style.transform =
-        'translate(' +
-        translateX +
-        'px,' +
-        translateY +
-        'px) rotate(' +
-        baseRotate +
-        'deg)';
+        'translate(' + tx + 'px, ' + ty + 'px) rotate(' + baseRotate + 'deg)';
     });
   }
 
+  // ============================
+  // Tie both parallax systems to scroll/resize/load
+  // ============================
   function handleScrollResize() {
-    updateFooterParallax();
     updateHeroParallax();
+    updateFooterParallax();
   }
 
   window.addEventListener('scroll', handleScrollResize);
   window.addEventListener('resize', handleScrollResize);
   window.addEventListener('load', handleScrollResize);
 </script>
+
 
 </body>
 </html>

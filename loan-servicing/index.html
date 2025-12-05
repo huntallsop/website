@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +5,11 @@
   <meta name="viewport" content="initial-scale=1, width=device-width" />
   <title>Revamping Loan Servicing</title>
 
-  <!-- Inter font to match Figma -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" />
+  <!-- Fonts: match homepage (Instrument Serif, Instrument Sans, Inter, Roboto) -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500&family=Inter:wght@300;400;500;600&family=Roboto:wght@400;500&display=swap"
+  />
 
   <style>
     body {
@@ -16,6 +18,126 @@
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background-color: #111f36;
       color: #fff;
+    }
+
+     /* =========================
+       FROSTED HEADER
+    ========================== */
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px 16px 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .nav-shell {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      padding: 16px 24px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(179, 179, 179, 0.4);
+      border-radius: 8px;
+      box-shadow:
+        rgba(255, 255, 255, 0.07) 0px 0.120725px 0.362176px 0px inset,
+        rgba(255, 255, 255, 0.6) 0px 1px 3px 0px inset,
+        rgba(0, 0, 0, 0.01) 0px -0.120725px 0.362176px 0px inset,
+        rgba(0, 0, 0, 0.05) 0px -1px 3px 0px inset,
+        rgba(0, 0, 0, 0.07) 0px 30px 40px 0px;
+      pointer-events: auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      overflow: hidden;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 1px;
+      margin-left: 17px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-text-link {
+      font-size: 16px;
+      font-weight: 500;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: #000000;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-text-link:hover {
+      text-decoration: underline;
+      font-weight: 600;
+      color: #157ef7;
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        padding: 8px 12px;
+        gap: 12px;
+      }
+
+      .nav-right {
+        gap: 10px;
+      }
+
+      .nav-text-link {
+        font-size: 12px;
+      }
+
+      .nav-logo {
+        width: 28px;
+        height: 28px;
+      }
     }
 
     /* =========================
@@ -760,25 +882,25 @@
       object-fit: cover;
     }
 
-   .image-65-parent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
+    .image-65-parent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-.image-65-icon {
-  position: relative;
-  border-radius: 8px;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-}
+    .image-65-icon {
+      position: relative;
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
 
     .frame-parent9 {
       align-self: stretch;
@@ -961,67 +1083,66 @@
       gap: 20px;
     }
 
- .frame-child {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;      
-  width: 100%;
-  height: 100%;  
-  display: block;
-  object-fit: cover; 
-}
+    .frame-child {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
 
+    .group-div {
+      width: 800px;
+      max-width: 100%;
+      height: 497px;
+      position: relative;
+      border-radius: 12px;
+      background: linear-gradient(
+        242.19deg,
+        rgba(221, 249, 211, 0.6),
+        rgba(184, 228, 208, 0.6) 65.38%,
+        rgba(88, 201, 185, 0.6) 88.98%
+      );
+      border: 1px solid rgba(144, 161, 185, 0.2);
+      box-sizing: border-box;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
 
-.group-div {
-  width: 800px;
-  max-width: 100%;
-  height: 497px;
-  position: relative;
-  border-radius: 12px;
-  background: linear-gradient(
-    242.19deg,
-    rgba(221, 249, 211, 0.6),
-    rgba(184, 228, 208, 0.6) 65.38%,
-    rgba(88, 201, 185, 0.6) 88.98%
-  );
-  border: 1px solid rgba(144, 161, 185, 0.2);
-  box-sizing: border-box;
-  overflow: hidden;
-  flex-shrink: 0;
-}
+    /* Fill the card and center contents */
+    .image-441-parent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* Fill the card and center contents */
-.image-441-parent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;      /* all positions set to 0 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    /* Optional extra wrapper, keeps things centered */
+    .image-444-parent {
+      max-width: 100%;
+      max-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* Optional extra wrapper, keeps things centered */
-.image-444-parent {
-  max-width: 100%;
-  max-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Centered image that scales nicely */
-.image-444-icon {
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
-  width: auto;
-  object-fit: contain;
-  border-radius: 4px;
-}
+    /* Centered image that scales nicely */
+    .image-444-icon {
+      max-width: 100%;
+      max-height: 100%;
+      height: auto;
+      width: auto;
+      object-fit: contain;
+      border-radius: 4px;
+    }
 
     .image-435-icon,
     .image-449-icon,
@@ -1031,7 +1152,6 @@
       object-fit: cover;
     }
 
-   
     .image-435-icon { width: 52px; }
     .image-449-icon { width: 47px; }
     .image-450-icon { width: 70px; }
@@ -1065,6 +1185,26 @@
   </style>
 </head>
 <body>
+   <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-shell">
+      <div class="nav-inner">
+        <div class="nav-left">
+          <a href="https://hunterallsop.com/" class="nav-logo">
+            <img src="./assets/Hunter pill2 copy.png" alt="Hunter Allsop logo">
+          </a>
+          <div class="nav-divider"></div>
+        </div>
+
+        <div class="nav-right">
+          <a href="https://hunterallsop.com/" class="nav-text-link">Home</a>
+          <a href="https://hunterallsop.com/#work" class="nav-text-link">Work</a>
+          <a href="https://hunterallsop.com/#connect" class="nav-text-link">Let’s connect</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <!-- HERO SECTION -->
   <div class="landing-page">
     <div class="hero-frame-parent">
@@ -1227,16 +1367,16 @@
         </div>
 
         <div class="ideation-solution-exploratio-parent">
-  <b class="ideation-solution">Hypothesis</b>
-  <div class="with-our-research-insights-in-parent">
-    <div class="the-old-dashboard-container">
-      Redesigning the Teller Dashboard to simplify navigation, reduce redundant
-      steps, and surface critical customer information will enable tellers to
-      complete transactions faster, lower the risk of errors, and improve overall
-      efficiency.
-    </div>
-  </div>
-</div>
+          <b class="ideation-solution">Hypothesis</b>
+          <div class="with-our-research-insights-in-parent">
+            <div class="the-old-dashboard-container">
+              Redesigning the Teller Dashboard to simplify navigation, reduce redundant
+              steps, and surface critical customer information will enable tellers to
+              complete transactions faster, lower the risk of errors, and improve overall
+              efficiency.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1445,11 +1585,11 @@
           <div class="image-441-parent">
             <div class="image-444-parent">
               <img class="image-444-icon" src="assets/Image7.png" alt="Supporting flows and states" />
-              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </body>

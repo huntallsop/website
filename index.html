@@ -119,8 +119,9 @@
     }
 
     .nav-text-link:hover {
-      text-decoration: none;
+      text-decoration: underline;
       font-weight: 600;
+      color: #157ef7;
     }
 
     @media (max-width: 768px) {
@@ -966,6 +967,7 @@
 
       will-change: transform;
       transform: translateY(0);
+      transition: transform 0.2s ease-out;
     }
 
     .vector-container {
@@ -1135,17 +1137,17 @@
     class="ipad-icon hero-parallax"
     src="./HomepageAssets/Ipad.png"
     alt="iPad with design work"
-    data-offset="60"
-    data-dir-x="0.5"
-    data-dir-y="-0.2"
+    data-offset="100"
+    data-dir-x="1.5"
+    data-dir-y="1"
     data-rotate="0"
   >
 
   <div
     class="stickynote hero-parallax"
-    data-offset="50"
-    data-dir-x="-0.4"
-    data-dir-y="-0.15"
+    data-offset="100"
+    data-dir-x="-1"
+    data-dir-y="1"
     data-rotate="349"
   >
     <img
@@ -1157,9 +1159,9 @@
 
   <div
     class="notepad hero-parallax"
-    data-offset="60"
-    data-dir-x="0.3"
-    data-dir-y="0.3"
+    data-offset="80"
+    data-dir-x="0.5"
+    data-dir-y="0.6"
     data-rotate="0"
   >
     <img
@@ -1171,9 +1173,9 @@
 
   <div
     class="phone hero-parallax"
-    data-offset="40"
-    data-dir-x="-0.3"
-    data-dir-y="0.3"
+    data-offset="100"
+    data-dir-x="-.5"
+    data-dir-y="1"
     data-rotate="0"
   >
     <img
@@ -1358,7 +1360,7 @@
                           <div class="image">
                             <img
                               class="psd-02-1-icon"
-                              src="./HomepageAssets/CasestudyGPS.png"
+                              src="./HomepageAssets/CasestudyGPS1.png"
                               alt="Gold Point Systems"
                             />
                           </div>
@@ -1560,63 +1562,71 @@
     });
   });
 
-  // ============================
-  // Footer parallax
-  // ============================
-  function updateFooterParallax() {
-    const footer = document.querySelector('.frame-parent8');
-    const inner = document.querySelector('.frame-parent8-inner');
-    if (!footer || !inner) return;
+ // ============================
+// FOOTER PARALLAX — FROM TOP → CENTER (GLIDE DOWN)
+// ============================
+function updateFooterParallax() {
+  const footer = document.querySelector('.frame-parent8');
+  const inner = document.querySelector('.frame-parent8-inner');
+  if (!footer || !inner) return;
 
-    const rect = footer.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  const rect = footer.getBoundingClientRect();
+  const viewportHeight =
+    window.innerHeight || document.documentElement.clientHeight;
 
-    // Only run when the footer section is on screen
-    if (rect.bottom < 0 || rect.top > windowHeight) return;
+  // How far ABOVE center we start (negative = up)
+  const maxOffset = 310; // px
 
-    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-    const clamped = Math.max(0, Math.min(1, progress));
-
-    // Move between -30px and +30px
-    const translateY = (clamped - 0.5) * 60;
-    inner.style.transform = 'translateY(' + translateY + 'px)';
+  // 1) Footer completely BELOW viewport
+  //    → user is still on hero; keep content high so it's not visible yet
+  if (rect.top >= viewportHeight) {
+    inner.style.transform = 'translateY(' + (-maxOffset) + 'px)';
+    return;
   }
 
+  // 2) Footer is fully filling or past the top of the viewport
+  //    → lock content in the center (no more parallax)
+  if (rect.top <= 0) {
+    inner.style.transform = 'translateY(0px)';
+    return;
+  }
+
+  // 3) Footer is PARTIALLY VISIBLE
+  //    rect.top goes from viewportHeight (just entering) → 0 (fills viewport)
+  const progress = (viewportHeight - rect.top) / viewportHeight; // 0 → 1
+  const clamped = Math.max(0, Math.min(1, progress));
+
+  // At progress 0: translateY = -maxOffset (above center)
+  // At progress 1: translateY = 0 (center)
+  const translateY = -maxOffset * (1 - clamped);
+
+  inner.style.transform = 'translateY(' + translateY + 'px)';
+}
+
+
+
   // ============================
-  // HERO PARALLAX ON SCROLL
+  // HERO PARALLAX — SIMPLE + OBVIOUS
   // ============================
-  const heroSection = document.querySelector('.hero-section-1920x1080');
   const heroParallaxEls = document.querySelectorAll('.hero-parallax');
 
   function updateHeroParallax() {
-    if (!heroSection || !heroParallaxEls.length) return;
+    if (!heroParallaxEls.length) return;
 
-    const rect = heroSection.getBoundingClientRect();
-    const winH = window.innerHeight || document.documentElement.clientHeight;
-
-    // If hero completely off-screen, reset transforms
-    if (rect.bottom <= 0 || rect.top >= winH) {
-      heroParallaxEls.forEach((el) => {
-        const baseRotate = parseFloat(el.dataset.rotate) || 0;
-        el.style.transform =
-          'translate(0px, 0px) rotate(' + baseRotate + 'deg)';
-      });
-      return;
-    }
-
-    // Start effect once hero top goes above top of viewport
-    const distancePastTop = Math.max(0, -rect.top);     // 0 → hero height
-    const progress = Math.min(1, distancePastTop / rect.height); // 0 → 1
+    const scrollY = window.scrollY || window.pageYOffset;
 
     heroParallaxEls.forEach((el) => {
-      const maxOffset = parseFloat(el.dataset.offset) || 40;
+      // How "strong" the movement feels
+      const strength = parseFloat(el.dataset.offset) || 60;
       const dirX = parseFloat(el.dataset.dirX) || 0;
       const dirY = parseFloat(el.dataset.dirY) || 0;
       const baseRotate = parseFloat(el.dataset.rotate) || 0;
 
-      const move = maxOffset * progress;
-      const tx = move * dirX;
-      const ty = move * dirY;
+      // Tune this: bigger divisor = gentler movement, smaller = stronger
+      const factor = strength / 300; // try 300 first, then adjust
+
+      const tx = scrollY * factor * dirX;
+      const ty = scrollY * factor * dirY;
 
       el.style.transform =
         'translate(' + tx + 'px, ' + ty + 'px) rotate(' + baseRotate + 'deg)';
@@ -1624,17 +1634,24 @@
   }
 
   // ============================
-  // Hook everything up
+  // HOOK EVERYTHING UP
   // ============================
-  function handleScrollResize() {
+  function handleScroll() {
     updateHeroParallax();
     updateFooterParallax();
   }
 
-  window.addEventListener('scroll', handleScrollResize);
-  window.addEventListener('resize', handleScrollResize);
-  window.addEventListener('load', handleScrollResize);
+  function handleInitial() {
+    updateHeroParallax();
+    updateFooterParallax();
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', handleInitial);
+  window.addEventListener('load', handleInitial);
 </script>
+
+
 
 
 </body>

@@ -35,7 +35,16 @@
       justify-content: center;
       z-index: 1000;
       pointer-events: none;
+
+        /* for hide/show animation */
+      transform: translateY(0);
+      transition: transform 0.6s ease;
     }
+
+     /* When scrolling down, we'll add this class via JS */
+      .site-header.header-hidden {
+      transform: translateY(-120%);
+}
 
     .nav-shell {
       width: 100%;
@@ -1592,5 +1601,30 @@
 
     </div>
   </div>
+
+  <script>
+  (function () {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', function () {
+      const currentScrollY = window.scrollY;
+
+      // Only start hiding once you've scrolled a bit down the page
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // scrolling down
+        header.classList.add('header-hidden');
+      } else if (currentScrollY < lastScrollY) {
+        // scrolling up
+        header.classList.remove('header-hidden');
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  })();
+</script>
+
 </body>
 </html>

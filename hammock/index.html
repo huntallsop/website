@@ -23,6 +23,136 @@ font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
 min-height: 100vh;
 }
 
+/* =========================
+       FROSTED HEADER
+    ========================== */
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px 16px 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      pointer-events: none;
+      
+      /* for hide/show animation */
+      transform: translateY(0);
+      transition: transform 0.6s ease;
+    }
+
+      /* When scrolling down, we'll add this class via JS */
+      .site-header.header-hidden {
+      transform: translateY(-120%);
+}
+
+    .nav-shell {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      padding: 16px 24px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(179, 179, 179, 0.4);
+      border-radius: 8px;
+      box-shadow:
+        rgba(255, 255, 255, 0.07) 0px 0.120725px 0.362176px 0px inset,
+        rgba(255, 255, 255, 0.6) 0px 1px 3px 0px inset,
+        rgba(0, 0, 0, 0.01) 0px -0.120725px 0.362176px 0px inset,
+        rgba(0, 0, 0, 0.05) 0px -1px 3px 0px inset,
+        rgba(0, 0, 0, 0.07) 0px 30px 40px 0px;
+      pointer-events: auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      overflow: hidden;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 1px;
+      margin-left: 17px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-text-link {
+      font-size: 16px;
+      font-weight: 500;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: #000000;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-text-link:hover {
+      text-decoration: underline;
+      font-weight: 600;
+      color: #157ef7;
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        padding: 8px 12px;
+        gap: 12px;
+      }
+
+      .nav-right {
+        gap: 10px;
+      }
+
+      .nav-text-link {
+        font-size: 12px;
+      }
+
+      .nav-logo {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+
 /* HERO IMAGE (TOP) */
 .hero-image-container {
 width: 100vw;              /* default full screen width */
@@ -1125,6 +1255,26 @@ padding: 0 16px 80px;
 </style>
 </head>
 <body>
+          <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-shell">
+      <div class="nav-inner">
+        <div class="nav-left">
+          <a href="https://hunterallsop.com/" class="nav-logo">
+            <img src="./assets/Hunter pill2 copy.png" alt="Hunter Allsop logo">
+          </a>
+          <div class="nav-divider"></div>
+        </div>
+
+        <div class="nav-right">
+          <a href="https://hunterallsop.com/" class="nav-text-link">Home</a>
+          <a href="https://hunterallsop.com/#work" class="nav-text-link">Work</a>
+          <a href="https://hunterallsop.com/#connect" class="nav-text-link">Let’s connect</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
 <!-- HERO IMAGE (TOP) -->
 <div class="hero-image-container">
 <img
@@ -1654,5 +1804,29 @@ Reported higher trust and confidence in the new design
 </div>
 </div>
 </div>
+<script>
+  (function () {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', function () {
+      const currentScrollY = window.scrollY;
+
+      // Only start hiding once you've scrolled a bit down the page
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // scrolling down
+        header.classList.add('header-hidden');
+      } else if (currentScrollY < lastScrollY) {
+        // scrolling up
+        header.classList.remove('header-hidden');
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  })();
+</script>
+
 </body>
 </html>

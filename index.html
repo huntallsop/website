@@ -13,9 +13,7 @@
   />
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -27,7 +25,6 @@
     /* =========================
        FROSTED HEADER
     ========================== */
-
     .site-header {
       position: fixed;
       top: 0;
@@ -54,7 +51,6 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-
       padding: 16px 24px;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -111,8 +107,7 @@
     .nav-text-link {
       font-size: 16px;
       font-weight: 500;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: #000000;
       text-decoration: none;
       white-space: nowrap;
@@ -125,23 +120,10 @@
     }
 
     @media (max-width: 768px) {
-      .nav-inner {
-        padding: 8px 12px;
-        gap: 12px;
-      }
-
-      .nav-right {
-        gap: 10px;
-      }
-
-      .nav-text-link {
-        font-size: 12px;
-      }
-
-      .nav-logo {
-        width: 28px;
-        height: 28px;
-      }
+      .nav-inner { padding: 8px 12px; gap: 12px; }
+      .nav-right { gap: 10px; }
+      .nav-text-link { font-size: 12px; }
+      .nav-logo { width: 28px; height: 28px; }
     }
 
     /* =========================
@@ -202,7 +184,6 @@
       isolation: isolate;
     }
 
-    /* Wrapper that holds/scales all hero visuals */
     .hero-visuals {
       position: absolute;
       inset: 0;
@@ -210,16 +191,12 @@
       transform-origin: center;
       pointer-events: none;
     }
-    .hero-parallax {
-      will-change: transform;
-    }
-    /* Shared parallax base */
+
     .hero-parallax {
       will-change: transform;
       transform: translate3d(0, 0, 0) rotate(0deg);
     }
 
-    /* Device / prop images around the hero */
     .ipad-icon {
       position: absolute;
       width: 33vw;
@@ -240,22 +217,6 @@
       left: 3%;
       z-index: 4;
       pointer-events: none;
-      /* rotation now handled via JS using data-rotate */
-    }
-
-    .drop-shadow {
-      position: absolute;
-      height: 10.08%;
-      width: 88.64%;
-      top: 66%;
-      right: 3.38%;
-      bottom: 11.15%;
-      left: 4.98%;
-      box-shadow: 0px 32.2763633728px 6.15px rgba(0, 0, 0, 0.14);
-      border-radius: 6.15px;
-      background-color: #424242;
-      transform: rotate(-4.1deg);
-      transform-origin: 0 0;
     }
 
     .stickynote-child {
@@ -312,7 +273,6 @@
       border-radius: 40px;
     }
 
-    /* Center text block */
     .hero-text-block {
       position: relative;
       z-index: 6;
@@ -340,22 +300,14 @@
       justify-content: center;
     }
 
-    .im-hunter {
-      position: relative;
-      font-size: clamp(42px, 4vw, 80px);
-    }
-
-    .hunter {
-      color: rgba(45, 45, 45, 0.6);
-      font-style: italic;
-    }
+    .im-hunter { position: relative; font-size: clamp(42px, 4vw, 80px); }
+    .hunter { color: rgba(45, 45, 45, 0.6); font-style: italic; }
 
     .instance-parent {
       display: flex;
       align-items: center;
       gap: 7px;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: clamp(42px, 4vw, 80px);
       color: #2d2d2d;
     }
@@ -365,9 +317,7 @@
       height: 88px;
       width: 150px;
       position: relative;
-      box-shadow:
-        23px 18px 30px rgba(0, 0, 0, 0.25),
-        9px 9px 14px rgba(13, 13, 13, 0.32);
+      box-shadow: 23px 18px 30px rgba(0, 0, 0, 0.25), 9px 9px 14px rgba(13, 13, 13, 0.32);
       border-radius: 99.5px;
       overflow: hidden;
       background: transparent;
@@ -411,8 +361,7 @@
       text-align: center;
       font-size: 14px;
       color: #fff;
-      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       border: none;
       cursor: pointer;
       margin-top: 4px;
@@ -430,22 +379,12 @@
       gap: 8px;
     }
 
-    .label-text {
-      letter-spacing: 0.1px;
-      line-height: 20px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .call-made-icon {
-      width: 20px;
-      max-height: 100%;
-    }
+    .label-text { letter-spacing: 0.1px; line-height: 20px; font-weight: 500; white-space: nowrap; }
+    .call-made-icon { width: 20px; max-height: 100%; }
 
     /* =========================
        REST OF PAGE
     ========================== */
-
     .desktop-2 {
       min-height: 100vh;
       position: relative;
@@ -515,6 +454,7 @@
 
     .hero-parent {
       width: 1150px;
+      max-width: calc(100% - 32px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -539,7 +479,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 150px;
+      gap: 90px;
       padding: 80px 0;
     }
 
@@ -548,61 +488,39 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-    }
-
-    .frame-parent4 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+      width: 100%;
     }
 
     /* ===== LOGO CAROUSEL ===== */
-
     .logo-carousel {
       position: relative;
-      width: 100vw;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
       overflow: hidden;
       padding: 32px 0;
       padding-top: 0px;
+      box-sizing: border-box;
+
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 30%,
+        black 70%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 30%,
+        black 70%,
+        transparent 100%
+      );
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
     }
-
-    /* =========================
-       LEFT/RIGHT FADE (NO JS)
-       Applies to the carousel so logos fade at edges
-    ========================== */
-   .logo-carousel {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-
-  overflow: hidden;
-  padding: 32px 0;
-  padding-top: 0px;
-  box-sizing: border-box;
-
-  /* LEFT/RIGHT FADE */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 35%,
-    black 90%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 60%,
-    black 35%,
-    transparent 100%
-  );
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-
 
     .logo-track {
       display: flex;
@@ -619,202 +537,222 @@
     }
 
     .logo-strip img {
-  height: var(--logo-h, 40px); /* default 40px if you don’t set one */
-  width: auto;
-  object-fit: contain;
- 
-}
-
+      height: var(--logo-h, 40px);
+      width: auto;
+      object-fit: contain;
+      opacity: 0.7;
+    }
 
     @keyframes logo-marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
-    .frame-wrapper {
+    /* =========================
+       FEATURED WORK (new section)
+    ========================== */
+    .featured-work-section {
       width: 1150px;
+      max-width: calc(100% - 32px);
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      gap: 64px;
       text-align: left;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.8);
     }
 
-    .frame-parent6 {
-      align-self: stretch;
+    @media (min-width: 1024px) {
+      .featured-work-section {
+        width: 100vw;
+        max-width: none;
+        margin: 0;
+        padding-left: 24px;
+        padding-right: 24px;
+        box-sizing: border-box;
+      }
+
+      .featured-work-section {
+        position: relative;
+        padding: 0px 100px;
+      }
+    }
+
+    .featured-work-header {
+      width: 224px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 24px;
+      gap: 12px;
     }
 
-    .instance-wrapper {
-      align-self: stretch;
+    .featured-work-title {
+      font-family: "Instrument Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #2d2d2d;
+      letter-spacing: 0.2px;
+    }
+
+    .featured-work-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(45, 45, 45, 0.25);
+    }
+
+    /* Match your old .frame-parent spacing */
+    .featured-work-grid{
+      width: 100%;
+      position: relative;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .case-card-link {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .case-card-link:focus .group-parent {
-      outline: 2px solid #51A2FF;
-      outline-offset: 4px;
-    }
-
-    .group-parent {
-      height: 350px;
-      width: 800px;
-      border-radius: 12px;
-      overflow: hidden;
-      flex-shrink: 0;
+    /* Match your old .gps-parent spacing */
+    .featured-work-list{
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      justify-content: space-between;
-      padding: 16px 20px;
-      box-sizing: border-box;
-      position: relative;
-      isolation: isolate;
-      gap: 20px;
-
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-      cursor: pointer;
-    }
-
-    .group-parent:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-    }
-
-    .image-parent {
-      width: 800px;
-      height: 350px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      margin: 0 !important;
-      z-index: 0;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    .image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 800px;
-      height: 350px;
-      overflow: hidden;
-    }
-
-    .psd-02-1-icon {
-      width: 800px;
-      height: 350px;
-      display: block;
-      object-fit: cover;
-      transition: transform 0.35s ease;
-    }
-
-    .group-parent:hover .psd-02-1-icon {
-      transform: scale(1.05);
-    }
-
-    .shadow {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      border-radius: 0px 0px 12px 12px;
-      background: linear-gradient(
-        180deg,
-        rgba(45, 45, 45, 0) 0%,
-        rgba(45, 45, 45, 0.7) 100%
-      );
-      width: 800px;
-      height: 180px;
-      transition: opacity 0.35s ease;
-    }
-
-    .group-parent:hover .shadow {
-      opacity: 0.95;
-    }
-
-    .chips {
+      align-items: flex-start;
+      gap: 60px;
       width: auto;
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      z-index: 1;
-      flex-shrink: 0;
-      flex-wrap: wrap;
+      flex: 0 0 auto;
     }
 
-    .chip {
+    .featured-work-item {
       position: relative;
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border-radius: 60px;
-      background-color: rgba(104, 104, 104, 0.4);
-      border: 1px solid #fff;
-      box-sizing: border-box;
-
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 6px 16px;
+      justify-content: flex-start;
+      padding-left: 0;
+      box-sizing: border-box;
 
-      width: auto;
-      white-space: nowrap;
+      font-size: 86px;
+      line-height: 1;
+      color: #2d2d2d;
+      text-decoration: none;
+      cursor: pointer;
 
-      text-align: left;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.8);
-      font-family: "Instrument Sans", sans-serif;
-      transition: background-color 0.25s ease, border-color 0.25s ease;
+      transition: none;
     }
 
-    .group-parent:hover .chip {
-      background-color: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.9);
-    }
-
-    .chip .hunter-allsop {
-      letter-spacing: 0.4px;
-      line-height: 16px;
-    }
-
-    .bottom-text {
-      align-self: stretch;
-      border-radius: 0px 0px 12px 12px;
-      display: flex;
-      align-items: center;
-      gap: 100px;
-      z-index: 2;
-      flex-shrink: 0;
-      font-size: 35px;
-      color: #f9f9f9;
+    .fw-hover {
       position: relative;
+      display: inline-block;
+      overflow: hidden;
+      height: 1em;
+
+      perspective: 1100px;
+      transform-style: preserve-3d;
     }
 
-    .gold-point-systems {
-      letter-spacing: 0.1px;
-      z-index: 2;
+    .fw-line {
+      display: block;
+      will-change: transform;
+      transition: none;
+      transform-origin: left 60%;
     }
 
-    .gold-point-systems2 {
-      flex: 1;
-      font-size: 16px;
-      color: rgba(249, 249, 249, 0.8);
-      z-index: 2;
-      font-weight: 400;
+    .fw-line--top {
+      transform: translateY(0%) rotateX(0deg) rotateZ(0deg);
     }
 
+    .fw-line--bottom {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(120%) rotateX(80deg) rotateZ(10deg);
+    }
+
+    .featured-work-item:hover .fw-line {
+      transition: transform 1500ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    .featured-work-item:hover .fw-line--top {
+      transform: translateY(-120%) rotateX(-80deg) rotateZ(-10deg);
+    }
+
+    .featured-work-item:hover .fw-line--bottom {
+      transform: translateY(0%) rotateX(0deg) rotateZ(0deg);
+    }
+
+    .featured-work-item--bold { font-weight: 700; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .featured-work-item:hover .fw-line { transition: none !important; }
+      .fw-line--bottom { display: none; }
+    }
+
+    /* ==========================================================
+       ✅ Featured preview: starts SMALL + slightly turned.
+       Show: appears + slides DOWN 10px
+       Swap: current fades out, next fades in
+       Hide: disappears UP 10px
+    ========================================================== */
+
+    .fw-preview-stage{
+      width: 835px;
+      height: 447px;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      flex: 0 0 auto;
+
+      opacity: 0;
+      transform: translate3d(0, -10px, 0) scale(0.92) rotate(-2deg);
+      transition: opacity 420ms ease, transform 520ms cubic-bezier(.2,.8,.2,1);
+      pointer-events: none;
+      will-change: opacity, transform;
+    }
+
+    .fw-preview-stage.is-visible{
+      opacity: 1;
+      transform: translate3d(0, 0px, 0) scale(1) rotate(0deg);
+      pointer-events: auto;
+    }
+
+    .fw-preview{
+      position: absolute;
+      inset: 0;
+      display: block;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      text-decoration: none;
+
+      opacity: 0;
+      transform: translate3d(0, -10px, 0) scale(0.92) rotate(-2deg);
+      transition: opacity 380ms ease, transform 520ms cubic-bezier(.2,.8,.2,1);
+      will-change: opacity, transform;
+      pointer-events: none;
+    }
+
+    .fw-preview.is-active{
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      pointer-events: auto;
+    }
+
+    /* Keep your existing class in HTML if anything else references it */
+    .featured-work-preview { display: none; }
+
+    @media (max-width: 900px) {
+      .featured-work-grid { flex-direction: column; }
+      .featured-work-list { width: 100%; }
+      .fw-preview-stage { width: 100%; height: 360px; max-width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .fw-preview-stage,
+      .fw-preview{
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+
+    /* =========================
+       HELLO / ABOUT
+    ========================== */
     .ellipse-parent {
       display: flex;
       flex-direction: column;
@@ -877,29 +815,21 @@
       text-align: center;
       font-size: 14px;
       color: #fff;
-      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    .button-parent {
-      height: 300px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 45px;
-    }
-
+    .button-parent,
     .button-group {
       height: 300px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       justify-content: center;
       gap: 45px;
     }
+
+    .button-parent { align-items: flex-end; }
+    .button-group { align-items: flex-start; }
 
     .about-pill {
       height: 40px;
@@ -913,8 +843,7 @@
       text-align: center;
       font-size: 14px;
       color: #fff;
-      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       border: none;
     }
 
@@ -925,6 +854,7 @@
 
     .im-an-enthusiastic {
       width: 571px;
+      max-width: 90vw;
       font-size: 27px;
       line-height: 41px;
       font-family: "Instrument Serif", serif;
@@ -936,7 +866,6 @@
     /* =========================
        FULL-VIEWPORT FOOTER
     ========================== */
-
     .frame-parent8 {
       width: 100vw;
       min-height: 100vh;
@@ -945,13 +874,11 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 120px 16px;
       box-sizing: border-box;
-
       position: relative;
       isolation: isolate;
       margin: 0;
@@ -970,7 +897,6 @@
       font-size: 20px;
       color: #f9f9f9;
       font-family: "Instrument Serif", serif;
-
       will-change: transform;
       transform: translateY(0);
       transition: transform 0.2s ease-out;
@@ -991,12 +917,11 @@
       object-fit: contain;
     }
 
-    .im-available {
-      letter-spacing: 0.1px;
-    }
+    .im-available { letter-spacing: 0.1px; }
 
     .lets-connect-parent {
       width: 400px;
+      max-width: 90vw;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1006,14 +931,8 @@
       font-size: 70px;
     }
 
-    .lets-connect {
-      align-self: stretch;
-      letter-spacing: 0.1px;
-    }
-
-    .connect {
-      color: rgba(249, 249, 249, 0.5);
-    }
+    .lets-connect { align-self: stretch; letter-spacing: 0.1px; }
+    .connect { color: rgba(249, 249, 249, 0.5); }
 
     .reach-out-anytime {
       align-self: stretch;
@@ -1036,8 +955,7 @@
       z-index: 2;
       font-size: 14px;
       color: #fff;
-      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       border: none;
       cursor: pointer;
     }
@@ -1053,20 +971,8 @@
       gap: 8px;
     }
 
-    .button4 .label-text {
-      letter-spacing: 0.1px;
-      line-height: 20px;
-      font-weight: 500;
-    }
-
-    .button4 .call-made-icon {
-      width: 20px;
-      max-height: 100%;
-    }
-
-    .adobestock-142298783-1-icon {
-      /* legacy, unused */
-    }
+    .button4 .label-text { letter-spacing: 0.1px; line-height: 20px; font-weight: 500; }
+    .button4 .call-made-icon { width: 20px; max-height: 100%; }
 
     @media (max-width: 1024px) {
       .ipad-icon { right: -15%; }
@@ -1076,30 +982,11 @@
     }
 
     @media (max-width: 768px) {
-      .ipad-icon,
-      .stickynote,
-      .notepad,
-      .phone {
-        opacity: 0.25;
-      }
-      .hero-text-block {
-        align-items: center;
-      }
-      .hero-line {
-        gap: 12px;
-      }
-      .rectangle-parent,
-      .rectangle-parent-pill {
-        height: 64px;
-        width: 110px;
-      }
-      .lets-connect-parent {
-        font-size: 48px;
-        width: 100%;
-      }
-      .reach-out-anytime {
-        font-size: 18px;
-      }
+      .ipad-icon, .stickynote, .notepad, .phone { opacity: 0.25; }
+      .hero-line { gap: 12px; }
+      .rectangle-parent, .rectangle-parent-pill { height: 64px; width: 110px; }
+      .lets-connect-parent { font-size: 48px; width: 100%; }
+      .reach-out-anytime { font-size: 18px; }
     }
   </style>
 </head>
@@ -1127,81 +1014,82 @@
 
   <!-- HERO SECTION -->
   <div class="hero-section-1920x1080">
-    <!-- Backgrounds -->
     <img class="grainy-texture-icon" src="./HomepageAssets/Herobackground.png" alt="" />
     <img class="light-effect-icon" src="./assets/home-glow.png" alt="" />
 
-    <div class="hero-visuals">
-      <img class="ipad-icon hero-parallax"
-        src="./HomepageAssets/Ipad.png"
-        alt="iPad with design work"
-        data-offset="100"
-        data-dir-x="1.5"
-        data-dir-y="1"
-        data-rotate="0"
-      >
+    <div class="hero-content">
+      <div class="hero-visuals">
+        <img class="ipad-icon hero-parallax"
+          src="./HomepageAssets/Ipad.png"
+          alt="iPad with design work"
+          data-offset="100"
+          data-dir-x="1.5"
+          data-dir-y="1"
+          data-rotate="0"
+        >
 
-      <div class="stickynote hero-parallax"
-        data-offset="100"
-        data-dir-x="-1"
-        data-dir-y="1"
-        data-rotate="349"
-      >
-        <img class="stickynote-child" src="./HomepageAssets/Stickynote.png" alt="Sticky note">
+        <div class="stickynote hero-parallax"
+          data-offset="100"
+          data-dir-x="-1"
+          data-dir-y="1"
+          data-rotate="349"
+        >
+          <img class="stickynote-child" src="./HomepageAssets/Stickynote.png" alt="Sticky note">
+        </div>
+
+        <div class="notepad hero-parallax"
+          data-offset="80"
+          data-dir-x="0.5"
+          data-dir-y="0.6"
+          data-rotate="0"
+        >
+          <img class="blank-ruled-notebook-white-tab-icon" src="./HomepageAssets/Notepad.png" alt="Notepad with design notes">
+        </div>
+
+        <div class="phone hero-parallax"
+          data-offset="100"
+          data-dir-x="-.5"
+          data-dir-y="1"
+          data-rotate="0"
+        >
+          <img class="image-37-icon" src="./HomepageAssets/Phone.png" alt="Phone with product UI">
+        </div>
       </div>
 
-      <div class="notepad hero-parallax"
-        data-offset="80"
-        data-dir-x="0.5"
-        data-dir-y="0.6"
-        data-rotate="0"
-      >
-        <img class="blank-ruled-notebook-white-tab-icon" src="./HomepageAssets/Notepad.png" alt="Notepad with design notes">
-      </div>
-
-      <div class="phone hero-parallax"
-        data-offset="100"
-        data-dir-x="-.5"
-        data-dir-y="1"
-        data-rotate="0"
-      >
-        <img class="image-37-icon" src="./HomepageAssets/Phone.png" alt="Phone with product UI">
-      </div>
-    </div>
-
-    <!-- Center hero text -->
-    <div class="hero-text-block">
-      <div class="hero-heading">
-        <div class="hero-line">
-          <div class="im-hunter"><span>I’m </span><i class="hunter">Hunter</i></div>
-          <div class="instance-parent">
-            <div class="rectangle-parent">
-              <img class="dscf0488-1-icon" src="./HomepageAssets/Hunter pill2.png" alt="Hunter pill" />
+      <!-- Center hero text -->
+      <div class="hero-text-block">
+        <div class="hero-heading">
+          <div class="hero-line">
+            <div class="im-hunter"><span>I’m </span><i class="hunter">Hunter</i></div>
+            <div class="instance-parent">
+              <div class="rectangle-parent">
+                <img class="dscf0488-1-icon" src="./HomepageAssets/Hunter pill2.png" alt="Hunter pill" />
+              </div>
+              <div class="im-hunter">,</div>
             </div>
-            <div class="im-hunter">,</div>
+          </div>
+
+          <div class="hero-line">
+            <div class="im-hunter"><span>a </span><i class="hunter">product</i></div>
+            <div class="rectangle-parent rectangle-parent-pill">
+              <img class="rectangle-pill-image" src="./HomepageAssets/Blue pill2.png" alt="Product design pill" />
+            </div>
+            <i class="designer">Designer</i>
           </div>
         </div>
 
-        <div class="hero-line">
-          <div class="im-hunter"><span>a </span><i class="hunter">product</i></div>
-          <div class="rectangle-parent rectangle-parent-pill">
-            <img class="rectangle-pill-image" src="./HomepageAssets/Blue pill2.png" alt="Product design pill" />
+        <p class="hero-tagline">
+          Senior-level UI, UX, &amp; Web Design for digital products.<br />
+          Design that solves real problems for real users.
+        </p>
+
+        <button class="hero-cta" onclick="document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });">
+          <div class="state-layer">
+            <div class="label-text">Let’s connect</div>
+            <img class="call-made-icon" src="./HomepageAssets/Arrowicon.png" alt="" />
           </div>
-          <i class="designer">Designer</i>
-        </div>
+        </button>
       </div>
-
-      <p class="hero-tagline">
-        Senior-level UI, UX, &amp; Web Design for digital products.<br />
-        Design that solves real problems for real users.
-      </p>
-
-      <button class="hero-cta" onclick="document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });">
-        <div class="state-layer">
-          <div class="label-text">Let’s connect</div>
-          <img class="call-made-icon" src="./HomepageAssets/Arrowicon.png" alt="" />
-        </div>
-      </button>
     </div>
   </div>
 
@@ -1217,90 +1105,96 @@
       <div class="frame-container">
         <div class="hero-parent">
           <div class="frame-parent3">
-            <!-- Brands -->
+
             <div class="past-companies-parent">
               <div class="past-companies">
                 <!-- LOGO CAROUSEL -->
                 <div class="logo-carousel">
                   <div class="logo-track">
-                    <!-- strip 1 -->
                     <div class="logo-strip">
-                      <img class="era-2-icon" src="./HomepageAssets/ERA%202.png" alt="ERA"style="--logo-h: 40px;" />
-                      <img class="metajive-1-icon" src="./HomepageAssets/Metajive%201.png" alt="Metajive" style="--logo-h: 30px;" />
-                      <img class="family-search-1" src="./HomepageAssets/Family%20search%201.png" alt="FamilySearch" />
-                      <img class="utah-tech1-1-1" src="./HomepageAssets/utah-tech(1)%201%201.png" alt="Utah Tech" style="--logo-h: 25px;" />
-                      <img class="bofa-1-icon" src="./HomepageAssets/BOFA%201.png" alt="Bank of America" />
-                      <img class="suu-1-icon" src="./HomepageAssets/SUU%201.png" alt="Southern Utah University" />
-                      <img class="dhi-1-1" src="./HomepageAssets/DHI%201%201.png" alt="DHI" style="--logo-h: 30px;" />
+                      <img src="./HomepageAssets/ERA%202.png" alt="ERA" style="--logo-h: 40px;" />
+                      <img src="./HomepageAssets/Metajive%201.png" alt="Metajive" style="--logo-h: 30px;" />
+                      <img src="./HomepageAssets/Family%20search%201.png" alt="FamilySearch" style="--logo-h: 40px;" />
+                      <img src="./HomepageAssets/utah-tech(1)%201%201.png" alt="Utah Tech" style="--logo-h: 25px;" />
+                      <img src="./HomepageAssets/BOFA%201.png" alt="Bank of America" style="--logo-h: 36px;" />
+                      <img src="./HomepageAssets/SUU%201.png" alt="Southern Utah University" style="--logo-h: 34px;" />
+                      <img src="./HomepageAssets/DHI%201%201.png" alt="DHI" style="--logo-h: 30px;" />
                     </div>
 
-                    <!-- strip 2 -->
                     <div class="logo-strip">
-                      <img class="era-2-icon" src="./HomepageAssets/ERA%202.png" alt="ERA"style="--logo-h: 40px;" />
-                      <img class="metajive-1-icon" src="./HomepageAssets/Metajive%201.png" alt="Metajive" style="--logo-h: 30px;" />
-                      <img class="family-search-1" src="./HomepageAssets/Family%20search%201.png" alt="FamilySearch" />
-                      <img class="utah-tech1-1-1" src="./HomepageAssets/utah-tech(1)%201%201.png" alt="Utah Tech" style="--logo-h: 25px;" />
-                      <img class="bofa-1-icon" src="./HomepageAssets/BOFA%201.png" alt="Bank of America" />
-                      <img class="suu-1-icon" src="./HomepageAssets/SUU%201.png" alt="Southern Utah University" />
-                      <img class="dhi-1-1" src="./HomepageAssets/DHI%201%201.png" alt="DHI" style="--logo-h: 30px;" />
+                      <img src="./HomepageAssets/ERA%202.png" alt="ERA" style="--logo-h: 40px;" />
+                      <img src="./HomepageAssets/Metajive%201.png" alt="Metajive" style="--logo-h: 30px;" />
+                      <img src="./HomepageAssets/Family%20search%201.png" alt="FamilySearch" style="--logo-h: 40px;" />
+                      <img src="./HomepageAssets/utah-tech(1)%201%201.png" alt="Utah Tech" style="--logo-h: 25px;" />
+                      <img src="./HomepageAssets/BOFA%201.png" alt="Bank of America" style="--logo-h: 36px;" />
+                      <img src="./HomepageAssets/SUU%201.png" alt="Southern Utah University" style="--logo-h: 34px;" />
+                      <img src="./HomepageAssets/DHI%201%201.png" alt="DHI" style="--logo-h: 30px;" />
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Featured cards -->
-              <div class="frame-wrapper">
-                <div class="frame-parent6" id="work">
-                  <!-- CARD 1 -->
-                  <div class="instance-wrapper">
-                    <a class="case-card-link" href="https://hunterallsop.com/loan-servicing/">
-                      <div class="group-parent">
-                        <div class="image-parent">
-                          <div class="image">
-                            <img class="psd-02-1-icon" src="./HomepageAssets/CasestudyGPS1.png" alt="Gold Point Systems" />
-                          </div>
-                          <div class="shadow"></div>
-                        </div>
-                        <div class="chips">
-                          <div class="chip"><b class="hunter-allsop">Product design</b></div>
-                          <div class="chip"><b class="hunter-allsop">User research</b></div>
-                        </div>
-                        <div class="bottom-text">
-                          <b class="gold-point-systems">DHI</b>
-                          <b class="gold-point-systems2">
-                            DHI offers easy to use tools to track
-                            and manage banking transactions.
-                          </b>
-                        </div>
-                      </div>
+              <!-- FEATURED WORK (replaces old cards) -->
+              <section class="featured-work-section" id="work">
+                <div class="featured-work-header">
+                  <div class="featured-work-title">FEATURED WORK</div>
+                  <div class="featured-work-divider"></div>
+                </div>
+
+                <div class="featured-work-grid">
+                  <div class="featured-work-list">
+                    <a class="featured-work-item" data-preview="gps" href="https://hunterallsop.com/loan-servicing/">
+                      <span class="fw-hover">
+                        <span class="fw-line fw-line--top">GPS</span>
+                        <span class="fw-line fw-line--bottom" aria-hidden="true">GPS</span>
+                      </span>
+                    </a>
+
+                    <!-- ✅ UPDATED: remove bold so it matches GPS & DHI -->
+                    <a class="featured-work-item" data-preview="family" href="https://hunterallsop.com/hammock/">
+                      <span class="fw-hover">
+                        <span class="fw-line fw-line--top">Family search</span>
+                        <span class="fw-line fw-line--bottom" aria-hidden="true">Family search</span>
+                      </span>
+                    </a>
+
+                    <a class="featured-work-item" data-preview="dhi" href="https://hunterallsop.com/loan-servicing/">
+                      <span class="fw-hover">
+                        <span class="fw-line fw-line--top">DHI</span>
+                        <span class="fw-line fw-line--bottom" aria-hidden="true">DHI</span>
+                      </span>
                     </a>
                   </div>
 
-                  <!-- CARD 2 -->
-                  <div class="instance-wrapper">
-                    <a class="case-card-link" href="https://hunterallsop.com/hammock/">
-                      <div class="group-parent">
-                        <div class="image-parent">
-                          <div class="image">
-                            <img class="psd-02-1-icon" src="./HomepageAssets/Casestudyhammock.png" alt="Hammock Case Study" />
-                          </div>
-                          <div class="shadow"></div>
-                        </div>
-                        <div class="chips">
-                          <div class="chip"><b class="hunter-allsop">User testing</b></div>
-                          <div class="chip"><b class="hunter-allsop">Accessibility</b></div>
-                        </div>
-                        <div class="bottom-text">
-                          <b class="gold-point-systems">DHI</b>
-                          <b class="gold-point-systems2">
-                            DHI gives you simple, powerful tools to track and manage your money on the go.
-                          </b>
-                        </div>
-                      </div>
-                    </a>
+                  <!-- ✅ ADDED: Preview stage (shows on hover, fades away on leave) -->
+                  <div class="fw-preview-stage" aria-label="Featured work preview">
+                    <a class="fw-preview is-active"
+                       data-preview="gps"
+                       href="https://hunterallsop.com/loan-servicing/"
+                       style="background-image:url('./HomepageAssets/CasestudyGPS1.png');"
+                       aria-label="Open GPS case study"></a>
+
+                    <a class="fw-preview"
+                       data-preview="family"
+                       href="https://hunterallsop.com/hammock/"
+                       style="background-image:url('./HomepageAssets/CasestudyFamilySearch1.png');"
+                       aria-label="Open Family Search case study"></a>
+
+                    <a class="fw-preview"
+                       data-preview="dhi"
+                       href="https://hunterallsop.com/loan-servicing/"
+                       style="background-image:url('./HomepageAssets/CasestudyDHI1.png');"
+                       aria-label="Open DHI case study"></a>
                   </div>
+
+                  <!-- kept for safety, but hidden via CSS -->
+                  <a class="featured-work-preview"
+                     href="https://hunterallsop.com/loan-servicing/"
+                     style="background-image:url('./HomepageAssets/CasestudyGPS1.png');"
+                     aria-label="Open featured work">
+                  </a>
                 </div>
-              </div>
+              </section>
             </div>
 
             <!-- About / Hello section -->
@@ -1318,11 +1212,9 @@
                   <div class="about-pill pill-rotate-neg-8">
                     <div class="state-layer"><div class="label-text">User testing</div></div>
                   </div>
-
                   <div class="about-pill">
                     <div class="state-layer"><div class="label-text">Design systems</div></div>
                   </div>
-
                   <div class="about-pill pill-rotate-10">
                     <div class="state-layer"><div class="label-text">Prototypes</div></div>
                   </div>
@@ -1340,17 +1232,16 @@
                   <div class="about-pill pill-rotate-13">
                     <div class="state-layer"><div class="label-text">Problem solver</div></div>
                   </div>
-
                   <div class="about-pill">
                     <div class="state-layer"><div class="label-text">UI/UX Design</div></div>
                   </div>
-
                   <div class="about-pill pill-rotate-neg-16">
                     <div class="state-layer"><div class="label-text">Research</div></div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div> <!-- /frame-parent3 -->
         </div> <!-- /hero-parent -->
 
@@ -1379,92 +1270,130 @@
             </button>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 
-<script>
-  
+  <script>
+    // ============================
+    // FOOTER PARALLAX — FROM TOP → CENTER (GLIDE DOWN)
+    // ============================
+    function updateFooterParallax() {
+      const footer = document.querySelector('.frame-parent8');
+      const inner = document.querySelector('.frame-parent8-inner');
+      if (!footer || !inner) return;
 
-    img.addEventListener('mouseleave', () => {
-      img.style.filter = '';
-    });
-  });
+      const rect = footer.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-  // ============================
-  // FOOTER PARALLAX — FROM TOP → CENTER (GLIDE DOWN)
-  // ============================
-  function updateFooterParallax() {
-    const footer = document.querySelector('.frame-parent8');
-    const inner = document.querySelector('.frame-parent8-inner');
-    if (!footer || !inner) return;
+      const maxOffset = 310;
 
-    const rect = footer.getBoundingClientRect();
-    const viewportHeight =
-      window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top >= viewportHeight) {
+        inner.style.transform = 'translateY(' + (-maxOffset) + 'px)';
+        return;
+      }
 
-    const maxOffset = 310; // px
+      if (rect.top <= 0) {
+        inner.style.transform = 'translateY(0px)';
+        return;
+      }
 
-    if (rect.top >= viewportHeight) {
-      inner.style.transform = 'translateY(' + (-maxOffset) + 'px)';
-      return;
+      const progress = (viewportHeight - rect.top) / viewportHeight;
+      const clamped = Math.max(0, Math.min(1, progress));
+      const translateY = -maxOffset * (1 - clamped);
+
+      inner.style.transform = 'translateY(' + translateY + 'px)';
     }
 
-    if (rect.top <= 0) {
-      inner.style.transform = 'translateY(0px)';
-      return;
+    // ============================
+    // HERO PARALLAX — SIMPLE + OBVIOUS
+    // ============================
+    const heroParallaxEls = document.querySelectorAll('.hero-parallax');
+
+    function updateHeroParallax() {
+      if (!heroParallaxEls.length) return;
+
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      heroParallaxEls.forEach((el) => {
+        const strength = parseFloat(el.dataset.offset) || 60;
+        const dirX = parseFloat(el.dataset.dirX) || 0;
+        const dirY = parseFloat(el.dataset.dirY) || 0;
+        const baseRotate = parseFloat(el.dataset.rotate) || 0;
+
+        const factor = strength / 300;
+
+        const tx = scrollY * factor * dirX;
+        const ty = scrollY * factor * dirY;
+
+        el.style.transform =
+          'translate(' + tx + 'px, ' + ty + 'px) rotate(' + baseRotate + 'deg)';
+      });
     }
 
-    const progress = (viewportHeight - rect.top) / viewportHeight;
-    const clamped = Math.max(0, Math.min(1, progress));
-    const translateY = -maxOffset * (1 - clamped);
+    function handleScroll() {
+      updateHeroParallax();
+      updateFooterParallax();
+    }
 
-    inner.style.transform = 'translateY(' + translateY + 'px)';
-  }
+    function handleInitial() {
+      updateHeroParallax();
+      updateFooterParallax();
+    }
 
-  // ============================
-  // HERO PARALLAX — SIMPLE + OBVIOUS
-  // ============================
-  const heroParallaxEls = document.querySelectorAll('.hero-parallax');
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleInitial);
+    window.addEventListener('load', handleInitial);
 
-  function updateHeroParallax() {
-    if (!heroParallaxEls.length) return;
+    // ==========================================================
+    // ✅ FEATURED WORK — crossfade between previews + stage show/hide motion
+    // ==========================================================
+    (function () {
+      const grid = document.querySelector('.featured-work-grid');
+      const stage = document.querySelector('.fw-preview-stage');
+      const items = document.querySelectorAll('.featured-work-item[data-preview]');
+      const panels = document.querySelectorAll('.fw-preview[data-preview]');
 
-    const scrollY = window.scrollY || window.pageYOffset;
+      if (!grid || !stage || !items.length || !panels.length) return;
 
-    heroParallaxEls.forEach((el) => {
-      const strength = parseFloat(el.dataset.offset) || 60;
-      const dirX = parseFloat(el.dataset.dirX) || 0;
-      const dirY = parseFloat(el.dataset.dirY) || 0;
-      const baseRotate = parseFloat(el.dataset.rotate) || 0;
+      let activeId = null;
+      const initiallyActive = stage.querySelector('.fw-preview.is-active');
+      activeId = initiallyActive ? initiallyActive.dataset.preview : null;
 
-      const factor = strength / 300;
+      function setActive(id) {
+        if (activeId === id) {
+          stage.classList.add('is-visible');
+          return;
+        }
 
-      const tx = scrollY * factor * dirX;
-      const ty = scrollY * factor * dirY;
+        stage.classList.add('is-visible');
 
-      el.style.transform =
-        'translate(' + tx + 'px, ' + ty + 'px) rotate(' + baseRotate + 'deg)';
-    });
-  }
+        // fade out current
+        panels.forEach(p => {
+          if (p.dataset.preview === activeId) p.classList.remove('is-active');
+        });
 
-  // ============================
-  // HOOK EVERYTHING UP
-  // ============================
-  function handleScroll() {
-    updateHeroParallax();
-    updateFooterParallax();
-  }
+        // fade in next (tiny delay makes it feel like a crossfade)
+        window.setTimeout(() => {
+          panels.forEach(p => p.classList.toggle('is-active', p.dataset.preview === id));
+          activeId = id;
+        }, 60);
+      }
 
-  function handleInitial() {
-    updateHeroParallax();
-    updateFooterParallax();
-  }
+      items.forEach(item => {
+        item.addEventListener('mouseenter', () => setActive(item.dataset.preview));
+        item.addEventListener('focus', () => setActive(item.dataset.preview));
+      });
 
-  window.addEventListener('scroll', handleScroll);
-  window.addEventListener('resize', handleInitial);
-  window.addEventListener('load', handleInitial);
-</script>
+      grid.addEventListener('mouseleave', () => {
+        stage.classList.remove('is-visible');
+      });
 
+      grid.addEventListener('focusout', (e) => {
+        if (!grid.contains(e.relatedTarget)) stage.classList.remove('is-visible');
+      });
+    })();
+  </script>
 </body>
 </html>

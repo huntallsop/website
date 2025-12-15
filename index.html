@@ -210,9 +210,9 @@
       transform-origin: center;
       pointer-events: none;
     }
-.hero-parallax {
-  will-change: transform;
-}
+    .hero-parallax {
+      will-change: transform;
+    }
     /* Shared parallax base */
     .hero-parallax {
       will-change: transform;
@@ -557,14 +557,6 @@
       gap: 8px;
     }
 
-    .a-few-brands {
-      position: relative;
-      font-size: 16px;
-      font-family: "Instrument Serif", serif;
-      color: #2d2d2d;
-      text-align: left;
-    }
-
     /* ===== LOGO CAROUSEL ===== */
 
     .logo-carousel {
@@ -575,50 +567,64 @@
       padding-top: 0px;
     }
 
+    /* =========================
+       LEFT/RIGHT FADE (NO JS)
+       Applies to the carousel so logos fade at edges
+    ========================== */
+   .logo-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  overflow: hidden;
+  padding: 32px 0;
+  padding-top: 0px;
+  box-sizing: border-box;
+
+  /* LEFT/RIGHT FADE */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 35%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 60%,
+    black 35%,
+    transparent 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+
     .logo-track {
       display: flex;
       width: max-content;
-      animation: logo-marquee 40s linear infinite;
+      animation: logo-marquee 10s linear infinite;
     }
 
     .logo-strip {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 200px;
-      padding-right: 200px;
+      gap: 90px;
+      padding-right: 90px;
     }
 
     .logo-strip img {
-      transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
-      transform-origin: center;
-      opacity: 0.7;
-    }
+  height: var(--logo-h, 40px); /* default 40px if you don’t set one */
+  width: auto;
+  object-fit: contain;
+ 
+}
 
-    .logo-strip img:hover {
-      transform: scale(1.2);
-      opacity: 1;
-    }
-
-    .bofa-1-icon,
-    .family-search-1,
-    .metajive-1-icon,
-    .utah-tech1-1-1,
-    .era-2-icon,
-    .suu-1-icon,
-    .dhi-1-1 {
-      position: relative;
-      max-height: 100%;
-      object-fit: cover;
-    }
-
-    .bofa-1-icon { height: 57px; }
-    .family-search-1 { height: 64px; }
-    .metajive-1-icon { height: 40px; }
-    .utah-tech1-1-1 { height: 35px; }
-    .era-2-icon { height: 69px; }
-    .suu-1-icon { height: 52px; }
-    .dhi-1-1 { height: 42px; }
 
     @keyframes logo-marquee {
       0% { transform: translateX(0); }
@@ -806,7 +812,7 @@
       font-size: 16px;
       color: rgba(249, 249, 249, 0.8);
       z-index: 2;
-      font-weight: 400; 
+      font-weight: 400;
     }
 
     .ellipse-parent {
@@ -1097,6 +1103,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- HEADER -->
   <header class="site-header">
@@ -1121,132 +1128,86 @@
   <!-- HERO SECTION -->
   <div class="hero-section-1920x1080">
     <!-- Backgrounds -->
-    <img
-      class="grainy-texture-icon"
-      src="./HomepageAssets/Herobackground.png"
-      alt=""
-    />
-    <img
-      class="light-effect-icon"
-      src="./assets/home-glow.png"
-      alt=""
-    />
+    <img class="grainy-texture-icon" src="./HomepageAssets/Herobackground.png" alt="" />
+    <img class="light-effect-icon" src="./assets/home-glow.png" alt="" />
 
- <div class="hero-visuals">
-  <img
-    class="ipad-icon hero-parallax"
-    src="./HomepageAssets/Ipad.png"
-    alt="iPad with design work"
-    data-offset="100"
-    data-dir-x="1.5"
-    data-dir-y="1"
-    data-rotate="0"
-  >
+    <div class="hero-visuals">
+      <img class="ipad-icon hero-parallax"
+        src="./HomepageAssets/Ipad.png"
+        alt="iPad with design work"
+        data-offset="100"
+        data-dir-x="1.5"
+        data-dir-y="1"
+        data-rotate="0"
+      >
 
-  <div
-    class="stickynote hero-parallax"
-    data-offset="100"
-    data-dir-x="-1"
-    data-dir-y="1"
-    data-rotate="349"
-  >
-    <img
-      class="stickynote-child"
-      src="./HomepageAssets/Stickynote.png"
-      alt="Sticky note"
-    >
-  </div>
+      <div class="stickynote hero-parallax"
+        data-offset="100"
+        data-dir-x="-1"
+        data-dir-y="1"
+        data-rotate="349"
+      >
+        <img class="stickynote-child" src="./HomepageAssets/Stickynote.png" alt="Sticky note">
+      </div>
 
-  <div
-    class="notepad hero-parallax"
-    data-offset="80"
-    data-dir-x="0.5"
-    data-dir-y="0.6"
-    data-rotate="0"
-  >
-    <img
-      class="blank-ruled-notebook-white-tab-icon"
-      src="./HomepageAssets/Notepad.png"
-      alt="Notepad with design notes"
-    >
-  </div>
+      <div class="notepad hero-parallax"
+        data-offset="80"
+        data-dir-x="0.5"
+        data-dir-y="0.6"
+        data-rotate="0"
+      >
+        <img class="blank-ruled-notebook-white-tab-icon" src="./HomepageAssets/Notepad.png" alt="Notepad with design notes">
+      </div>
 
-  <div
-    class="phone hero-parallax"
-    data-offset="100"
-    data-dir-x="-.5"
-    data-dir-y="1"
-    data-rotate="0"
-  >
-    <img
-      class="image-37-icon"
-      src="./HomepageAssets/Phone.png"
-      alt="Phone with product UI"
-    >
-  </div>
-</div>
+      <div class="phone hero-parallax"
+        data-offset="100"
+        data-dir-x="-.5"
+        data-dir-y="1"
+        data-rotate="0"
+      >
+        <img class="image-37-icon" src="./HomepageAssets/Phone.png" alt="Phone with product UI">
+      </div>
+    </div>
 
-
-      <!-- Center hero text -->
-      <div class="hero-text-block">
-        <div class="hero-heading">
-          <div class="hero-line">
-            <div class="im-hunter">
-              <span>I’m </span><i class="hunter">Hunter</i>
+    <!-- Center hero text -->
+    <div class="hero-text-block">
+      <div class="hero-heading">
+        <div class="hero-line">
+          <div class="im-hunter"><span>I’m </span><i class="hunter">Hunter</i></div>
+          <div class="instance-parent">
+            <div class="rectangle-parent">
+              <img class="dscf0488-1-icon" src="./HomepageAssets/Hunter pill2.png" alt="Hunter pill" />
             </div>
-            <div class="instance-parent">
-              <div class="rectangle-parent">
-                <img
-                  class="dscf0488-1-icon"
-                  src="./HomepageAssets/Hunter pill2.png"
-                  alt="Hunter pill"
-                />
-              </div>
-              <div class="im-hunter">,</div>
-            </div>
-          </div>
-
-          <div class="hero-line">
-            <div class="im-hunter">
-              <span>a </span><i class="hunter">product</i>
-            </div>
-            <div class="rectangle-parent rectangle-parent-pill">
-              <img
-                class="rectangle-pill-image"
-                src="./HomepageAssets/Blue pill2.png"
-                alt="Product design pill"
-              />
-            </div>
-            <i class="designer">Designer</i>
+            <div class="im-hunter">,</div>
           </div>
         </div>
 
-        <p class="hero-tagline">
-          Senior-level UI, UX, &amp; Web Design for digital products.<br />
-          Design that solves real problems for real users.
-        </p>
-
-        <button class="hero-cta" onclick="document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });">
-          <div class="state-layer">
-            <div class="label-text">Let’s connect</div>
-            <img
-              class="call-made-icon"
-              src="./HomepageAssets/Arrowicon.png"
-              alt=""
-            />
+        <div class="hero-line">
+          <div class="im-hunter"><span>a </span><i class="hunter">product</i></div>
+          <div class="rectangle-parent rectangle-parent-pill">
+            <img class="rectangle-pill-image" src="./HomepageAssets/Blue pill2.png" alt="Product design pill" />
           </div>
-        </button>
+          <i class="designer">Designer</i>
+        </div>
       </div>
+
+      <p class="hero-tagline">
+        Senior-level UI, UX, &amp; Web Design for digital products.<br />
+        Design that solves real problems for real users.
+      </p>
+
+      <button class="hero-cta" onclick="document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });">
+        <div class="state-layer">
+          <div class="label-text">Let’s connect</div>
+          <img class="call-made-icon" src="./HomepageAssets/Arrowicon.png" alt="" />
+        </div>
+      </button>
     </div>
   </div>
 
   <!-- REST OF PAGE -->
   <div class="desktop-2">
-    <img
-      class="background-icon"
-      src="./HomepageAssets/Whitebackground.png"
-      alt="Background"
-    />
+    <img class="background-icon" src="./HomepageAssets/Whitebackground.png" alt="Background" />
 
     <div class="desktop-2-inner">
       <img class="frame-child" src="./assets/home-glow.png" alt="Glow" />
@@ -1259,91 +1220,29 @@
             <!-- Brands -->
             <div class="past-companies-parent">
               <div class="past-companies">
-                <div class="frame-parent4">
-                  <div class="a-few-brands">
-                    A few brands I have worked with
-                  </div>
-                </div>
-
                 <!-- LOGO CAROUSEL -->
                 <div class="logo-carousel">
                   <div class="logo-track">
                     <!-- strip 1 -->
                     <div class="logo-strip">
-                      <img
-                        class="bofa-1-icon"
-                        src="./HomepageAssets/BOFA%201.png"
-                        alt="Bank of America"
-                      />
-                      <img
-                        class="family-search-1"
-                        src="./HomepageAssets/Family%20search%201.png"
-                        alt="FamilySearch"
-                      />
-                      <img
-                        class="metajive-1-icon"
-                        src="./HomepageAssets/Metajive%201.png"
-                        alt="Metajive"
-                      />
-                      <img
-                        class="utah-tech1-1-1"
-                        src="./HomepageAssets/utah-tech(1)%201%201.png"
-                        alt="Utah Tech"
-                      />
-                      <img
-                        class="era-2-icon"
-                        src="./HomepageAssets/ERA%202.png"
-                        alt="ERA"
-                      />
-                      <img
-                        class="suu-1-icon"
-                        src="./HomepageAssets/SUU%201.png"
-                        alt="Southern Utah University"
-                      />
-                      <img
-                        class="dhi-1-1"
-                        src="./HomepageAssets/DHI%201%201.png"
-                        alt="DHI"
-                      />
+                      <img class="era-2-icon" src="./HomepageAssets/ERA%202.png" alt="ERA"style="--logo-h: 40px;" />
+                      <img class="metajive-1-icon" src="./HomepageAssets/Metajive%201.png" alt="Metajive" style="--logo-h: 30px;" />
+                      <img class="family-search-1" src="./HomepageAssets/Family%20search%201.png" alt="FamilySearch" />
+                      <img class="utah-tech1-1-1" src="./HomepageAssets/utah-tech(1)%201%201.png" alt="Utah Tech" style="--logo-h: 25px;" />
+                      <img class="bofa-1-icon" src="./HomepageAssets/BOFA%201.png" alt="Bank of America" />
+                      <img class="suu-1-icon" src="./HomepageAssets/SUU%201.png" alt="Southern Utah University" />
+                      <img class="dhi-1-1" src="./HomepageAssets/DHI%201%201.png" alt="DHI" style="--logo-h: 30px;" />
                     </div>
 
                     <!-- strip 2 -->
                     <div class="logo-strip">
-                      <img
-                        class="bofa-1-icon"
-                        src="./HomepageAssets/BOFA%201.png"
-                        alt="Bank of America"
-                      />
-                      <img
-                        class="family-search-1"
-                        src="./HomepageAssets/Family%20search%201.png"
-                        alt="FamilySearch"
-                      />
-                      <img
-                        class="metajive-1-icon"
-                        src="./HomepageAssets/Metajive%201.png"
-                        alt="Metajive"
-                      />
-                      <img
-                        class="utah-tech1-1-1"
-                        src="./HomepageAssets/utah-tech(1)%201%201.png"
-                        alt="Utah Tech"
-                      />
-                      <img
-                        class="era-2-icon"
-                        src="./HomepageAssets/ERA%202.png"
-                        alt="ERA"
-                      />
-                      <img
-                        class="suu-1-icon"
-                        src="./HomepageAssets/SUU%201.png"
-                        alt="Southern Utah University"
-                      />
-                      <img
-                        class="dhi-1-1"
-                        src="./HomepageAssets/DHI%201%201.png"
-                        alt="DHI"
-                      />
+                      <img class="era-2-icon" src="./HomepageAssets/ERA%202.png" alt="ERA"style="--logo-h: 40px;" />
+                      <img class="metajive-1-icon" src="./HomepageAssets/Metajive%201.png" alt="Metajive" style="--logo-h: 30px;" />
+                      <img class="family-search-1" src="./HomepageAssets/Family%20search%201.png" alt="FamilySearch" />
+                      <img class="utah-tech1-1-1" src="./HomepageAssets/utah-tech(1)%201%201.png" alt="Utah Tech" style="--logo-h: 25px;" />
+                      <img class="bofa-1-icon" src="./HomepageAssets/BOFA%201.png" alt="Bank of America" />
+                      <img class="suu-1-icon" src="./HomepageAssets/SUU%201.png" alt="Southern Utah University" />
+                      <img class="dhi-1-1" src="./HomepageAssets/DHI%201%201.png" alt="DHI" style="--logo-h: 30px;" />
                     </div>
                   </div>
                 </div>
@@ -1358,21 +1257,13 @@
                       <div class="group-parent">
                         <div class="image-parent">
                           <div class="image">
-                            <img
-                              class="psd-02-1-icon"
-                              src="./HomepageAssets/CasestudyGPS1.png"
-                              alt="Gold Point Systems"
-                            />
+                            <img class="psd-02-1-icon" src="./HomepageAssets/CasestudyGPS1.png" alt="Gold Point Systems" />
                           </div>
                           <div class="shadow"></div>
                         </div>
                         <div class="chips">
-                          <div class="chip">
-                            <b class="hunter-allsop">Product design</b>
-                          </div>
-                          <div class="chip">
-                            <b class="hunter-allsop">User research</b>
-                          </div>
+                          <div class="chip"><b class="hunter-allsop">Product design</b></div>
+                          <div class="chip"><b class="hunter-allsop">User research</b></div>
                         </div>
                         <div class="bottom-text">
                           <b class="gold-point-systems">DHI</b>
@@ -1391,21 +1282,13 @@
                       <div class="group-parent">
                         <div class="image-parent">
                           <div class="image">
-                            <img
-                              class="psd-02-1-icon"
-                              src="./HomepageAssets/Casestudyhammock.png"
-                              alt="Hammock Case Study"
-                            />
+                            <img class="psd-02-1-icon" src="./HomepageAssets/Casestudyhammock.png" alt="Hammock Case Study" />
                           </div>
                           <div class="shadow"></div>
                         </div>
                         <div class="chips">
-                          <div class="chip">
-                            <b class="hunter-allsop">User testing</b>
-                          </div>
-                          <div class="chip">
-                            <b class="hunter-allsop">Accessibility</b>
-                          </div>
+                          <div class="chip"><b class="hunter-allsop">User testing</b></div>
+                          <div class="chip"><b class="hunter-allsop">Accessibility</b></div>
                         </div>
                         <div class="bottom-text">
                           <b class="gold-point-systems">DHI</b>
@@ -1425,37 +1308,23 @@
               <div class="ellipse-div"></div>
 
               <div class="vector-group">
-                <img
-                  class="frame-child3"
-                  src="./HomepageAssets/Helloline.png"
-                  alt=""
-                />
+                <img class="frame-child3" src="./HomepageAssets/Helloline.png" alt="" />
                 <div class="hello">Hello,</div>
-                <img
-                  class="frame-child3"
-                  src="./HomepageAssets/Helloline.png"
-                  alt=""
-                />
+                <img class="frame-child3" src="./HomepageAssets/Helloline.png" alt="" />
               </div>
 
               <div class="frame-parent7">
                 <div class="button-parent">
                   <div class="about-pill pill-rotate-neg-8">
-                    <div class="state-layer">
-                      <div class="label-text">User testing</div>
-                    </div>
+                    <div class="state-layer"><div class="label-text">User testing</div></div>
                   </div>
 
                   <div class="about-pill">
-                    <div class="state-layer">
-                      <div class="label-text">Design systems</div>
-                    </div>
+                    <div class="state-layer"><div class="label-text">Design systems</div></div>
                   </div>
 
                   <div class="about-pill pill-rotate-10">
-                    <div class="state-layer">
-                      <div class="label-text">Prototypes</div>
-                    </div>
+                    <div class="state-layer"><div class="label-text">Prototypes</div></div>
                   </div>
                 </div>
 
@@ -1469,21 +1338,15 @@
 
                 <div class="button-group">
                   <div class="about-pill pill-rotate-13">
-                    <div class="state-layer">
-                      <div class="label-text">Problem solver</div>
-                    </div>
+                    <div class="state-layer"><div class="label-text">Problem solver</div></div>
                   </div>
 
                   <div class="about-pill">
-                    <div class="state-layer">
-                      <div class="label-text">UI/UX Design</div>
-                    </div>
+                    <div class="state-layer"><div class="label-text">UI/UX Design</div></div>
                   </div>
 
                   <div class="about-pill pill-rotate-neg-16">
-                    <div class="state-layer">
-                      <div class="label-text">Research</div>
-                    </div>
+                    <div class="state-layer"><div class="label-text">Research</div></div>
                   </div>
                 </div>
               </div>
@@ -1495,23 +1358,13 @@
         <div class="frame-parent8" id="connect">
           <div class="frame-parent8-inner">
             <div class="vector-container">
-              <img
-                class="frame-child5"
-                src="./assets/line-light.svg"
-                alt=""
-              />
+              <img class="frame-child5" src="./assets/line-light.svg" alt="" />
               <div class="im-available">I’m available</div>
-              <img
-                class="frame-child5"
-                src="./assets/line-light.svg"
-                alt=""
-              />
+              <img class="frame-child5" src="./assets/line-light.svg" alt="" />
             </div>
 
             <div class="lets-connect-parent">
-              <div class="lets-connect">
-                <span>Let’s </span><i class="connect">connect</i>
-              </div>
+              <div class="lets-connect"><span>Let’s </span><i class="connect">connect</i></div>
               <div class="reach-out-anytime">
                 Reach out anytime, I’m available for new opportunities and
                 collaborations
@@ -1521,11 +1374,7 @@
             <button class="button4">
               <div class="state-layer">
                 <div class="label-text">Let’s connect</div>
-                <img
-                  class="call-made-icon"
-                  src="./HomepageAssets/Arrowicon.png"
-                  alt=""
-                />
+                <img class="call-made-icon" src="./HomepageAssets/Arrowicon.png" alt="" />
               </div>
             </button>
           </div>
@@ -1535,75 +1384,43 @@
   </div>
 
 <script>
-  // ============================
-  // Logo hover colors
-  // ============================
-  const logoColors = [
-    '#51A2FF', // bright blue
-    '#FE9A00', // strong orange
-    '#58C9B9', // aqua green
-    '#FF5C5C', // bright red
-    '#9B6BFF'  // vivid purple
-  ];
-
-  document.querySelectorAll('.logo-strip img').forEach((img) => {
-    img.addEventListener('mouseenter', () => {
-      const randomColor =
-        logoColors[Math.floor(Math.random() * logoColors.length)];
-
-      img.style.filter =
-        'brightness(0) saturate(1000%) contrast(2.2) drop-shadow(0 0 0 ' +
-        randomColor +
-        ')';
-    });
+  
 
     img.addEventListener('mouseleave', () => {
       img.style.filter = '';
     });
   });
 
- // ============================
-// FOOTER PARALLAX — FROM TOP → CENTER (GLIDE DOWN)
-// ============================
-function updateFooterParallax() {
-  const footer = document.querySelector('.frame-parent8');
-  const inner = document.querySelector('.frame-parent8-inner');
-  if (!footer || !inner) return;
+  // ============================
+  // FOOTER PARALLAX — FROM TOP → CENTER (GLIDE DOWN)
+  // ============================
+  function updateFooterParallax() {
+    const footer = document.querySelector('.frame-parent8');
+    const inner = document.querySelector('.frame-parent8-inner');
+    if (!footer || !inner) return;
 
-  const rect = footer.getBoundingClientRect();
-  const viewportHeight =
-    window.innerHeight || document.documentElement.clientHeight;
+    const rect = footer.getBoundingClientRect();
+    const viewportHeight =
+      window.innerHeight || document.documentElement.clientHeight;
 
-  // How far ABOVE center we start (negative = up)
-  const maxOffset = 310; // px
+    const maxOffset = 310; // px
 
-  // 1) Footer completely BELOW viewport
-  //    → user is still on hero; keep content high so it's not visible yet
-  if (rect.top >= viewportHeight) {
-    inner.style.transform = 'translateY(' + (-maxOffset) + 'px)';
-    return;
+    if (rect.top >= viewportHeight) {
+      inner.style.transform = 'translateY(' + (-maxOffset) + 'px)';
+      return;
+    }
+
+    if (rect.top <= 0) {
+      inner.style.transform = 'translateY(0px)';
+      return;
+    }
+
+    const progress = (viewportHeight - rect.top) / viewportHeight;
+    const clamped = Math.max(0, Math.min(1, progress));
+    const translateY = -maxOffset * (1 - clamped);
+
+    inner.style.transform = 'translateY(' + translateY + 'px)';
   }
-
-  // 2) Footer is fully filling or past the top of the viewport
-  //    → lock content in the center (no more parallax)
-  if (rect.top <= 0) {
-    inner.style.transform = 'translateY(0px)';
-    return;
-  }
-
-  // 3) Footer is PARTIALLY VISIBLE
-  //    rect.top goes from viewportHeight (just entering) → 0 (fills viewport)
-  const progress = (viewportHeight - rect.top) / viewportHeight; // 0 → 1
-  const clamped = Math.max(0, Math.min(1, progress));
-
-  // At progress 0: translateY = -maxOffset (above center)
-  // At progress 1: translateY = 0 (center)
-  const translateY = -maxOffset * (1 - clamped);
-
-  inner.style.transform = 'translateY(' + translateY + 'px)';
-}
-
-
 
   // ============================
   // HERO PARALLAX — SIMPLE + OBVIOUS
@@ -1616,14 +1433,12 @@ function updateFooterParallax() {
     const scrollY = window.scrollY || window.pageYOffset;
 
     heroParallaxEls.forEach((el) => {
-      // How "strong" the movement feels
       const strength = parseFloat(el.dataset.offset) || 60;
       const dirX = parseFloat(el.dataset.dirX) || 0;
       const dirY = parseFloat(el.dataset.dirY) || 0;
       const baseRotate = parseFloat(el.dataset.rotate) || 0;
 
-      // Tune this: bigger divisor = gentler movement, smaller = stronger
-      const factor = strength / 300; // try 300 first, then adjust
+      const factor = strength / 300;
 
       const tx = scrollY * factor * dirX;
       const ty = scrollY * factor * dirY;
@@ -1650,9 +1465,6 @@ function updateFooterParallax() {
   window.addEventListener('resize', handleInitial);
   window.addEventListener('load', handleInitial);
 </script>
-
-
-
 
 </body>
 </html>
